@@ -1,8 +1,12 @@
+//  Console interface
+
 #include <iostream>
 #include <algorithm>
 
 #include "view_console.hpp"
 #include "model.hpp"
+
+
 
 void ViewConsole::refresh()
 {
@@ -40,46 +44,52 @@ void ViewConsole::run()
 		{
 			switch (status)
 			{
-			case 1:// selecting deck
+			case Status::stSelectDeck:
 				displayDeckList(model.getDeckList());
-				status=2;
+				status=Status::stLoadDeck;
 				break;
-			case 2://selecting deck list
+			case Status::stLoadDeck:
 				{
 					DeckId id;
 					id=selectDeck();
 					if (id.length()==0)
 					{
-						status=0;	
+						status=Status::stExit;	
 					}
 					else
 					{
 						model.loadDeck(id);
-						status=4;
+						status=Status::stShowFront;
 					}
 				}
 				break;
-			case 4://show front
+			case Status::stShowFront:
 				std::cout<<"front:\n";
 	
-				status=5;	
+				status=Status::stShowBack;	
 				break;
-			case 5://show front
+			case Status::stShowBack:
 				{
 					Card card=model.getNextCard();
 					std::cout<<"back\n ";
 					int answer=0;
 					std::cin>>answer;
 				
-					if (answer==0) 	status=0;	
+					if (answer==0) 	status=Status::stExit;	
 					else
 					{
-						status=4;
+						status=Status::stShowFront;
 					}
 
 				}
 				break;
-			case 0: _exit(0);
+			case Status::stExit:
+					_exit(0);
+				break;
+			default:
+				//make error unexepected status
+				_exit(0);
+				break;
 
 			}
 		}
@@ -89,5 +99,6 @@ void ViewConsole::run()
 		}
 
 	}
+	
 
 }

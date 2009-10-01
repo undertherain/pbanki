@@ -3,6 +3,8 @@
 #include <iostream>
 #include <algorithm>
 
+#include <conio.h>
+
 #include "view_console.hpp"
 #include "model.hpp"
 
@@ -64,17 +66,21 @@ void ViewConsole::run()
 				}
 				break;
 			case Status::stShowFront:
-				std::cout<<"front:\n";
-	
+				std::cout<<"front: sample front\n";
+				std::cout<<"\t enter to view answer\n";
+				
+				getch();
+
 				status=Status::stShowBack;	
 				break;
 			case Status::stShowBack:
 				{
 					Card card=model.getNextCard();
-					std::cout<<"back\n ";
+					std::cout<<"back: sample back\n ";
+					std::cout<<"\tevaluate you answer [1-4, 0 to exit]\n";
 					int answer=0;
 					std::cin>>answer;
-				
+
 					if (answer==0) 	status=Status::stExit;	
 					else
 					{
@@ -84,7 +90,7 @@ void ViewConsole::run()
 				}
 				break;
 			case Status::stExit:
-					_exit(0);
+				_exit(0);
 				break;
 			default:
 				//make error unexepected status
@@ -99,6 +105,6 @@ void ViewConsole::run()
 		}
 
 	}
-	
+
 
 }

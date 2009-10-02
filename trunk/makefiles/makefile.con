@@ -1,0 +1,11 @@
+#compiling for win\linux console
+
+CC = g++
+SOURCES = src/main_console.cpp src/include/deck.cpp src/include/model.cpp src/include/view_console.cpp
+
+
+pbanki.exe:
+	$(CC) $(LIBS_PB) $^ -o $@  $(SOURCES)
+
+	
+	

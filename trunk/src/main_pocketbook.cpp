@@ -1,11 +1,14 @@
 //description here
+#include "inkview.h"
+
+#include "include/view_pb.hpp"
+
+
 int main (int argc, char * argv[])
 {
 
-	arialb12 = OpenFont("DroidSans", 30, 2);
 //	std::cout<< "Hello, pocketbook" << std::endl;
 	InkViewMain(mainHandler);
 	return 0;
 }
 
-}

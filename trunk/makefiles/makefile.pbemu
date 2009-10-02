@@ -1,0 +1,13 @@
+#compiling for pocketbook emulator
+PATH=$(POCKETBOOKSDK)\bin
+
+SOURCES = src/main_pocketbook.cpp src/include/deck.cpp src/include/model.cpp src/include/view_pb.cpp
+INCLUDE=
+#LIBS=-linkview -lfreetype -lz
+LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32
+CFLAGS=-static -Wall -O2 -fomit-frame-pointer
+
+pbanki_emu.exe: 	
+	c:\bin\PBSDK\bin\g++ $(CFLAGS) $(INCLUDE)  -o $@ $(SOURCES) $(LIBS)
+
+

@@ -8,7 +8,11 @@ DeckInfoList Deck::getDeckList()
 	decks.push_back(DeckInfo("test2"));
 	decks.push_back(DeckInfo("test3"));
 	return decks;
-	
+}
+
+std::string DeckInfo::GetName()
+{
+	return name;
 }
 
 

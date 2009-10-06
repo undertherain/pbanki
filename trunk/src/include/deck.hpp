@@ -7,7 +7,8 @@ typedef std::list<DeckInfo> DeckInfoList ;
 typedef std::string DeckId ;
 
 
-class Deck  //contains cards
+//contains cards
+class Deck  
 {
 public:
 	static DeckInfoList getDeckList();
@@ -15,15 +16,22 @@ public:
 
 };
 
-class DeckInfo //light-weighted class for list of available decks
+//light-weighted class for list of available decks
+class DeckInfo 
 {
-public:
+private:
 	std::string name;
-	DeckInfo(std::string _name):name(_name)
+public:
+	DeckInfo(std::string _name):name(_name)	
 	{}
+	//DeckInfo(const DeckInfo & deck):name(deck.name)
+	//{}
+
+	std::string GetName();
 };
 
-class QA	//question or answer
+//question or answer
+class QA	
 {
 
 };
@@ -33,5 +41,4 @@ class Card
 public:
 	QA front;
 	QA back;
-
 };

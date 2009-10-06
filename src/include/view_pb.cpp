@@ -22,7 +22,7 @@ public:
 	static ifont * font1;
 };
 
-ifont *  tmp::font1 = OpenFont("DroidSans", 30, 2);
+ifont *  tmp::font1 = OpenFont("MSMINCHO.TTF", 30, 2);
 
 //dummy dummy dummy dummy dummy dummy
 
@@ -47,7 +47,8 @@ int mainHandler(int type, int par1, int par2)
 		}
 //		FullUpdate();
 		SetFont(tmp::font1, BLACK);
-		DrawString(50, 50, "la-la-la ﻿日本語");
+		char * msg="la-la-la русский 日本語";
+		DrawString(50, 50, msg);
 		DrawSymbol(50, 100, 62);
 
 

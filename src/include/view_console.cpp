@@ -20,7 +20,7 @@ void ViewConsole::displayDeckList(DeckInfoList decks)
 	std::cout<<"displaying deck list\n";
 	for (DeckInfoList::iterator i=decks.begin();i!=decks.end();i++)
 	{
-		std::cout<<i->name+" \n";	
+		std::cout<<i->GetName()+" \n";	
 	}
 }
 
@@ -66,8 +66,8 @@ void ViewConsole::run()
 				}
 				break;
 			case Status::stShowFront:
-				std::cout<<"front: sample front\n";
-				std::cout<<"\t enter to view answer\n";
+				std::cout<<"front: sample front 日本語\n";
+				std::cout<<"\tpress enter to view answer\n";
 				
 				getch();
 

@@ -1,4 +1,4 @@
-#summary Titile page.
+#summary Title page.
 #labels Featured
 
 = Introduction =

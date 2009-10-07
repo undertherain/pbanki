@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Developer's Guide.
 #labels Phase-Implementation
 
 = Introduction =

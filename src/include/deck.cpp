@@ -1,5 +1,13 @@
 #include "deck.hpp"
 
+// ----------------- DeckInfo ------------------------
+
+std::string DeckInfo::GetName()
+{
+	return name;
+}
+
+// ----------------- Deck ----------------------------
 
 DeckInfoList Deck::getDeckList()
 {
@@ -10,13 +18,6 @@ DeckInfoList Deck::getDeckList()
 	return decks;
 }
 
-std::string DeckInfo::GetName()
-{
-	return name;
-}
-
-
-
 Deck * Deck::loadDeck(DeckId id)
 {
 	Deck * newdeck = new Deck();
@@ -24,5 +25,9 @@ Deck * Deck::loadDeck(DeckId id)
 }
 
 
-
+//------------------ QA - card field -----------------
+std::string QA::ToString()
+{
+	return std::string("QA ToString stub value");
+}
 

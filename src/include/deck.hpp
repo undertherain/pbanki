@@ -33,7 +33,7 @@ public:
 //question or answer
 class QA	
 {
-
+	std::string ToString();
 };
 
 class Card

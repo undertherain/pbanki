@@ -16,6 +16,9 @@
 
 #include "view_pb.hpp"
 
+
+extern const ibitmap item1, item2;
+
 class tmp
 {
 public:
@@ -24,14 +27,63 @@ public:
 
 ifont *  tmp::font1 = OpenFont("MSMINCHO.TTF", 30, 2);
 
-//dummy dummy dummy dummy dummy dummy
 
+static iconfigedit testce2[] = {
+
+	{ CFG_INFO, NULL, "Deck Name", "Due: 40, New: 10", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book3", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book4", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book5", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book6", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book7", NULL, NULL, NULL, NULL },
+	{ CFG_INFO, NULL, "About device", "Information about electronic book8", NULL, NULL, NULL, NULL },
+	{ CFG_TEXT, NULL, "Text edit", "Example of text edit control", "param.textedit", "qwerty", NULL, NULL },
+	{ 0, NULL, NULL, NULL, NULL, NULL, NULL}
+
+};
+
+
+void config_ok() {
+
+//	SaveConfig(testcfg);
+
+}
+
+//dummy dummy dummy dummy dummy dummy
+class ViewPocketBook
+{
+public:
+	void SelectDeck()
+	{
+		iconfig *testcfg = OpenConfig("/mnt/ext1/test.cfg", NULL);
+//		testce2[] =	{			
+//			{ CFG_INFO, &item1, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+//			{ CFG_TEXT, &item2, "Text edit", "Example of text edit control", "param.textedit", "qwerty", NULL, NULL },
+//			{ 0, NULL, NULL, NULL, NULL, NULL, NULL}		
+//		};	
+
+		OpenConfigEditor("Select Deck", testcfg, testce2, config_ok, NULL);
+	}
+};
 
 
 int mainHandler(int type, int par1, int par2) 
 {
-
-
+	static ViewPocketBook view;
+	view.SelectDeck();
+	
 	static int i=0;
 	fprintf(stderr, "event:  [%i %i %i]\n", type, par1, par2);
 

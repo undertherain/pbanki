@@ -5,7 +5,9 @@
 
 Add your content here.
 
-link to developers guide
+[Documentation_for_developers]
+
+[WikiSyntax#Wiki-style_markup]
 
 = Details =
 

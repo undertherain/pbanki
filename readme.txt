@@ -1,3 +1,6 @@
+http://nihongoperapera.com/mnemosyne-anki-review.html
+
+
 la-la-la
 
 to compile using mingw32-make.exe

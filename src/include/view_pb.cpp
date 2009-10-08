@@ -78,24 +78,40 @@ public:
 	}
 };
 
+int newHandler(int type, int par1, int par2) 
+{
+	fprintf(stderr,"new handler\n");
+	fprintf(stderr, "event:  [%i %i %i]\n", type, par1, par2);
+
+}
 
 int mainHandler(int type, int par1, int par2) 
 {
 	static ViewPocketBook view;
-	view.SelectDeck();
-	
+	static int iter=0;
 	static int i=0;
+	if (type == EVT_INIT) {
+		// occurs once at startup, only in main handler
+//		return 0;
+	}
+	SetEventHandler(newHandler);
+	iter++;
+	fprintf(stderr,"main handler %d\n",iter);
 	fprintf(stderr, "event:  [%i %i %i]\n", type, par1, par2);
-
+	if (iter==1)
+	{
+		view.SelectDeck();
+	}
+	
 //	if (type == EVT_SHOW) 
 	{
 
 		ClearScreen();
-//		FullUpdate();
+	//	FullUpdate();
 		DrawRect(10, 18, 580, 104, 0);
-		i++;
+		
 		{
-			FillArea(12+i*36, 20, 36, 100, i*0x111111);
+			FillArea(12+iter*36, 20, 36, 100, i*0x111111);
 		}
 //		FullUpdate();
 		SetFont(tmp::font1, BLACK);
@@ -111,7 +127,11 @@ int mainHandler(int type, int par1, int par2)
 //	if (type == EVT_KEYPRESS) {
   // 	
 
-	if (i>16) CloseApp();
+	if (iter>16) 
+	{	
+		printf("EXITING\n");
+		CloseApp();
+	}
   //
 //	}
 

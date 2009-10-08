@@ -66,6 +66,8 @@ void ViewConsole::run()
 				}
 				break;
 			case Status::stShowFront:
+				//view. show front
+				//view. wait for answer
 				std::cout<<"front: sample front 日本語\n";
 				std::cout<<"\tpress enter to view answer\n";
 				

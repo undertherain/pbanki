@@ -16,9 +16,7 @@ variableName DoMethod ClassName
 official site: [http://pocketbook.com.ua/ http://pocketbook.com.ua]
 Pocketbook is linux-based, open-sorce SDK can be downloaded from [http://pocketbook-free.sourceforge.net/sdk.shtml]
 
-Forums [http://www.the-ebook.org/forum/viewforum.php?f=32 discussion of the device in Russian]
-
-[http://www.the-ebook.org/forum/viewforum.php?f=40 discussion of wirmware (in russian)]
+Forums: [http://www.the-ebook.org/forum/viewforum.php?f=32 discussion of the device in Russian], [http://www.the-ebook.org/forum/viewforum.php?f=40 discussion of wirmware in Russian]
 
 
 

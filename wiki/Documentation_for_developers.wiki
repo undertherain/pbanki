@@ -5,9 +5,15 @@
 
 
 
-=Naming convention=
+=Getting Started=
+
+currently svn is used as code control ssytem.
+visit [http://code.google.com/p/pbanki/source/checkout] for checkout instructions.
+
+==Naming convention==
 
 variableName DoMethod ClassName
+
 
 
 = Platforms=

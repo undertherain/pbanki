@@ -3,13 +3,16 @@
 
 = Introduction =
 
-Add your content here.
+What is spaced repetition methon  and how it helps to study everything
+
+What software is awailable
+
+
+
 
 [Documentation_for_developers Documentation for developers]
 
-[WikiSyntax#Wiki-style_markup]
-
-= Details =
+= Why this software =
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_

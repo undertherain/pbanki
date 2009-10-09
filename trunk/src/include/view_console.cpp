@@ -34,12 +34,24 @@ DeckId ViewConsole::selectDeck()
 }
 
 
+void ViewConsole::ShowFront(const Card & card)
+{
+	std::cout<<"front: "<<card.front.ToString()<<std::endl;
+	return ;
+}
+
+void ViewConsole::ShowBack(const Card & card)
+{
+	std::cout<<"back: "<<card.front.ToString()<<std::endl;
+	return ;
+}
+
 
 
 void ViewConsole::run()
 {
 	std::cout<<"entering main loop\n";
-
+	Card card;
 	for(;;)  //main loop
 	{
 		try
@@ -67,18 +79,22 @@ void ViewConsole::run()
 				break;
 			case Status::stShowFront:
 				//view. show front
+				
+				card=model.getNextCard();
+				ShowFront(card);
+				
 				//view. wait for answer
-				std::cout<<"front: sample front 日本語\n";
+				
 				std::cout<<"\tpress enter to view answer\n";
 				
-				getch();
+				_getch();
 
 				status=Status::stShowBack;	
 				break;
 			case Status::stShowBack:
 				{
-					Card card=model.getNextCard();
-					std::cout<<"back: sample back\n ";
+					
+					ShowBack(card);
 					std::cout<<"\tevaluate you answer [1-4, 0 to exit]\n";
 					int answer=0;
 					std::cin>>answer;

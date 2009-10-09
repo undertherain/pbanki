@@ -1,11 +1,7 @@
 #include "model.hpp"
+#include "controller.hpp"
 #include "string"
 
-class Status
-{
-public:
-	 enum enumStatuses 	{stExit=0,stSelectDeck,stLoadDeck,stShowFront,stShowBack};
-};
 
 class ViewConsole
 {
@@ -17,7 +13,8 @@ public:
 	void displayDeckList(DeckInfoList);
 	DeckId selectDeck();
 	void refresh();
-	void ShowFront(Card & card);
+	void ShowFront(const Card & card);
+	void ShowBack(const Card & card);
 	void run();
 	
 };

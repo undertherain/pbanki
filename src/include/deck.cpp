@@ -26,8 +26,8 @@ Deck * Deck::loadDeck(DeckId id)
 
 
 //------------------ QA - card field -----------------
-std::string QA::ToString()
+std::string QA::ToString() const
 {
-	return std::string("QA ToString stub value");
+	return std::string("QA stub value 日本語");
 }
 

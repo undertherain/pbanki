@@ -1,11 +1,13 @@
 #summary Developer's Guide.
 #labels Phase-Implementation
 
-= Introduction =
+= Documentation for developers =
 
-Documentation for developers
 
-Add your content here.
+
+=Naming convention=
+
+variableName DoMethod ClassName
 
 
 = Platforms=

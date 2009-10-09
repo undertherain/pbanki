@@ -8,7 +8,17 @@ Documentation for developers
 Add your content here.
 
 
-= Details =
+= Platforms=
+
+  * PocketBook [http://pocketbook.com.ua/]
+is linux-based, open-sorce SDK can be downloaded from [http://pocketbook-free.sourceforge.net/sdk.shtml]
+
+Forums [http://www.the-ebook.org/forum/viewforum.php?f=32 discussion of the device in Russian]
+
+[http://www.the-ebook.org/forum/viewforum.php?f=40 discussion of wirmware (in russian)]
+
+
+
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_

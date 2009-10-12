@@ -1,4 +1,4 @@
-﻿//  Console interface
+//  Console interface
 
 #include <iostream>
 #include <algorithm>

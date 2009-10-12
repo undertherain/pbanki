@@ -57,7 +57,7 @@ static iconfigedit testce2[] = {
 
 void config_ok() {
 
-//	SaveConfig(testcfg);
+	//	SaveConfig(testcfg);
 
 }
 
@@ -65,57 +65,115 @@ void config_ok() {
 class ViewPocketBook
 {
 public:
+	ViewPocketBook():status(Status::stSelectDeck){};
+	Status::enumStatuses status;
 	void SelectDeck()
 	{
 		iconfig *testcfg = OpenConfig("/mnt/ext1/test.cfg", NULL);
-//		testce2[] =	{			
-//			{ CFG_INFO, &item1, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-//			{ CFG_TEXT, &item2, "Text edit", "Example of text edit control", "param.textedit", "qwerty", NULL, NULL },
-//			{ 0, NULL, NULL, NULL, NULL, NULL, NULL}		
-//		};	
+		//		testce2[] =	{			
+		//			{ CFG_INFO, &item1, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
+		//			{ CFG_TEXT, &item2, "Text edit", "Example of text edit control", "param.textedit", "qwerty", NULL, NULL },
+		//			{ 0, NULL, NULL, NULL, NULL, NULL, NULL}		
+		//		};	
 
 		OpenConfigEditor("Select Deck", testcfg, testce2, config_ok, NULL);
 	}
+	int HandleShowFront(InkViewEvent event);
+	int HandleEvent(InkViewEvent event);
+
 };
 
-int newHandler(int type, int par1, int par2) 
+int ViewPocketBook::HandleEvent(InkViewEvent event) 
 {
-	fprintf(stderr,"new handler\n");
-	fprintf(stderr, "event:  [%i %i %i]\n", type, par1, par2);
-
-}
-
-int mainHandler(int type, int par1, int par2) 
-{
-	static ViewPocketBook view;
 	static int iter=0;
 	static int i=0;
-	if (type == EVT_INIT) {
+	if (event.type == EVT_INIT) {
 		// occurs once at startup, only in main handler
-//		return 0;
+		//		return 0;
 	}
-	SetEventHandler(newHandler);
+
 	iter++;
 	fprintf(stderr,"main handler %d\n",iter);
-	fprintf(stderr, "event:  [%i %i %i]\n", type, par1, par2);
-	if (iter==1)
-	{
-		view.SelectDeck();
-	}
+	fprintf(stderr, "event:  [%i %i %i]\n", event.type, event.par1, event.par2);
 	
-//	if (type == EVT_SHOW) 
+
+	switch (status)
+	{
+	case Status::stSelectDeck:
+		SelectDeck();
+		status=Status::stShowFront;
+		return 0;
+//		displayDeckList(model.getDeckList());
+//		status=Status::stLoadDeck;
+		break;
+	case Status::stLoadDeck:
+		{
+		//	DeckId id;
+		//	id=selectDeck();
+		//	if (id.length()==0)
+		//	{
+		//		status=Status::stExit;	
+		//	}
+		//	else
+		//	{
+		//		model.loadDeck(id);
+		//		status=Status::stShowFront;
+		//	}
+		}
+		break;
+	case Status::stShowFront:
+		HandleShowFront(event);
+		break;
+	case Status::stShowBack:
+		{
+//			ShowBack(card);
+		}
+		break;
+	case Status::stExit:
+		CloseApp();
+		break;
+	default:
+		//make error unexepected status
+		CloseApp();
+		break;
+
+	}
+
+	
+
+	//	if (type == EVT_KEYPRESS) {
+	// 	
+
+	if (iter>16) 
+	{	
+		printf("EXITING\n");
+		CloseApp();
+	}
+	//
+	//	}
+
+	return 0;
+}
+
+int ViewPocketBook::HandleShowFront(InkViewEvent event) 
+{
+	static int i=0;
+	i++;
+	fprintf(stderr,"ShowFront Handler\n");
+	fprintf(stderr, "event:  [%i %i %i]\n", event.type, event.par1, event.par2);
+	//	if (type == EVT_SHOW) 
 	{
 
 		ClearScreen();
-	//	FullUpdate();
+		//	FullUpdate();
 		DrawRect(10, 18, 580, 104, 0);
-		
+
 		{
-			FillArea(12+iter*36, 20, 36, 100, i*0x111111);
+			FillArea(12+i*36, 20, 36, 100, i*0x111111);
 		}
-//		FullUpdate();
+		//		FullUpdate();
 		SetFont(tmp::font1, BLACK);
-		char * msg="la-la-la русский 日本語";
+		char * msg="front русский 日本語";
 		DrawString(50, 50, msg);
 		DrawSymbol(50, 100, 62);
 
@@ -123,18 +181,13 @@ int mainHandler(int type, int par1, int par2)
 		FineUpdate();
 
 	}
+	return 0;
+}
 
-//	if (type == EVT_KEYPRESS) {
-  // 	
-
-	if (iter>16) 
-	{	
-		printf("EXITING\n");
-		CloseApp();
-	}
-  //
-//	}
-
+int mainHandler(int type, int par1, int par2) 
+{
+	static ViewPocketBook view;
+	view.HandleEvent(InkViewEvent(type, par1, par2));
 	return 0;
 
 

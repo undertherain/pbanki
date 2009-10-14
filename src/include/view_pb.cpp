@@ -17,76 +17,75 @@
 #include "view_pb.hpp"
 
 
-extern const ibitmap item1, item2;
+ViewPocketBook view;
 
-class tmp
+class Globals
 {
 public:
-	static ifont * font1;
+	static ifont * fontCard;
+	static ifont * fontButtons;
 };
 
-ifont *  tmp::font1 = OpenFont("MSMINCHO.TTF", 30, 2);
-
-
-static iconfigedit testce2[] = {
-
-	{ CFG_INFO, NULL, "Deck Name", "Due: 40, New: 10", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book3", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book4", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book5", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book6", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book7", NULL, NULL, NULL, NULL },
-	{ CFG_INFO, NULL, "About device", "Information about electronic book8", NULL, NULL, NULL, NULL },
-	{ CFG_TEXT, NULL, "Text edit", "Example of text edit control", "param.textedit", "qwerty", NULL, NULL },
-	{ 0, NULL, NULL, NULL, NULL, NULL, NULL}
-
-};
+ifont *  Globals::fontCard = OpenFont("MSMINCHO.TTF", 30, 2);
+ifont *  Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
 
 
 void config_ok() {
 
 	//	SaveConfig(testcfg);
+	fprintf(stderr,"We are in config handler\n");
+	//really we should not be here
+}
+
+void itemChanged(char * item) {
+
+	//	SaveConfig(testcfg);
+	fprintf(stderr,"We are in item %s \n",item);
+	DeckId id(item);
+	view.model.loadDeck(id);
+	SetEventHandler(mainHandler);
 
 }
 
 //dummy dummy dummy dummy dummy dummy
-class ViewPocketBook
-{
-public:
-	ViewPocketBook():status(Status::stSelectDeck){};
-	Status::enumStatuses status;
-	void SelectDeck()
+
+
+void ViewPocketBook::SelectDeck()
 	{
-		iconfig *testcfg = OpenConfig("/mnt/ext1/test.cfg", NULL);
-		//		testce2[] =	{			
-		//			{ CFG_INFO, &item1, "About device", "Information about electronic book", NULL, NULL, NULL, NULL },
-		//			{ CFG_TEXT, &item2, "Text edit", "Example of text edit control", "param.textedit", "qwerty", NULL, NULL },
-		//			{ 0, NULL, NULL, NULL, NULL, NULL, NULL}		
-		//		};	
+		DeckInfoList decks = model.getDeckList();
+		iconfigedit * decksConfigEdit = new iconfigedit[decks.size()+1];
+		int cnt=0;
+		for (DeckInfoList::iterator i=decks.begin();i!=decks.end();i++)
+		{	
+			iconfigedit newConfigLine;
+			newConfigLine.type = CFG_INFO;
+			newConfigLine.icon = NULL;
+			newConfigLine.text = new char[i->GetName().length()];
+			strcpy(newConfigLine.text,i->GetName().c_str());
+			newConfigLine.hint = "new:5 due:10";
 
-		OpenConfigEditor("Select Deck", testcfg, testce2, config_ok, NULL);
+			newConfigLine.name = new char[i->GetName().length()];
+			strcpy(newConfigLine.name,i->GetName().c_str());
+
+			newConfigLine.deflt = NULL;
+			newConfigLine.variants = NULL;
+			newConfigLine.submenu = NULL;
+
+			decksConfigEdit[cnt++]=newConfigLine;
+			//std::cout<<i->GetName()+" \n";	
+		}
+		iconfigedit emptyConfigLine={ 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+		decksConfigEdit[cnt]=emptyConfigLine;
+		iconfig *cfgDeckList = OpenConfig("/mnt/ext1/test.cfg", NULL);
+		//get decks list
+		//fill array of 
+		OpenConfigEditor("Select Deck", cfgDeckList, decksConfigEdit, config_ok,itemChanged);
 	}
-	int HandleShowFront(InkViewEvent event);
-	int HandleEvent(InkViewEvent event);
 
-};
 
 int ViewPocketBook::HandleEvent(InkViewEvent event) 
 {
 	static int iter=0;
-	static int i=0;
 	if (event.type == EVT_INIT) {
 		// occurs once at startup, only in main handler
 		//		return 0;
@@ -94,12 +93,25 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 	iter++;
 	fprintf(stderr,"main handler %d\n",iter);
-	fprintf(stderr, "event:  [%i %i %i]\n", event.type, event.par1, event.par2);
+	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
 	
+	switch(event.type)
+	{
+			case EVT_INIT:
+				return 0;
+						break;
+
+			default:
+				break;
+				//hmm.... 
+
+	}
 
 	switch (status)
 	{
 	case Status::stSelectDeck:
+	fprintf(stderr,"selecting deck\n");
+		
 		SelectDeck();
 		status=Status::stShowFront;
 		return 0;
@@ -125,9 +137,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 		HandleShowFront(event);
 		break;
 	case Status::stShowBack:
-		{
-//			ShowBack(card);
-		}
+		HandleShowBack(event);
 		break;
 	case Status::stExit:
 		CloseApp();
@@ -144,7 +154,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	//	if (type == EVT_KEYPRESS) {
 	// 	
 
-	if (iter>16) 
+	if (iter>36) 
 	{	
 		printf("EXITING\n");
 		CloseApp();
@@ -157,36 +167,77 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 int ViewPocketBook::HandleShowFront(InkViewEvent event) 
 {
-	static int i=0;
-	i++;
 	fprintf(stderr,"ShowFront Handler\n");
-	fprintf(stderr, "event:  [%i %i %i]\n", event.type, event.par1, event.par2);
+	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
+	
+
+		ClearScreen();
+		//	FullUpdate();
+		ShowFront();
+		FineUpdate();
+	
+	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
+	{
+		view.status=Status::stShowBack;
+	}
+			
+	return 0;
+}
+int ViewPocketBook::HandleShowBack(InkViewEvent event) 
+{
+	static int answerMark=0;
+	
+	fprintf(stderr,"ShowBack Handler answer=%d \n",answerMark);
+	//fprintf(stderr, "event:  [%i %i %i]\n", event.type, event.par1, event.par2);
+	if (event.type==EVT_KEYPRESS) 
+		switch(event.par1)
+		{
+			case KEY_LEFT:
+				answerMark--;
+				if (answerMark<0) answerMark=0;
+			break;
+			case KEY_RIGHT:
+				answerMark++;
+				if (answerMark>3) answerMark=3;
+			break;
+		default:
+			//next card
+			view.status=Status::stShowFront;
+			break;
+		}
+
 	//	if (type == EVT_SHOW) 
 	{
 
 		ClearScreen();
-		//	FullUpdate();
-		DrawRect(10, 18, 580, 104, 0);
-
-		{
-			FillArea(12+i*36, 20, 36, 100, i*0x111111);
-		}
-		//		FullUpdate();
-		SetFont(tmp::font1, BLACK);
-		char * msg="front русский 日本語";
-		DrawString(50, 50, msg);
-		DrawSymbol(50, 100, 62);
-
+		ShowFront();
+		ShowBack();
+		//drawing buttons
+		SetFont(Globals::fontButtons, BLACK);
+		DrawString(160, 653, "Again   Hard    Good    Easy");
+		DrawRect(150+answerMark*85, 650, 82, 30, 0);
+		//FillArea(200+answerMark*40, 650, 36, 20, LGRAY);
 
 		FineUpdate();
-
 	}
 	return 0;
+}
+void ViewPocketBook::ShowFront()
+{
+		DrawRect(10, 10, 580, 300, 0);
+		SetFont(Globals::fontCard, BLACK);
+		DrawString(50, 50, card.front.ToString().c_str());
+}
+void ViewPocketBook::ShowBack()
+{
+		DrawRect(10, 315, 580, 300, 0);
+		SetFont(Globals::fontCard, BLACK);
+		DrawString(50, 350, card.back.ToString().c_str());
 }
 
 int mainHandler(int type, int par1, int par2) 
 {
-	static ViewPocketBook view;
+
 	view.HandleEvent(InkViewEvent(type, par1, par2));
 	return 0;
 

@@ -2,9 +2,7 @@
 
 DeckInfoList Model::getDeckList()
 {
-	
 	return Deck::getDeckList();
-	
 }
 
 void Model::loadDeck(DeckId id)

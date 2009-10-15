@@ -8,11 +8,55 @@
 #include <dirent.h>
 #endif
 
+#include "libs/sqlite3.h"
+
 // ----------------- DeckInfo ------------------------
+static int callback(void *NotUsed, int argc, char **argv, char **azColName)
+{
+  int i;
+  for(i=0; i<argc; i++){
+    printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+  }
+  printf("\n");
+  return 0;
+}
 
 std::string DeckInfo::GetName()
 {
 	return name;
+}
+
+DeckInfo::DeckInfo(std::string fileName)
+{
+	name=fileName;
+	
+	//open file with sqlite
+	sqlite3 *dbDeck;
+	char *zErrMsg = NULL;
+	int retCode;
+	std::string fullPath=".\\decks\\"+fileName;
+	retCode = sqlite3_open_v2(fullPath.c_str(), &dbDeck,SQLITE_OPEN_READWRITE,NULL);
+	
+
+	if( retCode )
+	{
+		std::cout<< "Can't open database: " <<  sqlite3_errmsg(dbDeck)<<std::endl;
+		sqlite3_close(dbDeck);
+		//throw exception here?
+	}
+	std::cout<< "reading sqlite  "<< fullPath <<" " <<retCode<<std::endl;
+	std::string query="select COUNT(*) from cards";
+	retCode = sqlite3_exec(dbDeck, query.c_str(), callback, 0, &zErrMsg);
+	if( retCode!=SQLITE_OK )
+	{
+		std::cout << "SQL error: " <<  zErrMsg << std::endl;
+		sqlite3_free(zErrMsg);
+	}
+
+	//read total number of cards
+
+	//close sqlite
+	sqlite3_close(dbDeck);
 }
 
 // ----------------- Deck ----------------------------
@@ -43,9 +87,10 @@ DeckInfoList Deck::getDeckList()
 				else
 				{
 					std::wstring     strFilePathW  = (FileInformation.cFileName); 
-					std::string strFilePath( strFilePathW.begin(), strFilePathW.end() );
+					std::string strFilePath( strFilePathW.begin(), strFilePathW.end() ); //ох ад!
 				
-					std::cout<<strFilePath<<std::endl;
+					//std::cout<<strFilePath<<std::endl;
+					decks.push_back(DeckInfo(strFilePath));
 				}
 			}
 		} while(::FindNextFile(hFile, &FileInformation) == TRUE);
@@ -53,11 +98,11 @@ DeckInfoList Deck::getDeckList()
 	}
 	else 
 	{
-		std::cout<<"coult not finsd decks"<<std::endl;
+		std::cout<<"coult not find decks"<<std::endl;
 	}
 
 #else
-	//linux-specifi
+	//linux-specific directory listing
 	struct dirent **filelist;
 	std::string temps;
 	int n;
@@ -75,8 +120,6 @@ DeckInfoList Deck::getDeckList()
 			if  (temps.find(".anki")!=std::string::npos)
 				decks.push_back(DeckInfo(temps));
 			std::cout<<temps<<std::endl;
-			//user *tu= user::load(temps);
-			//pair<userlist::iterator,bool>p=users.insert(make_pair(temps,tu));
 		}
 		free(filelist);
 		std::cout<<n<<" decks loaded"<<std::endl;

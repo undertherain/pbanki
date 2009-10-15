@@ -219,6 +219,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\src\include\libs\sqlite3.c"
+				>
+			</File>
+			<File
 				RelativePath="..\..\src\include\view_console.cpp"
 				>
 			</File>

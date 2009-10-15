@@ -21,13 +21,19 @@ class DeckInfo
 {
 private:
 	std::string name;
+	int numCardsDueToday;
+	int numCardsNewToday;
+	int numCardsTotal;
+
 public:
-	DeckInfo(std::string _name):name(_name)	
-	{}
+
+	DeckInfo(std::string fileName);
+	
 	//DeckInfo(const DeckInfo & deck):name(deck.name)
 	//{}
 
 	std::string GetName();
+	int getNumCardsTotal();
 };
 
 //question or answer

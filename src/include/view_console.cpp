@@ -42,7 +42,7 @@ void ViewConsole::ShowFront(const Card & card)
 
 void ViewConsole::ShowBack(const Card & card)
 {
-	std::cout<<"back: "<<card.front.ToString()<<std::endl;
+	std::cout<<"back: "<<card.back.ToString()<<std::endl;
 	return ;
 }
 
@@ -51,7 +51,7 @@ void ViewConsole::ShowBack(const Card & card)
 void ViewConsole::run()
 {
 	std::cout<<"entering main loop\n";
-	Card card;
+	Card  card(CardField("Error"),CardField("Error"));
 	for(;;)  //main loop
 	{
 		try

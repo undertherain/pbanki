@@ -24,10 +24,11 @@ private:
 
 
 public:
-	Card card;
+	Card  card;
 	Model model;
-	ViewPocketBook():status(Status::stSelectDeck){};
+	ViewPocketBook():card(CardField("Error"),CardField("Error")),status(Status::stSelectDeck){};
 	Status::enumStatuses status;
+	Status::enumStatuses lastStatus;
 	void SelectDeck();
 	
 	int HandleShowFront(InkViewEvent event);

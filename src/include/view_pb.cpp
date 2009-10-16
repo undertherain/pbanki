@@ -24,16 +24,19 @@ class Globals
 public:
 	static ifont * fontCard;
 	static ifont * fontButtons;
+	static bool isConfigEditorActive;
 };
 
 ifont *  Globals::fontCard = OpenFont("MSMINCHO.TTF", 30, 2);
 ifont *  Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
+bool Globals::isConfigEditorActive=false;
 
 
 void config_ok() {
 
 	//	SaveConfig(testcfg);
 	fprintf(stderr,"We are in config handler\n");
+	Globals::isConfigEditorActive=false;
 	//really we should not be here
 }
 
@@ -44,6 +47,7 @@ void itemChanged(char * item) {
 	DeckId id(item);
 	view.model.loadDeck(id);
 	SetEventHandler(mainHandler);
+	Globals::isConfigEditorActive=false;
 
 }
 
@@ -52,6 +56,7 @@ void itemChanged(char * item) {
 
 void ViewPocketBook::SelectDeck()
 	{
+		Globals::isConfigEditorActive=true;
 		DeckInfoList decks = model.getDeckList();
 		iconfigedit * decksConfigEdit = new iconfigedit[decks.size()+1];
 		int cnt=0;
@@ -94,7 +99,11 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	iter++;
 	fprintf(stderr,"main handler %d\n",iter);
 	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
-	
+        if (Globals::isConfigEditorActive)
+	{
+		fprintf(stderr,"waiting for config to launch handler \n");
+		return 0;
+	}
 	switch(event.type)
 	{
 			case EVT_INIT:
@@ -166,11 +175,15 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 }
 
 int ViewPocketBook::HandleShowFront(InkViewEvent event) 
-{
+{	if (lastStatus!=status)
+	{
+		lastStatus=status;
+		card=model.getNextCard();
+	}
 	fprintf(stderr,"ShowFront Handler\n");
 	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
 	
-
+	
 		ClearScreen();
 		//	FullUpdate();
 		ShowFront();
@@ -186,7 +199,7 @@ int ViewPocketBook::HandleShowFront(InkViewEvent event)
 int ViewPocketBook::HandleShowBack(InkViewEvent event) 
 {
 	static int answerMark=0;
-	
+	lastStatus=status;
 	fprintf(stderr,"ShowBack Handler answer=%d \n",answerMark);
 	//fprintf(stderr, "event:  [%i %i %i]\n", event.type, event.par1, event.par2);
 	if (event.type==EVT_KEYPRESS) 
@@ -222,17 +235,21 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 	}
 	return 0;
 }
+
 void ViewPocketBook::ShowFront()
 {
 		DrawRect(10, 10, 580, 300, 0);
 		SetFont(Globals::fontCard, BLACK);
-		DrawString(50, 50, card.front.ToString().c_str());
+		//DrawString(50, 50, card.front.ToString().c_str());
+		DrawTextRect(11, 11, 580, 300, const_cast<char *>(card.front.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }
+
 void ViewPocketBook::ShowBack()
 {
 		DrawRect(10, 315, 580, 300, 0);
 		SetFont(Globals::fontCard, BLACK);
-		DrawString(50, 350, card.back.ToString().c_str());
+		//DrawString(50, 350, card.back.ToString().c_str());
+		DrawTextRect(11, 316, 580, 300, const_cast<char *>(card.back.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }
 
 int mainHandler(int type, int par1, int par2) 

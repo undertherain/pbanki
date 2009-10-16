@@ -12,7 +12,6 @@ void Model::loadDeck(DeckId id)
 
 Card Model::getNextCard()
 {
-	Card card;
-	return card;
+	return currentDeck->getNextCard();
 }
 

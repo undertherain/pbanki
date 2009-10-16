@@ -2,6 +2,7 @@
 #include <list>
 
 class DeckInfo;
+class Card;
 
 typedef std::list<DeckInfo> DeckInfoList ;
 typedef std::string DeckId ;
@@ -10,9 +11,12 @@ typedef std::string DeckId ;
 //contains cards
 class Deck  
 {
+private:
+	std::string fileName;
 public:
 	static DeckInfoList getDeckList();
 	static Deck * loadDeck(DeckId id);
+	Card getNextCard();						//next card from queue
 
 };
 
@@ -32,20 +36,24 @@ public:
 	//DeckInfo(const DeckInfo & deck):name(deck.name)
 	//{}
 
-	std::string GetName();
-	int getNumCardsTotal();
+	std::string GetName() const;
+	int getNumCardsTotal() const;
 };
 
 //question or answer
-class QA	
+class CardField	
 {
+private:
+	std::string innerText;
 public:
 	std::string ToString() const;
+	CardField(std::string _innerText):innerText(_innerText){};
 };
 
 class Card
 {
 public:
-	QA front;
-	QA back;
+	CardField front;
+	CardField back;
+	Card(CardField _front,CardField _back):front(_front),back(_back){};
 };

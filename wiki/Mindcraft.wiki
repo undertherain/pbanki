@@ -3,11 +3,12 @@
 
 = Introduction =
 
-What is spaced repetition method  and how it helps to study everything
-[http://en.wikipedia.org/wiki/Spaced_repetition]
+PBAnki or Mindcraft is a spaced repetition software.
+
+Spaced repetition is a learning technique that incorporates increasing intervals of time between subsequent review of previously learned material; this exploits the psychological spacing effect. You can read more detailed article on wikipedia [http://en.wikipedia.org/wiki/Spaced_repetition]
+
 
 What software is awailable
-
 
 
 
@@ -15,7 +16,7 @@ What software is awailable
 
 = Why this software =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+
+PBAnki is designed to be light-weighted and efficient as possible to run on compact devices such as e-ink based book readers or smartphones.
+
+PBAnki is made compatible with deck files of Anki - popular spaced repetition software with rich functionality.

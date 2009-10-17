@@ -15,6 +15,7 @@
 #include "inkview.h"
 
 #include "view_pb.hpp"
+#include "logger.hpp"
 
 
 ViewPocketBook view;
@@ -27,15 +28,17 @@ public:
 	static bool isConfigEditorActive;
 };
 
-ifont *  Globals::fontCard = OpenFont("MSMINCHO.TTF", 30, 2);
-ifont *  Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
+ifont *  Globals::fontCard = NULL;
+ifont *  Globals::fontButtons = NULL;
+
 bool Globals::isConfigEditorActive=false;
 
 
 void config_ok() {
 
 	//	SaveConfig(testcfg);
-	fprintf(stderr,"We are in config handler\n");
+	Logger logger;
+	logger.WriteLog("We are in config handler\n");
 	Globals::isConfigEditorActive=false;
 	//really we should not be here
 }
@@ -90,18 +93,33 @@ void ViewPocketBook::SelectDeck()
 
 int ViewPocketBook::HandleEvent(InkViewEvent event) 
 {
+	Logger logger;
+	logger.WriteLog("Handle event");
+
 	static int iter=0;
-	if (event.type == EVT_INIT) {
+	if (event.type == EVT_INIT) 
+	{
 		// occurs once at startup, only in main handler
+		Globals::fontCard = OpenFont("YOzFontM.TTF", 30, 2);
+		Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
+
+		ClearScreen();
+		DrawString(160, 253, "Starting Anki");
+	
+		FullUpdate();
+
 		//		return 0;
 	}
 
+
+	
+
 	iter++;
-	fprintf(stderr,"main handler %d\n",iter);
+//	Logger.WriteLog("main handler %d\n",iter);
 	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
         if (Globals::isConfigEditorActive)
 	{
-		fprintf(stderr,"waiting for config to launch handler \n");
+		logger.WriteLog("waiting for config to launch handler");
 		return 0;
 	}
 	switch(event.type)
@@ -119,7 +137,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	switch (status)
 	{
 	case Status::stSelectDeck:
-	fprintf(stderr,"selecting deck\n");
+	logger.WriteLog("selecting deck\n");
 		
 		SelectDeck();
 		status=Status::stShowFront;
@@ -165,12 +183,14 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 	if (iter>36) 
 	{	
-		printf("EXITING\n");
+		logger.WriteLog("EXITING by iterations limit\n");
 		CloseApp();
 	}
 	//
 	//	}
 
+	//	FullUpdate();
+	//	SoftUpdate();
 	return 0;
 }
 
@@ -187,7 +207,7 @@ int ViewPocketBook::HandleShowFront(InkViewEvent event)
 		ClearScreen();
 		//	FullUpdate();
 		ShowFront();
-		FineUpdate();
+		SoftUpdate();
 	
 	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
 	{
@@ -231,7 +251,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 		DrawRect(150+answerMark*85, 650, 82, 30, 0);
 		//FillArea(200+answerMark*40, 650, 36, 20, LGRAY);
 
-		FineUpdate();
+		SoftUpdate();
 	}
 	return 0;
 }

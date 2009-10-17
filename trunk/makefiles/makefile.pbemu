@@ -1,7 +1,7 @@
 #compiling for pocketbook emulator
 PATH=$(POCKETBOOKSDK)\bin
 
-SOURCES = src/main_pocketbook.cpp src/include/deck.cpp src/include/model.cpp src/include/view_pb.cpp
+SOURCES = src/main_pocketbook.cpp src/include/deck.cpp src/include/model.cpp src/include/view_pb.cpp src/include/logger.cpp
 INCLUDE=
 #LIBS=-linkview -lfreetype -lz
 LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32

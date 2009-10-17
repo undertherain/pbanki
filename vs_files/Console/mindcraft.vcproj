@@ -189,6 +189,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\src\include\logger.hpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\src\include\model.hpp"
 				>
 			</File>
@@ -208,6 +212,10 @@
 			>
 			<File
 				RelativePath="..\..\src\include\deck.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\include\logger.cpp"
 				>
 			</File>
 			<File

@@ -29,8 +29,9 @@ public:
 	ViewPocketBook():card(CardField("Error"),CardField("Error")),status(Status::stSelectDeck){};
 	Status::enumStatuses status;
 	Status::enumStatuses lastStatus;
-	void SelectDeck();
+	int SelectDeck();
 	
+	int HandleNoDecks(InkViewEvent event);
 	int HandleShowFront(InkViewEvent event);
 	int HandleShowBack(InkViewEvent event);
 	int HandleEvent(InkViewEvent event);

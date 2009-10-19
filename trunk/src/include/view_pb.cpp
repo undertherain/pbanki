@@ -57,37 +57,47 @@ void itemChanged(char * item) {
 //dummy dummy dummy dummy dummy dummy
 
 
-void ViewPocketBook::SelectDeck()
+int ViewPocketBook::SelectDeck()
 	{
-		Globals::isConfigEditorActive=true;
 		DeckInfoList decks = model.getDeckList();
-		iconfigedit * decksConfigEdit = new iconfigedit[decks.size()+1];
-		int cnt=0;
-		for (DeckInfoList::iterator i=decks.begin();i!=decks.end();i++)
-		{	
-			iconfigedit newConfigLine;
-			newConfigLine.type = CFG_INFO;
-			newConfigLine.icon = NULL;
-			newConfigLine.text = new char[i->GetName().length()];
-			strcpy(newConfigLine.text,i->GetName().c_str());
-			newConfigLine.hint = "new:5 due:10";
+		if (decks.size()==0)
+		{
+			//set status=noDeck
+			status=Status::stNoDecks;
+			return -1;
+		} else
+		{
+			std::cout<<"starting deck selector"<<std::endl;
+			iconfigedit * decksConfigEdit = new iconfigedit[decks.size()+1];
+			int cnt=0;
+			for (DeckInfoList::iterator i=decks.begin();i!=decks.end();i++)
+			{	
+				iconfigedit newConfigLine;
+				newConfigLine.type = CFG_INFO;
+				newConfigLine.icon = NULL;
+				newConfigLine.text = new char[i->GetName().length()];
+				strcpy(newConfigLine.text,i->GetName().c_str());
+				newConfigLine.hint = "new:5 due:10";
 
-			newConfigLine.name = new char[i->GetName().length()];
-			strcpy(newConfigLine.name,i->GetName().c_str());
+				newConfigLine.name = new char[i->GetName().length()];
+				strcpy(newConfigLine.name,i->GetName().c_str());
 
-			newConfigLine.deflt = NULL;
-			newConfigLine.variants = NULL;
-			newConfigLine.submenu = NULL;
+				newConfigLine.deflt = NULL;
+				newConfigLine.variants = NULL;
+				newConfigLine.submenu = NULL;
 
-			decksConfigEdit[cnt++]=newConfigLine;
-			//std::cout<<i->GetName()+" \n";	
+				decksConfigEdit[cnt++]=newConfigLine;
+				//std::cout<<i->GetName()+" \n";	
+			}
+			iconfigedit emptyConfigLine={ 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+			decksConfigEdit[cnt]=emptyConfigLine;
+			iconfig *cfgDeckList = OpenConfig("/mnt/ext1/test.cfg", NULL);
+			//get decks list
+			//fill array of 
+			Globals::isConfigEditorActive=true;
+			OpenConfigEditor("Select Deck", cfgDeckList, decksConfigEdit, config_ok,itemChanged);
+			return 0;
 		}
-		iconfigedit emptyConfigLine={ 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
-		decksConfigEdit[cnt]=emptyConfigLine;
-		iconfig *cfgDeckList = OpenConfig("/mnt/ext1/test.cfg", NULL);
-		//get decks list
-		//fill array of 
-		OpenConfigEditor("Select Deck", cfgDeckList, decksConfigEdit, config_ok,itemChanged);
 	}
 
 
@@ -99,6 +109,8 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	static int iter=0;
 	if (event.type == EVT_INIT) 
 	{
+		logger.WriteLog("Doing INIT event");
+
 		// occurs once at startup, only in main handler
 		Globals::fontCard = OpenFont("YOzFontM.TTF", 30, 2);
 		Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
@@ -112,8 +124,6 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	}
 
 
-	
-
 	iter++;
 //	Logger.WriteLog("main handler %d\n",iter);
 	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
@@ -125,7 +135,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	switch(event.type)
 	{
 			case EVT_INIT:
-				return 0;
+			//	return 0;
 						break;
 
 			default:
@@ -139,11 +149,14 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	case Status::stSelectDeck:
 	logger.WriteLog("selecting deck\n");
 		
-		SelectDeck();
-		status=Status::stShowFront;
+		if (!SelectDeck())
+			status=Status::stShowFront;
 		return 0;
 //		displayDeckList(model.getDeckList());
 //		status=Status::stLoadDeck;
+		break;
+	case Status::stNoDecks:
+		HandleNoDecks(event);
 		break;
 	case Status::stLoadDeck:
 		{
@@ -253,6 +266,20 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 
 		SoftUpdate();
 	}
+	return 0;
+}
+int ViewPocketBook::HandleNoDecks(InkViewEvent event) 
+{
+	SetFont(Globals::fontCard, BLACK);
+	DrawString(50, 50, "No decks found");
+	DrawString(50, 300, "Press ok to exit");
+
+	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
+	{
+		view.status=Status::stExit;
+	}
+	SoftUpdate();
+			
 	return 0;
 }
 

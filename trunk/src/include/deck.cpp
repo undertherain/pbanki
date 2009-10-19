@@ -121,7 +121,7 @@ DeckInfoList Deck::getDeckList()
 	}
 	else 
 	{
-		logger.WriteLog("coult not find decks");
+		logger.WriteLog("could not find decks");
 	}
 
 #else
@@ -148,7 +148,7 @@ DeckInfoList Deck::getDeckList()
 			
 		}
 		free(filelist);
-		std::cout<<n<<" decks loaded"<<std::endl;
+	//	std::cout<<n<<" decks loaded"<<std::endl;
 	}
 #endif
 

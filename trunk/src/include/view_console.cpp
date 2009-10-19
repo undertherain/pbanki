@@ -59,8 +59,22 @@ void ViewConsole::run()
 			switch (status)
 			{
 			case Status::stSelectDeck:
-				displayDeckList(model.getDeckList());
-				status=Status::stLoadDeck;
+				{
+					DeckInfoList deckList=model.getDeckList();
+					if (deckList.size()>0)
+					{
+						displayDeckList(deckList);
+						status=Status::stLoadDeck;
+					} else
+					{
+						status=Status::stNoDecks;
+					}
+
+				}
+				break;
+			case Status::stNoDecks:
+				std::cout<<"No decks awailable"<<std::endl;
+				status=Status::stExit;	
 				break;
 			case Status::stLoadDeck:
 				{

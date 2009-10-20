@@ -86,7 +86,7 @@ void ViewConsole::run()
 					}
 					else
 					{
-						model.loadDeck(id);
+						model.LoadDeck(id);
 						status=Status::stShowFront;
 					}
 				}

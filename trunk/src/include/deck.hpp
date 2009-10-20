@@ -16,10 +16,17 @@ class IDeck
 {
 protected:
 	std::string fileName;
+	int numCardsNewTotal;
+	int numCardsFailed;
+	int numCardsDueToday;
+	int numCardsReviewToday;
+
 public:
 	static DeckInfoList getDeckList();
-	static IDeck * loadDeck(DeckId id);
-	virtual Card getNextCard()=0;						//next card from queue
+	static IDeck * LoadDeck(DeckId id);
+	virtual Card GetNextCard()=0;					//next card from queue
+	virtual void LoadData()=0;
+	virtual void LoadStats()=0;
 	virtual ~IDeck(){}
 
 };
@@ -63,5 +70,5 @@ public:
 };
 
 
-#endif // MINDCRAFT_CONTROLLER
+#endif // MINDCRAFT_DECK
 

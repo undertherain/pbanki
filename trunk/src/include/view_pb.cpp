@@ -48,13 +48,19 @@ void itemChanged(char * item) {
 	//	SaveConfig(testcfg);
 	fprintf(stderr,"We are in item %s \n",item);
 	DeckId id(item);
-	view.model.loadDeck(id);
+
+	SetFont(Globals::fontCard, BLACK);
+	ClearScreen();
+	DrawString(50, 50, "Loading deck...");
+	SoftUpdate();
+
+	view.model.LoadDeck(id);
+	view.model.LoadStats();
 	SetEventHandler(mainHandler);
 	Globals::isConfigEditorActive=false;
 
 }
 
-//dummy dummy dummy dummy dummy dummy
 
 
 int ViewPocketBook::SelectDeck()
@@ -77,7 +83,7 @@ int ViewPocketBook::SelectDeck()
 				newConfigLine.icon = NULL;
 				newConfigLine.text = new char[i->GetName().length()];
 				strcpy(newConfigLine.text,i->GetName().c_str());
-				newConfigLine.hint = "new:5 due:10";
+				newConfigLine.hint = "new:? due:?";
 
 				newConfigLine.name = new char[i->GetName().length()];
 				strcpy(newConfigLine.name,i->GetName().c_str());
@@ -107,22 +113,6 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	logger.WriteLog("Handle event");
 
 	static int iter=0;
-	if (event.type == EVT_INIT) 
-	{
-		logger.WriteLog("Doing INIT event");
-
-		// occurs once at startup, only in main handler
-		Globals::fontCard = OpenFont("YOzFontM.TTF", 30, 2);
-		Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
-
-		ClearScreen();
-		DrawString(160, 253, "Starting Anki");
-	
-		FullUpdate();
-
-		//		return 0;
-	}
-
 
 	iter++;
 //	Logger.WriteLog("main handler %d\n",iter);
@@ -135,10 +125,26 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	switch(event.type)
 	{
 			case EVT_INIT:
-			//	return 0;
-						break;
+				logger.WriteLog("Doing INIT event");
 
+				// occurs once at startup, only in main handler
+				Globals::fontCard = OpenFont("YOzFontM.TTF", 30, 2);
+				Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
+
+				ClearScreen();
+				DrawString(160, 253, "Starting Anki");
+	
+				FullUpdate();
+
+				//return 0;
+				break;
+
+			case EVT_EXIT:
+				logger.WriteLog("EXIT event recieved");
+				status=Status::stExit;
+				break;
 			default:
+
 				break;
 				//hmm.... 
 

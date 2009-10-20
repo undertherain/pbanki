@@ -135,7 +135,7 @@ DeckInfoList IDeck::getDeckList()
 	return decks;
 }
 
-IDeck * IDeck::loadDeck(DeckId id)
+IDeck * IDeck::LoadDeck(DeckId id)
 {
 	std::string newDeckFileName="./decks/"+id;
 

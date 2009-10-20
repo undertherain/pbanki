@@ -5,13 +5,19 @@ DeckInfoList Model::getDeckList()
 	return IDeck::getDeckList();
 }
 
-void Model::loadDeck(DeckId id)
+void Model::LoadDeck(DeckId id)
 {
-	currentDeck=IDeck::loadDeck(id);
+	currentDeck=IDeck::LoadDeck(id);
+	currentDeck->LoadData();
 }
 
 Card Model::getNextCard()
 {
-	return currentDeck->getNextCard();
+	return currentDeck->GetNextCard();
+}
+
+void Model::LoadStats()
+{
+	currentDeck->LoadStats();
 }
 

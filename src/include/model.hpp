@@ -13,7 +13,8 @@ private:
 	IDeck * currentDeck;
 public:
 	DeckInfoList getDeckList();				//returns list of available deck
-	void loadDeck(DeckId deckName);	//load selected deck
+	void LoadDeck(DeckId deckName);	//load selected deck
+	void LoadStats();
 	Card getNextCard();						//next card from queue
 
 	//deck props?

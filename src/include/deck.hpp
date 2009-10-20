@@ -1,3 +1,6 @@
+#ifndef MINDCRAFT_DECK
+#define MINDCRAFT_DECK
+
 #include <string>
 #include <list>
 
@@ -9,14 +12,15 @@ typedef std::string DeckId ;
 
 
 //contains cards
-class Deck  
+class IDeck  
 {
-private:
+protected:
 	std::string fileName;
 public:
 	static DeckInfoList getDeckList();
-	static Deck * loadDeck(DeckId id);
-	Card getNextCard();						//next card from queue
+	static IDeck * loadDeck(DeckId id);
+	virtual Card getNextCard()=0;						//next card from queue
+	virtual ~IDeck(){}
 
 };
 
@@ -57,3 +61,7 @@ public:
 	CardField back;
 	Card(CardField _front,CardField _back):front(_front),back(_back){};
 };
+
+
+#endif // MINDCRAFT_CONTROLLER
+

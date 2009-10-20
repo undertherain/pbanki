@@ -2,12 +2,12 @@
 
 DeckInfoList Model::getDeckList()
 {
-	return Deck::getDeckList();
+	return IDeck::getDeckList();
 }
 
 void Model::loadDeck(DeckId id)
 {
-	currentDeck=Deck::loadDeck(id);
+	currentDeck=IDeck::loadDeck(id);
 }
 
 Card Model::getNextCard()

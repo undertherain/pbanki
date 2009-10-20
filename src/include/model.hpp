@@ -10,7 +10,7 @@
 class Model  //facade 
 {
 private:
-	Deck * currentDeck;
+	IDeck * currentDeck;
 public:
 	DeckInfoList getDeckList();				//returns list of available deck
 	void loadDeck(DeckId deckName);	//load selected deck

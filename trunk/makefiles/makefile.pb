@@ -4,7 +4,7 @@ CC = $(POCKETBOOKSDK)\arm-linux\bin\gcc
 CPP = $(POCKETBOOKSDK)\arm-linux\bin\g++
 STRIP = $(POCKETBOOKSDK)\arm-linux\bin\strip
 
-SOURCES = src/main_pocketbook.cpp src/include/deck.cpp src/include/model.cpp src/include/view_pb.cpp  src/include/logger.cpp
+SOURCES = src/main_pocketbook.cpp src/include/deck.cpp src/include/deckAnki.cpp src/include/model.cpp src/include/view_pb.cpp  src/include/logger.cpp
 INCLUDE=-I/arm-linux/include
 PATH=$(POCKETBOOKSDK)\arm-linux\bin;$(POCKETBOOKSDK)\bin
 LIBS=-linkview -lfreetype -ljpeg -lz -pthread

@@ -13,8 +13,8 @@ public:
 	void displayDeckList(DeckInfoList);
 	DeckId selectDeck();
 	void refresh();
-	void ShowFront(const Card & card);
-	void ShowBack(const Card & card);
+	void ShowFront(const ICard & card);
+	void ShowBack(const ICard & card);
 	void run();
 	
 };

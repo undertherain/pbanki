@@ -148,6 +148,15 @@ IDeck * IDeck::LoadDeck(DeckId id)
 	return newDeck;
 }
 
+int IDeck::GetNumCardsFailedToday() const
+{
+	return numCardsFailedToday;
+}
+int IDeck::GetNumCardsReviewToday() const
+{
+	return numCardsReviewToday;
+}
+
 
 //-------------------- CardField --------------------------
 std::string CardField::ToString() const

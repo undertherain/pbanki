@@ -2,15 +2,16 @@
 #include <list>
 
 
-
 class DeckAnki: public IDeck
 {
 private:
-		std::list<Card> cardsDueBuffer;
+		std::list<ICard> cardsDueBuffer;
+		ICard * lastCard;
 
 public:
-	Card GetNextCard();						//next card from queue
+	ICard GetNextCard();						//next card from queue
 	void LoadStats();						//
 	void LoadData();						//
+	void AnswerCard(Answer answer);
 	void Fetch();
 };

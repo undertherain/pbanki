@@ -3,25 +3,27 @@
 
 #include "deckAnki.hpp"
 #include "libs/sqlite3.h"
+#include "utils.hpp"
 #include <iostream>
-#include <sstream>
 #include <string>
 #include <map>
 #include <vector>
-#include <ctime>
+#include <algorithm>
 
-#define DECK_BUFFER_SIZE 100;
+#define DECK_BUFFER_SIZE 3
+#define MAX_NEW_CARDS 10
 
 typedef std::map<std::string,std::string> StringMap;
 // ------------------------- SQLite routines ------------------------
-class SQLiteResults
+static int callback(void *NotUsed, int argc, char **argv, char **azColName);
+
+class SQLiteHelper //should be changed with database class
 {
 public:
 	static std::vector<StringMap> values;
 
 };
-std::vector<StringMap> SQLiteResults::values;
-
+std::vector<StringMap> SQLiteHelper::values;
 static int callback(void *NotUsed, int argc, char **argv, char **azColName)    //who does free for these poiners???????
 {
 	int i;
@@ -31,27 +33,13 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName)    /
 		newMap.insert(std::pair<std::string,std::string>( azColName[i], argv[i] ? argv[i] : "NULL") );
 	//	printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
 	}
-	SQLiteResults::values.push_back(newMap);
+	SQLiteHelper::values.push_back(newMap);
 	printf("\n");
 	return 0;
 }
-// format helper
-class FormatHelper
-{
-public:
-	static std::string GetTimeStr()
-	{
-		time_t seconds;
-		seconds = time (NULL);
-		std::ostringstream out;
-		out << seconds;
-		std::string str = out.str();
-		return str;
 
-	}
-};
 
-//--------------------------- Card Queue (buffer) -------------------
+//--------------------------- Fetching Card Queue (buffer) -------------------
 void DeckAnki::Fetch()
 {
 	//start fetching failed cards until we reach buffer limit
@@ -68,16 +56,16 @@ void DeckAnki::Fetch()
 	{
 		std::cout<< "getNextCard. Can't open database: " <<  sqlite3_errmsg(dbDeck)<<std::endl;
 		sqlite3_close(dbDeck);
-		
 		return ;
 		//throw exception here?
 	}
 	std::cout<< "reading sqlite  "<< fileName <<" " <<retCode<<std::endl;
-	std::string query="SELECT * FROM cards where type=0 ORDER BY combinedDue LIMIT 1";
-	SQLiteResults::values.clear();
+	std::string query="SELECT * FROM cards where type=0 ORDER BY combinedDue LIMIT " + FormatHelper::ConvertToStr(DECK_BUFFER_SIZE);
+	
+	SQLiteHelper::values.clear();
 	retCode = sqlite3_exec(dbDeck, query.c_str(), callback, 0, &zErrMsg);
 
-	std::cout<<"size = "<< SQLiteResults::values.size()<<std::endl;
+	std::cout<<"size = " << SQLiteHelper::values.size() << std::endl;
 	if( retCode!=SQLITE_OK )
 	{
 		std::cout << "SQL error: " <<  zErrMsg << std::endl;
@@ -86,34 +74,36 @@ void DeckAnki::Fetch()
 	//close sqlite
 	sqlite3_close(dbDeck);
 
-	StringMap row = SQLiteResults::values[0];
-	std::string strFront = row["question"];
-	std::string strBack = row["answer"];
-	CardField fldFront(strFront);
-	CardField fldBack(strBack);
-	//Card card(CardField("stub front 日本語"),CardField("stub back 日本語"));
-	Card card(fldFront,fldBack);
-	cardsDueBuffer.push_back(card);
+	for (unsigned int i=0;i<SQLiteHelper::values.size();i++)
+	{
+		StringMap row = SQLiteHelper::values[i];
+		std::string strFront = row["question"];
+		std::string strBack = row["answer"];
+		CardField fldFront(strFront);
+		CardField fldBack(strBack);
+		ICard card(fldFront,fldBack);
+		cardsDueBuffer.push_back(card);
+	}
 	//if no mo failed cards - start loading review cards, until we reach biffer limit
 	//if no more review cards - load new cards
 }
 
-//--------------------------- DeckAnki ------------------------------
-Card DeckAnki::GetNextCard()
+//--------------------------- Next Card ------------------------------
+ICard DeckAnki::GetNextCard()
 {
 
 	if (!cardsDueBuffer.empty())
 	{
-		Card card=cardsDueBuffer.front();
+		ICard card=cardsDueBuffer.front();
 		cardsDueBuffer.pop_front();
 		return card;
 	}
 
-	Card cardError(CardField("No more cards "),CardField("No more cards "));
+	ICard cardError(CardField("No more cards "),CardField("No more cards "));
 	return cardError;
 }
 
-//--------------------------- DeckAnki ------------------------------
+//--------------------------- Load Stats ------------------------------
 void DeckAnki::LoadStats()
 {
 	sqlite3 *dbDeck;
@@ -136,32 +126,56 @@ void DeckAnki::LoadStats()
 	}
 	//new cards total
 	std::string query="select count(id) from cards where type = 2 and priority in (1,2,3,4)";
-	SQLiteResults::values.clear();
+	SQLiteHelper::values.clear();
 	retCode = sqlite3_exec(dbDeck, query.c_str(), callback, 0, &zErrMsg);
 	if( retCode!=SQLITE_OK )
 	{
 		std::cout << "SQL error: " <<  zErrMsg << std::endl;
 		sqlite3_free(zErrMsg);
 	}
-	{
-		std::istringstream tempStream(SQLiteResults::values[0]["count(id)"]);
-		tempStream>>numCardsNewTotal;
-	}
+	numCardsNewTotal=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
 	std::cout<<"NEW cards total = "<< numCardsNewTotal <<std::endl;
+
+	//cards new today
+	numCardsNewToday=std::min(numCardsNewTotal,MAX_NEW_CARDS);
+	std::cout<<"NEW cards today = "<< numCardsNewToday <<std::endl;
+
 	//cards due today
 	query="select count(id) from cards where combinedDue < " + FormatHelper::GetTimeStr() + " and priority in (1,2,3,4) and type in (0, 1)"; 
-	SQLiteResults::values.clear();
+	SQLiteHelper::values.clear();
 	retCode = sqlite3_exec(dbDeck, query.c_str(), callback, 0, &zErrMsg);
 	if( retCode!=SQLITE_OK )
 	{
 		std::cout << "SQL error: " <<  zErrMsg << std::endl;
 		sqlite3_free(zErrMsg);
 	}
-	{
-		std::istringstream tempStream(SQLiteResults::values[0]["count(id)"]);
-		tempStream>>numCardsNewTotal;
-	}
+	numCardsNewTotal=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
 	std::cout<<"DUE cards today = "<< numCardsNewTotal <<std::endl;
+
+
+	//cards failed today
+	query="select count(id) from cards where combinedDue < " + FormatHelper::GetTimeStr() + " and priority in (1,2,3,4) and type = 0"; 
+	SQLiteHelper::values.clear();
+	retCode = sqlite3_exec(dbDeck, query.c_str(), callback, 0, &zErrMsg);
+	if( retCode!=SQLITE_OK )
+	{
+		std::cout << "SQL error: " <<  zErrMsg << std::endl;
+		sqlite3_free(zErrMsg);
+	}
+	numCardsFailedToday=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
+	std::cout<<"FAILED cards today = "<< numCardsFailedToday <<std::endl;
+
+	//cards revire today
+	query="select count(id) from cards where combinedDue < " + FormatHelper::GetTimeStr() + " and priority in (1,2,3,4) and type = 1"; 
+	SQLiteHelper::values.clear();
+	retCode = sqlite3_exec(dbDeck, query.c_str(), callback, 0, &zErrMsg);
+	if( retCode!=SQLITE_OK )
+	{
+		std::cout << "SQL error: " <<  zErrMsg << std::endl;
+		sqlite3_free(zErrMsg);
+	}
+	numCardsReviewToday=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
+	std::cout<<"REVIEW cards today = "<< numCardsReviewToday <<std::endl;
 
 
 	//close sqlite
@@ -171,5 +185,12 @@ void DeckAnki::LoadStats()
 void DeckAnki::LoadData()
 {
 	std::cout<<"Loading deck data " <<std::endl;
+	//update databse entriies
 	Fetch();
+}
+
+void DeckAnki::AnswerCard(Answer answer)
+{
+	std::cout<<"Registering answer" <<std::endl;
+	numCardsFailedToday--;
 }

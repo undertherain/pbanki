@@ -5,10 +5,11 @@
 #include <list>
 
 class DeckInfo;
-class Card;
+class ICard;
 
 typedef std::list<DeckInfo> DeckInfoList ;
 typedef std::string DeckId ;
+typedef int Answer ;
 
 
 //contains cards
@@ -17,17 +18,22 @@ class IDeck
 protected:
 	std::string fileName;
 	int numCardsNewTotal;
-	int numCardsFailed;
+	int numCardsNewToday;
+	int numCardsFailedToday;
 	int numCardsDueToday;
 	int numCardsReviewToday;
 
 public:
 	static DeckInfoList getDeckList();
 	static IDeck * LoadDeck(DeckId id);
-	virtual Card GetNextCard()=0;					//next card from queue
+	virtual ICard GetNextCard()=0;					//next card from queue
 	virtual void LoadData()=0;
 	virtual void LoadStats()=0;
+	virtual void AnswerCard(Answer answer)=0;
 	virtual ~IDeck(){}
+	int GetNumCardsFailedToday() const;
+	int GetNumCardsReviewToday() const;
+	
 
 };
 
@@ -61,12 +67,13 @@ public:
 	CardField(std::string _innerText):innerText(_innerText){};
 };
 
-class Card
+class ICard
 {
 public:
 	CardField front;
 	CardField back;
-	Card(CardField _front,CardField _back):front(_front),back(_back){};
+	
+	ICard(CardField _front,CardField _back):front(_front),back(_back){};
 };
 
 

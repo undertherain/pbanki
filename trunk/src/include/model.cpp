@@ -1,4 +1,5 @@
 #include "model.hpp"
+#include "utils.hpp"
 
 DeckInfoList Model::getDeckList()
 {
@@ -11,7 +12,7 @@ void Model::LoadDeck(DeckId id)
 	currentDeck->LoadData();
 }
 
-Card Model::getNextCard()
+ICard Model::getNextCard()
 {
 	return currentDeck->GetNextCard();
 }
@@ -21,3 +22,15 @@ void Model::LoadStats()
 	currentDeck->LoadStats();
 }
 
+
+
+void Model::AnswerCard(Answer answer)
+{
+	currentDeck->AnswerCard(answer);
+}
+
+std::string Model::GetStatus()
+{
+	std::string strStatus="f:" + FormatHelper::ConvertToStr(currentDeck->GetNumCardsFailedToday())+" r:"+ FormatHelper::ConvertToStr(currentDeck->GetNumCardsReviewToday());
+	return strStatus;
+}

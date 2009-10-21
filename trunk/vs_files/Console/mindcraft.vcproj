@@ -237,6 +237,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\src\include\utils.hpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\src\include\view_console.hpp"
 				>
 			</File>

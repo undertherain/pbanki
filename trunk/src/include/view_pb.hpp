@@ -24,7 +24,7 @@ private:
 
 
 public:
-	Card  card;
+	ICard  card;
 	Model model;
 	ViewPocketBook():card(CardField("Error"),CardField("Error")),status(Status::stSelectDeck){};
 	Status::enumStatuses status;
@@ -37,6 +37,7 @@ public:
 	int HandleEvent(InkViewEvent event);
 	void ShowFront();
 	void ShowBack();
+	void ShowStatusBar();
 
 };
 

@@ -252,9 +252,12 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 				answerMark++;
 				if (answerMark>3) answerMark=3;
 			break;
-		default:
-			//next card
+			case KEY_OK:
+			model.AnswerCard(answerMark);
 			view.status=Status::stShowFront;
+			break;
+		default:
+			//do nothing
 			break;
 		}
 
@@ -295,6 +298,7 @@ void ViewPocketBook::ShowFront()
 		SetFont(Globals::fontCard, BLACK);
 		//DrawString(50, 50, card.front.ToString().c_str());
 		DrawTextRect(11, 11, 580, 300, const_cast<char *>(card.front.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+		ShowStatusBar();
 }
 
 void ViewPocketBook::ShowBack()
@@ -303,6 +307,13 @@ void ViewPocketBook::ShowBack()
 		SetFont(Globals::fontCard, BLACK);
 		//DrawString(50, 350, card.back.ToString().c_str());
 		DrawTextRect(11, 316, 580, 300, const_cast<char *>(card.back.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+}
+
+void ViewPocketBook::ShowStatusBar()
+{
+		DrawRect(10, 755, 580, 30, 0);
+		SetFont(Globals::fontButtons, BLACK);
+		DrawTextRect(11, 755, 580, 30, const_cast<char *>(model.GetStatus().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }
 
 int mainHandler(int type, int par1, int par2) 

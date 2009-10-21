@@ -5,7 +5,7 @@
 #include <list>
 
 #include "deck.hpp"
-
+#define TEMPORARY 
 
 class Model  //facade 
 {
@@ -15,8 +15,9 @@ public:
 	DeckInfoList getDeckList();				//returns list of available deck
 	void LoadDeck(DeckId deckName);	//load selected deck
 	void LoadStats();
-	Card getNextCard();						//next card from queue
-
+	ICard getNextCard();						//next card from queue
+	void AnswerCard(Answer answer);
+	TEMPORARY std::string GetStatus();
 	//deck props?
 	//learn more?
 

@@ -3,7 +3,6 @@
 
 #include "deckAnki.hpp"
 #include "libs/sqlite3.h"
-#include "dbSQLite.hpp"
 #include "utils.hpp"
 #include <iostream>
 #include <string>
@@ -21,7 +20,6 @@ void DeckAnki::Fetch()
 {
 	//start fetching failed cards until we reach buffer limit
 	sqlite3 *dbDeck;
-	char *zErrMsg = NULL;
 	int retCode;
 
 	//open sqlite
@@ -38,27 +36,23 @@ void DeckAnki::Fetch()
 	}
 	std::cout<< "reading sqlite  "<< fileName <<" " <<retCode<<std::endl;
 	std::string query="SELECT * FROM cards where type=0 ORDER BY combinedDue LIMIT " + FormatHelper::ConvertToStr(DECK_BUFFER_SIZE);
-
-	SQLiteHelper::values.clear();
-	retCode = sqlite3_exec(dbDeck, query.c_str(), callback, 0, &zErrMsg);
-
-	std::cout<<"size = " << SQLiteHelper::values.size() << std::endl;
-	if( retCode!=SQLITE_OK )
+	try
 	{
-		std::cout << "SQL error: " <<  zErrMsg << std::endl;
-		sqlite3_free(zErrMsg);
+		SQLiteHelper::ExecuteQuery(dbDeck,query);
 	}
+		catch(Exception ex)
+	{
+		std::cout<<"DeckAnki::Fetch: "<<ex.GetMessage()<<std::endl;
+	}
+
 	//close sqlite
 	sqlite3_close(dbDeck);
 
+	std::cout<<"size = " << SQLiteHelper::values.size() << std::endl;
 	for (unsigned int i=0;i<SQLiteHelper::values.size();i++)
 	{
 		StringMap row = SQLiteHelper::values[i];
-		std::string strFront = row["question"];
-		std::string strBack = row["answer"];
-		CardField fldFront(strFront);
-		CardField fldBack(strBack);
-		ICard card(fldFront,fldBack);
+		CardAnki card= CardFromDBRow(row);
 		cardsDueBuffer.push_back(card);
 	}
 	//if no mo failed cards - start loading review cards, until we reach biffer limit
@@ -71,13 +65,13 @@ ICard DeckAnki::GetNextCard()
 
 	if (!cardsDueBuffer.empty())
 	{
-		ICard card=cardsDueBuffer.front();
+		CardAnki card=cardsDueBuffer.front();
 		cardsDueBuffer.pop_front();
 		if (lastCard!=NULL)
 		{
 			delete lastCard;
 		}
-		lastCard = new ICard(card);
+		lastCard = new CardAnki(card);
 		return card;
 	}
 
@@ -140,7 +134,7 @@ void DeckAnki::LoadStats()
 	}
 	catch(Exception ex)
 	{
-		std::cout<<"DeckAnki::LoadStats"<<ex.GetMessage()<<std::endl;
+		std::cout<<"DeckAnki::LoadStats: "<<ex.GetMessage()<<std::endl;
 	}
 	//close sqlite
 	sqlite3_close(dbDeck);
@@ -156,6 +150,9 @@ void DeckAnki::LoadData()
 void DeckAnki::AnswerCard(Answer answer)
 {
 	std::cout<<"Registering answer" <<std::endl;
+	//update card stats
+	//calc new interval
+	
 	switch (answer)
 	{
 	case 0:
@@ -173,4 +170,17 @@ void DeckAnki::AnswerCard(Answer answer)
 DeckAnki::~DeckAnki()
 {
 	std::cout<<"DeckAnki destructor:\n\t" << cardsAnsweredBuffer.size()<< " answered cards not saved "<<std::endl;
+}
+
+CardAnki DeckAnki::CardFromDBRow(StringMap row)
+{
+		std::string strFront = row["question"];
+		std::string strBack = row["answer"];
+		CardField fldFront(strFront);
+		CardField fldBack(strBack);
+		CardAnki card(fldFront,fldBack);
+		card.id=FormatHelper::StrToInt(row["id"]);
+		card.due=FormatHelper::StrToFloat(row["due"]);
+
+	return card;
 }

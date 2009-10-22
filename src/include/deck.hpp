@@ -70,6 +70,7 @@ public:
 class ICard
 {
 public:
+	int type;
 	CardField front;
 	CardField back;
 	

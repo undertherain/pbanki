@@ -1,11 +1,18 @@
 #include "deck.hpp"
 #include <list>
 
+typedef std::list<ICard> CardList;
+
+class CardAnki: public ICard
+{
+
+};
 
 class DeckAnki: public IDeck
 {
 private:
-		std::list<ICard> cardsDueBuffer;
+		CardList cardsDueBuffer;
+		CardList cardsAnsweredBuffer;
 		ICard * lastCard;
 
 public:
@@ -15,4 +22,5 @@ public:
 	void AnswerCard(Answer answer);
 	void Fetch();
 	DeckAnki():lastCard(NULL){}
+	~DeckAnki();
 };

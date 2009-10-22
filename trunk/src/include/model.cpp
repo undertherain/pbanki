@@ -34,3 +34,9 @@ std::string Model::GetStatus()
 	std::string strStatus="f:" + FormatHelper::ConvertToStr(currentDeck->GetNumCardsFailedToday())+" r:"+ FormatHelper::ConvertToStr(currentDeck->GetNumCardsReviewToday());
 	return strStatus;
 }
+
+Model::~Model()
+{
+	if (currentDeck!=NULL)
+		delete currentDeck;
+}

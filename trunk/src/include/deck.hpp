@@ -73,7 +73,9 @@ public:
 	CardField front;
 	CardField back;
 	
+	ICard():front("emty"),back("empty"){};
 	ICard(CardField _front,CardField _back):front(_front),back(_back){};
+
 };
 
 

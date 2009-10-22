@@ -1,3 +1,8 @@
+
+#ifndef MINDCRAFT_UTILS
+#define MINDCRAFT_UTILS
+
+
 #include <ctime>
 #include <sstream>
 
@@ -31,3 +36,4 @@ public:
 		return value;
 	}
 };
+#endif //MINDCRAFT_UTILS

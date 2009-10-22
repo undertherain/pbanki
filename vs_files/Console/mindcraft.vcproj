@@ -213,6 +213,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\src\include\dbSQLite.hpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\src\include\deck.hpp"
 				>
 			</File>

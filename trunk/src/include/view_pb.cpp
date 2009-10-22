@@ -311,9 +311,9 @@ void ViewPocketBook::ShowBack()
 
 void ViewPocketBook::ShowStatusBar()
 {
-		DrawRect(10, 755, 580, 30, 0);
+		DrawRect(10, 760, 580, 30, 0);
 		SetFont(Globals::fontButtons, BLACK);
-		DrawTextRect(11, 755, 580, 30, const_cast<char *>(model.GetStatus().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+		DrawTextRect(11, 760, 580, 30, const_cast<char *>(model.GetStatus().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }
 
 int mainHandler(int type, int par1, int par2) 

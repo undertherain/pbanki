@@ -35,5 +35,12 @@ public:
 		tempStream>>value;
 		return value;
 	}
+	static float StrToFloat(const std::string & str)
+	{
+		float value;
+		std::istringstream tempStream(str);
+		tempStream>>value;
+		return value;
+	}
 };
 #endif //MINDCRAFT_UTILS

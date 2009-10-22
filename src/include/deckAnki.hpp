@@ -14,4 +14,5 @@ public:
 	void LoadData();						//
 	void AnswerCard(Answer answer);
 	void Fetch();
+	DeckAnki():lastCard(NULL){}
 };

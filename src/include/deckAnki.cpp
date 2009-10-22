@@ -96,6 +96,11 @@ ICard DeckAnki::GetNextCard()
 	{
 		ICard card=cardsDueBuffer.front();
 		cardsDueBuffer.pop_front();
+		if (lastCard!=NULL)
+		{
+			delete lastCard;
+		}
+		lastCard = new ICard(card);
 		return card;
 	}
 
@@ -192,5 +197,15 @@ void DeckAnki::LoadData()
 void DeckAnki::AnswerCard(Answer answer)
 {
 	std::cout<<"Registering answer" <<std::endl;
-	numCardsFailedToday--;
+	switch (answer)
+	{
+		case 0:
+			cardsDueBuffer.push_back(*lastCard);
+			
+			break;
+		default:
+			numCardsFailedToday--;
+			break;
+	}
+	
 }

@@ -37,6 +37,7 @@ public:
 class DeckAnki: public IDeck
 {
 private:
+		sqlite3 *dbDeck;
 		CardList cardsDueBuffer;
 		CardList cardsAnsweredBuffer;
 		CardIds fetchedCardIds;
@@ -50,6 +51,6 @@ public:
 	void LoadData();						//
 	void AnswerCard(Answer answer);
 	void Fetch();
-	DeckAnki():lastCard(NULL){}
+	DeckAnki():lastCard(NULL),dbDeck(NULL){}
 	~DeckAnki();
 };

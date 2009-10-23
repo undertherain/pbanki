@@ -2,10 +2,13 @@
 #include "dbSQLite.hpp"
 
 #include <list>
+#include <set>
+#include <string>
 
 class CardAnki;
 
 typedef std::list<CardAnki> CardList;
+typedef std::set<std::string> CardIds;
 
 class CardAnki: public ICard
 {
@@ -15,7 +18,7 @@ private:
 public:
 	CardAnki(CardField _front,CardField _back):ICard(_front,_back){};
 	CardAnki():ICard(CardField("ankiempty"),CardField("ankiempty")){};
-	int id;
+	std::string id;
 	int factId;
 	float modified;
 	float interval;
@@ -36,6 +39,8 @@ class DeckAnki: public IDeck
 private:
 		CardList cardsDueBuffer;
 		CardList cardsAnsweredBuffer;
+		CardIds fetchedCardIds;
+		std::string GetFetchedCardIds();
 		CardAnki * lastCard;
 		CardAnki CardFromDBRow(StringMap row);
 

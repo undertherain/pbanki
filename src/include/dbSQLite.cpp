@@ -11,8 +11,9 @@ void SQLiteHelper::ExecuteQuery(sqlite3 * dbDeck, std::string query)
 	retCode = sqlite3_exec(dbDeck, query.c_str(), callback, 0, &zErrMsg);
 	if( retCode!=SQLITE_OK )
 	{
-		Exception exceprion( FormatHelper::ConvertToStr("SQL error: ") + FormatHelper::ConvertToStr(zErrMsg) );
+		Exception exception( FormatHelper::ConvertToStr("SQL error: ") + FormatHelper::ConvertToStr(zErrMsg) );
 		sqlite3_free(zErrMsg);
+		throw  exception;
 	}
 
 

@@ -8,9 +8,11 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <iterator>
+
 #include <algorithm>
 
-#define DECK_BUFFER_SIZE 3
+#define DECK_BUFFER_SIZE 4
 #define MAX_NEW_CARDS 10
 
 
@@ -34,26 +36,28 @@ void DeckAnki::Fetch()
 		return ;
 		//throw exception here?
 	}
-	std::cout<< "reading sqlite  "<< fileName <<" " <<retCode<<std::endl;
-	std::string query="SELECT * FROM cards where type=0 ORDER BY combinedDue LIMIT " + FormatHelper::ConvertToStr(DECK_BUFFER_SIZE);
+	std::cout<< "fetching card from  "<< fileName<<std::endl;
+	//std::string query="SELECT * FROM cards where type=0 ORDER BY combinedDue LIMIT " + FormatHelper::ConvertToStr(DECK_BUFFER_SIZE);
+	std::string query="SELECT * FROM cards where type=0 and not (id in ("+ GetFetchedCardIds() +") ) ORDER BY combinedDue LIMIT 1";
 	try
 	{
 		SQLiteHelper::ExecuteQuery(dbDeck,query);
 	}
 		catch(Exception ex)
 	{
-		std::cout<<"DeckAnki::Fetch: "<<ex.GetMessage()<<std::endl;
+		std::cout<<"Error in DeckAnki::Fetch: "<<ex.GetMessage()<<std::endl;
 	}
-
+	//std::cout<< "query:  "<< query<<std::endl;
 	//close sqlite
 	sqlite3_close(dbDeck);
 
-	std::cout<<"size = " << SQLiteHelper::values.size() << std::endl;
+	std::cout<<"Nmum cards fetched = " << SQLiteHelper::values.size() << std::endl;
 	for (unsigned int i=0;i<SQLiteHelper::values.size();i++)
 	{
 		StringMap row = SQLiteHelper::values[i];
 		CardAnki card= CardFromDBRow(row);
 		cardsDueBuffer.push_back(card);
+		fetchedCardIds.insert(card.id);
 	}
 	//if no mo failed cards - start loading review cards, until we reach biffer limit
 	//if no more review cards - load new cards
@@ -62,7 +66,11 @@ void DeckAnki::Fetch()
 //--------------------------- Next Card ------------------------------
 ICard DeckAnki::GetNextCard()
 {
-
+	std::cout<<"getting next card, "<<cardsDueBuffer.size() << " cards in buffer" <<std::endl;
+	if (cardsDueBuffer.size()<DECK_BUFFER_SIZE)
+	{
+		Fetch();
+	}
 	if (!cardsDueBuffer.empty())
 	{
 		CardAnki card=cardsDueBuffer.front();
@@ -144,7 +152,7 @@ void DeckAnki::LoadData()
 {
 	std::cout<<"Loading deck data " <<std::endl;
 	//update databse entriies
-	Fetch();
+	//Fetch();
 }
 
 void DeckAnki::AnswerCard(Answer answer)
@@ -179,8 +187,26 @@ CardAnki DeckAnki::CardFromDBRow(StringMap row)
 		CardField fldFront(strFront);
 		CardField fldBack(strBack);
 		CardAnki card(fldFront,fldBack);
-		card.id=FormatHelper::StrToInt(row["id"]);
+//		card.id=FormatHelper::StrToInt(row["id"]);
+		card.id=row["id"];
+		//std::cout<<"loaded card id="<<card.id<<std::endl;
 		card.due=FormatHelper::StrToFloat(row["due"]);
 
 	return card;
 }
+
+std::string DeckAnki::GetFetchedCardIds()
+{
+	std::string result="0";
+
+	for (CardIds::iterator i=fetchedCardIds.begin();i!=fetchedCardIds.end();i++)
+	{
+		result=result + ", "+ *i ;
+	}
+	
+	return result;
+}
+
+//save card
+//remove id from fetchedCardIds
+//

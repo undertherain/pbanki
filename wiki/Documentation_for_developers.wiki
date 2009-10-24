@@ -7,7 +7,7 @@
 
 =Getting Started=
 
-Currently svn is used as code control ssytem.
+Currently svn is used as code control system.
 
 Visit [http://code.google.com/p/pbanki/source/checkout] for checkout instructions.
 
@@ -27,14 +27,12 @@ variableName DoMethod ClassName
 
   ==PocketBook==
 official site: [http://pocketbook.com.ua/ http://pocketbook.com.ua]
-Pocketbook is linux-based, open-sorce SDK can be downloaded from [http://pocketbook-free.sourceforge.net/sdk.shtml]
+Pocketbook works under  linux-based open-sorce firmware, called openpocketbook
+
+SDK can be downloaded from [http://pocketbook-free.sourceforge.net/sdk.shtml]
 
 Forums: [http://www.the-ebook.org/forum/viewforum.php?f=32 discussion of the device in Russian], [http://www.the-ebook.org/forum/viewforum.php?f=40 discussion of wirmware in Russian]
 
+  ==LBook==
 
-
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  ==Windows Mobile==

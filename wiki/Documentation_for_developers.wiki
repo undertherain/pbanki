@@ -7,8 +7,15 @@
 
 =Getting Started=
 
-currently svn is used as code control ssytem.
-visit [http://code.google.com/p/pbanki/source/checkout] for checkout instructions.
+Currently svn is used as code control ssytem.
+
+Cisit [http://code.google.com/p/pbanki/source/checkout] for checkout instructions.
+
+Copy some of your decks decks to /decks folder
+
+You cand download sample decks from [http://pbanki.googlecode.com/files/sample_decks.rar]
+
+Select platform yuo want to build bpanki for and follow build instructions for this platform
 
 ==Naming convention==
 

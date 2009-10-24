@@ -15,7 +15,7 @@ Copy some of your decks to /decks folder
 
 You cand download sample decks from [http://pbanki.googlecode.com/files/sample_decks.rar]
 
-Select platform yuo want to build bpanki for and follow build instructions for this platform
+Select platform you want to build *bpanki* for and follow build instructions for this platform
 
 ==Naming convention==
 

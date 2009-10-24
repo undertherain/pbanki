@@ -6,14 +6,14 @@
 
 == What is PBAnki ==
 
-PBAnki is a spaced repetition software designed to run on various kinds of mobile devices. Unlike [http://anki.ichi2.net Anki], [http://www.mnemosyne-proj.org/ Mnemosyne] or SuperMemo, it is not a fully functional program that supports creating and editing user decks. Instead of all these features PBAnki makes a very light and fast application for actual study-on-the-go, even if the user decks are very big. The goal of the project is to create a viewer that would run flawlessly on low-memory mobile devices. It supports such popular formats as .anki or .mem (Anki and Mnemosyne decks) and requires no conversion of user files.
+PBAnki is a spaced repetition software designed to run flawlessly on low-memory mobile devices. Unlike [http://anki.ichi2.net Anki], [http://www.mnemosyne-proj.org/ Mnemosyne] or [http://www.supermemo.com/ SuperMemo], it is not a fully functional program that supports creating and editing user decks. Also unlike Mnemosyne or Anki, it is written in C++ and not in an interpreted language like Python. This makes PBAnki a very light and fast application for actual study-on-the-go, even if the user decks are very big. It supports such popular formats as .anki or .mem (Anki and Mnemosyne decks) and requires no file conversion for them.
 
 == What is Spaced Repetition ==
 
-Spaced repetition is a learning technique that incorporates increasing intervals of time between subsequent review of previously learned material; this exploits the psychological spacing effect. You can read more detailed article on wikipedia [http://en.wikipedia.org/wiki/Spaced_repetition]
+Spaced repetition is a learning technique that incorporates increasing intervals of time between subsequent review of previously learned material; this exploits the psychological spacing effect. You can read a more detailed article on wikipedia [http://en.wikipedia.org/wiki/Spaced_repetition]
 
 =Supported Platforms=
 
-PBAnki is primarily targetted at electronic readers. These are mobile devices based on e-ink technology, such as Amazon Kindle. Current version only supports [http://pocketbook.com.ua/ PocketBook] 
+PBAnki is primarily targetted at electronic readers. These are mobile devices based on e-ink technology, such as Amazon Kindle. Current version only supports [http://pocketbook.com.ua/ PocketBook]. Support for other popular e-ink devices as well as for Windows Mobile phones is scheduled.
 
 [Documentation_for_developers Documentation for developers]

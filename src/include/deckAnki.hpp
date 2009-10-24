@@ -44,6 +44,7 @@ private:
 		std::string GetFetchedCardIds();
 		CardAnki * lastCard;
 		CardAnki CardFromDBRow(StringMap row);
+		float CalcNextInterval(CardAnki card,int ease);
 
 public:
 	ICard GetNextCard();						//next card from queue
@@ -51,6 +52,11 @@ public:
 	void LoadData();						//
 	void AnswerCard(Answer answer);
 	void Fetch();
-	DeckAnki():lastCard(NULL),dbDeck(NULL){}
+	std::string GetStatus();
+	DeckAnki()
+		{
+			lastCard=NULL;
+			dbDeck=NULL;
+		}
 	~DeckAnki();
 };

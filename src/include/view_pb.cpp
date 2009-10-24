@@ -200,11 +200,12 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	//	if (type == EVT_KEYPRESS) {
 	// 	
 
-	if (iter>36) 
-	{	
-		logger.WriteLog("EXITING by iterations limit\n");
-		CloseApp();
-	}
+//	if (iter>36) 
+//	{	
+	//	logger.WriteLog("EXITING by iterations limit\n");
+	//	CloseApp();
+//	}
+
 	//
 	//	}
 
@@ -267,6 +268,8 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 		ClearScreen();
 		ShowFront();
 		ShowBack();
+	//	PartialUpdateBW(10,300,580,400);
+
 		//drawing buttons
 		SetFont(Globals::fontButtons, BLACK);
 		DrawString(160, 653, "Again   Hard    Good    Easy");

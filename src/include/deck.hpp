@@ -30,10 +30,12 @@ public:
 	virtual void LoadData()=0;
 	virtual void LoadStats()=0;
 	virtual void AnswerCard(Answer answer)=0;
+	virtual std::string GetStatus()=0;
+
 	virtual ~IDeck(){}
 	int GetNumCardsFailedToday() const;
 	int GetNumCardsReviewToday() const;
-	
+	int GetNumCardsNewToday() const;
 
 };
 

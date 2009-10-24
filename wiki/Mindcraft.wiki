@@ -4,9 +4,9 @@
 
 =Introduction=
 
-== What is PBAnki ==
+== What is Mindcraft ==
 
-PBAnki is a spaced repetition software designed to run flawlessly on low-memory mobile devices. Unlike [http://anki.ichi2.net Anki], [http://www.mnemosyne-proj.org/ Mnemosyne] or [http://www.supermemo.com/ SuperMemo], it is not a fully functional program that supports creating and editing user decks. Also unlike Mnemosyne or Anki, it is written in C++ and not in an interpreted language like Python. This makes PBAnki a very light and fast application for actual study-on-the-go, even if the user decks are very big. It supports such popular formats as .anki or .mem (Anki and Mnemosyne decks) and requires no file conversion for them.
+Mindcraft is a spaced repetition software designed to run flawlessly on low-memory mobile devices. Unlike [http://anki.ichi2.net Anki], [http://www.mnemosyne-proj.org/ Mnemosyne] or [http://www.supermemo.com/ SuperMemo], it is not a fully functional program that supports creating and editing user decks. Also unlike Mnemosyne or Anki, it is written in C++ and not in an interpreted language like Python. This makes Mindcraft a very light and fast application for actual study-on-the-go, even if the user decks are very big. It supports such popular formats as .anki or .mem (Anki and Mnemosyne decks) and requires no file conversion for them.
 
 == What is Spaced Repetition ==
 
@@ -14,6 +14,6 @@ Spaced repetition is a learning technique that incorporates increasing intervals
 
 =Supported Platforms=
 
-PBAnki is primarily targetted at electronic readers. These are mobile devices based on e-ink technology, such as Amazon Kindle. Current version only supports [http://pocketbook.com.ua/ PocketBook]. Support for other popular e-ink devices as well as for Windows Mobile phones is scheduled.
+Mindcraft is primarily targetted at electronic readers. These are mobile devices based on e-ink technology, such as Amazon Kindle. Current version only supports [http://pocketbook.com.ua/ PocketBook]. Support for other popular e-ink devices as well as for Windows Mobile phones is scheduled.
 
 [Documentation_for_developers Documentation for developers]

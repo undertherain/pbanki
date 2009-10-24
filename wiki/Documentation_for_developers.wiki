@@ -11,7 +11,7 @@ Currently svn is used as code control system.
 
 Visit [http://code.google.com/p/pbanki/source/checkout] for checkout instructions.
 
-Copy some of your decks decks to /decks folder
+Copy some of your decks to /decks folder
 
 You cand download sample decks from [http://pbanki.googlecode.com/files/sample_decks.rar]
 

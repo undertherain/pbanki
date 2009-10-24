@@ -31,8 +31,7 @@ void Model::AnswerCard(Answer answer)
 
 std::string Model::GetStatus()
 {
-	std::string strStatus="f:" + FormatHelper::ConvertToStr(currentDeck->GetNumCardsFailedToday())+" r:"+ FormatHelper::ConvertToStr(currentDeck->GetNumCardsReviewToday());
-	return strStatus;
+	return currentDeck->GetStatus();
 }
 
 Model::~Model()

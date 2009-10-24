@@ -21,21 +21,23 @@
 void DeckAnki::Fetch()
 {
 	//start fetching failed cards until we reach buffer limit
-	
+
 
 	std::cout<< "fetching card from  "<< fileName<<std::endl;
 	//std::string query="SELECT * FROM cards where type=0 ORDER BY combinedDue LIMIT " + FormatHelper::ConvertToStr(DECK_BUFFER_SIZE);
-	std::string query="SELECT * FROM cards where type=0 and not (id in ("+ GetFetchedCardIds() +") ) ORDER BY combinedDue LIMIT 1";
+	std::string query="SELECT * FROM cards where combinedDue < " + FormatHelper::GetTimeStr() + " and type=0 and priority in (1,2,3,4) and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY combinedDue LIMIT 1";
+	//query="select count(id) from cards where  and priority in (1,2,3,4) and type = 0"; 
+
 	try
 	{
 		SQLiteHelper::ExecuteQuery(dbDeck,query);
 	}
-		catch(Exception ex)
+	catch(Exception ex)
 	{
 		std::cout<<"Error in DeckAnki::Fetch: "<<ex.GetMessage()<<std::endl;
 	}
-	//std::cout<< "query:  "<< query<<std::endl;
-	
+	std::cout<< "query:  "<< query<<std::endl;
+
 	std::cout<<"Nmum cards fetched = " << SQLiteHelper::values.size() << std::endl;
 	for (unsigned int i=0;i<SQLiteHelper::values.size();i++)
 	{
@@ -120,16 +122,16 @@ void DeckAnki::LoadData()
 {
 	std::cout<<"Loading deck data " <<std::endl;
 	//open database
-		int retCode;
-		retCode = sqlite3_open_v2(fileName.c_str(), &dbDeck,SQLITE_OPEN_READWRITE,NULL);
+	int retCode;
+	retCode = sqlite3_open_v2(fileName.c_str(), &dbDeck,SQLITE_OPEN_READWRITE,NULL);
 
-		if( retCode )
-		{
-			Exception exception("Error in DeckAnki:LoadData: can't open database: " +  FormatHelper::ConvertToStr(sqlite3_errmsg(dbDeck)));
-			sqlite3_close(dbDeck);
-			
-			throw (exception);
-		}
+	if( retCode )
+	{
+		Exception exception("Error in DeckAnki:LoadData: can't open database: " +  FormatHelper::ConvertToStr(sqlite3_errmsg(dbDeck)));
+		sqlite3_close(dbDeck);
+
+		throw (exception);
+	}
 
 	//update databse entriies
 	//Fetch();
@@ -140,7 +142,7 @@ void DeckAnki::AnswerCard(Answer answer)
 	std::cout<<"Registering answer" <<std::endl;
 	//update card stats
 	//calc new interval
-	
+
 	switch (answer)
 	{
 	case 0:
@@ -166,15 +168,15 @@ DeckAnki::~DeckAnki()
 
 CardAnki DeckAnki::CardFromDBRow(StringMap row)
 {
-		std::string strFront = row["question"];
-		std::string strBack = row["answer"];
-		CardField fldFront(strFront);
-		CardField fldBack(strBack);
-		CardAnki card(fldFront,fldBack);
-//		card.id=FormatHelper::StrToInt(row["id"]);
-		card.id=row["id"];
-		//std::cout<<"loaded card id="<<card.id<<std::endl;
-		card.due=FormatHelper::StrToFloat(row["due"]);
+	std::string strFront = row["question"];
+	std::string strBack = row["answer"];
+	CardField fldFront(strFront);
+	CardField fldBack(strBack);
+	CardAnki card(fldFront,fldBack);
+	card.type=FormatHelper::StrToInt(row["type"]);
+	card.id=row["id"];
+	//std::cout<<"loaded card id="<<card.id<<std::endl;
+	card.due=FormatHelper::StrToFloat(row["due"]);
 
 	return card;
 }
@@ -187,10 +189,34 @@ std::string DeckAnki::GetFetchedCardIds()
 	{
 		result=result + ", "+ *i ;
 	}
-	
+
 	return result;
 }
 
+float DeckAnki::CalcNextInterval(CardAnki card,int ease)
+{
+	return 0;
+}
+
+
+std::string DeckAnki::GetStatus()
+{
+	std::string strStatus;
+	switch (lastCard->type)
+	{
+	case 0: strStatus="failed ";
+		break;
+	case 1: strStatus="review ";
+		break;
+	case 2: strStatus="new    ";
+		break;
+	default:
+		strStatus="oops.. ";
+		break;
+	}
+	strStatus = strStatus + "f:" + FormatHelper::ConvertToStr(GetNumCardsFailedToday())+" r:"+ FormatHelper::ConvertToStr(GetNumCardsReviewToday())+" n:"+ FormatHelper::ConvertToStr(GetNumCardsNewToday());
+	return strStatus;
+}
 //save card
 //remove id from fetchedCardIds
 //

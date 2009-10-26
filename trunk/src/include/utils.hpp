@@ -10,7 +10,7 @@
 class FormatHelper 
 {
 public:
-	static std::string GetTimeStr()
+	static std::string GetCurrentTimeStr()
 	{
 		time_t seconds;
 		seconds = time (NULL);

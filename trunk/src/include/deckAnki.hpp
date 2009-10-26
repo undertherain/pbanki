@@ -14,7 +14,7 @@ class CardAnki: public ICard
 {
 private:
 	//"cardModelId","created","modified","tags","ordinal","question","answer","priority","firstAnswered","successive","averageTime","reviewTime","youngEase0","youngEase1","youngEase2","youngEase3","youngEase4","matureEase0","matureEase1","matureEase2","matureEase3","matureEase4""spaceUntil","relativeDelay","",
-
+	int failedCardsCounter;
 public:
 	CardAnki(CardField _front,CardField _back):ICard(_front,_back){};
 	CardAnki():ICard(CardField("ankiempty"),CardField("ankiempty")){};
@@ -37,21 +37,23 @@ public:
 class DeckAnki: public IDeck
 {
 private:
-		sqlite3 *dbDeck;
-		CardList cardsDueBuffer;
-		CardList cardsAnsweredBuffer;
-		CardIds fetchedCardIds;
-		std::string GetFetchedCardIds();
-		CardAnki * lastCard;
-		CardAnki CardFromDBRow(StringMap row);
-		float CalcNextInterval(CardAnki card,int ease);
+	sqlite3 *dbDeck;
+	CardList cardsDueBuffer;
+	CardList cardsAnsweredBuffer;
+	CardIds fetchedCardIds;
+	std::string GetFetchedCardIds();
+	CardAnki * lastCard;
+	CardAnki CardFromDBRow(StringMap row);
+	int numCardsFailedInDeck;
+	float CalcNextInterval(const CardAnki & card,int ease);
+	void Fetch();
+	int FetchCardsByQuery(std::string query);
 
 public:
 	ICard GetNextCard();						//next card from queue
 	void LoadStats();						//
 	void LoadData();						//
 	void AnswerCard(Answer answer);
-	void Fetch();
 	std::string GetStatus();
 	DeckAnki()
 		{

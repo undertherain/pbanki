@@ -71,7 +71,8 @@ int ViewPocketBook::SelectDeck()
 			//set status=noDeck
 			status=Status::stNoDecks;
 			return -1;
-		} else
+		} 
+			else
 		{
 			std::cout<<"starting deck selector"<<std::endl;
 			iconfigedit * decksConfigEdit = new iconfigedit[decks.size()+1];
@@ -110,13 +111,13 @@ int ViewPocketBook::SelectDeck()
 int ViewPocketBook::HandleEvent(InkViewEvent event) 
 {
 	Logger logger;
-	logger.WriteLog("Handle event");
+//	logger.WriteLog("Handle event");
 
 	static int iter=0;
 
 	iter++;
 //	Logger.WriteLog("main handler %d\n",iter);
-	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
+//	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
         if (Globals::isConfigEditorActive)
 	{
 		logger.WriteLog("waiting for config to launch handler");
@@ -220,8 +221,8 @@ int ViewPocketBook::HandleShowFront(InkViewEvent event)
 		lastStatus=status;
 		card=model.getNextCard();
 	}
-	fprintf(stderr,"ShowFront Handler\n");
-	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
+//	fprintf(stderr,"ShowFront Handler\n");
+//	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
 	
 	
 		ClearScreen();
@@ -240,7 +241,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 {
 	static int answerMark=0;
 	lastStatus=status;
-	fprintf(stderr,"ShowBack Handler answer=%d \n",answerMark);
+//	fprintf(stderr,"ShowBack Handler answer=%d \n",answerMark);
 	//fprintf(stderr, "event:  [%i %i %i]\n", event.type, event.par1, event.par2);
 	if (event.type==EVT_KEYPRESS) 
 		switch(event.par1)
@@ -256,6 +257,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 			case KEY_OK:
 			model.AnswerCard(answerMark);
 			view.status=Status::stShowFront;
+			return 0;
 			break;
 		default:
 			//do nothing

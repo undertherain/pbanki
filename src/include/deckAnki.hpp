@@ -47,6 +47,7 @@ private:
 	int numCardsFailedInDeck;
 	float CalcNextInterval(const CardAnki & card,int ease);
 	void Fetch();
+	void SaveCard(const CardAnki & card);
 	int FetchCardsByQuery(std::string query);
 
 public:

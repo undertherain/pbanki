@@ -16,7 +16,7 @@
 #define MAX_NEW_CARDS 10
 #define MAX_FAILED_CARDS 10
 #define FAILED_CARDS_SPACING 20
-
+#define SECONDS_PER_DAY 86400.0
 
 //--------------------------- Fetching Card Queue (buffer) -------------------
 void DeckAnki::Fetch()
@@ -30,13 +30,13 @@ void DeckAnki::Fetch()
 			//start fetching failed cards until we reach buffer limit
 			std::cout<< "fetching failed cards from  "<< fileName<<std::endl;
 			//std::string query="SELECT * FROM cards where type=0 ORDER BY combinedDue LIMIT " + FormatHelper::ConvertToStr(DECK_BUFFER_SIZE);
-			std::string query="SELECT * FROM cards where combinedDue < " + FormatHelper::GetTimeStr() + " and type=0 and priority in (1,2,3,4) and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY combinedDue LIMIT 1";
+			std::string query="SELECT * FROM cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and type=0 and priority in (1,2,3,4) and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY combinedDue LIMIT 1";
 			numCardsFailedInDeck -= FetchCardsByQuery(query);
 			return ;
 		}
 		//if no mo failed cards - start loading review or new cards, until we reach biffer limit
 		std::cout << "fetching due card" << std::endl;
-		std::string query="select * from cards where combinedDue < " + FormatHelper::GetTimeStr() + " and priority in (1,2,3,4) and type = 1 and (not (id in ("+ GetFetchedCardIds() +")))  limit 1";
+		std::string query="select * from cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and priority in (1,2,3,4) and type = 1 and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY interval desc limit 1";
 		FetchCardsByQuery(query);
 		
 		return ;
@@ -109,20 +109,20 @@ void DeckAnki::LoadStats()
 		std::cout<<"NEW cards today = "<< numCardsNewToday <<std::endl;
 
 		//cards due today
-		query="select count(id) from cards where combinedDue < " + FormatHelper::GetTimeStr() + " and priority in (1,2,3,4) and type in (0, 1)"; 
+		query="select count(id) from cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and priority in (1,2,3,4) and type in (0, 1)"; 
 		SQLiteHelper::ExecuteQuery(dbDeck,query);
 		numCardsNewTotal=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
 		std::cout<<"DUE cards today = "<< numCardsNewTotal <<std::endl;
 
 		//cards failed today
-		query="select count(id) from cards where combinedDue < " + FormatHelper::GetTimeStr() + " and priority in (1,2,3,4) and type = 0"; 
+		query="select count(id) from cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and priority in (1,2,3,4) and type = 0"; 
 		SQLiteHelper::ExecuteQuery(dbDeck,query);
 		numCardsFailedToday=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
 		std::cout<<"FAILED cards today = "<< numCardsFailedToday <<std::endl;
 		numCardsFailedInDeck=numCardsFailedToday;
 
 		//cards review today
-		query="select count(id) from cards where combinedDue < " + FormatHelper::GetTimeStr() + " and priority in (1,2,3,4) and type = 1"; 
+		query="select count(id) from cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and priority in (1,2,3,4) and type = 1"; 
 		SQLiteHelper::ExecuteQuery(dbDeck,query);
 		numCardsReviewToday=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
 		std::cout<<"REVIEW cards today = "<< numCardsReviewToday <<std::endl;
@@ -201,7 +201,11 @@ void DeckAnki::AnswerCard(Answer answer)
 	std::cout<<"Registering answer" <<std::endl;
 	//update card stats
 	//calc new interval
-	float interval=CalcNextInterval(*lastCard,answer);
+	lastCard->lastInterval=lastCard->interval;
+	lastCard->interval=CalcNextInterval(*lastCard,answer);
+    lastCard->due = (lastCard->interval * SECONDS_PER_DAY)+  time (NULL);
+	lastCard->combinedDue = lastCard->due;
+
 	//std::cout<<"\t next interval = " << interval<<std::endl;
 	switch (answer)
 	{
@@ -214,6 +218,7 @@ void DeckAnki::AnswerCard(Answer answer)
 			default: break;
 		}
 		lastCard->type=0;
+		lastCard->noCount++;
 		cardsDueBuffer.push_back(*lastCard);
 		break;
 	default:
@@ -225,9 +230,14 @@ void DeckAnki::AnswerCard(Answer answer)
 			case 2: numCardsNewToday--; break;
 			default: break;
 		}
+		lastCard->yesCount++;
+		lastCard->isDue=false;
+		lastCard->type=1;
 
-		
-		cardsAnsweredBuffer.push_back(*lastCard);
+		//related card should be affected
+		//cardsAnsweredBuffer.push_back(*lastCard);
+		//saving card
+		SaveCard(*lastCard);
 		break;
 	}
 }
@@ -256,7 +266,7 @@ float DeckAnki::CalcNextInterval(const CardAnki & card,int ease)
 		return 0;	
 	}
 	double factor=card.factor;
-	double newFactor=factor+(0.1-(5-ease)*(0.08+(5-ease)*0.02));
+	double newFactor=factor+(0.1-(3-ease)*(0.08+(3-ease)*0.02));
 	newFactor=std::max(1.3,newFactor);
 	float interval;
 	interval = (card.interval==0?1:card.interval);
@@ -289,6 +299,59 @@ std::string DeckAnki::GetStatus()
 	return strStatus;
 }
 
+//---------------------- saving card ---------------------
+void DeckAnki::SaveCard(const CardAnki & card)
+{
+	std::cout<<"saving card id= "<<card.id<<std::endl;
+	std::string query="update cards set ";
+	query+=  "due = " + FormatHelper::ConvertToStr(static_cast<int>(card.due));
+	query+=  ", combinedDue = " + FormatHelper::ConvertToStr(card.combinedDue);
+	query+=  ", modified = " + FormatHelper::GetCurrentTimeStr();
+	query+=  ", interval = " + FormatHelper::ConvertToStr(card.interval);
+	query+=  ", lastInterval = " + FormatHelper::ConvertToStr(card.lastInterval);
+	query+=  ", type = " + FormatHelper::ConvertToStr(card.type);
+	query+=  ", isDue = 0";
+	query+=  " where id = "+ card.id;
+
+/*
+tags=:tags,
+
+lastDue=:lastDue,
+factor=:factor,
+lastFactor=:lastFactor,
+firstAnswered=:firstAnswered,
+reps=:reps,
+successive=:successive,
+averageTime=:averageTime,
+reviewTime=:reviewTime,
+youngEase0=:youngEase0,
+youngEase1=:youngEase1,
+youngEase2=:youngEase2,
+youngEase3=:youngEase3,
+youngEase4=:youngEase4,
+matureEase0=:matureEase0,
+matureEase1=:matureEase1,
+matureEase2=:matureEase2,
+matureEase3=:matureEase3,
+matureEase4=:matureEase4,
+yesCount=:yesCount,
+noCount=:noCount,
+spaceUntil = :spaceUntil,
+relativeDelay = 0,
+priority = :priority
+where id=:id""", self.__dict__)
+*/
+
+	std::cout<<query<<std::endl;
+	try
+	{
+		SQLiteHelper::ExecuteQuery(dbDeck,query);
+	}
+	catch(Exception ex)
+	{
+		std::cout<<"Error in DeckAnki::SaveCard: "<<ex.GetMessage()<<std::endl;
+	}
+}
 
 /*
 "Return the next interval for CARD given EASE."

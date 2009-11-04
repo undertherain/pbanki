@@ -8,10 +8,11 @@ SOURCES = src/main_pocketbook.cpp src/include/deck.cpp src/include/deckAnki.cpp 
 INCLUDE=-I/arm-linux/include
 PATH=$(POCKETBOOKSDK)\arm-linux\bin;$(POCKETBOOKSDK)\bin
 LIBS=-linkview -lfreetype -ljpeg -lz -pthread
+CFLAGS=-Wall -O2 -fomit-frame-pointer -DARCH_PB
 
 
 pbanki.app: sqlite3.o
-	$(CPP) -Wall -O2 -fomit-frame-pointer $(INCLUDE) sqlite3.o -o $@ $(LIBS) $(SOURCES)
+	$(CPP) $(CFLAGS) $(INCLUDE) sqlite3.o -o $@ $(LIBS) $(SOURCES)
 	$(STRIP) pbanki.app
 
 

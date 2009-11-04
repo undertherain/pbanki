@@ -1,5 +1,6 @@
 #include "model.hpp"
 #include "utils.hpp"
+#include "exceptions.hpp"
 
 DeckInfoList Model::getDeckList()
 {

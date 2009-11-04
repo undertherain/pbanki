@@ -1,4 +1,5 @@
 #include "deck.hpp"
+#define F_FULLFSYNC 1
 #include "dbSQLite.hpp"
 
 #include <list>

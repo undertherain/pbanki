@@ -137,6 +137,7 @@ DeckInfoList IDeck::getDeckList()
 
 IDeck * IDeck::LoadDeck(DeckId id)
 {
+
 	std::string newDeckFileName="./decks/"+id;
 
 	//open file in sqlite

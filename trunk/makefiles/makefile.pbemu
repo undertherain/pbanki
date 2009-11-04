@@ -9,7 +9,7 @@ LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32
 CFLAGS=-static -Wall -O2 -fomit-frame-pointer
 
 pbanki_emu.exe:  sqlite3.o
-	c:\bin\PBSDK\bin\g++ $(CFLAGS) $(INCLUDE) sqlite3.o -o $@ $(SOURCES) $(LIBS)
+	c:\bin\PBSDK\bin\g++ $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(LIBS) sqlite3.o
 
 
 sqlite3.o:

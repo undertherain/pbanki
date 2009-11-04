@@ -14,6 +14,7 @@
 
 #include "inkview.h"
 
+#include "exceptions.hpp"
 #include "view_pb.hpp"
 #include "logger.hpp"
 
@@ -26,11 +27,12 @@ public:
 	static ifont * fontCard;
 	static ifont * fontButtons;
 	static bool isConfigEditorActive;
+	static char deckToLoadName[256];
 };
 
 ifont *  Globals::fontCard = NULL;
 ifont *  Globals::fontButtons = NULL;
-
+char Globals::deckToLoadName[256];
 bool Globals::isConfigEditorActive=false;
 
 
@@ -46,166 +48,177 @@ void config_ok() {
 void itemChanged(char * item) {
 
 	//	SaveConfig(testcfg);
-	fprintf(stderr,"We are in item %s \n",item);
-	DeckId id(item);
+	fprintf(stderr,"Selected item: %s \n",item);
 
-	SetFont(Globals::fontCard, BLACK);
-	ClearScreen();
-	DrawString(50, 50, "Loading deck...");
-	SoftUpdate();
+	strncpy(Globals::deckToLoadName,item,256);
 
-	view.model.LoadDeck(id);
-	view.model.LoadStats();
-	SetEventHandler(mainHandler);
 	Globals::isConfigEditorActive=false;
-
+	SetEventHandler(mainHandler);
 }
 
 
 
 int ViewPocketBook::SelectDeck()
+{
+
+	DeckInfoList decks = model.getDeckList();
+	if (decks.size()==0)
 	{
-		DeckInfoList decks = model.getDeckList();
-		if (decks.size()==0)
-		{
-			//set status=noDeck
-			status=Status::stNoDecks;
-			return -1;
-		} 
-			else
-		{
-			std::cout<<"starting deck selector"<<std::endl;
-			iconfigedit * decksConfigEdit = new iconfigedit[decks.size()+1];
-			int cnt=0;
-			for (DeckInfoList::iterator i=decks.begin();i!=decks.end();i++)
-			{	
-				iconfigedit newConfigLine;
-				newConfigLine.type = CFG_INFO;
-				newConfigLine.icon = NULL;
-				newConfigLine.text = new char[i->GetName().length()];
-				strcpy(newConfigLine.text,i->GetName().c_str());
-				newConfigLine.hint = "new:? due:?";
+		//set status=noDeck
+		status=Status::stNoDecks;
+		return -1;
+	} 
+	else
+	{
+		std::cout<<"starting deck selector"<<std::endl;
+		iconfigedit * decksConfigEdit = new iconfigedit[decks.size()+1];
+		int cnt=0;
+		for (DeckInfoList::iterator i=decks.begin();i!=decks.end();i++)
+		{	
+			iconfigedit newConfigLine;
+			newConfigLine.type = CFG_INFO;
+			newConfigLine.icon = NULL;
+			newConfigLine.text = new char[i->GetName().length()];
+			strcpy(newConfigLine.text,i->GetName().c_str());
+			newConfigLine.hint = "new:? due:?";
 
-				newConfigLine.name = new char[i->GetName().length()];
-				strcpy(newConfigLine.name,i->GetName().c_str());
+			newConfigLine.name = new char[i->GetName().length()];
+			strcpy(newConfigLine.name,i->GetName().c_str());
 
-				newConfigLine.deflt = NULL;
-				newConfigLine.variants = NULL;
-				newConfigLine.submenu = NULL;
+			newConfigLine.deflt = NULL;
+			newConfigLine.variants = NULL;
+			newConfigLine.submenu = NULL;
 
-				decksConfigEdit[cnt++]=newConfigLine;
-				//std::cout<<i->GetName()+" \n";	
-			}
-			iconfigedit emptyConfigLine={ 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
-			decksConfigEdit[cnt]=emptyConfigLine;
-			iconfig *cfgDeckList = OpenConfig("/mnt/ext1/test.cfg", NULL);
-			//get decks list
-			//fill array of 
-			Globals::isConfigEditorActive=true;
-			OpenConfigEditor("Select Deck", cfgDeckList, decksConfigEdit, config_ok,itemChanged);
-			return 0;
+			decksConfigEdit[cnt++]=newConfigLine;
+			//std::cout<<i->GetName()+" \n";	
 		}
+		iconfigedit emptyConfigLine={ 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
+		decksConfigEdit[cnt]=emptyConfigLine;
+		iconfig *cfgDeckList = OpenConfig("/mnt/ext1/test.cfg", NULL);
+		//get decks list
+		//fill array of 
+		Globals::isConfigEditorActive=true;
+		OpenConfigEditor("Select Deck", cfgDeckList, decksConfigEdit, config_ok,itemChanged);
+		return 0;
 	}
+}
 
 
 int ViewPocketBook::HandleEvent(InkViewEvent event) 
 {
 	Logger logger;
-//	logger.WriteLog("Handle event");
+	//	logger.WriteLog("Handle event");
 
 	static int iter=0;
 
 	iter++;
-//	Logger.WriteLog("main handler %d\n",iter);
-//	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
-        if (Globals::isConfigEditorActive)
+	//	Logger.WriteLog("main handler %d\n",iter);
+	//	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
+	if (Globals::isConfigEditorActive)
 	{
 		logger.WriteLog("waiting for config to launch handler");
 		return 0;
 	}
-	switch(event.type)
+	try
 	{
-			case EVT_INIT:
-				logger.WriteLog("Doing INIT event");
+		switch(event.type)
+		{
+		case EVT_INIT:
+			logger.WriteLog("Doing INIT event");
+			std::cout<<"sizeof int= "<<sizeof(int)<<std::endl;
+			// occurs once at startup, only in main handler
+			Globals::fontCard = OpenFont("YOzFontM.TTF", 30, 2);
+			Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
 
-				// occurs once at startup, only in main handler
-				Globals::fontCard = OpenFont("YOzFontM.TTF", 30, 2);
-				Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
+			ClearScreen();
+			DrawString(160, 253, "Starting Anki");
 
-				ClearScreen();
-				DrawString(160, 253, "Starting Anki");
-	
-				FullUpdate();
+			FullUpdate();
 
-				//return 0;
+			//return 0;
+			break;
+
+		case EVT_EXIT:
+			logger.WriteLog("EXIT event recieved");
+			status=Status::stExit;
+			break;
+		default:
+
+			break;
+			//hmm.... 
+
+		}
+		bool isMainLoopRepeatRequired;
+		do
+		{
+			isMainLoopRepeatRequired=false;
+			switch (status)
+			{
+			case Status::stSelectDeck:
+				logger.WriteLog("selecting deck\n");
+
+				if (!SelectDeck())
+					status=Status::stLoadDeck;
+				return 0;
+				//		displayDeckList(model.getDeckList());
+				//		status=Status::stLoadDeck;
 				break;
+			case Status::stNoDecks:
+				HandleNoDecks(event);
+				break;
+			case Status::stLoadDeck:
+				{
+					DeckId id(Globals::deckToLoadName);
 
-			case EVT_EXIT:
-				logger.WriteLog("EXIT event recieved");
-				status=Status::stExit;
+					SetFont(Globals::fontCard, BLACK);
+					ClearScreen();
+					DrawString(50, 50, "Loading deck...");
+					SoftUpdate();
+
+					view.model.LoadDeck(id);
+					view.model.LoadStats();
+					status=Status::stShowFront;
+					isMainLoopRepeatRequired=true;
+				}
+				break;
+			case Status::stShowFront:
+				HandleShowFront(event);
+				break;
+			case Status::stShowBack:
+				HandleShowBack(event);
+				break;
+			case Status::stExit:
+				CloseApp();
 				break;
 			default:
-
+				//make error unexepected status
+				CloseApp();
 				break;
-				//hmm.... 
+
+			}
+		} while(isMainLoopRepeatRequired);
+
 
 	}
-
-	switch (status)
+	catch(Exception ex)
 	{
-	case Status::stSelectDeck:
-	logger.WriteLog("selecting deck\n");
-		
-		if (!SelectDeck())
-			status=Status::stShowFront;
-		return 0;
-//		displayDeckList(model.getDeckList());
-//		status=Status::stLoadDeck;
-		break;
-	case Status::stNoDecks:
-		HandleNoDecks(event);
-		break;
-	case Status::stLoadDeck:
-		{
-		//	DeckId id;
-		//	id=selectDeck();
-		//	if (id.length()==0)
-		//	{
-		//		status=Status::stExit;	
-		//	}
-		//	else
-		//	{
-		//		model.loadDeck(id);
-		//		status=Status::stShowFront;
-		//	}
-		}
-		break;
-	case Status::stShowFront:
-		HandleShowFront(event);
-		break;
-	case Status::stShowBack:
-		HandleShowBack(event);
-		break;
-	case Status::stExit:
-		CloseApp();
-		break;
-	default:
-		//make error unexepected status
-		CloseApp();
-		break;
-
+		std::cout<<"Error in vuewpb handle event: "<<ex.GetMessage()<<std::endl;
+		ClearScreen();
+		DrawTextRect(11, 11, 580, 500, const_cast<char *>((ex.GetMessage()+"\n press a key to exit").c_str()), ALIGN_LEFT | VALIGN_MIDDLE);
+		SoftUpdate();
+		status=Status::stExit;
 	}
 
-	
+
 
 	//	if (type == EVT_KEYPRESS) {
 	// 	
 
-//	if (iter>36) 
-//	{	
+	//	if (iter>36) 
+	//	{	
 	//	logger.WriteLog("EXITING by iterations limit\n");
 	//	CloseApp();
-//	}
+	//	}
 
 	//
 	//	}
@@ -217,44 +230,44 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 int ViewPocketBook::HandleShowFront(InkViewEvent event) 
 {	if (lastStatus!=status)
-	{
-		lastStatus=status;
-		card=model.getNextCard();
-	}
+{
+	lastStatus=status;
+	card=model.getNextCard();
+}
 //	fprintf(stderr,"ShowFront Handler\n");
 //	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
-	
-	
-		ClearScreen();
-		//	FullUpdate();
-		ShowFront();
-		SoftUpdate();
-	
-	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
-	{
-		view.status=Status::stShowBack;
-	}
-			
-	return 0;
+
+
+ClearScreen();
+//	FullUpdate();
+ShowFront();
+SoftUpdate();
+
+if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
+{
+	view.status=Status::stShowBack;
+}
+
+return 0;
 }
 int ViewPocketBook::HandleShowBack(InkViewEvent event) 
 {
 	static int answerMark=0;
 	lastStatus=status;
-//	fprintf(stderr,"ShowBack Handler answer=%d \n",answerMark);
+	//	fprintf(stderr,"ShowBack Handler answer=%d \n",answerMark);
 	//fprintf(stderr, "event:  [%i %i %i]\n", event.type, event.par1, event.par2);
 	if (event.type==EVT_KEYPRESS) 
 		switch(event.par1)
-		{
-			case KEY_LEFT:
-				answerMark--;
-				if (answerMark<0) answerMark=0;
+	{
+		case KEY_LEFT:
+			answerMark--;
+			if (answerMark<0) answerMark=0;
 			break;
-			case KEY_RIGHT:
-				answerMark++;
-				if (answerMark>3) answerMark=3;
+		case KEY_RIGHT:
+			answerMark++;
+			if (answerMark>3) answerMark=3;
 			break;
-			case KEY_OK:
+		case KEY_OK:
 			model.AnswerCard(answerMark);
 			view.status=Status::stShowFront;
 			return 0;
@@ -262,7 +275,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 		default:
 			//do nothing
 			break;
-		}
+	}
 
 	//	if (type == EVT_SHOW) 
 	{
@@ -270,7 +283,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 		ClearScreen();
 		ShowFront();
 		ShowBack();
-	//	PartialUpdateBW(10,300,580,400);
+		//	PartialUpdateBW(10,300,580,400);
 
 		//drawing buttons
 		SetFont(Globals::fontButtons, BLACK);
@@ -293,32 +306,32 @@ int ViewPocketBook::HandleNoDecks(InkViewEvent event)
 		view.status=Status::stExit;
 	}
 	SoftUpdate();
-			
+
 	return 0;
 }
 
 void ViewPocketBook::ShowFront()
 {
-		DrawRect(10, 10, 580, 300, 0);
-		SetFont(Globals::fontCard, BLACK);
-		//DrawString(50, 50, card.front.ToString().c_str());
-		DrawTextRect(11, 11, 580, 300, const_cast<char *>(card.front.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
-		ShowStatusBar();
+	DrawRect(10, 10, 580, 300, 0);
+	SetFont(Globals::fontCard, BLACK);
+	//DrawString(50, 50, card.front.ToString().c_str());
+	DrawTextRect(11, 11, 580, 300, const_cast<char *>(card.front.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+	ShowStatusBar();
 }
 
 void ViewPocketBook::ShowBack()
 {
-		DrawRect(10, 315, 580, 300, 0);
-		SetFont(Globals::fontCard, BLACK);
-		//DrawString(50, 350, card.back.ToString().c_str());
-		DrawTextRect(11, 316, 580, 300, const_cast<char *>(card.back.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+	DrawRect(10, 315, 580, 300, 0);
+	SetFont(Globals::fontCard, BLACK);
+	//DrawString(50, 350, card.back.ToString().c_str());
+	DrawTextRect(11, 316, 580, 300, const_cast<char *>(card.back.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }
 
 void ViewPocketBook::ShowStatusBar()
 {
-		DrawRect(10, 760, 580, 30, 0);
-		SetFont(Globals::fontButtons, BLACK);
-		DrawTextRect(11, 760, 580, 30, const_cast<char *>(model.GetStatus().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+	DrawRect(10, 760, 580, 30, 0);
+	SetFont(Globals::fontButtons, BLACK);
+	DrawTextRect(11, 760, 580, 30, const_cast<char *>(model.GetStatus().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }
 
 int mainHandler(int type, int par1, int par2) 

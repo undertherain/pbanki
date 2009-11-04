@@ -2,7 +2,7 @@
 // Copyright (c) 2009 Alexander A. Drozd 
 
 #include "deckAnki.hpp"
-#include "libs/sqlite3.h"
+//#include "libs/sqlite3.h"
 #include "utils.hpp"
 #include <iostream>
 #include <string>
@@ -18,6 +18,7 @@
 #define FAILED_CARDS_SPACING 20
 #define SECONDS_PER_DAY 86400.0
 
+
 //--------------------------- Fetching Card Queue (buffer) -------------------
 void DeckAnki::Fetch()
 {
@@ -30,7 +31,7 @@ void DeckAnki::Fetch()
 			//start fetching failed cards until we reach buffer limit
 			std::cout<< "fetching failed cards from  "<< fileName<<std::endl;
 			//std::string query="SELECT * FROM cards where type=0 ORDER BY combinedDue LIMIT " + FormatHelper::ConvertToStr(DECK_BUFFER_SIZE);
-			std::string query="SELECT * FROM cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and type=0 and priority in (1,2,3,4) and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY combinedDue LIMIT 1";
+			std::string query="SELECT * FROM cards where type=0 and priority in (1,2,3,4) and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY combinedDue LIMIT 1";
 			numCardsFailedInDeck -= FetchCardsByQuery(query);
 			return ;
 		}
@@ -115,7 +116,8 @@ void DeckAnki::LoadStats()
 		std::cout<<"DUE cards today = "<< numCardsNewTotal <<std::endl;
 
 		//cards failed today
-		query="select count(id) from cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and priority in (1,2,3,4) and type = 0"; 
+///		query="select count(id) from cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and priority in (1,2,3,4) and type = 0"; 
+		query="select count(id) from cards where priority in (1,2,3,4) and type = 0"; 
 		SQLiteHelper::ExecuteQuery(dbDeck,query);
 		numCardsFailedToday=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
 		std::cout<<"FAILED cards today = "<< numCardsFailedToday <<std::endl;
@@ -136,11 +138,11 @@ void DeckAnki::LoadStats()
 
 void DeckAnki::LoadData()
 {
-	std::cout<<"Loading deck data " <<std::endl;
+	std::cout<<"Loading deck data from  "<< fileName.c_str() <<"... ";
 	//open database
 	int retCode;
 	retCode = sqlite3_open_v2(fileName.c_str(), &dbDeck,SQLITE_OPEN_READWRITE,NULL);
-
+	std::cout<<" sqlite open... ";
 	if( retCode )
 	{
 		Exception exception("Error in DeckAnki:LoadData: can't open database: " +  FormatHelper::ConvertToStr(sqlite3_errmsg(dbDeck)));
@@ -151,17 +153,21 @@ void DeckAnki::LoadData()
 
 	//update databse entriies
 	//Fetch();
+	std::cout<<" ok" <<std::endl;
+
 }
 
 
 
 DeckAnki::~DeckAnki()
 {
+	std::cout<<"DeckAnki destructor:\n\t" << cardsAnsweredBuffer.size()<< " answered cards not saved "<<std::endl;
 	if (dbDeck!=NULL)
 	{
+		std::cout<<"Closing sqlite connection"<<std::endl;
 		sqlite3_close(dbDeck);
 	}
-	std::cout<<"DeckAnki destructor:\n\t" << cardsAnsweredBuffer.size()<< " answered cards not saved "<<std::endl;
+
 }
 
 CardAnki DeckAnki::CardFromDBRow(StringMap row)

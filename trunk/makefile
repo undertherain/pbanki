@@ -1,5 +1,5 @@
 
-MAKE=mingw32-make.exe
+MAKE=make
 
 #minimalistic console for linux\windows
 console: 

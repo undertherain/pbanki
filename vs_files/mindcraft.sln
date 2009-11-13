@@ -1,18 +1,44 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mindcraft", "Console\mindcraft.vcproj", "{5B8A6650-1689-4979-B4B6-D42F39E9BD2C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MindCraftConsole", "Console\mindcraft.vcproj", "{5B8A6650-1689-4979-B4B6-D42F39E9BD2C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simpleQT", "Qt\qt.vcproj", "{FF6C0EA4-5836-4C13-A489-F18075A98AC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I) = Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)
+		Debug|Windows Mobile 6 Professional SDK (ARMV4I) = Debug|Windows Mobile 6 Professional SDK (ARMV4I)
 		Release|Win32 = Release|Win32
+		Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I) = Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)
+		Release|Windows Mobile 6 Professional SDK (ARMV4I) = Release|Windows Mobile 6 Professional SDK (ARMV4I)
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5B8A6650-1689-4979-B4B6-D42F39E9BD2C}.Debug|Win32.ActiveCfg = Debug|Win32
 		{5B8A6650-1689-4979-B4B6-D42F39E9BD2C}.Debug|Win32.Build.0 = Debug|Win32
+		{5B8A6650-1689-4979-B4B6-D42F39E9BD2C}.Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I).ActiveCfg = Debug|Win32
+		{5B8A6650-1689-4979-B4B6-D42F39E9BD2C}.Debug|Windows Mobile 6 Professional SDK (ARMV4I).ActiveCfg = Debug|Win32
 		{5B8A6650-1689-4979-B4B6-D42F39E9BD2C}.Release|Win32.ActiveCfg = Release|Win32
 		{5B8A6650-1689-4979-B4B6-D42F39E9BD2C}.Release|Win32.Build.0 = Release|Win32
+		{5B8A6650-1689-4979-B4B6-D42F39E9BD2C}.Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I).ActiveCfg = Release|Win32
+		{5B8A6650-1689-4979-B4B6-D42F39E9BD2C}.Release|Windows Mobile 6 Professional SDK (ARMV4I).ActiveCfg = Release|Win32
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Debug|Win32.Build.0 = Debug|Win32
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I).ActiveCfg = Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I).Build.0 = Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I).Deploy.0 = Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Debug|Windows Mobile 6 Professional SDK (ARMV4I).ActiveCfg = Debug|Windows Mobile 6 Professional SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Debug|Windows Mobile 6 Professional SDK (ARMV4I).Build.0 = Debug|Windows Mobile 6 Professional SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Debug|Windows Mobile 6 Professional SDK (ARMV4I).Deploy.0 = Debug|Windows Mobile 6 Professional SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Release|Win32.ActiveCfg = Release|Win32
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Release|Win32.Build.0 = Release|Win32
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I).ActiveCfg = Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I).Build.0 = Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I).Deploy.0 = Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Release|Windows Mobile 6 Professional SDK (ARMV4I).ActiveCfg = Release|Windows Mobile 6 Professional SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Release|Windows Mobile 6 Professional SDK (ARMV4I).Build.0 = Release|Windows Mobile 6 Professional SDK (ARMV4I)
+		{FF6C0EA4-5836-4C13-A489-F18075A98AC8}.Release|Windows Mobile 6 Professional SDK (ARMV4I).Deploy.0 = Release|Windows Mobile 6 Professional SDK (ARMV4I)
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -391,7 +391,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions=" /subsystem:windowsce,5.02"
-				AdditionalDependencies="qtmain.lib QtGui4.lib QtCore4.lib"
+				AdditionalDependencies="corelibc.lib qtmain.lib QtGui4.lib QtCore4.lib"
 				OutputFile="$(OutDir)/verysimple.exe"
 				LinkIncremental="1"
 				DelayLoadDLLs="$(NOINHERIT)"
@@ -509,18 +509,74 @@
 				RelativePath="..\..\src\main_qt.cpp"
 				>
 			</File>
+			<File
+				RelativePath="..\..\src\include\GUI\QT\mainwindow.cpp"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath="..\..\src\include\GUI\QT\mainwindow.h"
+				>
+				<FileConfiguration
+					Name="Release|Windows Mobile 6 Professional SDK (ARMV4I)"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="MOC mainwindow.h"
+						CommandLine="C:\bin\Qt\qtwm\bin\moc.exe  -DUNDER_CE -DWINCE -D_WINDOWS -D_UNICODE -DUNICODE -D_WIN32 -DQT_NO_PRINTER -DQT_NO_PRINTDIALOG -DARMV4I -D_ARMV4I_ -Darmv4i -D_ARM_ -DARM -DARM -D__arm__ -DQ_OS_WINCE_WM -DQT_NO_PRINTER -DQT_NO_PRINTDIALOG -D_WIN32_WCE=0x502 -DQT_DLL -DQT_GUI_LIB -DQT_CORE_LIB -DQT_THREAD_SUPPORT -I&quot;..\..\..\include\QtCore&quot; -I&quot;..\..\..\include\QtGui&quot; -I&quot;..\..\..\include&quot; -I&quot;..\..\..\include\ActiveQt&quot; -I&quot;tmp\moc\debug_shared&quot; -I..\..\..\mkspecs\wincewm60professional-msvc2005 -D_MSC_VER=1400 ..\..\src\include\GUI\QT\mainwindow.h -o tmp\moc\release_shared\moc_mainwindow.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="C:\bin\Qt\qtwm\bin\moc.exe;mainwindow.h"
+						Outputs="tmp\moc\release_shared\moc_mainwindow.cpp"
+					/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Generated Files"
+			Filter="cpp;c;cxx;moc;h;def;odl;idl;res;"
+			UniqueIdentifier="{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}"
+			>
+			<File
+				RelativePath="tmp\moc\release_shared\moc_mainwindow.cpp"
+				>
+			</File>
+			<File
+				RelativePath="tmp\rcc\release_shared\qrc_application.cpp"
+				>
+				<FileConfiguration
+					Name="Release|Windows Mobile 6 Professional SDK (ARMV4I)"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+					/>
+				</FileConfiguration>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+			Filter="qrc;*"
+			UniqueIdentifier="{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}"
+			ParseFiles="false"
 			>
+			<File
+				RelativePath="..\..\src\include\GUI\QT\application.qrc"
+				>
+				<FileConfiguration
+					Name="Release|Windows Mobile 6 Professional SDK (ARMV4I)"
+					>
+					<Tool
+						Name="VCCustomBuildTool"
+						Description="RCC application.qrc"
+						CommandLine="C:\bin\Qt\qtwm\bin\rcc.exe -name application ..\..\src\include\GUI\QT\application.qrc -o tmp\rcc\release_shared\qrc_application.cpp&#x0D;&#x0A;"
+						AdditionalDependencies="C:\bin\Qt\qtwm\bin\rcc.exe;application.qrc"
+						Outputs="tmp\rcc\release_shared\qrc_application.cpp"
+					/>
+				</FileConfiguration>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>

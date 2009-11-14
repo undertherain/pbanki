@@ -547,13 +547,6 @@
 			<File
 				RelativePath="tmp\rcc\release_shared\qrc_application.cpp"
 				>
-				<FileConfiguration
-					Name="Release|Windows Mobile 6 Professional SDK (ARMV4I)"
-					>
-					<Tool
-						Name="VCCLCompilerTool"
-					/>
-				</FileConfiguration>
 			</File>
 		</Filter>
 		<Filter

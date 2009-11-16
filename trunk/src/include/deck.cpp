@@ -1,15 +1,18 @@
+
 #include "deck.hpp"
 #include <string>
 #include <iostream>
 
-
 #if  defined(ARCH_PB) || defined(ARCH_PBEMU)
-#include <dirent.h>
+	#include <dirent.h>
+#else
+	#include <windows.h>
 #endif
 
-#if defined(ARCH_WM) || defined(WIN32)
-#include <windows.h>
+#ifdef ARCH_WIN
+	//DOES NOT WORK ON WIN32
 #endif
+
 
 #include "logger.hpp"
 #include "deckAnki.hpp"
@@ -66,10 +69,17 @@ DeckInfo::DeckInfo(std::string fileName)
 
 // -------------------------- Deck ----------------------------
 
-DeckInfoList IDeck::getDeckList()
+DeckInfoList IDeck::getDeckList(std::string directory)
 {
 	DeckInfoList decks;
 	Logger logger;
+
+	logger.WriteLog("current dir = " + directory);
+
+	if (directory.length()==0)
+	{
+		directory="./decks/";
+	}
 
 	//	decks.push_back(DeckInfo("test1")); 
 	//	decks.push_back(DeckInfo("test2"));
@@ -80,7 +90,7 @@ DeckInfoList IDeck::getDeckList()
 	struct dirent **filelist;
 	std::string temps;
 	int n;
-	n=scandir("./decks/",&filelist,0,alphasort);
+	n=scandir(directory.c_str(),&filelist,0,alphasort);
 	if (n<0)
 	{
 		std::cerr<<"no decks found"<<std::endl;
@@ -103,10 +113,16 @@ DeckInfoList IDeck::getDeckList()
 	}
 #else
 
-	std::wstring strPattern = L"./decks/*.anki"; //будь я проклят! 
+	//std::wstring strPattern = L"./decks/*.anki"; //будь я проклят! 
+	std::string searchPattern=directory+"*.anki";
+	std::wstring wSearchPattern(searchPattern.length(), ' ');
+	std::copy(searchPattern.begin(), searchPattern.end(), wSearchPattern.begin());
+	
+	
+	logger.WriteLog("search path = " + searchPattern);
 	HANDLE hFile;							 // Handle to file
 	WIN32_FIND_DATA FileInformation;         // File information
-	hFile = ::FindFirstFile(strPattern.c_str(), &FileInformation);
+	hFile = ::FindFirstFile(wSearchPattern.c_str(), &FileInformation);
 	if(hFile != INVALID_HANDLE_VALUE)
 	{
 		do

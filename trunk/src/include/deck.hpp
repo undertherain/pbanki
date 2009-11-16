@@ -24,7 +24,7 @@ protected:
 	int numCardsReviewToday;
 
 public:
-	static DeckInfoList getDeckList();
+	static DeckInfoList getDeckList(std::string directory="");
 	static IDeck * LoadDeck(DeckId id);
 	virtual ICard GetNextCard()=0;					//next card from queue
 	virtual void LoadData()=0;

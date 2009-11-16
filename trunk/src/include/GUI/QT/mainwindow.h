@@ -17,15 +17,19 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow();
+	//mindcraft:
+	Model model;
+	void ShowDeckList();
+
 protected:
     void closeEvent(QCloseEvent *event);
 private slots: 
     void about();
 
 private:
-    void createActions();
-    void createMenus();
-	void readSettings();
+    void CreateActions();
+    void CreateMenus();
+	void ReadSettings();
 
 //	QPlainTextEdit *textEdit;
 	QTextEdit *textEdit;
@@ -36,8 +40,6 @@ private:
     QAction *actExit;
     QAction *actAbout;
 
-	//mindcraft:
-	Model model;
 
 
 };

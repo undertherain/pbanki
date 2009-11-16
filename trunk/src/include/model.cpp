@@ -4,7 +4,14 @@
 
 DeckInfoList Model::getDeckList()
 {
-	return IDeck::getDeckList();
+	if (currentDirectory.length()==0)
+	{
+		return IDeck::getDeckList();
+	}
+	else
+	{
+		return IDeck::getDeckList(currentDirectory+"/decks/");
+	}
 }
 
 void Model::LoadDeck(DeckId id)

@@ -456,7 +456,11 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
+				EnableIntrinsicFunctions="true"
+				WholeProgramOptimization="true"
+				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;ARCH_WIN"
 				RuntimeTypeInfo="false"
+				WarningLevel="3"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -548,6 +552,22 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath="..\..\src\include\controller.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\include\dbSQLite.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\include\deck.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\include\deckAnki.hpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\src\include\GUI\QT\mainwindow.h"
 				>
 				<FileConfiguration
@@ -561,6 +581,10 @@
 						Outputs="tmp\moc\release_shared\moc_mainwindow.cpp"
 					/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\src\include\model.hpp"
+				>
 			</File>
 			<File
 				RelativePath="..\..\src\include\utils.hpp"

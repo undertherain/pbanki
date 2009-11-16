@@ -14,6 +14,7 @@
 int main (int argc, char * argv[])
 {
 #ifdef ARCH_PB
+
 	chdir("/mnt/ext1/games/");
 	int fd1 = open("log1.txt",O_CREAT|0666);
 	dup2(fd1, 1); 

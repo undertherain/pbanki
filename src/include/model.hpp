@@ -18,6 +18,7 @@ public:
 	ICard getNextCard();						//next card from queue
 	void AnswerCard(Answer answer);
 	TEMPORARY std::string GetStatus();
+	std::string currentDirectory;
 	Model():currentDeck(NULL){};
 	~Model();
 	//deck props?

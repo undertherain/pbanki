@@ -15,7 +15,7 @@ Logger::Logger()
 {
 	if (counter==0)
 	{
-		(*strmLog).open("pbanki.log",std::ios_base::app);
+		(*strmLog).open("pbankilog.txt",std::ios_base::app);
 	//	(*strmLog)<<"log created\n";
 	}
 	

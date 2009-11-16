@@ -7,18 +7,18 @@ MainWindow::MainWindow()
 	textEdit = new QTextEdit;
 
     setCentralWidget(textEdit);
-	//textEdit->setReadOnly(true);
-	textEdit->setHtml("la-<b>la</b>-la<br>Аня - коза :)<br>味噌");
+	textEdit->setReadOnly(true);
 	
-    createActions();
-    createMenus();
+	
+    CreateActions();
+    CreateMenus();
 
-	readSettings();
+	ReadSettings();
 	
 
 }
 
-void MainWindow::readSettings()
+void MainWindow::ReadSettings()
 {
     QSettings settings("pbanki", "Application");
     QPoint pos = settings.value("pos", QPoint(200, 200)).toPoint();
@@ -26,6 +26,7 @@ void MainWindow::readSettings()
     resize(size);
     move(pos);
 }
+
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
@@ -48,7 +49,7 @@ void MainWindow::about()
 }
 
 
-void MainWindow::createActions()
+void MainWindow::CreateActions()
 {
     actExit = new QAction(tr("E&xit"), this);
     actExit->setShortcut(tr("Ctrl+Q"));
@@ -60,12 +61,34 @@ void MainWindow::createActions()
     connect(actAbout, SIGNAL(triggered()), this, SLOT(about()));
 }
 
-void MainWindow::createMenus()
+void MainWindow::CreateMenus()
 {
 	menuFile = menuBar()->addMenu(tr("&File"));
     menuFile->addAction(actExit);
 
     menuHelp = menuBar()->addMenu(tr("&Help"));
     menuHelp->addAction(actAbout);
+
+}
+
+
+//mindcraft
+void MainWindow::ShowDeckList()
+{
+	DeckInfoList decks = model.getDeckList();
+	std::string strDeckList;
+	if (decks.size()>0)
+	{
+	for (DeckInfoList::iterator i=decks.begin();i!=decks.end();i++)
+	{	
+		strDeckList+=i->GetName() + "<br />";
+	}
+	textEdit->setHtml(strDeckList.c_str());
+	}
+	else
+	{
+		textEdit->setHtml("No decks found");
+	}
+	//textEdit->setHtml("la-<b>la</b>-la<br>Аня - коза :)<br>味噌");
 
 }

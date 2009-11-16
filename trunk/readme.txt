@@ -18,3 +18,6 @@ just create new console application and add all files form src directory to solu
 плохой класс deckinfo - надо передавать поный путь и выделять из него имя файла
 или получится читать из базы?
 
+---
+список архитектур
+-DARCH_PB -DARCH_WM

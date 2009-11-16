@@ -1,11 +1,15 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include <QtGui\QtGui>
 
 MainWindow::MainWindow()
 {
-    textEdit = new QPlainTextEdit;
-    setCentralWidget(textEdit);
+    //textEdit = new QPlainTextEdit;
+	textEdit = new QTextEdit;
 
+    setCentralWidget(textEdit);
+	//textEdit->setReadOnly(true);
+	textEdit->setHtml("la-<b>la</b>-la<br>Аня - коза :)<br>味噌");
+	
     createActions();
     createMenus();
 
@@ -33,6 +37,17 @@ void MainWindow::closeEvent(QCloseEvent *event)
     //}
 }
 
+void MainWindow::about()
+{
+   //QMessageBox::about(this, tr("About Application"),
+     //       tr("The <b>MindCraft </b> about"));
+
+   QMessageBox::about(this, tr("About Application"),
+	   textEdit->toHtml());
+
+}
+
+
 void MainWindow::createActions()
 {
     actExit = new QAction(tr("E&xit"), this);
@@ -40,11 +55,17 @@ void MainWindow::createActions()
     actExit->setStatusTip(tr("Exit the application"));
     connect(actExit, SIGNAL(triggered()), this, SLOT(close()));
 
+    actAbout = new QAction(tr("&About"), this);
+    actAbout->setStatusTip(tr("Show the application's About box"));
+    connect(actAbout, SIGNAL(triggered()), this, SLOT(about()));
 }
 
 void MainWindow::createMenus()
 {
 	menuFile = menuBar()->addMenu(tr("&File"));
     menuFile->addAction(actExit);
+
+    menuHelp = menuBar()->addMenu(tr("&Help"));
+    menuHelp->addAction(actAbout);
 
 }

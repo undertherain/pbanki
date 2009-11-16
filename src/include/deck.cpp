@@ -3,10 +3,12 @@
 #include <iostream>
 
 
-#ifdef WIN32
-#include <windows.h>
-#else
+#if  defined(ARCH_PB) || defined(ARCH_PBEMU)
 #include <dirent.h>
+#endif
+
+#if defined(ARCH_WM) || defined(WIN32)
+#include <windows.h>
 #endif
 
 #include "logger.hpp"
@@ -73,7 +75,34 @@ DeckInfoList IDeck::getDeckList()
 	//	decks.push_back(DeckInfo("test2"));
 	//	decks.push_back(DeckInfo("test3"));
 
-#ifdef WIN32
+#if defined(ARCH_PB) || defined(ARCH_PBEMU)
+	//linux-specific directory listing
+	struct dirent **filelist;
+	std::string temps;
+	int n;
+	n=scandir("./decks/",&filelist,0,alphasort);
+	if (n<0)
+	{
+		std::cerr<<"no decks found"<<std::endl;
+		//should we exit here?
+	} else
+	{
+		for (int ii=0;ii<n;ii++)
+		{
+			temps=filelist[ii]->d_name;
+			free (filelist[ii]);
+			if  (temps.find(".anki")!=std::string::npos)
+			{
+				std::cout<<"loading   "<<temps<<std::endl;
+				decks.push_back(DeckInfo(temps));
+			}
+			
+		}
+		free(filelist);
+	//	std::cout<<n<<" decks loaded"<<std::endl;
+	}
+#else
+
 	std::wstring strPattern = L"./decks/*.anki"; //будь я проклят! 
 	HANDLE hFile;							 // Handle to file
 	WIN32_FIND_DATA FileInformation;         // File information
@@ -102,33 +131,6 @@ DeckInfoList IDeck::getDeckList()
 	else 
 	{
 		logger.WriteLog("could not find decks");
-	}
-
-#else
-	//linux-specific directory listing
-	struct dirent **filelist;
-	std::string temps;
-	int n;
-	n=scandir("./decks/",&filelist,0,alphasort);
-	if (n<0)
-	{
-		std::cerr<<"no decks found"<<std::endl;
-		//should we exit here?
-	} else
-	{
-		for (int ii=0;ii<n;ii++)
-		{
-			temps=filelist[ii]->d_name;
-			free (filelist[ii]);
-			if  (temps.find(".anki")!=std::string::npos)
-			{
-				std::cout<<"loading   "<<temps<<std::endl;
-				decks.push_back(DeckInfo(temps));
-			}
-			
-		}
-		free(filelist);
-	//	std::cout<<n<<" decks loaded"<<std::endl;
 	}
 #endif
 

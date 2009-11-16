@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9,00"
-	Name="simpleQT"
+	Name="MindCraftQT"
 	ProjectGUID="{FF6C0EA4-5836-4C13-A489-F18075A98AC8}"
 	RootNamespace="verysimple"
 	Keyword="Win32Proj"
@@ -370,7 +370,7 @@
 				ExecutionBucket="7"
 				Optimization="2"
 				FavorSizeOrSpeed="2"
-				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;_WINDOWS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE"
+				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;_WINDOWS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE;ARCH_WM"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -427,7 +427,7 @@
 				ForceDirty="-1"
 				RemoteDirectory=""
 				RegisterOutput="0"
-				AdditionalFiles="msvcr90.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\simpleQT|0;QtCore4.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\simpleQT|0;QtGui4.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\simpleQT|0"
+				AdditionalFiles="msvcr90.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;QtCore4.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;QtGui4.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;JapaneseMinimalistic.anki|$(ProjectDir)..\..\decks|%CSIDL_PROGRAM_FILES%\MindCraftQT\decks|0"
 			/>
 			<DebuggerTool
 			/>
@@ -506,11 +506,39 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath="..\..\src\include\dbSQLite.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\include\deck.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\include\deckAnki.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\include\deckMnemosyne.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\include\logger.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\src\main_qt.cpp"
 				>
 			</File>
 			<File
 				RelativePath="..\..\src\include\GUI\QT\mainwindow.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\include\model.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\src\include\libs\sqlite3.c"
 				>
 			</File>
 		</Filter>
@@ -533,6 +561,10 @@
 						Outputs="tmp\moc\release_shared\moc_mainwindow.cpp"
 					/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="..\..\src\include\utils.hpp"
+				>
 			</File>
 		</Filter>
 		<Filter

@@ -5,17 +5,36 @@
 
 #include <ctime>
 #include <sstream>
+#ifdef ARCH_WM
+#include <winbase.h>
+#endif
 
+class TimeHelper
+{
+public:
+	static long GetSeconds()
+	{
+		time_t seconds;
+
+		#ifdef ARCH_WM
+		seconds =_time64(NULL);
+		#else
+		seconds = time(NULL);
+		#endif
+		return seconds;
+	}
+
+};
 
 class FormatHelper 
 {
 public:
 	static std::string GetCurrentTimeStr()
 	{
-		time_t seconds;
-		seconds = time (NULL);
+
+		
 		std::ostringstream out;
-		out << seconds;
+		out << TimeHelper::GetSeconds();
 		std::string str = out.str();
 		return str;
 

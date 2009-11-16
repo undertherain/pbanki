@@ -209,7 +209,7 @@ void DeckAnki::AnswerCard(Answer answer)
 	//calc new interval
 	lastCard->lastInterval=lastCard->interval;
 	lastCard->interval=CalcNextInterval(*lastCard,answer);
-    lastCard->due = (lastCard->interval * SECONDS_PER_DAY)+  time (NULL);
+	lastCard->due = (lastCard->interval * SECONDS_PER_DAY)+  TimeHelper::GetSeconds();
 	lastCard->combinedDue = lastCard->due;
 
 	//std::cout<<"\t next interval = " << interval<<std::endl;

@@ -40,11 +40,11 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 void MainWindow::about()
 {
-   //QMessageBox::about(this, tr("About Application"),
-     //       tr("The <b>MindCraft </b> about"));
-
    QMessageBox::about(this, tr("About Application"),
-	   textEdit->toHtml());
+            tr("The <b>MindCraft </b> about"));
+
+   //QMessageBox::about(this, tr("About Application"),
+	 //  textEdit->toHtml());
 
 }
 
@@ -76,14 +76,14 @@ void MainWindow::CreateMenus()
 void MainWindow::ShowDeckList()
 {
 	DeckInfoList decks = model.getDeckList();
-	std::string strDeckList;
+	std::string strDeckList="<b>available decks:</b><br/>";
 	if (decks.size()>0)
 	{
 	for (DeckInfoList::iterator i=decks.begin();i!=decks.end();i++)
 	{	
 		strDeckList+=i->GetName() + "<br />";
 	}
-	textEdit->setHtml(strDeckList.c_str());
+	textEdit->setHtml(QString::fromUtf8(strDeckList.c_str()));
 	}
 	else
 	{

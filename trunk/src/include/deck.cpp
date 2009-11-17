@@ -119,7 +119,7 @@ DeckInfoList IDeck::getDeckList(std::string directory)
 	std::copy(searchPattern.begin(), searchPattern.end(), wSearchPattern.begin());
 	
 	
-	logger.WriteLog("search path = " + searchPattern);
+	logger.WriteLog("search path = " + searchPattern +"\n");
 	HANDLE hFile;							 // Handle to file
 	WIN32_FIND_DATA FileInformation;         // File information
 	hFile = ::FindFirstFile(wSearchPattern.c_str(), &FileInformation);
@@ -136,9 +136,12 @@ DeckInfoList IDeck::getDeckList(std::string directory)
 				else
 				{
 					std::wstring     strFilePathW  = (FileInformation.cFileName); 
-					std::string strFilePath( strFilePathW.begin(), strFilePathW.end() ); //ох ад!
+					///std::string strFilePath( strFilePathW.begin(), strFilePathW.end() ); //ох ад!  а кстати с кириллией не работает!
+					std::string strFilePath;
+					FormatHelper::wstrToUtf8(strFilePath,strFilePathW);  //а так работает!
 
 					//std::cout<<strFilePath<<std::endl;
+					logger.WriteLog(" f: "+strFilePath+"\n");
 					decks.push_back(DeckInfo(strFilePath));
 				}
 			}

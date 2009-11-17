@@ -369,12 +369,12 @@
 				Name="VCCLCompilerTool"
 				ExecutionBucket="7"
 				Optimization="2"
-				FavorSizeOrSpeed="2"
+				FavorSizeOrSpeed="0"
 				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;_WINDOWS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE;ARCH_WM"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
-				DebugInformationFormat="3"
+				DebugInformationFormat="0"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -392,7 +392,7 @@
 				Name="VCLinkerTool"
 				AdditionalOptions=" /subsystem:windowsce,5.02"
 				AdditionalDependencies="corelibc.lib qtmain.lib QtGui4.lib QtCore4.lib"
-				OutputFile="$(OutDir)/verysimple.exe"
+				OutputFile="$(OutDir)/mindcraft.exe"
 				LinkIncremental="1"
 				DelayLoadDLLs="$(NOINHERIT)"
 				GenerateDebugInformation="true"
@@ -427,7 +427,7 @@
 				ForceDirty="-1"
 				RemoteDirectory=""
 				RegisterOutput="0"
-				AdditionalFiles="msvcr90.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;QtCore4.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;QtGui4.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;JapaneseMinimalistic.anki|$(ProjectDir)..\..\decks|%CSIDL_PROGRAM_FILES%\MindCraftQT\decks|0"
+				AdditionalFiles="msvcr90.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;QtCore4.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;QtGui4.dll|c:\bin\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;JapaneseMinimalistic.anki|$(ProjectDir)..\..\decks|%CSIDL_PROGRAM_FILES%\MindCraftQT\decks|0;анянекоза.anki|$(ProjectDir)..\..\decks|%CSIDL_PROGRAM_FILES%\MindCraftQT\decks|0"
 			/>
 			<DebuggerTool
 			/>
@@ -461,6 +461,7 @@
 				PreprocessorDefinitions="WIN32;NDEBUG;_CONSOLE;ARCH_WIN"
 				RuntimeTypeInfo="false"
 				WarningLevel="3"
+				UndefineAllPreprocessorDefinitions="false"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"

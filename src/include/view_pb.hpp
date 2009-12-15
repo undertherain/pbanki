@@ -34,6 +34,7 @@ public:
 	int HandleNoDecks(InkViewEvent event);
 	int HandleShowFront(InkViewEvent event);
 	int HandleShowBack(InkViewEvent event);
+	int HandleNoMoreCards(InkViewEvent event);
 	int HandleEvent(InkViewEvent event);
 	void ShowFront();
 	void ShowBack();

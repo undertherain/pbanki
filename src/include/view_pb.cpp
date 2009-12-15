@@ -177,7 +177,11 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 					view.model.LoadDeck(id);
 					view.model.LoadStats();
-					status=Status::stShowFront;
+					std::cout<<"due cards: "<<model.GetNumCardsDueToday()<<std::endl;
+					if (model.GetNumCardsDueToday()>0)
+						status=Status::stShowFront;
+					else
+						status=Status::stNoMoreCards;		
 					isMainLoopRepeatRequired=true;
 				}
 				break;
@@ -186,6 +190,9 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 				break;
 			case Status::stShowBack:
 				HandleShowBack(event);
+				break;
+			case Status::stNoMoreCards:
+				HandleNoMoreCards(event);
 				break;
 			case Status::stExit:
 				CloseApp();
@@ -269,7 +276,11 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 			break;
 		case KEY_OK:
 			model.AnswerCard(answerMark);
-			view.status=Status::stShowFront;
+			if (model.GetNumCardsDueToday()>0)
+				view.status=Status::stShowFront;
+			else
+				view.status=Status::stNoMoreCards;
+	
 			return 0;
 			break;
 		default:
@@ -287,8 +298,8 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 
 		//drawing buttons
 		SetFont(Globals::fontButtons, BLACK);
-		DrawString(160, 653, "Again   Hard    Good    Easy");
-		DrawRect(150+answerMark*85, 650, 82, 30, 0);
+		DrawString(160, 723, "Again   Hard    Good    Easy");
+		DrawRect(150+answerMark*85, 720, 82, 30, 0);
 		//FillArea(200+answerMark*40, 650, 36, 20, LGRAY);
 
 		SoftUpdate();
@@ -299,6 +310,22 @@ int ViewPocketBook::HandleNoDecks(InkViewEvent event)
 {
 	SetFont(Globals::fontCard, BLACK);
 	DrawString(50, 50, "No decks found");
+	DrawString(50, 300, "Press ok to exit");
+
+	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
+	{
+		view.status=Status::stExit;
+	}
+	SoftUpdate();
+
+	return 0;
+}
+
+int ViewPocketBook::HandleNoMoreCards(InkViewEvent event) 
+{
+	ClearScreen();
+	SetFont(Globals::fontCard, BLACK);
+	DrawString(50, 50, "No more cards");
 	DrawString(50, 300, "Press ok to exit");
 
 	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
@@ -321,10 +348,10 @@ void ViewPocketBook::ShowFront()
 
 void ViewPocketBook::ShowBack()
 {
-	DrawRect(10, 315, 580, 300, 0);
+	DrawRect(10, 315, 580, 390, 0);
 	SetFont(Globals::fontCard, BLACK);
 	//DrawString(50, 350, card.back.ToString().c_str());
-	DrawTextRect(11, 316, 580, 300, const_cast<char *>(card.back.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+	DrawTextRect(11, 316, 580, 390, const_cast<char *>(card.back.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }
 
 void ViewPocketBook::ShowStatusBar()

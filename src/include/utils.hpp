@@ -29,6 +29,7 @@ public:
 class FormatHelper 
 {
 public:
+#if  defined(ARCH_WM) || defined(ARCH_WIN)
 	static void wstrToUtf8(std::string& dest, const std::wstring& src){
 		dest.clear();
 		for (size_t i = 0; i < src.size(); i++){
@@ -54,7 +55,7 @@ public:
 				dest.push_back('?');
 		}
 	}
-
+#endif
 	static std::string GetCurrentTimeStr()
 	{
 

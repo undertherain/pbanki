@@ -21,6 +21,7 @@ public:
 	std::string currentDirectory;
 	Model():currentDeck(NULL){};
 	~Model();
+	int GetNumCardsDueToday();
 	//deck props?
 	//learn more?
 

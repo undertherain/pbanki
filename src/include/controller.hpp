@@ -4,7 +4,7 @@
 class Status
 {
 public:
-	 enum enumStatuses 	{stExit=0,stSelectDeck,stNoDecks,stLoadDeck,stShowFront,stShowBack};
+	 enum enumStatuses 	{stExit=0,stSelectDeck,stNoDecks,stLoadDeck,stShowFront,stShowBack,stNoMoreCards};
 };
 
 

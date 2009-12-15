@@ -7,6 +7,11 @@ MainWindow::MainWindow()
 	textEdit = new QTextEdit;
 
     setCentralWidget(textEdit);
+//	QGridLayout *layout = new QGridLayout();
+  //  layout->addWidget(textEdit, 0, 0, 1, 1);
+  //  setLayout(layout);
+
+	
 	textEdit->setReadOnly(true);
 	
 	
@@ -38,19 +43,42 @@ void MainWindow::closeEvent(QCloseEvent *event)
     //}
 }
 
-void MainWindow::about()
+
+// ---------------slots---------------------------------
+void MainWindow::ShowAbout()
 {
    QMessageBox::about(this, tr("About Application"),
             tr("The <b>MindCraft </b> about"));
 
    //QMessageBox::about(this, tr("About Application"),
 	 //  textEdit->toHtml());
-
+}
+void MainWindow::OpenDeck()
+{
+	if (CloseIfRequired()) 
+	{
+		QString cdir=model.currentDirectory.c_str();
+		textEdit->setHtml(cdir);
+		//QMessageBox::about(this, "open deck",cdir);
+		QString fileName = QFileDialog::getOpenFileName(this,"open deck",cdir);
+        if (!fileName.isEmpty())
+		{
+            //loadFile(fileName);
+			textEdit->setHtml(fileName);
+			
+		}
+    }
 }
 
 
 void MainWindow::CreateActions()
 {
+
+    actOpenDeck = new QAction(QIcon(":/images/open.png"), tr("&Open..."), this);
+    actOpenDeck->setShortcuts(QKeySequence::Open);
+    actOpenDeck->setStatusTip(tr("Open an existing file"));
+    connect(actOpenDeck, SIGNAL(triggered()), this, SLOT(OpenDeck()));
+
     actExit = new QAction(tr("E&xit"), this);
     actExit->setShortcut(tr("Ctrl+Q"));
     actExit->setStatusTip(tr("Exit the application"));
@@ -58,13 +86,15 @@ void MainWindow::CreateActions()
 
     actAbout = new QAction(tr("&About"), this);
     actAbout->setStatusTip(tr("Show the application's About box"));
-    connect(actAbout, SIGNAL(triggered()), this, SLOT(about()));
+    connect(actAbout, SIGNAL(triggered()), this, SLOT(ShowAbout()));
 }
 
 void MainWindow::CreateMenus()
 {
 	menuFile = menuBar()->addMenu(tr("&File"));
-    menuFile->addAction(actExit);
+    menuFile->addAction(actOpenDeck);
+    menuFile->addSeparator();
+	menuFile->addAction(actExit);
 
     menuHelp = menuBar()->addMenu(tr("&Help"));
     menuHelp->addAction(actAbout);
@@ -90,5 +120,10 @@ void MainWindow::ShowDeckList()
 		textEdit->setHtml("No decks found");
 	}
 	//textEdit->setHtml("la-<b>la</b>-la<br>Аня - коза :)<br>味噌");
+}
 
+bool MainWindow::CloseIfRequired()
+{
+	//Save and close priviously opened deck when opening new
+	return true;
 }

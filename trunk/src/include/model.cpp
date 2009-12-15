@@ -47,3 +47,8 @@ Model::~Model()
 	if (currentDeck!=NULL)
 		delete currentDeck;
 }
+
+int Model::GetNumCardsDueToday()
+{
+	return currentDeck->GetNumCardsDueToday();
+}

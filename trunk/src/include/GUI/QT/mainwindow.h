@@ -11,6 +11,11 @@ class QMenu;
 class QTextEdit;
 QT_END_NAMESPACE
 
+class MainWidget : public QWidget
+{
+
+};
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -20,11 +25,13 @@ public:
 	//mindcraft:
 	Model model;
 	void ShowDeckList();
+	bool CloseIfRequired();
 
 protected:
     void closeEvent(QCloseEvent *event);
 private slots: 
-    void about();
+    void ShowAbout();
+    void OpenDeck();
 
 private:
     void CreateActions();
@@ -39,6 +46,8 @@ private:
 
     QAction *actExit;
     QAction *actAbout;
+    QAction *actOpenDeck;
+
 
 
 

@@ -183,7 +183,10 @@ int IDeck::GetNumCardsNewToday() const
 {
 	return numCardsNewToday;
 }
-
+int IDeck::GetNumCardsDueToday() const
+{
+	return numCardsDueToday;
+}
 
 //-------------------- CardField --------------------------
 std::string CardField::ToString() const

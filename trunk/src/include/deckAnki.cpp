@@ -38,7 +38,12 @@ void DeckAnki::Fetch()
 		//if no mo failed cards - start loading review or new cards, until we reach biffer limit
 		std::cout << "fetching due card" << std::endl;
 		std::string query="select * from cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and priority in (1,2,3,4) and type = 1 and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY interval desc limit 1";
-		FetchCardsByQuery(query);
+		if (FetchCardsByQuery(query)==0)
+		{
+			std::cout << "fetching new card" << std::endl;
+			query="select * from cards where priority in (1,2,3,4) and type = 2 and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY interval desc limit 1";
+			FetchCardsByQuery(query);
+		}
 		
 		return ;
 
@@ -112,8 +117,8 @@ void DeckAnki::LoadStats()
 		//cards due today
 		query="select count(id) from cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and priority in (1,2,3,4) and type in (0, 1)"; 
 		SQLiteHelper::ExecuteQuery(dbDeck,query);
-		numCardsNewTotal=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
-		std::cout<<"DUE cards today = "<< numCardsNewTotal <<std::endl;
+		numCardsDueToday=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"])+numCardsNewToday;
+		std::cout<<"DUE cards today = "<< numCardsDueToday <<std::endl;
 
 		//cards failed today
 ///		query="select count(id) from cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and priority in (1,2,3,4) and type = 0"; 
@@ -243,6 +248,7 @@ void DeckAnki::AnswerCard(Answer answer)
 		//related card should be affected
 		//cardsAnsweredBuffer.push_back(*lastCard);
 		//saving card
+		numCardsDueToday--;
 		SaveCard(*lastCard);
 		break;
 	}

@@ -27,6 +27,7 @@ public:
 	static DeckInfoList getDeckList(std::string directory="");
 	static IDeck * LoadDeck(DeckId id);
 	virtual ICard GetNextCard()=0;					//next card from queue
+	//virtual bool IsEmpty()=0;
 	virtual void LoadData()=0;
 	virtual void LoadStats()=0;
 	virtual void AnswerCard(Answer answer)=0;
@@ -36,6 +37,7 @@ public:
 	int GetNumCardsFailedToday() const;
 	int GetNumCardsReviewToday() const;
 	int GetNumCardsNewToday() const;
+	int GetNumCardsDueToday() const;
 
 };
 

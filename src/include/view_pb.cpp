@@ -30,11 +30,13 @@ public:
 	static char deckToLoadName[256];
 };
 
+
 ifont *  Globals::fontCard = NULL;
 ifont *  Globals::fontButtons = NULL;
 char Globals::deckToLoadName[256];
 bool Globals::isConfigEditorActive=false;
 
+int cindex=0;
 
 void config_ok() {
 
@@ -55,6 +57,39 @@ void itemChanged(char * item) {
 	Globals::isConfigEditorActive=false;
 	SetEventHandler(mainHandler);
 }
+
+
+//-----------------------menu -------------------------------
+
+static imenu menu1[] = {
+
+	{ ITEM_HEADER,   0, "Menu", NULL },
+	{ ITEM_ACTIVE, 101, "dummy1", NULL },
+	{ ITEM_ACTIVE, 102, "dummy2", NULL },
+	{ ITEM_SEPARATOR, 0, NULL, NULL },
+	{ ITEM_ACTIVE, 121, "Exit", NULL },
+	{ 0, 0, NULL, NULL }
+
+};
+
+
+void menu1_handler(int index) 
+{
+	switch (index) 
+	{
+		case 101:
+			break;
+
+		case 102:
+			break;
+
+		case 121:
+			CloseApp();
+			break;
+	}
+
+}
+
 
 
 
@@ -110,6 +145,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	//	logger.WriteLog("Handle event");
 
 	static int iter=0;
+	static InkViewEvent lastEvent(0,0,0);
 
 	iter++;
 	//	Logger.WriteLog("main handler %d\n",iter);
@@ -149,6 +185,14 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 		}
 		bool isMainLoopRepeatRequired;
+		if ((event.type==EVT_KEYREPEAT) && (event.par1==KEY_OK))
+		{
+			//DrawTextRect(11, 11, 580, 500,"SHOW MENU!!!!!", ALIGN_LEFT | VALIGN_MIDDLE);
+			//
+			//SoftUpdate();
+			OpenMenu(menu1, cindex, 20, 20, menu1_handler);
+			return 0;
+		}
 		do
 		{
 			isMainLoopRepeatRequired=false;
@@ -232,6 +276,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 	//	FullUpdate();
 	//	SoftUpdate();
+	lastEvent=event;
 	return 0;
 }
 

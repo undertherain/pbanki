@@ -11,13 +11,13 @@ LIBS=-linkview -lfreetype -ljpeg -lz -pthread
 CFLAGS=-Wall -O2 -fomit-frame-pointer -DARCH_PB -DSQLITE_MIXED_ENDIAN_64BIT_FLOAT 
 
 
-pbanki.app: sqlite3.o
-	$(CPP) $(CFLAGS) $(INCLUDE) sqlite3.o -o $@ $(LIBS) $(SOURCES)
+pbanki.app: obj/pb/sqlite3.o
+	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(LIBS) $(SOURCES) obj/pb/sqlite3.o
 	$(STRIP) pbanki.app
 
 
-sqlite3.o:
-	$(CC) -c src/include/libs/sqlite3.c
+obj/pb/sqlite3.o:
+	$(CC) $(CFLAGS) -c src/include/libs/sqlite3.c -o obj/pb/sqlite3.o
 
 
 	

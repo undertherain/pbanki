@@ -8,10 +8,10 @@ INCLUDE=
 LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32
 CFLAGS=-static -Wall -O2 -fomit-frame-pointer  -DARCH_PBEMU
 
-pbanki_emu.exe:  sqlite3.o
-	c:\bin\PBSDK\bin\g++ $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(LIBS) sqlite3.o
+pbanki_emu.exe: obj/pbemu/sqlite3.o
+	c:\bin\PBSDK\bin\g++ $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(LIBS) obj/pbemu/sqlite3.o
 
 
-sqlite3.o:
-	c:\bin\PBSDK\bin\gcc -c src/include/libs/sqlite3.c
+obj/pbemu/sqlite3.o:
+	c:\bin\PBSDK\bin\gcc -c -o obj/pbemu/sqlite3.o src/include/libs/sqlite3.c 
 

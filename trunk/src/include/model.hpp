@@ -15,9 +15,12 @@ public:
 	DeckInfoList getDeckList();				//returns list of available deck
 	void LoadDeck(DeckId deckName);	//load selected deck
 	void LoadStats();
+	void CloseDeck();
+	void LearnMore();
 	ICard getNextCard();						//next card from queue
 	void AnswerCard(Answer answer);
 	TEMPORARY std::string GetStatus();
+	std::string GetStatsForTomorrowStr();
 	std::string currentDirectory;
 	Model():currentDeck(NULL){};
 	~Model();

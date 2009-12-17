@@ -2,6 +2,7 @@
 #include "utils.hpp"
 #include "exceptions.hpp"
 
+
 DeckInfoList Model::getDeckList()
 {
 	if (currentDirectory.length()==0)
@@ -22,6 +23,7 @@ void Model::LoadDeck(DeckId id)
 
 ICard Model::getNextCard()
 {
+
 	return currentDeck->GetNextCard();
 }
 
@@ -46,9 +48,28 @@ Model::~Model()
 {
 	if (currentDeck!=NULL)
 		delete currentDeck;
+	currentDeck=NULL;
 }
 
 int Model::GetNumCardsDueToday()
 {
 	return currentDeck->GetNumCardsDueToday();
+}
+
+void Model::CloseDeck()
+{
+	if (currentDeck!=NULL)
+		delete currentDeck;
+		currentDeck=NULL;
+}
+
+
+void Model::LearnMore()
+{
+	currentDeck->LearnMore();
+}
+
+std::string Model::GetStatsForTomorrowStr()
+{
+	return currentDeck->GetStatsForTomorrowStr();
 }

@@ -43,6 +43,7 @@ void DeckAnki::Fetch()
 			std::cout << "fetching new card" << std::endl;
 			query="select * from cards where priority in (1,2,3,4) and type = 2 and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY interval desc limit 1";
 			FetchCardsByQuery(query);
+			//std::cout<<"finally fetched by query"<<std::endl;
 		}
 		
 		return ;
@@ -63,9 +64,11 @@ int DeckAnki::FetchCardsByQuery(std::string query)
 	{
 		StringMap row = SQLiteHelper::values[i];
 		CardAnki card= CardFromDBRow(row);
+		//std::cout<<"fetched cards by row "<<std::endl;
 		cardsDueBuffer.push_front(card);
 		fetchedCardIds.insert(card.id);
 	}
+	//std::cout<<"fetched cards by query "<<std::endl;
 	return SQLiteHelper::values.size();
 }
 
@@ -81,6 +84,7 @@ ICard DeckAnki::GetNextCard()
 	{
 		std::cout<<"failed cards limit reached, not fetching"<<std::endl;
 	}
+		
 	if (!cardsDueBuffer.empty())
 	{
 		CardAnki card=cardsDueBuffer.front();
@@ -90,6 +94,7 @@ ICard DeckAnki::GetNextCard()
 			delete lastCard;
 		}
 		lastCard = new CardAnki(card);
+		
 		return card;
 	}
 
@@ -111,7 +116,14 @@ void DeckAnki::LoadStats()
 		std::cout<<"NEW cards total = "<< numCardsNewTotal <<std::endl;
 
 		//cards new today
-		numCardsNewToday=std::min(numCardsNewTotal,MAX_NEW_CARDS);
+		if (isLearnMoreModeOn)
+		{
+			numCardsNewToday=numCardsNewTotal;
+		}
+		else
+		{
+			numCardsNewToday=std::min(numCardsNewTotal,MAX_NEW_CARDS);
+		}
 		std::cout<<"NEW cards today = "<< numCardsNewToday <<std::endl;
 
 		//cards due today
@@ -139,6 +151,26 @@ void DeckAnki::LoadStats()
 	{
 		std::cout<<"DeckAnki::LoadStats: "<<ex.GetMessage()<<std::endl;
 	}
+}
+
+void DeckAnki::LoadStatsForTomorrow()
+{
+	//cards review tomorrow
+	std::string query="select count(id) from cards where combinedDue < " + FormatHelper::GetTomorrowTimeStr() + " and priority in (1,2,3,4) and type = 1"; 
+	SQLiteHelper::ExecuteQuery(dbDeck,query);
+	numCardsReviewTomorrow=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
+	//std::cout<<"REVIEW cards today = "<< numCardsReviewToday <<std::endl;
+	
+}
+
+std::string DeckAnki::GetStatsForTomorrowStr()
+{
+	LoadStatsForTomorrow();
+	std::string str="Congratulations!\nYou have finished for now.\nAt this time tomorrow:\n";
+	str = str + "There will be "+FormatHelper::ConvertToStr(numCardsReviewTomorrow) + " reviews \n";
+
+
+	return str;
 }
 
 void DeckAnki::LoadData()
@@ -171,12 +203,16 @@ DeckAnki::~DeckAnki()
 	{
 		std::cout<<"Closing sqlite connection"<<std::endl;
 		sqlite3_close(dbDeck);
+		dbDeck=NULL;
 	}
+	
+	
 
 }
 
 CardAnki DeckAnki::CardFromDBRow(StringMap row)
 {
+	//std::cout<<"loading card from db row....";
 	std::string strFront = row["question"];
 	std::string strBack = row["answer"];
 	CardField fldFront(strFront);
@@ -189,7 +225,7 @@ CardAnki DeckAnki::CardFromDBRow(StringMap row)
 	card.id=row["id"];
 	//std::cout<<"loaded card id="<<card.id<<std::endl;
 	card.due=FormatHelper::StrToFloat(row["due"]);
-
+	//std::cout<<"done"<<std::endl;
 	return card;
 }
 
@@ -294,6 +330,7 @@ float DeckAnki::CalcNextInterval(const CardAnki & card,int ease)
 
 std::string DeckAnki::GetStatus()
 {
+	std::cout<<"start getting status"<<std::endl;
 	std::string strStatus;
 	switch (lastCard->type)
 	{
@@ -307,6 +344,7 @@ std::string DeckAnki::GetStatus()
 		strStatus="oops.. ";
 		break;
 	}
+	std::cout<<"done getting status"<<std::endl;
 	strStatus = strStatus + "f:" + FormatHelper::ConvertToStr(GetNumCardsFailedToday())+" r:"+ FormatHelper::ConvertToStr(GetNumCardsReviewToday())+" n:"+ FormatHelper::ConvertToStr(GetNumCardsNewToday());
 	return strStatus;
 }
@@ -416,3 +454,16 @@ return interval
 //save card
 //remove id from fetchedCardIds
 //
+
+
+//learn more
+
+void DeckAnki::LearnMore()
+{
+	isLearnMoreModeOn=true;
+	LoadStats();
+	return;
+}
+
+
+

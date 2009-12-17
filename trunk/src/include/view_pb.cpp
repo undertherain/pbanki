@@ -18,6 +18,7 @@
 #include "view_pb.hpp"
 #include "logger.hpp"
 
+#define IDX_MENU_EXIT 121
 
 ViewPocketBook view;
 
@@ -64,10 +65,10 @@ void itemChanged(char * item) {
 static imenu menu1[] = {
 
 	{ ITEM_HEADER,   0, "Menu", NULL },
-	{ ITEM_ACTIVE, 101, "dummy1", NULL },
-	{ ITEM_ACTIVE, 102, "dummy2", NULL },
+	{ ITEM_ACTIVE, 101, "Close deck", NULL },
+	{ ITEM_ACTIVE, 102, "About", NULL },
 	{ ITEM_SEPARATOR, 0, NULL, NULL },
-	{ ITEM_ACTIVE, 121, "Exit", NULL },
+	{ ITEM_ACTIVE, IDX_MENU_EXIT, "Exit", NULL },
 	{ 0, 0, NULL, NULL }
 
 };
@@ -77,13 +78,16 @@ void menu1_handler(int index)
 {
 	switch (index) 
 	{
-		case 101:
+		case 101://close deck
+			view.status=Status::stSelectDeck;
+			mainHandler(0,0,0);
 			break;
 
 		case 102:
+			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.1\nWritten by Alexander Drozd",5000);
 			break;
 
-		case 121:
+		case IDX_MENU_EXIT:
 			CloseApp();
 			break;
 	}
@@ -200,6 +204,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 			{
 			case Status::stSelectDeck:
 				logger.WriteLog("selecting deck\n");
+				model.CloseDeck();
 
 				if (!SelectDeck())
 					status=Status::stLoadDeck;
@@ -222,15 +227,22 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 					view.model.LoadDeck(id);
 					view.model.LoadStats();
 					std::cout<<"due cards: "<<model.GetNumCardsDueToday()<<std::endl;
+					lastStatus=status;
 					if (model.GetNumCardsDueToday()>0)
 						status=Status::stShowFront;
 					else
 						status=Status::stNoMoreCards;		
 					isMainLoopRepeatRequired=true;
+
 				}
 				break;
 			case Status::stShowFront:
-				HandleShowFront(event);
+				//std::cout<<"show front" << std::endl;
+
+				if (model.GetNumCardsDueToday()<1)
+					status=Status::stNoMoreCards;		
+				else
+					HandleShowFront(event);
 				break;
 			case Status::stShowBack:
 				HandleShowBack(event);
@@ -281,26 +293,30 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 }
 
 int ViewPocketBook::HandleShowFront(InkViewEvent event) 
-{	if (lastStatus!=status)
 {
-	lastStatus=status;
-	card=model.getNextCard();
-}
+	//std::cout<<"fetching new card" <<std::endl;
+	if (lastStatus!=Status::stShowFront)
+	{
+		lastStatus=status;
+		card=model.getNextCard();
+	}
+	//std::cout<<"drawing" <<std::endl;
 //	fprintf(stderr,"ShowFront Handler\n");
 //	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
 
 
-ClearScreen();
+	ClearScreen();
 //	FullUpdate();
-ShowFront();
-SoftUpdate();
+	ShowFront();
+	SoftUpdate();
+	
 
-if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
-{
-	view.status=Status::stShowBack;
-}
+	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
+	{
+		view.status=Status::stShowBack;
+	}
 
-return 0;
+	return 0;
 }
 int ViewPocketBook::HandleShowBack(InkViewEvent event) 
 {
@@ -368,15 +384,50 @@ int ViewPocketBook::HandleNoDecks(InkViewEvent event)
 
 int ViewPocketBook::HandleNoMoreCards(InkViewEvent event) 
 {
+	static int buttonIndex=0;
 	ClearScreen();
 	SetFont(Globals::fontCard, BLACK);
-	DrawString(50, 50, "No more cards");
-	DrawString(50, 300, "Press ok to exit");
+	
+	DrawTextRect(11, 11, 580, 500,const_cast<char *>(model.GetStatsForTomorrowStr().c_str()), ALIGN_LEFT | VALIGN_TOP);
 
-	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
+
+	if (event.type==EVT_KEYPRESS) 
+		switch(event.par1)
 	{
-		view.status=Status::stExit;
+		case KEY_UP:
+			buttonIndex--;
+			if (buttonIndex<0) buttonIndex=0;
+			break;
+		case KEY_DOWN:
+			buttonIndex++;
+			if (buttonIndex>2) buttonIndex=2;
+			break;
+		case KEY_OK:
+			switch (buttonIndex)
+			{
+				case 0:
+					model.LearnMore();
+					view.status=Status::stShowFront;
+					break;
+				case 1:
+					model.CloseDeck();
+					view.status=Status::stSelectDeck;
+					break;
+				case 2:
+					view.status=Status::stExit;
+        				break;
+			}
+			return 0;
+			break;
+		default:
+			//do nothing
+			break;
 	}
+       	DrawTextRect(200, 300, 200, 40,"Learn more", ALIGN_CENTER | VALIGN_MIDDLE);
+       	DrawTextRect(200, 350, 200, 40,"Close deck", ALIGN_CENTER | VALIGN_MIDDLE);
+       	DrawTextRect(200, 400, 200, 40,"Exit", ALIGN_CENTER | VALIGN_MIDDLE);
+	DrawRect(200, 303 + buttonIndex*50, 200, 35, 0);
+
 	SoftUpdate();
 
 	return 0;
@@ -384,10 +435,21 @@ int ViewPocketBook::HandleNoMoreCards(InkViewEvent event)
 
 void ViewPocketBook::ShowFront()
 {
+	std::cout<<"we are in pb, show front:"<<card.front.ToString()<<std::endl;
+//	for (int i=0;card.front.ToString().c_str()[i]!=0;i++)
+//	{
+//		std::cout<<static_cast<int>((unsigned char)card.front.ToString().c_str()[i])<<std::endl;
+//	}
 	DrawRect(10, 10, 580, 300, 0);
 	SetFont(Globals::fontCard, BLACK);
-	//DrawString(50, 50, card.front.ToString().c_str());
+//	DrawString(50, 50, card.front.ToString().c_str());
+//	DrawTextRect(11, 11, 580, 300,"damn", ALIGN_CENTER | VALIGN_MIDDLE);
 	DrawTextRect(11, 11, 580, 300, const_cast<char *>(card.front.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+//	std::cout<<"done" <<std::endl;
+//	return;
+	
+	//DrawTextRect(11, 11, 580, 300, "can't \"render this card", ALIGN_CENTER | VALIGN_MIDDLE);
+	
 	ShowStatusBar();
 }
 

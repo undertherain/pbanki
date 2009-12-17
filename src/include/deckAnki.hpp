@@ -54,7 +54,10 @@ private:
 public:
 	ICard GetNextCard();						//next card from queue
 	void LoadStats();						//
+	void LoadStatsForTomorrow();			//
+	std::string GetStatsForTomorrowStr();
 	void LoadData();						//
+	void LearnMore();						//
 	void AnswerCard(Answer answer);
 	std::string GetStatus();
 	DeckAnki()

@@ -22,6 +22,8 @@ protected:
 	int numCardsFailedToday;
 	int numCardsDueToday;
 	int numCardsReviewToday;
+	int numCardsReviewTomorrow;
+	bool isLearnMoreModeOn;
 
 public:
 	static DeckInfoList getDeckList(std::string directory="");
@@ -30,9 +32,12 @@ public:
 	//virtual bool IsEmpty()=0;
 	virtual void LoadData()=0;
 	virtual void LoadStats()=0;
+	virtual void LoadStatsForTomorrow()=0;
+	virtual std::string GetStatsForTomorrowStr()=0;
+	virtual void LearnMore()=0;
 	virtual void AnswerCard(Answer answer)=0;
 	virtual std::string GetStatus()=0;
-
+	IDeck():isLearnMoreModeOn(false){}
 	virtual ~IDeck(){}
 	int GetNumCardsFailedToday() const;
 	int GetNumCardsReviewToday() const;

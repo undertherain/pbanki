@@ -56,16 +56,23 @@ public:
 		}
 	}
 #endif
+
 	static std::string GetCurrentTimeStr()
 	{
-
-
 		std::ostringstream out;
 		out << TimeHelper::GetSeconds();
 		std::string str = out.str();
 		return str;
-
 	}
+
+	static std::string GetTomorrowTimeStr()
+	{
+		std::ostringstream out;
+		out << (TimeHelper::GetSeconds()+60*60*24);
+		std::string str = out.str();
+		return str;
+	}	
+	
 	template <typename T>
 	static std::string ConvertToStr(const T & val)
 	{

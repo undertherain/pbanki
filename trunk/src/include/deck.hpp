@@ -11,6 +11,14 @@ typedef std::list<DeckInfo> DeckInfoList ;
 typedef std::string DeckId ;
 typedef int Answer ;
 
+class DeckStats ///not in use yet
+{
+	friend class IDeck;
+	protected:
+	int numCardsTotal;
+	int GetNumCardsTotal() const;
+	
+};
 
 //contains cards
 class IDeck  
@@ -18,12 +26,15 @@ class IDeck
 protected:
 	std::string fileName;
 	int numNewCardsPerDay;
+	int numCardsTotal;
+	int numCardsSuspended;
 	int numCardsNewTotal;
 	int numCardsNewToday;
 	int numCardsFailedToday;
 	int numCardsDueToday;
 	int numCardsReviewToday;
 	int numCardsReviewTomorrow;
+	int numCardsDoneThisSession;
 	bool isLearnMoreModeOn;
 
 public:
@@ -35,6 +46,7 @@ public:
 	virtual void LoadStats()=0;
 	virtual void LoadStatsForTomorrow()=0;
 	virtual std::string GetStatsForTomorrowStr()=0;
+	virtual std::string GetStatsStr()=0;
 	virtual void LearnMore()=0;
 	virtual void AnswerCard(Answer answer)=0;
 	virtual std::string GetStatus()=0;

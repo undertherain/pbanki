@@ -9,6 +9,8 @@
 #include <winbase.h>
 #endif
 
+#define SECONDS_PER_DAY 86400.0
+
 class TimeHelper
 {
 public:

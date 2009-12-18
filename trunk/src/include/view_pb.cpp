@@ -21,7 +21,8 @@
 #define IDX_MENU_ABOUT 101
 #define IDX_MENU_CLOSE 102
 #define IDX_MENU_EXIT 103
-#define IDX_MENU_SUSPEND 104
+#define IDX_MENU_STATS 104
+#define IDX_MENU_SUSPEND 105
 
 ViewPocketBook view;
 
@@ -32,6 +33,7 @@ public:
 	static ifont * fontButtons;
 	static bool isConfigEditorActive;
 	static char deckToLoadName[256];
+	static bool isNewCardRequired;
 };
 
 
@@ -39,6 +41,7 @@ ifont *  Globals::fontCard = NULL;
 ifont *  Globals::fontButtons = NULL;
 char Globals::deckToLoadName[256];
 bool Globals::isConfigEditorActive=false;
+bool Globals::isNewCardRequired=true;
 
 int cindex=0;
 
@@ -70,6 +73,7 @@ static imenu menuMain[] = {
 	{ ITEM_HEADER,   0, "Menu", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_SUSPEND, "Suspend card", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_CLOSE, "Close deck", NULL },
+	{ ITEM_ACTIVE, IDX_MENU_STATS, "Statistics", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_ABOUT, "About", NULL },
 	{ ITEM_SEPARATOR, 0, NULL, NULL },
 	{ ITEM_ACTIVE, IDX_MENU_EXIT, "Exit", NULL },
@@ -88,13 +92,21 @@ void menu1_handler(int index)
 			break;
 
 		case IDX_MENU_ABOUT:
-			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.2\nWritten by Alexander Drozd",5000);
+			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.3\nWritten by Alexander Drozd",5000);
 			break;
 
 		case IDX_MENU_SUSPEND:
 			view.model.SuspendCard();
+			Globals::isNewCardRequired=true;
 			view.status=Status::stShowFront;
 			view.lastStatus=Status::stShowBack;
+			mainHandler(0,0,0);
+        		break;
+
+		case IDX_MENU_STATS:
+//			view.model.SuspendCard();
+			view.status=Status::stShowStats;
+//			view.lastStatus=Status::stShowBack;
 			mainHandler(0,0,0);
 
 			break;
@@ -234,7 +246,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 			case Status::stLoadDeck:
 				{
 					DeckId id(Globals::deckToLoadName);
-
+					Globals::isNewCardRequired=true;
 					SetFont(Globals::fontCard, BLACK);
 					ClearScreen();
 					DrawString(50, 50, "Loading deck...");
@@ -266,11 +278,15 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 			case Status::stNoMoreCards:
 				HandleNoMoreCards(event);
 				break;
+			case Status::stShowStats:
+				HandleShowStats(event);
+				break;
 			case Status::stExit:
 				CloseApp();
 				break;
 			default:
 				//make error unexepected status
+				std::cout<< "unexpexted status" <<std::endl;
 				CloseApp();
 				break;
 
@@ -311,10 +327,11 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 int ViewPocketBook::HandleShowFront(InkViewEvent event) 
 {
 	//std::cout<<"fetching new card" <<std::endl;
-	if (lastStatus!=Status::stShowFront)
+	if (Globals::isNewCardRequired)
 	{
 		lastStatus=status;
 		card=model.getNextCard();
+		Globals::isNewCardRequired=false;
 	}
 	//std::cout<<"drawing" <<std::endl;
 //	fprintf(stderr,"ShowFront Handler\n");
@@ -353,6 +370,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 			break;
 		case KEY_OK:
 			model.AnswerCard(answerMark);
+			Globals::isNewCardRequired=true;
 			if (model.GetNumCardsDueToday()>0)
 				view.status=Status::stShowFront;
 			else
@@ -386,12 +404,28 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 int ViewPocketBook::HandleNoDecks(InkViewEvent event) 
 {
 	SetFont(Globals::fontCard, BLACK);
-	DrawString(50, 50, "No decks found");
-	DrawString(50, 300, "Press ok to exit");
+//	DrawString(50, 50, "No decks found");
+//	DrawString(50, 300, "Press ok to exit");
+       	DrawTextRect(11, 11, 580, 300, "No decks found\nmake sure you have them in ./deck folder\nPress ok to exit", ALIGN_LEFT | VALIGN_MIDDLE);
 
 	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
 	{
 		view.status=Status::stExit;
+	}
+	SoftUpdate();
+
+	return 0;
+}
+
+int ViewPocketBook::HandleShowStats(InkViewEvent event) 
+{
+	SetFont(Globals::fontCard, BLACK);
+	ClearScreen();
+       	DrawTextRect(11, 11, 580, 300, const_cast<char *>(model.GetStatsStr().c_str()), ALIGN_LEFT | VALIGN_MIDDLE);
+
+	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
+	{
+		view.status=Status::stShowFront;
 	}
 	SoftUpdate();
 

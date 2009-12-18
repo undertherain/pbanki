@@ -210,3 +210,7 @@ std::string CardField::ToString() const
 	return strResult;
 }
 
+int DeckStats::GetNumCardsTotal() const
+{
+	return numCardsTotal;
+}

@@ -51,20 +51,19 @@ private:
 	void Fetch();
 	void SaveCard(const CardAnki & card);
 	int FetchCardsByQuery(std::string query);
+	
 
 public:
 	ICard GetNextCard();						//next card from queue
 	void LoadStats();						//
 	void LoadStatsForTomorrow();			//
 	std::string GetStatsForTomorrowStr();
+	std::string GetStatsStr();
 	void LoadData();						//
 	void LearnMore();						//
 	void AnswerCard(Answer answer);
 	std::string GetStatus();
-	DeckAnki()
-		{
-			lastCard=NULL;
-			dbDeck=NULL;
-		}
+	DeckAnki();
+		
 	~DeckAnki();
 };

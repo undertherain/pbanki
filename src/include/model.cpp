@@ -49,6 +49,11 @@ std::string Model::GetStatus()
 	return currentDeck->GetStatus();
 }
 
+std::string Model::GetStatsStr()
+{
+	return currentDeck->GetStatsStr();
+}
+
 Model::~Model()
 {
 	if (currentDeck!=NULL)

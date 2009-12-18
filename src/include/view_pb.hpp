@@ -36,6 +36,7 @@ public:
 	int HandleShowBack(InkViewEvent event);
 	int HandleNoMoreCards(InkViewEvent event);
 	int HandleEvent(InkViewEvent event);
+	int HandleShowStats(InkViewEvent event);
 	void ShowFront();
 	void ShowBack();
 	void ShowStatusBar();

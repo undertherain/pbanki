@@ -16,7 +16,7 @@
 //#define MAX_NEW_CARDS 10
 #define MAX_FAILED_CARDS 10
 #define FAILED_CARDS_SPACING 20
-#define SECONDS_PER_DAY 86400.0
+
 
 
 //--------------------------- Fetching Card Queue (buffer) -------------------
@@ -120,6 +120,12 @@ void DeckAnki::LoadStats()
 
 
 		//-------loading cards statistics--------
+		//cards total
+		query="select count(id) from cards";
+		SQLiteHelper::ExecuteQuery(dbDeck,query);
+		numCardsTotal=FormatHelper::StrToInt(SQLiteHelper::values[0]["count(id)"]);
+		std::cout<<"cards total = "<< numCardsTotal <<std::endl;
+
 		//new cards total
 		query="select count(id) from cards where type = 2 and priority in (1,2,3,4)";
 		SQLiteHelper::ExecuteQuery(dbDeck,query);
@@ -182,6 +188,19 @@ std::string DeckAnki::GetStatsForTomorrowStr()
 	return str;
 }
 
+std::string DeckAnki::GetStatsStr()
+{
+	LoadStatsForTomorrow();
+	std::string str="Statistics:\n";
+	str = str + "Total number of cards: "+FormatHelper::ConvertToStr(numCardsTotal) + " \n";
+	str = str + "Unseen cards: "+FormatHelper::ConvertToStr(numCardsNewTotal) + " \n";
+	str = str + "\nDone in this session: "+FormatHelper::ConvertToStr(numCardsDoneThisSession) + " cards\n";
+	str = str + "\nPress Ok to continue";
+
+
+	return str;
+}
+
 void DeckAnki::LoadData()
 {
 	std::cout<<"Loading deck data from  "<< fileName.c_str() <<"... ";
@@ -215,6 +234,14 @@ DeckAnki::~DeckAnki()
 		dbDeck=NULL;
 	}
 }
+
+DeckAnki::DeckAnki()
+{
+	lastCard=NULL;
+	dbDeck=NULL;
+	numCardsDoneThisSession=0;
+}
+
 
 CardAnki DeckAnki::CardFromDBRow(StringMap row)
 {
@@ -311,6 +338,7 @@ void DeckAnki::AnswerCard(Answer answer)
 		//saving card
 		numCardsDueToday--;
 		SaveCard(*lastCard);
+		numCardsDoneThisSession++;
 		break;
 	default:
 		throw new Exception("invalid answer in AnswerCard");

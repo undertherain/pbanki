@@ -23,6 +23,7 @@ public:
 	
 	TEMPORARY std::string GetStatus();
 	std::string GetStatsForTomorrowStr();
+	std::string GetStatsStr();
 	std::string currentDirectory;
 	Model():currentDeck(NULL){};
 	~Model();

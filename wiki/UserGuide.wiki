@@ -1,0 +1,8 @@
+Mindcraft user guide
+
+
+= PocketBook=
+
+  * Create "decks" subfolder in Mindcraft folder
+  * Copy your decks to "decks" folder
+  * Hold "UP" button to activate menu

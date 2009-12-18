@@ -17,6 +17,7 @@ class IDeck
 {
 protected:
 	std::string fileName;
+	int numNewCardsPerDay;
 	int numCardsNewTotal;
 	int numCardsNewToday;
 	int numCardsFailedToday;

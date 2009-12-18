@@ -18,7 +18,10 @@
 #include "view_pb.hpp"
 #include "logger.hpp"
 
-#define IDX_MENU_EXIT 121
+#define IDX_MENU_ABOUT 101
+#define IDX_MENU_CLOSE 102
+#define IDX_MENU_EXIT 103
+#define IDX_MENU_SUSPEND 104
 
 ViewPocketBook view;
 
@@ -62,11 +65,12 @@ void itemChanged(char * item) {
 
 //-----------------------menu -------------------------------
 
-static imenu menu1[] = {
+static imenu menuMain[] = {
 
 	{ ITEM_HEADER,   0, "Menu", NULL },
-	{ ITEM_ACTIVE, 101, "Close deck", NULL },
-	{ ITEM_ACTIVE, 102, "About", NULL },
+	{ ITEM_ACTIVE, IDX_MENU_SUSPEND, "Suspend card", NULL },
+	{ ITEM_ACTIVE, IDX_MENU_CLOSE, "Close deck", NULL },
+	{ ITEM_ACTIVE, IDX_MENU_ABOUT, "About", NULL },
 	{ ITEM_SEPARATOR, 0, NULL, NULL },
 	{ ITEM_ACTIVE, IDX_MENU_EXIT, "Exit", NULL },
 	{ 0, 0, NULL, NULL }
@@ -78,17 +82,28 @@ void menu1_handler(int index)
 {
 	switch (index) 
 	{
-		case 101://close deck
+		case IDX_MENU_CLOSE://close deck
 			view.status=Status::stSelectDeck;
 			mainHandler(0,0,0);
 			break;
 
-		case 102:
-			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.1\nWritten by Alexander Drozd",5000);
+		case IDX_MENU_ABOUT:
+			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.2\nWritten by Alexander Drozd",5000);
+			break;
+
+		case IDX_MENU_SUSPEND:
+			view.model.SuspendCard();
+			view.status=Status::stShowFront;
+			view.lastStatus=Status::stShowBack;
+			mainHandler(0,0,0);
+
 			break;
 
 		case IDX_MENU_EXIT:
 			CloseApp();
+			break;
+		default:
+			Message(ICON_INFORMATION, "warining", "Option is not yet supported\nOr internal errror",5000);
 			break;
 	}
 
@@ -150,6 +165,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 	static int iter=0;
 	static InkViewEvent lastEvent(0,0,0);
+//	if (event.type)
 
 	iter++;
 	//	Logger.WriteLog("main handler %d\n",iter);
@@ -189,12 +205,12 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 		}
 		bool isMainLoopRepeatRequired;
-		if ((event.type==EVT_KEYREPEAT) && (event.par1==KEY_OK))
+		if ((event.type==EVT_KEYREPEAT) && (event.par1==KEY_UP))
 		{
 			//DrawTextRect(11, 11, 580, 500,"SHOW MENU!!!!!", ALIGN_LEFT | VALIGN_MIDDLE);
 			//
 			//SoftUpdate();
-			OpenMenu(menu1, cindex, 20, 20, menu1_handler);
+			OpenMenu(menuMain, cindex, 20, 20, menu1_handler);
 			return 0;
 		}
 		do

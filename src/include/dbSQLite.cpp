@@ -26,7 +26,7 @@ static int callback(void *NotUsed, int argc, char **argv, char **azColName)    /
 	StringMap newMap;
 	for(i=0; i<argc; i++){
 		newMap.insert(std::pair<std::string,std::string>( azColName[i], argv[i] ? argv[i] : "NULL") );
-		printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+		//printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
 	}
 	SQLiteHelper::values.push_back(newMap);
 	printf("\n");

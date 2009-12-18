@@ -32,6 +32,11 @@ void Model::LoadStats()
 	currentDeck->LoadStats();
 }
 
+void Model::SuspendCard()
+{
+	currentDeck->AnswerCard(-1);
+}
+
 
 
 void Model::AnswerCard(Answer answer)

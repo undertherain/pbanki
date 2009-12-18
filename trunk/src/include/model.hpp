@@ -18,7 +18,9 @@ public:
 	void CloseDeck();
 	void LearnMore();
 	ICard getNextCard();						//next card from queue
-	void AnswerCard(Answer answer);
+	void AnswerCard(Answer answer); //also does suspend???
+	void SuspendCard();
+	
 	TEMPORARY std::string GetStatus();
 	std::string GetStatsForTomorrowStr();
 	std::string currentDirectory;

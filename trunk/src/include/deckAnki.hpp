@@ -32,6 +32,7 @@ public:
 	int reps;
 	int yesCount;
 	int noCount;
+	int priority;
 	bool isDue;
 };
 

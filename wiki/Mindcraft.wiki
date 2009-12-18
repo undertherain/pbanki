@@ -16,4 +16,6 @@ Spaced repetition is a learning technique that incorporates increasing intervals
 
 Mindcraft is primarily targetted at electronic readers. These are mobile devices based on e-ink technology, such as Amazon Kindle. Current version only supports [http://pocketbook.com.ua/ PocketBook]. Support for other popular e-ink devices as well as for Windows Mobile phones is scheduled.
 
+[UserGuide User Guide]
+
 [Documentation_for_developers Documentation for developers]

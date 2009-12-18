@@ -3,6 +3,7 @@ Mindcraft user guide
 
 = PocketBook=
 
+  * Current version of Mindcraft is using YOzFontM.TTF font. It can be downloaded from [http://yozvox.web.infoseek.co.jp/]. Manual font selection will be implemented soon.
   * Create "decks" subfolder in Mindcraft folder
   * Copy your decks to "decks" folder
   * Hold "UP" button to activate menu

@@ -30,6 +30,8 @@ class Globals
 {
 public:
 	static ifont * fontCard;
+	static ifont * fontFront;
+	static ifont * fontBack;
 	static ifont * fontButtons;
 	static bool isConfigEditorActive;
 	static char deckToLoadName[256];
@@ -38,6 +40,8 @@ public:
 
 
 ifont *  Globals::fontCard = NULL;
+ifont *  Globals::fontFront = NULL;
+ifont *  Globals::fontBack = NULL;
 ifont *  Globals::fontButtons = NULL;
 char Globals::deckToLoadName[256];
 bool Globals::isConfigEditorActive=false;
@@ -87,7 +91,7 @@ void menu1_handler(int index)
 	switch (index) 
 	{
 		case IDX_MENU_CLOSE://close deck
-			view.status=Status::stSelectDeck;
+			view.status=Status::stShowStatsFinal;
 			mainHandler(0,0,0);
 			break;
 
@@ -195,7 +199,9 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 			logger.WriteLog("Doing INIT event");
 			std::cout<<"sizeof int= "<<sizeof(int)<<std::endl;
 			// occurs once at startup, only in main handler
-			Globals::fontCard = OpenFont("YOzFontM.TTF", 30, 2);
+			Globals::fontCard = OpenFont("YOzFontM.TTF", 40, 2);
+			Globals::fontFront = OpenFont("YOzFontM.TTF", 50, 2);
+			Globals::fontBack = OpenFont("YOzFontM.TTF", 40, 2);
 			Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
 
 			ClearScreen();
@@ -279,6 +285,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 				HandleNoMoreCards(event);
 				break;
 			case Status::stShowStats:
+			case Status::stShowStatsFinal:
 				HandleShowStats(event);
 				break;
 			case Status::stExit:
@@ -366,9 +373,10 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 			break;
 		case KEY_RIGHT:
 			answerMark++;
-			if (answerMark>3) answerMark=3;
+			if (answerMark>4) answerMark=4;
 			break;
 		case KEY_OK:
+			if (answerMark==4) answerMark=-1;
 			model.AnswerCard(answerMark);
 			Globals::isNewCardRequired=true;
 			if (model.GetNumCardsDueToday()>0)
@@ -393,8 +401,8 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 
 		//drawing buttons
 		SetFont(Globals::fontButtons, BLACK);
-		DrawString(160, 723, "Again   Hard    Good    Easy");
-		DrawRect(150+answerMark*85, 720, 82, 30, 0);
+		DrawString(150, 723, "Again   Hard    Good    Easy    Suspend");
+		DrawRect(140+answerMark*85, 720, 82, 30, 0);
 		//FillArea(200+answerMark*40, 650, 36, 20, LGRAY);
 
 		SoftUpdate();
@@ -425,7 +433,10 @@ int ViewPocketBook::HandleShowStats(InkViewEvent event)
 
 	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
 	{
-		view.status=Status::stShowFront;
+		if (view.status==Status::stShowStats)
+			view.status=Status::stShowFront;
+		else
+		view.status=Status::stSelectDeck;
 	}
 	SoftUpdate();
 
@@ -491,7 +502,7 @@ void ViewPocketBook::ShowFront()
 //		std::cout<<static_cast<int>((unsigned char)card.front.ToString().c_str()[i])<<std::endl;
 //	}
 	DrawRect(10, 10, 580, 300, 0);
-	SetFont(Globals::fontCard, BLACK);
+	SetFont(Globals::fontFront, BLACK);
 //	DrawString(50, 50, card.front.ToString().c_str());
 //	DrawTextRect(11, 11, 580, 300,"damn", ALIGN_CENTER | VALIGN_MIDDLE);
 	DrawTextRect(11, 11, 580, 300, const_cast<char *>(card.front.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
@@ -506,7 +517,7 @@ void ViewPocketBook::ShowFront()
 void ViewPocketBook::ShowBack()
 {
 	DrawRect(10, 315, 580, 390, 0);
-	SetFont(Globals::fontCard, BLACK);
+	SetFont(Globals::fontBack, BLACK);
 	//DrawString(50, 350, card.back.ToString().c_str());
 	DrawTextRect(11, 316, 580, 390, const_cast<char *>(card.back.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }

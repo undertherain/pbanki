@@ -17,7 +17,12 @@ class DeckStats ///not in use yet
 	protected:
 	int numCardsTotal;
 	int GetNumCardsTotal() const;
-	
+public:
+	int numNewEase0;
+	int numNewEase1;
+	int numNewEase2;
+	int numNewEase3;
+	int numNewEase4;
 };
 
 //contains cards
@@ -29,6 +34,7 @@ protected:
 	int numCardsTotal;
 	int numCardsSuspended;
 	int numCardsNewTotal;
+	int numCardsNewDoneToday;
 	int numCardsNewToday;
 	int numCardsFailedToday;
 	int numCardsDueToday;

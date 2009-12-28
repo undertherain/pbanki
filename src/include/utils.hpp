@@ -5,6 +5,9 @@
 
 #include <ctime>
 #include <sstream>
+
+#include "exceptions.hpp"
+
 #ifdef ARCH_WM
 #include <winbase.h>
 #endif
@@ -32,7 +35,8 @@ class FormatHelper
 {
 public:
 #if  defined(ARCH_WM) || defined(ARCH_WIN)
-	static void wstrToUtf8(std::string& dest, const std::wstring& src){
+	static void wstrToUtf8(std::string& dest, const std::wstring& src)
+	{
 		dest.clear();
 		for (size_t i = 0; i < src.size(); i++){
 			wchar_t w = src[i];
@@ -58,7 +62,7 @@ public:
 		}
 	}
 #endif
-
+	
 	static std::string GetCurrentTimeStr()
 	{
 		std::ostringstream out;
@@ -74,6 +78,33 @@ public:
 		std::string str = out.str();
 		return str;
 	}	
+
+	static std::string GetTodayDateStr()
+	{
+		#if  defined(ARCH_PB) || defined(ARCH_PBEMU)
+		char outstr[200];
+		time_t t;
+		struct tm *tmp;
+		t = time(NULL);
+		tmp = localtime(&t);
+		if (tmp == NULL) 
+		{
+			throw Exception("localtime");
+		}
+
+		if (strftime(outstr, sizeof(outstr),"%Y-%m-%d", tmp) == 0) 
+		{
+			throw Exception("strftime returned 0");
+		}
+		printf("Result string is \"%s\"\n", outstr);
+		return std::string(outstr);
+		#endif
+		#if  defined(ARCH_WIN) || defined(ARCH_WM)
+			//#warning GetTodayDateStr not emplemented
+			return "not working yet";
+		#endif
+		
+	}
 	
 	template <typename T>
 	static std::string ConvertToStr(const T & val)

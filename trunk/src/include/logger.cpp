@@ -6,7 +6,7 @@ int Logger::counter=0;
 void Logger::WriteLog(std::string msg)
 {
 	std::cout<<msg<<std::endl;
-	(*strmLog)<<msg<<"\n";
+//	(*strmLog)<<msg<<"\n";
 }
 
 
@@ -15,20 +15,20 @@ Logger::Logger()
 {
 	if (counter==0)
 	{
-		(*strmLog).open("pbankilog.txt",std::ios_base::app);
+//		(*strmLog).open("pbankilog.txt",std::ios_base::app);
 	//	(*strmLog)<<"log created\n";
 	}
 	
-	counter ++;
+//	counter ++;
 	
 }
 
 Logger::~Logger()
 {
-	counter --;
+//	counter --;
 	//(*strmLog)<<"log closed\n";
-	if (counter==0)
-	{
-		(*strmLog).close();
-	}
+//	if (counter==0)
+//	{
+//		(*strmLog).close();
+//	}
 }

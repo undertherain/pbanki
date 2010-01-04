@@ -1,5 +1,9 @@
 #Mindcraft Version History 
 
+= 0.2.4 =
+  * cross-piece control for entering answer on pocketbook
+  * config editor 
+  * layouts 
 
 = 0.2.3 =
 

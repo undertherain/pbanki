@@ -17,12 +17,14 @@
 #include "exceptions.hpp"
 #include "view_pb.hpp"
 #include "logger.hpp"
+#include "GUI/PB/config_pb.hpp"
 
 #define IDX_MENU_ABOUT 101
 #define IDX_MENU_CLOSE 102
 #define IDX_MENU_EXIT 103
 #define IDX_MENU_STATS 104
 #define IDX_MENU_SUSPEND 105
+#define IDX_MENU_CONFIG 106
 
 ViewPocketBook view;
 
@@ -36,6 +38,7 @@ public:
 	static bool isConfigEditorActive;
 	static char deckToLoadName[256];
 	static bool isNewCardRequired;
+	static bool isApplyConfigRequired;
 };
 
 
@@ -46,19 +49,24 @@ ifont *  Globals::fontButtons = NULL;
 char Globals::deckToLoadName[256];
 bool Globals::isConfigEditorActive=false;
 bool Globals::isNewCardRequired=true;
+bool Globals::isApplyConfigRequired=false;
 
-int cindex=0;
+int menuIndex=0;
+int frontHeight=100;
 
-void config_ok() {
+#define SCREEN_HEIGHT 705
+
+void OnDeckSelectorCLosed() {
 
 	//	SaveConfig(testcfg);
 	Logger logger;
-	logger.WriteLog("We are in config handler\n");
+	logger.WriteLog("Deck selector closed\n");
 	Globals::isConfigEditorActive=false;
 	//really we should not be here
 }
 
-void itemChanged(char * item) {
+void OnDeckSelected(char * item) 
+{
 
 	//	SaveConfig(testcfg);
 	fprintf(stderr,"Selected item: %s \n",item);
@@ -69,6 +77,20 @@ void itemChanged(char * item) {
 	SetEventHandler(mainHandler);
 }
 
+void OnConfigEditorClosed()
+{
+	std::cout<<"Config editor closed" << std::endl;
+	Globals::isApplyConfigRequired=true;
+	Globals::isConfigEditorActive=false;
+	SetEventHandler(mainHandler);
+	//save config
+	//ApplyConfig();
+}
+
+void OnConfigItemChanged(char * item)
+{
+	fprintf(stderr,"edited item: %s \n",item);
+}
 
 //-----------------------menu -------------------------------
 
@@ -78,6 +100,7 @@ static imenu menuMain[] = {
 	{ ITEM_ACTIVE, IDX_MENU_SUSPEND, "Suspend card", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_CLOSE, "Close deck", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_STATS, "Statistics", NULL },
+	{ ITEM_ACTIVE, IDX_MENU_CONFIG, "Edit Config", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_ABOUT, "About", NULL },
 	{ ITEM_SEPARATOR, 0, NULL, NULL },
 	{ ITEM_ACTIVE, IDX_MENU_EXIT, "Exit", NULL },
@@ -114,17 +137,49 @@ void menu1_handler(int index)
 			mainHandler(0,0,0);
 
 			break;
+		case IDX_MENU_CONFIG:
+			RunConfigEditor();
+
+			break;
 
 		case IDX_MENU_EXIT:
 			CloseApp();
 			break;
 		default:
-			Message(ICON_INFORMATION, "warining", "Option is not yet supported\nOr internal errror",5000);
+			Message(ICON_INFORMATION, "warning", "Option is not yet supported\nOr internal error",5000);
 			break;
 	}
 
 }
 
+
+
+void RunConfigEditor()
+{
+	std::cout<<"starting config editor"<<std::endl;
+	iconfigedit * decksConfigEdit = new iconfigedit[2];
+	
+	Globals::isConfigEditorActive=true;
+	OpenConfigEditor("Edit Config", cfgMain, configEditor, OnConfigEditorClosed,OnConfigItemChanged);
+
+}
+
+void ViewPocketBook::ApplyConfig()
+{
+	Globals::isConfigEditorActive=false;
+
+	int layout=ReadInt(cfgMain,"layout",0);
+       	std::cout<<"layout= " << layout << std::endl;
+	frontHeight=layout;
+
+	int answerControl=ReadInt(cfgMain,"answer_style",0);
+       	std::cout<<"answer_control= " << answerControl << std::endl;
+	if (!answerControl)
+		AnswerControlType=PBAnswerControlTypeEnum::ctButtons;
+	else
+       		AnswerControlType=PBAnswerControlTypeEnum::ctCross;
+
+}
 
 
 
@@ -164,15 +219,31 @@ int ViewPocketBook::SelectDeck()
 		}
 		iconfigedit emptyConfigLine={ 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 		decksConfigEdit[cnt]=emptyConfigLine;
-		iconfig *cfgDeckList = OpenConfig("/mnt/ext1/test.cfg", NULL);
+//		iconfig *cfgDeckList = OpenConfig("/mnt/ext1/test.cfg", NULL);
+		iconfig *cfgDeckList = OpenConfig("./decks.cfg", NULL);
+//		iconfig *cfgDeckList = new iconfig;
 		//get decks list
 		//fill array of 
 		Globals::isConfigEditorActive=true;
-		OpenConfigEditor("Select Deck", cfgDeckList, decksConfigEdit, config_ok,itemChanged);
+		OpenConfigEditor("Select Deck", cfgDeckList, decksConfigEdit, OnDeckSelectorCLosed,OnDeckSelected);
 		return 0;
 	}
 }
 
+void Init()
+{       // occurs once at startup, only in main handler
+	std::cout<<"Doing INIT event\n";
+	cfgMain = OpenConfig("./mindcraft.cfg", NULL);
+	std::cout<<"sizeof int= "<<sizeof(int)<<std::endl;
+	
+	Globals::fontCard = OpenFont("YOzFontM.TTF", 40, 2);
+	Globals::fontFront = OpenFont("YOzFontM.TTF", 50, 2);
+	Globals::fontBack = OpenFont("YOzFontM.TTF", 40, 2);
+	Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
+	ClearScreen();
+	DrawString(160, 253, "Starting Anki");
+	FullUpdate();
+}
 
 int ViewPocketBook::HandleEvent(InkViewEvent event) 
 {
@@ -193,23 +264,17 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 	}
 	try
 	{
+
+		if(Globals::isApplyConfigRequired)
+			{
+				Globals::isApplyConfigRequired=false;
+				ApplyConfig();
+			}
 		switch(event.type)
 		{
 		case EVT_INIT:
-			logger.WriteLog("Doing INIT event");
-			std::cout<<"sizeof int= "<<sizeof(int)<<std::endl;
-			// occurs once at startup, only in main handler
-			Globals::fontCard = OpenFont("YOzFontM.TTF", 40, 2);
-			Globals::fontFront = OpenFont("YOzFontM.TTF", 50, 2);
-			Globals::fontBack = OpenFont("YOzFontM.TTF", 40, 2);
-			Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
-
-			ClearScreen();
-			DrawString(160, 253, "Starting Anki");
-
-			FullUpdate();
-
-			//return 0;
+			Init();
+			ApplyConfig();
 			break;
 
 		case EVT_EXIT:
@@ -230,7 +295,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 				//DrawTextRect(11, 11, 580, 500,"SHOW MENU!!!!!", ALIGN_LEFT | VALIGN_MIDDLE);
 				//
 				//SoftUpdate();
-				OpenMenu(menuMain, cindex, 20, 20, menu1_handler);
+				OpenMenu(menuMain, menuIndex, 20, 20, menu1_handler);
 				return 0;
 			}
 		}
@@ -241,7 +306,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 				//DrawTextRect(11, 11, 580, 500,"SHOW MENU!!!!!", ALIGN_LEFT | VALIGN_MIDDLE);
 				//
 				//SoftUpdate();
-				OpenMenu(menuMain, cindex, 20, 20, menu1_handler);
+				OpenMenu(menuMain, menuIndex, 20, 20, menu1_handler);
 				return 0;
 			}
 		}
@@ -424,8 +489,8 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 
 		//drawing buttons
 		SetFont(Globals::fontButtons, BLACK);
-		DrawString(150, 723, "Again   Hard    Good    Easy    Suspend");
-		DrawRect(140+answerMark*85, 720, 82, 30, 0);
+		DrawString(150, 733, "Again   Hard    Good    Easy    Suspend");
+		DrawRect(140+answerMark*85, 730, 82, 30, 0);
 		//FillArea(200+answerMark*40, 650, 36, 20, LGRAY);
 
 		SoftUpdate();
@@ -476,16 +541,17 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 		SetFont(Globals::fontButtons, BLACK);
                 
 	
-		DrawString(303, 713, "Hard");
-		DrawString(250, 723, "Good     Again");
-		DrawString(303, 733, "Easy");
-		DrawRect(247,713,162,40,0);
-		DrawRect(295,730,52,5,0);
+		DrawString(293, 723, "Hard");
+		DrawString(240, 733, "Good     Again");
+		DrawString(293, 743, "Easy");
+		DrawRect(237,723,162,40,0);
+		DrawRect(285,740,52,5,0);
 		SoftUpdate();
 	}
-
+	return 0;
 	
 }
+
 int ViewPocketBook::HandleNoDecks(InkViewEvent event) 
 {
 	SetFont(Globals::fontCard, BLACK);
@@ -578,11 +644,11 @@ void ViewPocketBook::ShowFront()
 //	{
 //		std::cout<<static_cast<int>((unsigned char)card.front.ToString().c_str()[i])<<std::endl;
 //	}
-	DrawRect(10, 10, 580, 300, 0);
+	DrawRect(5, 5, 590, frontHeight, 0);
 	SetFont(Globals::fontFront, BLACK);
 //	DrawString(50, 50, card.front.ToString().c_str());
-//	DrawTextRect(11, 11, 580, 300,"damn", ALIGN_CENTER | VALIGN_MIDDLE);
-	DrawTextRect(11, 11, 580, 300, const_cast<char *>(card.front.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+//	DrawTextRect(6, 6, 590, frontHeight,"damn", ALIGN_CENTER | VALIGN_MIDDLE);
+	DrawTextRect(6, 6, 590, frontHeight, const_cast<char *>(card.front.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 //	std::cout<<"done" <<std::endl;
 //	return;
 	
@@ -593,17 +659,18 @@ void ViewPocketBook::ShowFront()
 
 void ViewPocketBook::ShowBack()
 {
-	DrawRect(10, 315, 580, 390, 0);
+	int backHeight=SCREEN_HEIGHT-frontHeight;
+	DrawRect(5, frontHeight+10, 590, backHeight, 0);
 	SetFont(Globals::fontBack, BLACK);
 	//DrawString(50, 350, card.back.ToString().c_str());
-	DrawTextRect(11, 316, 580, 390, const_cast<char *>(card.back.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+	DrawTextRect(6, frontHeight+16, 590, backHeight, const_cast<char *>(card.back.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }
 
 void ViewPocketBook::ShowStatusBar()
 {
-	DrawRect(10, 760, 580, 30, 0);
+	DrawRect(5, 772, 590, 25, 0);
 	SetFont(Globals::fontButtons, BLACK);
-	DrawTextRect(11, 760, 580, 30, const_cast<char *>(model.GetStatus().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+	DrawTextRect(6, 773, 590, 25, const_cast<char *>(model.GetStatus().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }
 
 int mainHandler(int type, int par1, int par2) 

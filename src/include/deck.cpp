@@ -214,3 +214,13 @@ int DeckStats::GetNumCardsTotal() const
 {
 	return numCardsTotal;
 }
+//-------------------oth -------------------
+SessionStats::SessionStats()
+{
+	numNewEase0=0;
+	numNewEase1=0;
+	numNewEase2=0;
+	numNewEase3=0;
+	numNewEase4=0;
+
+}

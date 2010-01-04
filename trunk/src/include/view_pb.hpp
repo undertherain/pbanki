@@ -6,10 +6,17 @@
 #include "model.hpp"
 #include "controller.hpp"
 
+void RunConfigEditor();
+
 class PBAnswerControlTypeEnum
 {
 public:
 	 enum EnAnswerType {ctButtons,ctCross};
+};
+class PBLayoutsEnum
+{
+public:
+	 enum EnAnswerType {loEqual,loUns};
 };
 
 struct InkViewEvent
@@ -31,6 +38,7 @@ private:
 public:
 	ICard  card;
 	Model model;
+	int layout;
 	ViewPocketBook():card(CardField("Error"),CardField("Error")),status(Status::stSelectDeck),AnswerControlType(PBAnswerControlTypeEnum::ctCross){};
 	Status::enumStatuses status;
 	Status::enumStatuses lastStatus;
@@ -47,6 +55,7 @@ public:
 	void ShowFront();
 	void ShowBack();
 	void ShowStatusBar();
+	void ApplyConfig();
 
 };
 

@@ -96,7 +96,7 @@ void menu1_handler(int index)
 			break;
 
 		case IDX_MENU_ABOUT:
-			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.3\nWritten by Alexander Drozd",5000);
+			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.4\nWritten by Alexander Drozd",5000);
 			break;
 
 		case IDX_MENU_SUSPEND:
@@ -223,14 +223,29 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 		}
 		bool isMainLoopRepeatRequired;
-		if ((event.type==EVT_KEYREPEAT) && (event.par1==KEY_UP))
+		if (AnswerControlType==PBAnswerControlTypeEnum::ctButtons)
 		{
-			//DrawTextRect(11, 11, 580, 500,"SHOW MENU!!!!!", ALIGN_LEFT | VALIGN_MIDDLE);
-			//
-			//SoftUpdate();
-			OpenMenu(menuMain, cindex, 20, 20, menu1_handler);
-			return 0;
+			if ((event.type==EVT_KEYREPEAT) && (event.par1==KEY_UP))
+			{
+				//DrawTextRect(11, 11, 580, 500,"SHOW MENU!!!!!", ALIGN_LEFT | VALIGN_MIDDLE);
+				//
+				//SoftUpdate();
+				OpenMenu(menuMain, cindex, 20, 20, menu1_handler);
+				return 0;
+			}
 		}
+		 else
+		{
+			if ((event.type==EVT_KEYREPEAT) && (event.par1==KEY_OK))
+			{
+				//DrawTextRect(11, 11, 580, 500,"SHOW MENU!!!!!", ALIGN_LEFT | VALIGN_MIDDLE);
+				//
+				//SoftUpdate();
+				OpenMenu(menuMain, cindex, 20, 20, menu1_handler);
+				return 0;
+			}
+		}
+
 		do
 		{
 			isMainLoopRepeatRequired=false;
@@ -361,38 +376,46 @@ int ViewPocketBook::HandleShowFront(InkViewEvent event)
 int ViewPocketBook::HandleShowBack(InkViewEvent event) 
 {
 	static int answerMark=0;
-	lastStatus=status;
-	//	fprintf(stderr,"ShowBack Handler answer=%d \n",answerMark);
-	//fprintf(stderr, "event:  [%i %i %i]\n", event.type, event.par1, event.par2);
-	if (event.type==EVT_KEYPRESS) 
-		switch(event.par1)
+	if (AnswerControlType==PBAnswerControlTypeEnum::ctButtons)
 	{
-		case KEY_LEFT:
-			answerMark--;
-			if (answerMark<0) answerMark=0;
-			break;
-		case KEY_RIGHT:
-			answerMark++;
-			if (answerMark>4) answerMark=4;
-			break;
-		case KEY_OK:
-			if (answerMark==4) answerMark=-1;
-			model.AnswerCard(answerMark);
-			Globals::isNewCardRequired=true;
-			if (model.GetNumCardsDueToday()>0)
-				view.status=Status::stShowFront;
-			else
-				view.status=Status::stNoMoreCards;
-	
-			return 0;
-			break;
-		default:
-			//do nothing
-			break;
-	}
+		
+		lastStatus=status;
+		//	fprintf(stderr,"ShowBack Handler answer=%d \n",answerMark);
+		//fprintf(stderr, "event:  [%i %i %i]\n", event.type, event.par1, event.par2);
+		if (event.type==EVT_KEYPRESS) 
+		switch(event.par1)
+		{
+			case KEY_LEFT:
+				answerMark--;
+				if (answerMark<0) answerMark=0;
+				break;
+			case KEY_RIGHT:
+				answerMark++;
+				if (answerMark>4) answerMark=4;
+				break;
+			case KEY_OK:
+				if (answerMark==4) answerMark=-1;
+				model.AnswerCard(answerMark);
+				Globals::isNewCardRequired=true;
+				if (model.GetNumCardsDueToday()>0)
+				{
+					view.status=Status::stShowFront;
+					//show loading message
+					DrawTextRect(11, 760, 580, 30, "loading...", ALIGN_LEFT | VALIGN_MIDDLE);
+					PartialUpdateBW(10,760,580,30);
+				}
+				else
+					view.status=Status::stNoMoreCards;
+		
+				return 0;
+				break;
+			default:
+				//do nothing
+				break;
+		}
 
 	//	if (type == EVT_SHOW) 
-	{
+	
 
 		ClearScreen();
 		ShowFront();
@@ -406,8 +429,62 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 		//FillArea(200+answerMark*40, 650, 36, 20, LGRAY);
 
 		SoftUpdate();
+		return 0;
 	}
-	return 0;
+	else
+	{
+
+		bool isAnswered=false;
+		if (event.type==EVT_KEYPRESS)
+	 		switch(event.par1)
+			{
+				case KEY_LEFT:
+					answerMark=2; isAnswered=true;
+					break;
+				case KEY_RIGHT:
+					answerMark=0; isAnswered=true;
+					break;
+				case KEY_UP:
+					answerMark=1; isAnswered=true;
+					break;
+				case KEY_DOWN:
+					answerMark=3; isAnswered=true;
+					break;
+				default:
+					//do nothing
+					break;
+			}
+		if (isAnswered) 
+		{
+			model.AnswerCard(answerMark);
+			Globals::isNewCardRequired=true;
+			if (model.GetNumCardsDueToday()>0)
+			{
+				view.status=Status::stShowFront;
+				//show loading message
+				DrawTextRect(11, 760, 580, 30, "loading...", ALIGN_LEFT | VALIGN_MIDDLE);
+				PartialUpdateBW(10,760,580,30);
+			}
+			else
+				view.status=Status::stNoMoreCards;
+			return 0;
+		}
+
+		ClearScreen();
+		ShowFront();
+		ShowBack();
+		SetFont(Globals::fontButtons, BLACK);
+                
+	
+		DrawString(303, 713, "Hard");
+		DrawString(250, 723, "Good     Again");
+		DrawString(303, 733, "Easy");
+		DrawRect(247,713,162,40,0);
+		DrawRect(295,730,52,5,0);
+		SoftUpdate();
+	}
+
+	
 }
 int ViewPocketBook::HandleNoDecks(InkViewEvent event) 
 {

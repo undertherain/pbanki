@@ -17,18 +17,27 @@ class DeckStats ///not in use yet
 	protected:
 	int numCardsTotal;
 	int GetNumCardsTotal() const;
+};
+
+class SessionStats
+{
 public:
+	int reps;
+	float reviewTime;
+	float averageTime;
 	int numNewEase0;
 	int numNewEase1;
 	int numNewEase2;
 	int numNewEase3;
 	int numNewEase4;
+	SessionStats();
 };
 
 //contains cards
 class IDeck  
 {
 protected:
+	SessionStats sessionStats;
 	std::string fileName;
 	int numNewCardsPerDay;
 	int numCardsTotal;
@@ -58,6 +67,7 @@ public:
 	virtual std::string GetStatus()=0;
 	IDeck():isLearnMoreModeOn(false){}
 	virtual ~IDeck(){}
+	//virtual void CloseDeck()=0;
 	int GetNumCardsFailedToday() const;
 	int GetNumCardsReviewToday() const;
 	int GetNumCardsNewToday() const;
@@ -99,6 +109,7 @@ class ICard
 {
 public:
 	int type;
+	int typeInitial;
 	CardField front;
 	CardField back;
 	

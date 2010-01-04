@@ -251,6 +251,7 @@ DeckAnki::~DeckAnki()
 
 		try
 		{
+			//update decks table
 			std::string query="update cards   set isDue = 1 where type = 1 and isDue = 0 and  priority in (1,2,3,4) and combinedDue <= :now";
 			SQLiteHelper::ExecuteQuery(dbDeck,query);
 
@@ -262,6 +263,12 @@ DeckAnki::~DeckAnki()
 
 			query="update decks set failedNowCount=(select count(*) from cards where type = 0 and isDue = 1 and combinedDue <= :now)";
 			SQLiteHelper::ExecuteQuery(dbDeck,query);
+
+			//update stats table
+			query="insert into stats (type, day, reps, averageTime, reviewTime, distractedTime, distractedReps, newEase0, newEase1, newEase2, newEase3, newEase4, youngEase0, youngEase1, youngEase2, youngEase3, youngEase4, matureEase0, matureEase1, matureEase2, matureEase3, matureEase4)";
+			query+="values (1,'"+FormatHelper::GetTodayDateStr()+"', 0, 0, 0, 0, 0, "+FormatHelper::ConvertToStr(sessionStats.numNewEase0)+", "+FormatHelper::ConvertToStr(sessionStats.numNewEase1)+", "+FormatHelper::ConvertToStr(sessionStats.numNewEase2)+", "+FormatHelper::ConvertToStr(sessionStats.numNewEase3)+", "+FormatHelper::ConvertToStr(sessionStats.numNewEase4)+", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)";
+			SQLiteHelper::ExecuteQuery(dbDeck,query);
+
 		}
 		catch(Exception ex)
 		{
@@ -290,6 +297,7 @@ CardAnki DeckAnki::CardFromDBRow(StringMap row)
 	CardField fldBack(strBack);
 	CardAnki card(fldFront,fldBack);
 	card.type=FormatHelper::StrToInt(row["type"]);
+	card.typeInitial=card.type;
 	card.priority=FormatHelper::StrToInt(row["priority"]);
 	card.interval=FormatHelper::StrToFloat(row["interval"]);
 	card.lastInterval=FormatHelper::StrToFloat(row["lastInterval"]);
@@ -367,7 +375,16 @@ void DeckAnki::AnswerCard(Answer answer)
 		{
 			case 0: numCardsFailedToday--; break;
 			case 1: numCardsReviewToday--; break;
-			case 2: numCardsNewToday--; break;
+			case 2: numCardsNewToday--;
+				switch (answer)
+				{
+					case 0: sessionStats.numNewEase1++; break;
+					case 1: sessionStats.numNewEase2++; break;
+					case 2: sessionStats.numNewEase3++; break;
+					case 3: sessionStats.numNewEase4++; break;
+				}
+
+				break;
 			default: break;
 		}
 		lastCard->yesCount++;

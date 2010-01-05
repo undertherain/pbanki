@@ -96,7 +96,7 @@ public:
 		{
 			throw Exception("strftime returned 0");
 		}
-		printf("Result string is \"%s\"\n", outstr);
+		//printf("Result string is \"%s\"\n", outstr);
 		return std::string(outstr);
 		#endif
 		#if  defined(ARCH_WIN) || defined(ARCH_WM)

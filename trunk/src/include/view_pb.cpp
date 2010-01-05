@@ -157,7 +157,6 @@ void menu1_handler(int index)
 void RunConfigEditor()
 {
 	std::cout<<"starting config editor"<<std::endl;
-	iconfigedit * decksConfigEdit = new iconfigedit[2];
 	
 	Globals::isConfigEditorActive=true;
 	OpenConfigEditor("Edit Config", cfgMain, configEditor, OnConfigEditorClosed,OnConfigItemChanged);
@@ -168,16 +167,37 @@ void ViewPocketBook::ApplyConfig()
 {
 	Globals::isConfigEditorActive=false;
 
-	int layout=ReadInt(cfgMain,"layout",0);
+	//set layout
+	int layout=ReadInt(cfgMain,"layout",300);
        	std::cout<<"layout= " << layout << std::endl;
 	frontHeight=layout;
 
+	//set anwer control
 	int answerControl=ReadInt(cfgMain,"answer_style",0);
        	std::cout<<"answer_control= " << answerControl << std::endl;
 	if (!answerControl)
 		AnswerControlType=PBAnswerControlTypeEnum::ctButtons;
 	else
        		AnswerControlType=PBAnswerControlTypeEnum::ctCross;
+
+ 	//set fonts
+	
+	//std::cout<<"font="<< fnt <<std::endl;
+//	char *fname, *buf;
+//	int size;
+//	buf = ReadString(cfgMain,"front_font",DEFAULTFONT",40"); 
+//	std::cout<<"font="<< buf <<std::endl;
+//	fname = strtok(buf, ",");
+	Globals::fontFront = ReadFont(cfgMain,"front_font",DEFAULTFONT",50"); 
+	Globals::fontBack = ReadFont(cfgMain,"back_font",DEFAULTFONT",40"); 
+	return;
+//	sscanf(fname+strlen(fname)+1, "%d", &size);
+//	Globals::fontFront = OpenFont(fname, size, 2);
+
+//	buf = ReadString(cfgMain,"back_font",DEFAULTFONT",40"); 
+//	fname = strtok(buf, ",");
+//	sscanf(fname+strlen(fname)+1, "%d", &size);
+//	Globals::fontBack = OpenFont(fname, size, 2);
 
 }
 
@@ -233,6 +253,7 @@ int ViewPocketBook::SelectDeck()
 void Init()
 {       // occurs once at startup, only in main handler
 	std::cout<<"Doing INIT event\n";
+//	cfgMain = OpenConfig(CONFIGPATH"./mindcraft.cfg", NULL);
 	cfgMain = OpenConfig("./mindcraft.cfg", NULL);
 	std::cout<<"sizeof int= "<<sizeof(int)<<std::endl;
 	
@@ -288,20 +309,8 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 		}
 		bool isMainLoopRepeatRequired;
-		if (AnswerControlType==PBAnswerControlTypeEnum::ctButtons)
 		{
-			if ((event.type==EVT_KEYREPEAT) && (event.par1==KEY_UP))
-			{
-				//DrawTextRect(11, 11, 580, 500,"SHOW MENU!!!!!", ALIGN_LEFT | VALIGN_MIDDLE);
-				//
-				//SoftUpdate();
-				OpenMenu(menuMain, menuIndex, 20, 20, menu1_handler);
-				return 0;
-			}
-		}
-		 else
-		{
-			if ((event.type==EVT_KEYREPEAT) && (event.par1==KEY_OK))
+			if ((event.type==EVT_KEYREPEAT) && ( (event.par1==KEY_UP) ||(event.par1==KEY_OK) ))
 			{
 				//DrawTextRect(11, 11, 580, 500,"SHOW MENU!!!!!", ALIGN_LEFT | VALIGN_MIDDLE);
 				//
@@ -466,7 +475,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 				{
 					view.status=Status::stShowFront;
 					//show loading message
-					DrawTextRect(11, 760, 580, 30, "loading...", ALIGN_LEFT | VALIGN_MIDDLE);
+					DrawTextRect(11, 770, 580, 30, "loading...", ALIGN_LEFT | VALIGN_MIDDLE);
 					PartialUpdateBW(10,760,580,30);
 				}
 				else

@@ -53,6 +53,7 @@ bool Globals::isApplyConfigRequired=false;
 
 int menuIndex=0;
 int frontHeight=100;
+int textScrollPos=0;
 
 #define SCREEN_HEIGHT 705
 
@@ -119,7 +120,7 @@ void menu1_handler(int index)
 			break;
 
 		case IDX_MENU_ABOUT:
-			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.4\nWritten by Alexander Drozd",5000);
+			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.5\nWritten by Alexander Drozd",5000);
 			break;
 
 		case IDX_MENU_SUSPEND:
@@ -425,6 +426,7 @@ int ViewPocketBook::HandleShowFront(InkViewEvent event)
 	//std::cout<<"fetching new card" <<std::endl;
 	if (Globals::isNewCardRequired)
 	{
+		textScrollPos=0;
 		lastStatus=status;
 		card=model.getNextCard();
 		Globals::isNewCardRequired=false;
@@ -466,6 +468,12 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 			case KEY_RIGHT:
 				answerMark++;
 				if (answerMark>4) answerMark=4;
+				break;
+			case KEY_DOWN:
+				textScrollPos+=100;
+				break;
+			case KEY_UP:
+				textScrollPos-=100;
 				break;
 			case KEY_OK:
 				if (answerMark==4) answerMark=-1;
@@ -523,6 +531,9 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 					break;
 				case KEY_DOWN:
 					answerMark=3; isAnswered=true;
+					break;
+				case KEY_OK:
+					textScrollPos+=100;
 					break;
 				default:
 					//do nothing
@@ -648,7 +659,7 @@ int ViewPocketBook::HandleNoMoreCards(InkViewEvent event)
 
 void ViewPocketBook::ShowFront()
 {
-	std::cout<<"we are in pb, show front:"<<card.front.ToString()<<std::endl;
+//	std::cout<<"we are in pb, show front:["<<card.front.ToString()<<"]"<<std::endl;
 //	for (int i=0;card.front.ToString().c_str()[i]!=0;i++)
 //	{
 //		std::cout<<static_cast<int>((unsigned char)card.front.ToString().c_str()[i])<<std::endl;
@@ -668,11 +679,22 @@ void ViewPocketBook::ShowFront()
 
 void ViewPocketBook::ShowBack()
 {
+
+	int textWidth=590;
 	int backHeight=SCREEN_HEIGHT-frontHeight;
-	DrawRect(5, frontHeight+10, 590, backHeight, 0);
+	char strBack[1024];
+	if (textScrollPos>card.back.ToString().size())textScrollPos=0;
+	if (textScrollPos<0)textScrollPos=0;
+	std::string tmpStr=card.back.ToString().substr(textScrollPos);
+	strncpy(strBack,tmpStr.c_str(),1024);
+	int strWidth=StringWidth(strBack);
+	int actHeight=TextRectHeight(600, strBack, ALIGN_CENTER | VALIGN_MIDDLE);
+	std::cout<< "str width="<<strWidth<<std::endl;
+	std::cout<< "back height="<<backHeight<< "  actual height="<<actHeight<<std::endl;
+	DrawRect(5, frontHeight+10, textWidth, backHeight, 0);
 	SetFont(Globals::fontBack, BLACK);
 	//DrawString(50, 350, card.back.ToString().c_str());
-	DrawTextRect(6, frontHeight+16, 590, backHeight, const_cast<char *>(card.back.ToString().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
+	DrawTextRect(6, frontHeight+16, textWidth, backHeight, strBack, ALIGN_CENTER | VALIGN_MIDDLE);
 }
 
 void ViewPocketBook::ShowStatusBar()

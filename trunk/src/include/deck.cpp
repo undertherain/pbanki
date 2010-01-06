@@ -193,6 +193,8 @@ std::string CardField::ToString() const
 {
 	std::string strResult;    //very not effective
 	bool isSpan=false;
+	int odd=1;
+	//std::cout<<"inner text=" <<innerText<<std::endl;
 	for (unsigned int i=0;i<innerText.length();i++)
 	{
 		if (innerText[i]=='<') isSpan = true;
@@ -202,9 +204,9 @@ std::string CardField::ToString() const
 			strResult=strResult+innerText[i];
 		}
 		if (innerText[i]=='>') 
-		{ 
+		{       odd++;
 			isSpan = false;
-			strResult=strResult+"\n";
+			if (odd%2) strResult=strResult+"\n";
 		}
 	}
 	return strResult;

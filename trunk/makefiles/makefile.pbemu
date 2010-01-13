@@ -1,26 +1,18 @@
 #compiling for pocketbook emulator
 PATH=$(POCKETBOOKSDK)\bin
 
-SOURCES_OLD = src/main_pocketbook.cpp src/include/deck.cpp src/include/deckAnki.cpp src/include/model.cpp src/include/view_pb.cpp src/include/logger.cpp src/include/dbSQLite.cpp
-SOURCES = src/main_pocketbook.cpp src/include/deck.cpp src/include/model.cpp src/include/view_pb.cpp src/include/logger.cpp 
-OBJECTS = obj/pbemu/sqlite3.o obj/pbemu/deckAnki.o obj/pbemu/dbSQLite.o
+CC = $(POCKETBOOKSDK)\bin\gcc
+CPP= $(POCKETBOOKSDK)\bin\g++
+
+OBJPATH=obj/pbemu
+
 
 INCLUDE=
-#LIBS=-linkview -lfreetype -lz
+
 LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32
 CFLAGS=-static -Wall -O2 -fomit-frame-pointer  -DARCH_PBEMU
 
-pbanki_emu.exe: $(OBJECTS)
-	c:\bin\PBSDK\bin\g++ $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(LIBS) $(OBJECTS)
 
+include makefiles/makefile.inkview
 
-obj/pbemu/sqlite3.o:
-	c:\bin\PBSDK\bin\gcc -c -o obj/pbemu/sqlite3.o src/include/libs/sqlite3.c 
-
-
-obj/pbemu/deckAnki.o: src/include/deckAnki.cpp
-	c:\bin\PBSDK\bin\g++ -c $(CFLAGS) $(INCLUDE) -o $@ $^ 
-
-obj/pbemu/dbSQLite.o: src/include/dbSQLite.cpp
-	c:\bin\PBSDK\bin\g++ -c $(CFLAGS) $(INCLUDE) -o $@ $^ 
 

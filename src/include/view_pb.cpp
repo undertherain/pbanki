@@ -506,7 +506,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 
 		//drawing buttons
 		SetFont(Globals::fontButtons, BLACK);
-		DrawString(150, 733, "Again   Hard    Good    Easy    Suspend");
+		DrawString(150, 734, "Again   Hard    Good    Easy    Sspnd");
 		DrawRect(140+answerMark*85, 730, 82, 30, 0);
 		//FillArea(200+answerMark*40, 650, 36, 20, LGRAY);
 

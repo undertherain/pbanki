@@ -1,0 +1,29 @@
+#compiling for inkview (PocketBook)
+
+SOURCES = src/main_pocketbook.cpp src/include/model.cpp src/include/view_pb.cpp src/include/logger.cpp 
+OBJECTS = $(OBJPATH)/sqlite3.o $(OBJPATH)/deckAnki.o $(OBJPATH)/dbSQLite.o $(OBJPATH)/deck.o
+
+pbanki_emu.exe: $(OBJECTS)
+	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(OBJECTS) $(LIBS) 
+
+pbanki.app: $(OBJECTS)
+	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(LIBS) $(SOURCES) $(OBJECTS)
+	$(STRIP) pbanki.app
+
+obj/pbemu/sqlite3.o:
+	$(CC) -c -o obj/pbemu/sqlite3.o src/include/libs/sqlite3.c 
+
+obj/pb/sqlite3.o:
+	$(CC) $(CFLAGS) -c src/include/libs/sqlite3.c -o obj/pb/sqlite3.o
+
+
+
+$(OBJPATH)/deckAnki.o: src/include/deckAnki.cpp
+	$(CPP) -c $(CFLAGS) $(INCLUDE) -o $@ $^ 
+
+$(OBJPATH)/dbSQLite.o: src/include/dbSQLite.cpp
+	$(CPP) -c $(CFLAGS) $(INCLUDE) -o $@ $^ 
+
+$(OBJPATH)/deck.o: src/include/deck.cpp
+	$(CPP) -c $(CFLAGS) $(INCLUDE) -o $@ $^ 
+

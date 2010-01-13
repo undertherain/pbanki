@@ -1,4 +1,5 @@
 #compiling for pocketbook emulator
+
 PATH=$(POCKETBOOKSDK)\bin
 
 CC = $(POCKETBOOKSDK)\bin\gcc
@@ -6,13 +7,12 @@ CPP= $(POCKETBOOKSDK)\bin\g++
 
 OBJPATH=obj/pbemu
 
-
 INCLUDE=
 
 LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32
 CFLAGS=-static -Wall -O2 -fomit-frame-pointer  -DARCH_PBEMU
+SQLITEFLAGS= 
 
 
 include makefiles/makefile.inkview
-
 

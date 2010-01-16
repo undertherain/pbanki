@@ -331,7 +331,7 @@ void DeckAnki::AnswerCard(Answer answer)
 	if (answer==-1)
 	{
 		//card is suspended
-		lastCard->priority=-3;
+		lastCard->priority=-lastCard->priority;
 		switch (lastCard->type)
 		{
 			case 0: numCardsFailedToday--; break;
@@ -348,6 +348,7 @@ void DeckAnki::AnswerCard(Answer answer)
 	//calc new interval
 	lastCard->lastInterval=lastCard->interval;
 	lastCard->interval=CalcNextInterval(*lastCard,answer);
+	std::cout<<"card will be repeated in " + FormatHelper::IntervalToHumanStr(lastCard->interval * SECONDS_PER_DAY) << std::endl;
 	lastCard->due = (lastCard->interval * SECONDS_PER_DAY)+  TimeHelper::GetSeconds();
 	lastCard->combinedDue = lastCard->due;
 	

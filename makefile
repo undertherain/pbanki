@@ -1,7 +1,7 @@
 
 MAKE=make
 
-.PHONY: clean
+.PHONY: clean release
 
 #minimalistic console for linux\windows
 console: 
@@ -9,11 +9,11 @@ console:
 
 #pocket book device
 pb: 
-	$(MAKE)	-f makefiles/makefile.pb pbanki.app
+	$(MAKE)	-f makefiles/makefile.pb mindcraft.app
 
 #pocket book emulator
 pbemu:
-	$(MAKE)	-f makefiles/makefile.pbemu pbanki_emu.exe
+	$(MAKE)	-f makefiles/makefile.pbemu mindcraft.exe
 
 
 
@@ -22,5 +22,6 @@ clean:
 	del pbanki.app
 	del obj\pb\*.o
 	del obj\pbemu\*.o
-      
 
+release: pb
+	echo obj\a.exe

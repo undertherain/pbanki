@@ -1,14 +1,16 @@
 #compiling for inkview (PocketBook)
 
+#this makefile shuold be encluded from makfile.pb or makefile.pbemu
+
 #SOURCES = src/main_pocketbook.cpp src/include/deck.cpp src/include/deckAnki.cpp src/include/model.cpp src/include/view_pb.cpp  src/include/logger.cpp src/include/dbSQLite.cpp
 
 SOURCES = src/main_pocketbook.cpp src/include/view_pb.cpp src/include/logger.cpp 
 OBJECTS = $(OBJPATH)/sqlite3.o $(OBJPATH)/deckAnki.o $(OBJPATH)/dbSQLite.o $(OBJPATH)/deck.o $(OBJPATH)/model.o
 
-pbanki_emu.exe: $(OBJECTS)
+mindcraft.exe: $(OBJECTS)
 	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(OBJECTS) $(LIBS) 
 
-pbanki.app: $(OBJECTS)
+mindcraft.app: $(OBJECTS)
 	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(LIBS) $(SOURCES) $(OBJECTS)
 	$(STRIP) $@
 

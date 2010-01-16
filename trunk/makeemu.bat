@@ -1,3 +1,3 @@
-del           pbanki_emu.exe
+del           mindcraft
 make pbemu
-pbanki_emu.exe
+mindcraft.exe

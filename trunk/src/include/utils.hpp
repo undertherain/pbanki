@@ -63,6 +63,40 @@ public:
 	}
 #endif
 	
+	static std::string IntervalToHumanStr(double seconds)
+	{
+		int newSpan;
+		
+	    if (seconds < 60)
+		{
+			return "soon";
+		}
+	    if (seconds < 60*60)
+		{
+			newSpan = static_cast<int>(seconds / 60.0);
+			return ConvertToStr(newSpan) + " minutes";
+		}
+	    if (seconds < 60*60*24)
+		{
+			newSpan = static_cast<int>(seconds / (60.0 * 60.0));
+			return ConvertToStr(newSpan) + " hours";
+
+		}
+	    if (seconds < 60*60*24*30)
+		{
+			newSpan = static_cast<int>(seconds / (60.0 * 60.0 * 24));
+			return ConvertToStr(newSpan) + " days";
+		}
+	    if (seconds < 60*60*24*30*12)
+		{
+			newSpan = static_cast<int>(seconds / (60.0 * 60.0 * 24 * 30));
+			return ConvertToStr(newSpan) + " months";
+		}
+		newSpan = static_cast<int>(seconds / (60.0 * 60.0 * 24 * 356));
+		return ConvertToStr(newSpan) + " years";
+	}
+
+
 	static std::string GetCurrentTimeStr()
 	{
 		std::ostringstream out;

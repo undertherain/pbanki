@@ -2,19 +2,18 @@
 #define MAINWINDOW_H
 
 #include <QtGui\QMainWindow>
+#include <QtGui\QWidget>
+
 #include "../../model.hpp"
 
 QT_BEGIN_NAMESPACE
 class QAction;
 class QMenu;
+class QLabel;
 //class QPlainTextEdit;
 class QTextEdit;
 QT_END_NAMESPACE
 
-class MainWidget : public QWidget
-{
-
-};
 
 class MainWindow : public QMainWindow
 {
@@ -38,8 +37,10 @@ private:
     void CreateMenus();
 	void ReadSettings();
 
+
 //	QPlainTextEdit *textEdit;
 	QTextEdit *textEdit;
+    QWidget  *centralWinget;
 
 	QMenu *menuFile;
 	QMenu *menuHelp;

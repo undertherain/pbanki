@@ -71,7 +71,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions=" /subsystem:windowsce,5.01"
-				AdditionalDependencies="qtmain.lib QtGui4.lib QtCore4.lib"
+				AdditionalDependencies="corelibc.lib qtmain.lib QtGui4.lib QtCore4.lib"
 				OutputFile="$(OutDir)/verysimple.exe"
 				LinkIncremental="2"
 				DelayLoadDLLs="$(NOINHERIT)"

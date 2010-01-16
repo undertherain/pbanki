@@ -12,6 +12,8 @@
 #include <winbase.h>
 #endif
 
+
+
 #define SECONDS_PER_DAY 86400.0
 
 class TimeHelper
@@ -21,11 +23,12 @@ public:
 	{
 		time_t seconds;
 
-#ifdef ARCH_WM
-		seconds =_time64(NULL);
-#else
-		seconds = time(NULL);
-#endif
+		#ifdef ARCH_WM
+			seconds =_time64(NULL);
+		#else
+			seconds = time(NULL);
+		#endif
+		
 		return seconds;
 	}
 
@@ -34,7 +37,7 @@ public:
 class FormatHelper 
 {
 public:
-#if  defined(ARCH_WM) || defined(ARCH_WIN)
+#if defined(ARCH_WM) || defined(ARCH_WIN)
 	static void wstrToUtf8(std::string& dest, const std::wstring& src)
 	{
 		dest.clear();

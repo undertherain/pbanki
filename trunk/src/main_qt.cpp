@@ -8,6 +8,7 @@
 
 
 
+
 int main(int argc, char *argv[])
 {
      std::string directory = argv[0];
@@ -22,6 +23,11 @@ int main(int argc, char *argv[])
 	mainWin.model.currentDirectory=directory;
 	mainWin.ShowDeckList();
     mainWin.show();
+
+
+    //Dialog dialog;
+    //dialog.show();
+
     return app.exec();
 
 

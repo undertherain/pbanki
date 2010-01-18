@@ -8,26 +8,40 @@ MainWindow::MainWindow()
 	textEdit = new QTextEdit;
 	textEdit->setReadOnly(true);
 
-	QWidget *centralWinget = new QWidget;
-	QPushButton *button1 = new QPushButton("One");
-	QPushButton *button2 = new QPushButton("Two");
-	QPushButton *button3 = new QPushButton("Three");
-	QPushButton *button4 = new QPushButton("Four");
-	QPushButton *button5 = new QPushButton("Five");
+	centralWidget = new QWidget;
 
-	QVBoxLayout *layout = new QVBoxLayout;
-	layout->addWidget(textEdit);
-	layout->addWidget(button1);
-	layout->addWidget(button2);
-	layout->addWidget(button3);
-	layout->addWidget(button4);
-	layout->addWidget(button5);
+	btnShowAnswer = new QPushButton("ShowAnswer");
+    connect(btnShowAnswer, SIGNAL(clicked()), this, SLOT(ShowAnswer()));
 
-	centralWinget->setLayout(layout);
+
+
+	centralLayout = new QVBoxLayout;
+	centralLayout->setMargin(0);
+	centralLayout->setSpacing(1);
+	centralLayout->addWidget(textEdit);
+	centralLayout->addWidget(btnShowAnswer);
+	
+	answerButtons= new QWidget;
+	QPushButton *btnAgain = new QPushButton("Again");
+	QPushButton *btnHard = new QPushButton("Hard");
+	QPushButton *btnGood = new QPushButton("Good");
+	QPushButton *btnEasy = new QPushButton("Easy");
+	QHBoxLayout * answerButtonsLayout = new QHBoxLayout;
+	answerButtons->setLayout(answerButtonsLayout);
+	answerButtonsLayout->setMargin(0);
+	answerButtonsLayout->setSpacing(1);
+	answerButtonsLayout->addWidget(btnAgain);
+	answerButtonsLayout->addWidget(btnHard);
+	answerButtonsLayout->addWidget(btnGood);
+	answerButtonsLayout->addWidget(btnEasy);
+	
+	
+	
+	centralWidget->setLayout(centralLayout);
 	//window->show();
 
 	//setCentralWidget(textEdit);
-	setCentralWidget(centralWinget);
+	setCentralWidget(centralWidget);
 
 
 
@@ -119,6 +133,19 @@ void MainWindow::CreateMenus()
 
 
 //mindcraft
+
+void MainWindow::ShowAnswer()
+{
+	centralLayout->removeWidget(btnShowAnswer);
+	//centralLayout->addWidget(btnShowAnswer);
+	centralLayout->addWidget(answerButtons);
+	
+	std::string innerHtml="question <hr /> answer";
+
+	textEdit->setHtml(QString::fromUtf8(innerHtml.c_str()));
+	
+}
+
 void MainWindow::ShowDeckList()
 {
 	DeckInfoList decks = model.getDeckList();

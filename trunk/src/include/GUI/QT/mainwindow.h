@@ -9,7 +9,10 @@
 QT_BEGIN_NAMESPACE
 class QAction;
 class QMenu;
+class QWidget;
 class QLabel;
+class QPushButton;
+class QVBoxLayout;
 //class QPlainTextEdit;
 class QTextEdit;
 QT_END_NAMESPACE
@@ -31,6 +34,7 @@ protected:
 private slots: 
     void ShowAbout();
     void OpenDeck();
+    void ShowAnswer();
 
 private:
     void CreateActions();
@@ -38,16 +42,20 @@ private:
 	void ReadSettings();
 
 
-//	QPlainTextEdit *textEdit;
+//	Controls-------------
 	QTextEdit *textEdit;
-    QWidget  *centralWinget;
+    QWidget  *centralWidget;
+	QPushButton *btnShowAnswer;
+	QWidget *answerButtons;
 
 	QMenu *menuFile;
 	QMenu *menuHelp;
-
+	QVBoxLayout * centralLayout;
+	//actions--------------
     QAction *actExit;
     QAction *actAbout;
     QAction *actOpenDeck;
+  //  QAction *actShowAnswer;
 
 
 

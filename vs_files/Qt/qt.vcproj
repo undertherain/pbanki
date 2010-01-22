@@ -339,7 +339,7 @@
 				ForceDirty="-1"
 				RemoteDirectory=""
 				RegisterOutput="0"
-				AdditionalFiles=""
+				AdditionalFiles="msvcr90.dll|$(ProjectDir)..\_deployment\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;QtCore4.dll|$(ProjectDir)..\_deployment\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;QtGui4.dll|$(ProjectDir)..\_deployment\|%CSIDL_PROGRAM_FILES%\MindCraftQT|0;JapaneseMinimalistic.anki|$(ProjectDir)..\..\decks|%CSIDL_PROGRAM_FILES%\MindCraftQT\decks|0;анянекоза.anki|$(ProjectDir)..\..\decks|%CSIDL_PROGRAM_FILES%\MindCraftQT\decks|0"
 			/>
 			<DebuggerTool
 			/>

@@ -4,45 +4,47 @@
 MainWindow::MainWindow()
 {
 
+	
 	//textEdit = new QPlainTextEdit;
-	textEdit = new QTextEdit;
-	textEdit->setReadOnly(true);
 
 	centralWidget = new QWidget;
+	setCentralWidget(centralWidget);
 
-	btnShowAnswer = new QPushButton("ShowAnswer");
-    connect(btnShowAnswer, SIGNAL(clicked()), this, SLOT(ShowAnswer()));
+	textEdit = new QTextEdit(centralWidget);
+	textEdit->setReadOnly(true);
+
+	btnShowAnswer = new QPushButton("ShowAnswer",centralWidget);
+    //connect(btnShowAnswer, SIGNAL(clicked()), this, SLOT(ShowAnswer()));
+	//setCentralWidget(btnShowAnswer );
 
 
 
 	centralLayout = new QVBoxLayout;
-	centralLayout->setMargin(0);
-	centralLayout->setSpacing(1);
+	//centralLayout->setMargin(0);
+	//centralLayout->setSpacing(1);
 	centralLayout->addWidget(textEdit);
 	centralLayout->addWidget(btnShowAnswer);
 	
-	answerButtons= new QWidget;
-	QPushButton *btnAgain = new QPushButton("Again");
-	QPushButton *btnHard = new QPushButton("Hard");
-	QPushButton *btnGood = new QPushButton("Good");
-	QPushButton *btnEasy = new QPushButton("Easy");
-	QHBoxLayout * answerButtonsLayout = new QHBoxLayout;
-	answerButtons->setLayout(answerButtonsLayout);
-	answerButtonsLayout->setMargin(0);
-	answerButtonsLayout->setSpacing(1);
-	answerButtonsLayout->addWidget(btnAgain);
-	answerButtonsLayout->addWidget(btnHard);
-	answerButtonsLayout->addWidget(btnGood);
-	answerButtonsLayout->addWidget(btnEasy);
+	//answerButtons= new QWidget;
+	//QPushButton *btnAgain = new QPushButton("Again");
+	//QPushButton *btnHard = new QPushButton("Hard");
+	//QPushButton *btnGood = new QPushButton("Good");
+	//QPushButton *btnEasy = new QPushButton("Easy");
+	//QHBoxLayout * answerButtonsLayout = new QHBoxLayout;
+	//answerButtons->setLayout(answerButtonsLayout);
+	//answerButtonsLayout->setMargin(0);
+	//answerButtonsLayout->setSpacing(1);
+	//answerButtonsLayout->addWidget(btnAgain);
+	//answerButtonsLayout->addWidget(btnHard);
+	//answerButtonsLayout->addWidget(btnGood);
+	//answerButtonsLayout->addWidget(btnEasy);
 	
 	
 	
 	centralWidget->setLayout(centralLayout);
-	//window->show();
-
+		
 	//setCentralWidget(textEdit);
-	setCentralWidget(centralWidget);
-
+	
 
 
 	CreateActions();

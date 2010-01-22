@@ -1,0 +1,24 @@
+#compiling for pocketbook arm arch
+
+CC = gcc
+CPP = g++
+
+LIBS=
+INCLUDE = 
+CFLAGS=-DARCH_OI
+SQLITEFLAGS= -DSQLITE_MIXED_ENDIAN_64BIT_FLOAT 
+
+OBJPATH=obj/oi
+
+SOURCES = src/include/GUI/efl/test.cpp
+OBJECTS = 
+
+
+mindcraft: $(OBJECTS)
+	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(OBJECTS) $(LIBS) 
+
+
+
+
+	
+	

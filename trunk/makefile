@@ -15,7 +15,9 @@ pb:
 pbemu:
 	$(MAKE)	-f makefiles/makefile.pbemu mindcraft.exe
 
-
+#OpenInkpot (for now for lbook)
+oi:
+	$(MAKE)	-f makefiles/makefile.oi mindcraft
 
 clean:
 	del pbanki_emu.exe

@@ -3,8 +3,8 @@
 CC = gcc
 CPP = g++
 
-LIBS=
-INCLUDE = 
+LIBS= -lecore -ledje -lecore_evas
+INCLUDE = -I/usr/include/eina-0/ -I/usr/include/eina-0/eina -I/usr/include/efreet
 CFLAGS=-DARCH_OI
 SQLITEFLAGS= -DSQLITE_MIXED_ENDIAN_64BIT_FLOAT 
 
@@ -14,7 +14,7 @@ SOURCES = src/include/GUI/efl/test.cpp
 OBJECTS = 
 
 
-mindcraft: $(OBJECTS)
+mindcraft: $(OBJECTS) $(SOURCES)
 	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(OBJECTS) $(LIBS) 
 
 

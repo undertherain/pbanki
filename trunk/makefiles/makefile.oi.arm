@@ -1,0 +1,14 @@
+#compiling for OpenInkpot arm
+
+CC = arm-ip-linux-gnueabi-gcc
+CPP = arm-ip-linux-gnueabi-g++
+
+LIBS= -lecore -ledje -lecore_evas
+INCLUDE =  -I/arm-ip-linux-gnueabi/include/efreet/ -I/usr/arm-ip-linux-gnueabi/include/efreet/ -I/usr/arm-ip-linux-gnueabi/include/eina-0/ -I/usr/arm-ip-linux-gnueabi/include/eina-0/eina/
+
+CFLAGS=-DARCH_OI
+SQLITEFLAGS= -DSQLITE_MIXED_ENDIAN_64BIT_FLOAT 
+
+OBJPATH=obj/oi
+
+include makefiles/makefile.oi.commons

@@ -19,6 +19,9 @@ pbemu:
 oi:
 	$(MAKE)	-f makefiles/makefile.oi mindcraft
 
+oiarm:
+	$(MAKE)	-f makefiles/makefile.oi.arm mindcraft
+
 clean:
 	del pbanki_emu.exe
 	del pbanki.app

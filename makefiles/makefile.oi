@@ -1,4 +1,4 @@
-#compiling for pocketbook arm arch
+#compiling for OpenInkpot emulator
 
 CC = gcc
 CPP = g++
@@ -6,19 +6,8 @@ CPP = g++
 LIBS= -lecore -ledje -lecore_evas
 INCLUDE = -I/usr/include/eina-0/ -I/usr/include/eina-0/eina -I/usr/include/efreet
 CFLAGS=-DARCH_OI
-SQLITEFLAGS= -DSQLITE_MIXED_ENDIAN_64BIT_FLOAT 
 
 OBJPATH=obj/oi
 
-SOURCES = src/include/GUI/efl/test.cpp
-OBJECTS = 
 
-
-mindcraft: $(OBJECTS) $(SOURCES)
-	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(OBJECTS) $(LIBS) 
-
-
-
-
-	
-	
+include makefiles/makefile.oi.commons

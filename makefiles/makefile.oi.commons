@@ -1,0 +1,9 @@
+#compiling for OpenInkpot
+
+OBJECTS = 
+SOURCES = src/include/GUI/efl/test.cpp
+
+
+mindcraft: $(OBJECTS) $(SOURCES)
+	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(OBJECTS) $(LIBS) 
+

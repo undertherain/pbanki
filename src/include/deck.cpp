@@ -2,8 +2,9 @@
 #include "deck.hpp"
 #include <string>
 #include <iostream>
+#include <stdlib.h>
 
-#if  defined(ARCH_PB) || defined(ARCH_PBEMU)
+#if  defined(ARCH_PB) || defined(ARCH_PBEMU) || defined(ARCH_LINUX)
 	#include <dirent.h>
 #else
 	#include <windows.h>
@@ -85,7 +86,7 @@ DeckInfoList IDeck::getDeckList(std::string directory)
 	//	decks.push_back(DeckInfo("test2"));
 	//	decks.push_back(DeckInfo("test3"));
 
-#if defined(ARCH_PB) || defined(ARCH_PBEMU)
+#if defined(ARCH_PB) || defined(ARCH_PBEMU) || defined(ARCH_LINUX)
 	//linux-specific directory listing
 	struct dirent **filelist;
 	std::string temps;

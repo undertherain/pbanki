@@ -1,4 +1,5 @@
 #include "deckAnki.hpp"
+#include <stdio.h>
 
 std::vector<StringMap> SQLiteHelper::values;
 static int callback(void *NotUsed, int argc, char **argv, char **azColName);

@@ -1,10 +1,20 @@
+#ifdef ARCH_LINUX
+
+#include <qt4/Qt/qapplication.h>
+#include <qt4/Qt/qlabel.h>
+#include <qt4/Qt/qpushbutton.h>
+#include "include/GUI/QT/mainwindow.h"
+
+#else
 #include <qt\qapplication.h>
 #include <qt\qlabel.h>
 #include <qt\qpushbutton.h>
-#include <string>
 #include <windows.h>
-
 #include "include\GUI\QT\mainwindow.h"
+
+#endif
+#include <string>
+
 
 
 

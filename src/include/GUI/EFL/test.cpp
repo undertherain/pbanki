@@ -84,6 +84,7 @@ int main(int argc, char *argv[])
 
     Ecore_Evas *ee;
     Evas_Object *bg; //background
+    Evas_Object *myText;
 
     /* initialize efl libraries */
     if(!evas_init())
@@ -117,19 +118,20 @@ int main(int argc, char *argv[])
     bg = evas_object_rectangle_add(evas);
     evas_object_color_set(bg, 255, 255, 255, 255);
     evas_object_move(bg, 0, 0);
-    evas_object_resize(bg, 600, 800);
+    evas_object_resize(bg, 500, 700);
     evas_object_name_set(bg, "background");
     evas_object_focus_set(bg, 1);
 //    evas_object_event_callback_add(bg, EVAS_CALLBACK_KEY_UP, &key_handler, NULL);
     evas_object_show(bg);
 
-    orig_image = evas_object_image_filled_add(evas);
-    evas_object_name_set(orig_image, "orig_image");
-    image = evas_object_image_filled_add(evas);
-    evas_object_name_set(image, "image");
-    evas_object_image_smooth_scale_set(image, EINA_TRUE);
-    evas_object_image_smooth_scale_set(orig_image, EINA_TRUE);
-    evas_object_image_load_size_set(orig_image, 600, 800);
+    myText=evas_object_text_add(evas);
+    evas_object_color_set(myText, 55, 25, 55, 255);
+    evas_object_move(myText, 0, 0);
+    evas_object_resize(myText, 100, 100);
+    evas_object_name_set(myText,"mytext");
+    evas_object_text_text_set(myText,"hello, evas");
+    evas_object_focus_set(bg, 1);
+    evas_object_show(myText);
 
 //    read_keymap(operations);
 //    init_filelist(argv[1]);

@@ -16,7 +16,7 @@ class SQLiteHelper //should be changed with database class
 {
 public:
 	static std::vector<StringMap> values;
-	static void SQLiteHelper::ExecuteQuery(sqlite3 * dbDeck, std::string query);
+	static void ExecuteQuery(sqlite3 * dbDeck, std::string query);
 };
 
 

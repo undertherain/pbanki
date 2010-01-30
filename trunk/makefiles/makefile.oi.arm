@@ -3,12 +3,12 @@
 CC = arm-ip-linux-gnueabi-gcc
 CPP = arm-ip-linux-gnueabi-g++
 
-LIBS= -lecore -ledje -lecore_evas
-INCLUDE =  -I/arm-ip-linux-gnueabi/include/efreet/ -I/usr/arm-ip-linux-gnueabi/include/efreet/ -I/usr/arm-ip-linux-gnueabi/include/eina-0/ -I/usr/arm-ip-linux-gnueabi/include/eina-0/eina/
+LIBS= -lecore -ledje -lecore_evas -lewl
+INCLUDE =  -I/arm-ip-linux-gnueabi/include/efreet/ -I/usr/arm-ip-linux-gnueabi/include/efreet/ -I/usr/arm-ip-linux-gnueabi/include/eina-0/ -I/usr/arm-ip-linux-gnueabi/include/eina-0/eina/ -I/usr/arm-ip-linux-gnueabi/include/ewl/
 
 CFLAGS=-DARCH_OI
 SQLITEFLAGS= -DSQLITE_MIXED_ENDIAN_64BIT_FLOAT 
 
-OBJPATH=obj/oi
+OBJPATH=obj/oiarm
 
 include makefiles/makefile.oi.commons

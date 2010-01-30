@@ -1,9 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#if defined(ARCH_LINUX)
+
+#include <QtGui/QMainWindow>
+#include <QtGui/QWidget>
+#else
 #include <QtGui\QMainWindow>
 #include <QtGui\QWidget>
-
+#endif
 #include "../../model.hpp"
 
 QT_BEGIN_NAMESPACE

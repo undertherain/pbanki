@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
      find = directory.find_last_of("/\\");
      directory = directory.substr(0,find);
 
-	 Q_INIT_RESOURCE(application);
+//	 Q_INIT_RESOURCE(application);
 
     QApplication app(argc, argv);
     MainWindow mainWin;

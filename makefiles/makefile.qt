@@ -6,17 +6,18 @@ CPP= g++
 
 OBJPATH=obj/qt
 
-INCLUDE=-I/usr/include/qt4
+INCLUDE=-I/usr/include/qt4 -I/usr/share/qt4/mkspecs/linux-g++  -I/usr/include/qt4/QtCore -I/usr/include/qt4/QtGui
 
 LIBS=-lpthread -lQtCore -lQtGui
-CFLAGS=-Wall -O2 -fomit-frame-pointer -DARCH_LINUX
+QTFLAGS=-DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED
+CFLAGS=-Wall -O2 -fomit-frame-pointer -DARCH_LINUX $(QTFLAGS)
 SQLITEFLAGS= 
 
-SOURCES = src/main_qt.cpp src/include/GUI/QT/mainwindow.cpp src/include/logger.cpp 
+SOURCES = src/main_qt.cpp src/include/GUI/QT/mainwindow.cpp src/include/logger.cpp $(OBJPATH)/moc_mainwindow.cpp
 OBJECTS = $(OBJPATH)/sqlite3.o $(OBJPATH)/deckAnki.o $(OBJPATH)/dbSQLite.o $(OBJPATH)/deck.o $(OBJPATH)/model.o
 
-mindcraft: $(OBJECTS)
-	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(OBJECTS) $(LIBS) 
+mindcraft: $(OBJECTS) $(SOURCES)
+	$(CPP) $(CFLAGS) $(INCLUDE) $(LIBS)  -o $@ $(OBJECTS) $(SOURCES)
 
 
 $(OBJPATH)/sqlite3.o: src/include/libs/sqlite3.c
@@ -35,3 +36,7 @@ $(OBJPATH)/deck.o: src/include/deck.cpp
 
 $(OBJPATH)/model.o: src/include/model.cpp
 	$(CPP) -c $(CFLAGS) $(INCLUDE) -o $@ $^ 
+
+#qt moc objects
+$(OBJPATH)/moc_mainwindow.cpp: src/include/GUI/QT/mainwindow.h
+	/usr/bin/moc-qt4 $(QTFLAGS) $(INCLUDE) -o $@ $^

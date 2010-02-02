@@ -1,8 +1,8 @@
 #ifdef ARCH_LINUX
 
-#include <qt4/Qt/qapplication.h>
-#include <qt4/Qt/qlabel.h>
-#include <qt4/Qt/qpushbutton.h>
+#include <Qt/qapplication.h>
+#include <Qt/qlabel.h>
+#include <Qt/qpushbutton.h>
 #include "include/GUI/QT/mainwindow.h"
 
 #else

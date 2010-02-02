@@ -1,152 +1,70 @@
-#include <string.h>
-#include <stdbool.h>
-#include <math.h>
-#include <libintl.h>
-#include <Evas.h>
-#include <Ecore.h>
-#include <Ecore_X.h>
-#include <Ecore_File.h>
-#include <Ecore_Evas.h>
-#include <Efreet_Mime.h>
-#include <Edje.h>
+#include <stdio.h>
+#include <Ewl.h>
 
+int winHeight=800;
+int winWidth=600;
 
-Evas *evas;
-Evas_Object *orig_image;
-Evas_Object *image;
-bool dither = false;
-
-Eina_List *filelist;
-Eina_List *cur_file;
-
-
-int winwidth = 600;
-int winheight = 800;
-
-
-void quit();
-
-
-void exit_all(void *param) { ecore_main_loop_quit(); }
-
-void quit() { ecore_main_loop_quit(); }
-
-static void die(const char* fmt, ...)
+void destroy_cb(Ewl_Widget *w, void *event, void *data) 
 {
-    va_list ap;
-    va_start(ap, fmt);
-    vfprintf(stderr, fmt, ap);
-    va_end(ap);
-    exit(EXIT_FAILURE);
+    ewl_widget_destroy(w);
+    ewl_main_quit();
 }
 
-static void main_win_resize_handler(Ecore_Evas* main_win)
+void text_update_cb(Ewl_Widget *w, void *event, void *data) 
 {
-    int w, h;
-    Evas *canvas = ecore_evas_get(main_win);
-    evas_output_size_get(canvas, &w, &h);
-
-    winwidth = w;
-    winheight = h;
-
-    Evas_Object *bg = evas_object_name_find(canvas, "background");
-    evas_object_resize(bg, w, h);
-    evas_object_image_load_size_set(orig_image, w, h);
-
-    //render_cur_image();
-
-    Evas_Object* rr = evas_object_name_find(evas, "help-window");
-    evas_object_resize(rr, w, h);
+    char *s = NULL;
+    Ewl_Widget *label = NULL;
+    char buf[BUFSIZ];
+    s = ewl_text_text_get(EWL_TEXT(w));
+    label = (Ewl_Widget *)data;
+    snprintf(buf, BUFSIZ, "Hello %s", s);
+    ewl_text_text_set(EWL_TEXT(label), buf);
+    free(s);
+    return;
 }
 
-static void main_win_delete_handler(Ecore_Evas* main_win)
+int main(int argc, char ** argv) 
 {
-    ecore_main_loop_quit();
-}
-
-static void page_updated_handler(Evas_Object* tb,
-        int cur_page,
-        int total_pages,
-        const char* header,
-        void* param)
-{
-    Evas_Object* rr = evas_object_name_find(evas, "help-window");
-    //choicebox_aux_edje_footer_handler(rr, "footer", cur_page, total_pages);
-}
-
-
-int main(int argc, char *argv[])
-{
-//    if (argc == 1) {
-//        fprintf(stderr,"no image file given!\n");
-//        return 1;
-//    }
-
-    Ecore_Evas *ee;
-    Evas_Object *bg; //background
-    Evas_Object *myText;
-
-    /* initialize efl libraries */
-    if(!evas_init())
-        die("Unable to initialize Evas\n");
-    if(!ecore_init())
-        die("Unable to initialize Ecore\n");
-    if(!ecore_evas_init())
-        die("Unable to initialize Evas\n");
-    if(!edje_init())
-        die("Unable to initialize Edje\n");
-
-//    setlocale(LC_ALL, "");
-//    textdomain("ohoh");
-
-    ecore_x_io_error_handler_set(exit_all, NULL);
-
-    ee = ecore_evas_software_x11_new(0, 0, 0, 0, 600, 800);
-
-    ecore_evas_borderless_set(ee, 0);
-    ecore_evas_shaped_set(ee, 0);
-    ecore_evas_title_set(ee, "mindcraft");
-    ecore_evas_show(ee);
-
-    ecore_evas_callback_resize_set(ee, main_win_resize_handler);
-    ecore_evas_callback_delete_request_set(ee, main_win_delete_handler);
-
-    /* get a pointer our new Evas canvas */
-    evas = ecore_evas_get(ee);
-
-    /* create our white background */
-    bg = evas_object_rectangle_add(evas);
-    evas_object_color_set(bg, 255, 255, 255, 255);
-    evas_object_move(bg, 0, 0);
-    evas_object_resize(bg, 500, 700);
-    evas_object_name_set(bg, "background");
-    evas_object_focus_set(bg, 1);
-//    evas_object_event_callback_add(bg, EVAS_CALLBACK_KEY_UP, &key_handler, NULL);
-    evas_object_show(bg);
-
-    myText=evas_object_text_add(evas);
-    evas_object_color_set(myText, 55, 25, 55, 255);
-    evas_object_move(myText, 0, 0);
-    evas_object_resize(myText, 100, 100);
-    evas_object_name_set(myText,"mytext");
-    evas_object_text_text_set(myText,"hello, evas");
-    evas_object_focus_set(bg, 1);
-    evas_object_show(myText);
-
-//    read_keymap(operations);
-//    init_filelist(argv[1]);
-//    render_cur_image();
-
-    /* start the main event loop */
-    ecore_main_loop_begin();
-
-    evas_object_del(image);
-    evas_object_del(bg);
-
-    edje_shutdown();
-    ecore_evas_shutdown();
-    ecore_shutdown();
-    evas_shutdown();
-
+    Ewl_Widget *win = NULL;
+    Ewl_Widget *box = NULL;
+    Ewl_Widget *label = NULL;
+    Ewl_Widget *o = NULL;
+    /* init the library */
+    if (!ewl_init(&argc, argv)) 
+    {
+        printf("Unable to init ewl\n");
+            return 1;
+    }
+    
+    /* create the window */
+    win = ewl_window_new();
+    ewl_window_title_set(EWL_WINDOW(win), "Mindcraft");
+    ewl_window_class_set(EWL_WINDOW(win), "hello");
+    ewl_window_name_set(EWL_WINDOW(win), "hello");
+    ewl_object_size_request(EWL_OBJECT(win), 240, 60);
+    ewl_callback_append(win, EWL_CALLBACK_DELETE_WINDOW, destroy_cb, NULL);
+    ewl_widget_show(win);
+    /* create the container */
+    box = ewl_vbox_new();
+    ewl_container_child_append(EWL_CONTAINER(win), box);
+    ewl_object_fill_policy_set(EWL_OBJECT(box), EWL_FLAG_FILL_ALL);
+    ewl_widget_show(box);
+    /* create text label */
+    label = ewl_text_new();
+    ewl_container_child_append(EWL_CONTAINER(box), label);
+    ewl_object_alignment_set(EWL_OBJECT(label), EWL_FLAG_ALIGN_CENTER);
+    ewl_text_styles_set(EWL_TEXT(label), EWL_TEXT_STYLE_SOFT_SHADOW);
+    ewl_text_color_set(EWL_TEXT(label), 255, 0, 0, 255);
+    ewl_text_text_set(EWL_TEXT(label), "hello");
+    ewl_widget_show(label);
+    /* create the entry */
+    o = ewl_entry_new();
+    ewl_container_child_append(EWL_CONTAINER(box), o);
+    ewl_object_alignment_set(EWL_OBJECT(o), EWL_FLAG_ALIGN_CENTER);
+    ewl_object_padding_set(EWL_OBJECT(o), 5, 5, 5, 0);
+    ewl_text_color_set(EWL_TEXT(o), 0, 0, 0, 255);
+    ewl_callback_append(o, EWL_CALLBACK_VALUE_CHANGED, text_update_cb, label);
+    ewl_widget_show(o);
+    ewl_main();
     return 0;
 }

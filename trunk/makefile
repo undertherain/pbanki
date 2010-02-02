@@ -22,8 +22,12 @@ oi:
 oiarm:
 	$(MAKE)	-f makefiles/makefile.oi.arm mindcraft
 	
+#qt linux
 qt:
 	$(MAKE) -f makefiles/makefile.qt mindcraft
+
+qtoi: 
+	$(MAKE) -f makefiles/makefile.qtoi mindcraft
 
 clean:
 	del pbanki_emu.exe

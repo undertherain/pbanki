@@ -3,7 +3,7 @@
 CC = gcc
 CPP = g++
 
-LIBS= -lecore -ledje -lecore_evas
+LIBS= -lecore -ledje -lecore_evas -lewl
 INCLUDE = -I/usr/include/eina-0/ -I/usr/include/eina-0/eina -I/usr/include/efreet -I/usr/include/ewl
 CFLAGS=-DARCH_OI
 

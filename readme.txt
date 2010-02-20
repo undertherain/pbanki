@@ -21,3 +21,6 @@ just create new console application and add all files form src directory to solu
 ---
 список архитектур
 -DARCH_PB -DARCH_WM
+
+------
+http://www.mail-archive.com/enlightenment-users@lists.sourceforge.net/msg05319.html

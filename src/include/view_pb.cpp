@@ -101,7 +101,7 @@ static imenu menuMain[] = {
 	{ ITEM_ACTIVE, IDX_MENU_SUSPEND, "Suspend card", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_CLOSE, "Close deck", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_STATS, "Statistics", NULL },
-	{ ITEM_ACTIVE, IDX_MENU_CONFIG, "Edit Config", NULL },
+	{ ITEM_ACTIVE, IDX_MENU_CONFIG, "Options", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_ABOUT, "About", NULL },
 	{ ITEM_SEPARATOR, 0, NULL, NULL },
 	{ ITEM_ACTIVE, IDX_MENU_EXIT, "Exit", NULL },
@@ -219,16 +219,19 @@ int ViewPocketBook::SelectDeck()
 		std::cout<<"starting deck selector"<<std::endl;
 		iconfigedit * decksConfigEdit = new iconfigedit[decks.size()+1];
 		int cnt=0;
+
+
 		for (DeckInfoList::iterator i=decks.begin();i!=decks.end();i++)
 		{	
 			iconfigedit newConfigLine;
 			newConfigLine.type = CFG_INFO;
 			newConfigLine.icon = NULL;
-			newConfigLine.text = new char[i->GetName().length()];
+			std::cout<<"creating menu entry for "<<i->GetName()<<std::endl;
+			newConfigLine.text = new char[i->GetName().length()+1];
 			strcpy(newConfigLine.text,i->GetName().c_str());
 			newConfigLine.hint = "new:? due:?";
 
-			newConfigLine.name = new char[i->GetName().length()];
+			newConfigLine.name = new char[i->GetName().length()+1];
 			strcpy(newConfigLine.name,i->GetName().c_str());
 
 			newConfigLine.deflt = NULL;
@@ -238,15 +241,16 @@ int ViewPocketBook::SelectDeck()
 			decksConfigEdit[cnt++]=newConfigLine;
 			//std::cout<<i->GetName()+" \n";	
 		}
+
 		iconfigedit emptyConfigLine={ 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
 		decksConfigEdit[cnt]=emptyConfigLine;
 //		iconfig *cfgDeckList = OpenConfig("/mnt/ext1/test.cfg", NULL);
-		iconfig *cfgDeckList = OpenConfig("./decks.cfg", NULL);
+	//	iconfig *cfgDeckList = OpenConfig("./decks.cfg", NULL);
 //		iconfig *cfgDeckList = new iconfig;
 		//get decks list
 		//fill array of 
 		Globals::isConfigEditorActive=true;
-		OpenConfigEditor("Select Deck", cfgDeckList, decksConfigEdit, OnDeckSelectorCLosed,OnDeckSelected);
+		OpenConfigEditor("Select Deck", NULL, decksConfigEdit, OnDeckSelectorCLosed,OnDeckSelected);
 		return 0;
 	}
 }
@@ -254,8 +258,11 @@ int ViewPocketBook::SelectDeck()
 void Init()
 {       // occurs once at startup, only in main handler
 	std::cout<<"Doing INIT event\n";
-//	cfgMain = OpenConfig(CONFIGPATH"./mindcraft.cfg", NULL);
+#ifdef ARCH_PB
+	cfgMain = OpenConfig(CONFIGPATH"./mindcraft.cfg", NULL);
+#else
 	cfgMain = OpenConfig("./mindcraft.cfg", NULL);
+#endif
 	std::cout<<"sizeof int= "<<sizeof(int)<<std::endl;
 	
 	Globals::fontCard = OpenFont("YOzFontM.TTF", 40, 2);

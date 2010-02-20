@@ -1,22 +1,10 @@
-#ifdef ARCH_LINUX
 
 #include <Qt/qapplication.h>
 #include <Qt/qlabel.h>
 #include <Qt/qpushbutton.h>
 #include "include/GUI/QT/mainwindow.h"
 
-#else
-#include <qt\qapplication.h>
-#include <qt\qlabel.h>
-#include <qt\qpushbutton.h>
-#include <windows.h>
-#include "include\GUI\QT\mainwindow.h"
-
-#endif
 #include <string>
-
-
-
 
 
 int main(int argc, char *argv[])
@@ -40,6 +28,4 @@ int main(int argc, char *argv[])
 
     return app.exec();
 
-
 }
-  

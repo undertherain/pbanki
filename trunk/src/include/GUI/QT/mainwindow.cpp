@@ -1,11 +1,6 @@
 #include "mainwindow.h"
-
-#ifdef ARCH_LINUX
 #include <QtGui/QtGui>
-#else
-#include <QtGui\QtGui>
 
-#endif
 
 MainWindow::MainWindow()
 {

@@ -2,6 +2,8 @@
 
 = 0.2.5 =
   * Answer scrolling
+  * Options saved in system folder
+  * Fix: corrupted deck names
 
 = 0.2.4 =
   * Cross-piece control for entering answer on pocketbook

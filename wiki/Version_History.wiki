@@ -1,5 +1,8 @@
 #Mindcraft Version History 
 
+= 0.2.6 =
+  * Cards from the same fact are spaced.
+
 = 0.2.5 =
   * Answer scrolling
   * Options saved in system folder

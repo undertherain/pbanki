@@ -9,7 +9,7 @@ OBJPATH=obj/pbemu
 
 INCLUDE=
 
-LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32
+LIBS=-linkview -lfreetype -ljpeg -lz -lgdi32 -lcurl
 CFLAGS=-static -Wall -O2 -fomit-frame-pointer  -DARCH_PBEMU
 SQLITEFLAGS= 
 

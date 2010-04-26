@@ -7,6 +7,7 @@ iconfigedit configEditor[] =
 {
 	{ CFG_CHOICE, NULL, "Layout", "set front field height", "layout", "300", menuLayoutVariants, NULL },
 	{ CFG_INDEX, NULL, "Answer", "buttons or cross control", "answer_style", "0", menuAnswerControls, NULL },
+	{ CFG_FONT, NULL, "Interface font", "menus and messages", "iface_font", DEFAULTFONT",20", NULL, NULL },
 	{ CFG_FONT, NULL, "Front Font", "font of front field", "front_font", DEFAULTFONT",50", NULL, NULL },
 	{ CFG_FONT, NULL, "Back Font", "font of back field", "back_font", DEFAULTFONT",40", NULL, NULL },
 	{ 0, NULL, NULL, NULL, NULL, NULL, NULL}

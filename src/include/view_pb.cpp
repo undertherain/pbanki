@@ -31,7 +31,7 @@ ViewPocketBook view;
 class Globals
 {
 public:
-	static ifont * fontCard;
+	static ifont * fontIface;
 	static ifont * fontFront;
 	static ifont * fontBack;
 	static ifont * fontButtons;
@@ -42,7 +42,7 @@ public:
 };
 
 
-ifont *  Globals::fontCard = NULL;
+ifont *  Globals::fontIface = NULL;
 ifont *  Globals::fontFront = NULL;
 ifont *  Globals::fontBack = NULL;
 ifont *  Globals::fontButtons = NULL;
@@ -265,7 +265,7 @@ void Init()
 #endif
 	std::cout<<"sizeof int= "<<sizeof(int)<<std::endl;
 	
-	Globals::fontCard = OpenFont("YOzFontM.TTF", 40, 2);
+	Globals::fontIface = OpenFont("LiberationMono.ttf", 20, 2);
 	Globals::fontFront = OpenFont("YOzFontM.TTF", 50, 2);
 	Globals::fontBack = OpenFont("YOzFontM.TTF", 40, 2);
 	Globals::fontButtons = OpenFont("LiberationMono.ttf", 18, 2);
@@ -350,7 +350,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 				{
 					DeckId id(Globals::deckToLoadName);
 					Globals::isNewCardRequired=true;
-					SetFont(Globals::fontCard, BLACK);
+					SetFont(Globals::fontIface, BLACK);
 					ClearScreen();
 					DrawString(50, 50, "Loading deck...");
 					SoftUpdate();
@@ -581,7 +581,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 
 int ViewPocketBook::HandleNoDecks(InkViewEvent event) 
 {
-	SetFont(Globals::fontCard, BLACK);
+	SetFont(Globals::fontIface, BLACK);
 //	DrawString(50, 50, "No decks found");
 //	DrawString(50, 300, "Press ok to exit");
        	DrawTextRect(11, 11, 580, 300, "No decks found\nmake sure you have them in ./deck folder\nPress ok to exit", ALIGN_LEFT | VALIGN_MIDDLE);
@@ -597,7 +597,7 @@ int ViewPocketBook::HandleNoDecks(InkViewEvent event)
 
 int ViewPocketBook::HandleShowStats(InkViewEvent event) 
 {
-	SetFont(Globals::fontCard, BLACK);
+	SetFont(Globals::fontIface, BLACK);
 	ClearScreen();
        	DrawTextRect(11, 11, 580, 300, const_cast<char *>(model.GetStatsStr().c_str()), ALIGN_LEFT | VALIGN_MIDDLE);
 
@@ -617,7 +617,7 @@ int ViewPocketBook::HandleNoMoreCards(InkViewEvent event)
 {
 	static int buttonIndex=0;
 	ClearScreen();
-	SetFont(Globals::fontCard, BLACK);
+	SetFont(Globals::fontIface, BLACK);
 	
 	DrawTextRect(11, 11, 580, 500,const_cast<char *>(model.GetStatsForTomorrowStr().c_str()), ALIGN_LEFT | VALIGN_TOP);
 

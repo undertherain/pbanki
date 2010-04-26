@@ -38,11 +38,14 @@ void DeckAnki::Fetch()
 		//if no mo failed cards - start loading review or new cards, until we reach biffer limit
 		std::cout << "fetching due card" << std::endl;
 		std::string query="select * from cards where combinedDue < " + FormatHelper::GetCurrentTimeStr() + " and priority in (1,2,3,4) and type = 1 and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY interval desc limit 1";
-		if (FetchCardsByQuery(query)==0)
+		if (FetchCardsByQuery(query)==0) //we should interlace new cards 
 		{
-			std::cout << "fetching new card" << std::endl;
 			query="select * from cards where priority in (1,2,3,4) and type = 2 and (not (id in ("+ GetFetchedCardIds() +"))) ORDER BY due desc limit 1";
-			FetchCardsByQuery(query);
+			if (numCardsNewToday>0)
+			{
+				std::cout << "fetching new card" << std::endl;
+				FetchCardsByQuery(query);
+			}
 			//std::cout<<"finally fetched by query"<<std::endl;
 		}
 		
@@ -84,7 +87,7 @@ ICard DeckAnki::GetNextCard()
 	{
 		std::cout<<"failed cards limit reached, not fetching"<<std::endl;
 	}
-		
+		//where is failed card repetition?
 	if (!cardsDueBuffer.empty())
 	{
 		CardAnki card=cardsDueBuffer.front();

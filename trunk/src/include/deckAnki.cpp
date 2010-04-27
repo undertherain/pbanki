@@ -101,7 +101,7 @@ ICard DeckAnki::GetNextCard()
 		return card;
 	}
 
-	ICard cardError(CardField("No more cards "),CardField("No more cards "));
+	ICard cardError(CardField("No more cards ",""),CardField("No more cards ",""));
 	return cardError;
 }
 
@@ -290,14 +290,36 @@ DeckAnki::DeckAnki()
 	numCardsDoneThisSession=0;
 }
 
+CardField DeckAnki::GetCardFieldFromRawText(std::string _strRawText)
+{
+	std::string soundPath="";
+	std::string strFieldText="";
+	std::string::size_type posSoundLeft = _strRawText.find( "[sound:", 0 );
+	if (posSoundLeft!=std::string::npos)
+	{
+		std::string::size_type posSoundRight = _strRawText.find( "]", posSoundLeft );
+		soundPath=fileName.erase(fileName.length()-5,5)+".media/" +_strRawText.substr(posSoundLeft+7,posSoundRight-posSoundLeft-7 );
+		
+		strFieldText=_strRawText.erase(posSoundLeft,posSoundRight-posSoundLeft+1 );
+		//std::cout<<"#####sounnd#####"<<soundPath<<std::endl;
+	} else
+	{
+		//std::cout<<"#####no sound "<<std::endl;
+		soundPath="";
+		strFieldText=_strRawText;
+	}
+	return CardField(strFieldText,soundPath);
+}
 
 CardAnki DeckAnki::CardFromDBRow(StringMap row)
 {
 	//std::cout<<"loading card from db row....";
 	std::string strFront = row["question"];
 	std::string strBack = row["answer"];
-	CardField fldFront(strFront);
-	CardField fldBack(strBack);
+	//std::cout<<"------------creatinf new cardfileds"<<std::endl;
+	//extract path  to mp3 here 
+	CardField fldFront=GetCardFieldFromRawText(strFront);
+	CardField fldBack=GetCardFieldFromRawText(strBack);
 	CardAnki card(fldFront,fldBack);
 	card.type=FormatHelper::StrToInt(row["type"]);
 	card.typeInitial=card.type;

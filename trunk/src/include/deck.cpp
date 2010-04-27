@@ -190,6 +190,13 @@ int IDeck::GetNumCardsDueToday() const
 }
 
 //-------------------- CardField --------------------------
+CardField::CardField(std::string _innerText,std::string _soundPath)
+		{
+
+		innerText=_innerText;
+		soundPath=_soundPath;
+	};
+
 std::string CardField::ToString() const
 {
 	std::string strResult;    //very not effective

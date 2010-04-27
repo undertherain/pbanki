@@ -51,7 +51,7 @@ void ViewConsole::ShowBack(const ICard & card)
 void ViewConsole::run()
 {
 	std::cout<<"entering main loop\n";
-	ICard  card(CardField("Error"),CardField("Error"));
+	ICard  card(CardField("Error",""),CardField("Error",""));
 	for(;;)  //main loop
 	{
 		try

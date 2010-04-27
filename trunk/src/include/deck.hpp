@@ -3,7 +3,7 @@
 
 #include <string>
 #include <list>
-
+#include <iostream>
 class DeckInfo;
 class ICard;
 
@@ -101,8 +101,9 @@ class CardField
 private:
 	std::string innerText;
 public:
+	std::string soundPath;
 	std::string ToString() const;
-	CardField(std::string _innerText):innerText(_innerText){};
+	CardField(std::string _innerText, std::string _soundPath="");
 };
 
 class ICard
@@ -113,7 +114,8 @@ public:
 	CardField front;
 	CardField back;
 	
-	ICard():front("emty"),back("empty"){};
+	
+	ICard():front("emty",""),back("empty",""){};
 	ICard(CardField _front,CardField _back):front(_front),back(_back){};
 
 };

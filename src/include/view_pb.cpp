@@ -120,7 +120,7 @@ void menu1_handler(int index)
 			break;
 
 		case IDX_MENU_ABOUT:
-			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.5\nWritten by Alexander Drozd",5000);
+			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.7\nWritten by Alexander Drozd",5000);
 			break;
 
 		case IDX_MENU_SUSPEND:
@@ -686,7 +686,13 @@ void ViewPocketBook::ShowFront()
 
 void ViewPocketBook::ShowBack()
 {
-
+	if (card.back.soundPath!="")
+	{
+		char strSndPath[1024];
+		strncpy(strSndPath,card.back.soundPath.c_str(),1024);
+		std::cout<<"plaing sound:"<<card.back.soundPath<<std::endl;
+		PlayFile(strSndPath);
+	}
 	int textWidth=590;
 	int backHeight=SCREEN_HEIGHT-frontHeight;
 	char strBack[1024];

@@ -18,7 +18,7 @@ private:
 	int failedCardsCounter;
 public:
 	CardAnki(CardField _front,CardField _back):ICard(_front,_back){};
-	CardAnki():ICard(CardField("ankiempty"),CardField("ankiempty")){};
+	CardAnki():ICard(CardField("ankiempty",""),CardField("ankiempty","")){};
 	std::string id;
 	int factId;
 	float modified;
@@ -34,6 +34,7 @@ public:
 	int noCount;
 	int priority;
 	bool isDue;
+	
 };
 
 class DeckAnki: public IDeck
@@ -46,6 +47,7 @@ private:
 	std::string GetFetchedCardIds();
 	CardAnki * lastCard;
 	CardAnki CardFromDBRow(StringMap row);
+	CardField GetCardFieldFromRawText(std::string _strRawText);
 	int numCardsFailedInDeck;
 	float CalcNextInterval(const CardAnki & card,int ease);
 	void Fetch();

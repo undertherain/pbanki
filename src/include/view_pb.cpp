@@ -25,6 +25,8 @@
 #define IDX_MENU_STATS 104
 #define IDX_MENU_SUSPEND 105
 #define IDX_MENU_CONFIG 106
+#define IDX_MENU_LKP_FRONT 107
+#define IDX_MENU_LKP_BACK 108
 
 ViewPocketBook view;
 
@@ -39,6 +41,7 @@ public:
 	static char deckToLoadName[256];
 	static bool isNewCardRequired;
 	static bool isApplyConfigRequired;
+	static std::string strLookUp;
 };
 
 
@@ -50,6 +53,7 @@ char Globals::deckToLoadName[256];
 bool Globals::isConfigEditorActive=false;
 bool Globals::isNewCardRequired=true;
 bool Globals::isApplyConfigRequired=false;
+std::string Globals::strLookUp;
 
 int menuIndex=0;
 int frontHeight=100;
@@ -95,6 +99,13 @@ void OnConfigItemChanged(char * item)
 
 //-----------------------menu -------------------------------
 
+static imenu menuLookUp[] = {
+	{ ITEM_ACTIVE, IDX_MENU_LKP_FRONT, "Front", NULL },
+	{ ITEM_ACTIVE, IDX_MENU_LKP_BACK, "Back", NULL },
+	{ 0, 0, NULL, NULL }
+};
+
+
 static imenu menuMain[] = {
 
 	{ ITEM_HEADER,   0, "Menu", NULL },
@@ -102,6 +113,7 @@ static imenu menuMain[] = {
 	{ ITEM_ACTIVE, IDX_MENU_CLOSE, "Close deck", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_STATS, "Statistics", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_CONFIG, "Options", NULL },
+	{ ITEM_SUBMENU, 0, "LookUp", menuLookUp },
 	{ ITEM_ACTIVE, IDX_MENU_ABOUT, "About", NULL },
 	{ ITEM_SEPARATOR, 0, NULL, NULL },
 	{ ITEM_ACTIVE, IDX_MENU_EXIT, "Exit", NULL },
@@ -136,11 +148,16 @@ void menu1_handler(int index)
 			view.status=Status::stShowStats;
 //			view.lastStatus=Status::stShowBack;
 			mainHandler(0,0,0);
-
 			break;
+
 		case IDX_MENU_CONFIG:
 			RunConfigEditor();
+			break;
 
+		case IDX_MENU_LKP_FRONT:
+			Globals::strLookUp=view.model.dic.LookUp(view.card.front.ToString());
+			view.status=Status::stLookUp;
+			mainHandler(0,0,0);
 			break;
 
 		case IDX_MENU_EXIT:
@@ -191,6 +208,8 @@ void ViewPocketBook::ApplyConfig()
 //	fname = strtok(buf, ",");
 	Globals::fontFront = ReadFont(cfgMain,"front_font",DEFAULTFONT",50"); 
 	Globals::fontBack = ReadFont(cfgMain,"back_font",DEFAULTFONT",40"); 
+	Globals::fontBack = OpenFont("KanjiStrokeOrders_v2.014.ttf", 140, 2);
+
 	return;
 //	sscanf(fname+strlen(fname)+1, "%d", &size);
 //	Globals::fontFront = OpenFont(fname, size, 2);
@@ -385,6 +404,9 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 			case Status::stShowStatsFinal:
 				HandleShowStats(event);
 				break;
+			case Status::stLookUp:
+				HandleShowLookUp(event);
+		 		break;
 			case Status::stExit:
 				CloseApp();
 				break;
@@ -607,6 +629,21 @@ int ViewPocketBook::HandleShowStats(InkViewEvent event)
 			view.status=Status::stShowFront;
 		else
 		view.status=Status::stSelectDeck;
+	}
+	SoftUpdate();
+
+	return 0;
+}
+
+int ViewPocketBook::HandleShowLookUp(InkViewEvent event) 
+{
+	SetFont(Globals::fontFront, BLACK);
+	ClearScreen();
+       	DrawTextRect(11, 11, 580, 300, const_cast<char *>(Globals::strLookUp.c_str()), ALIGN_LEFT | VALIGN_MIDDLE);
+
+	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
+	{
+		view.status=view.lastStatus;
 	}
 	SoftUpdate();
 

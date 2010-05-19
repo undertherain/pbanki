@@ -5,6 +5,7 @@
 #include <list>
 
 #include "deck.hpp"
+#include "dic.hpp"
 #define TEMPORARY 
 
 class Model  //facade 
@@ -13,6 +14,7 @@ private:
 	IDeck * currentDeck;
 public:
 	DeckInfoList getDeckList();				//returns list of available deck
+	Dictionary dic;
 	void LoadDeck(DeckId deckName);	//load selected deck
 	void LoadStats();
 	void CloseDeck();
@@ -25,9 +27,11 @@ public:
 	std::string GetStatsForTomorrowStr();
 	std::string GetStatsStr();
 	std::string currentDirectory;
-	Model():currentDeck(NULL){};
+	Model():currentDeck(NULL),dic("dic.txt"){};
+//	Model():currentDeck(NULL)	{};
 	~Model();
 	int GetNumCardsDueToday();
+	
 	//deck props?
 	//learn more?
 

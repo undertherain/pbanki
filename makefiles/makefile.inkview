@@ -5,7 +5,7 @@
 #SOURCES = src/main_pocketbook.cpp src/include/deck.cpp src/include/deckAnki.cpp src/include/model.cpp src/include/view_pb.cpp  src/include/logger.cpp src/include/dbSQLite.cpp
 
 SOURCES = src/main_pocketbook.cpp src/include/view_pb.cpp src/include/logger.cpp 
-OBJECTS = $(OBJPATH)/sqlite3.o $(OBJPATH)/deckAnki.o $(OBJPATH)/dbSQLite.o $(OBJPATH)/deck.o $(OBJPATH)/model.o
+OBJECTS = $(OBJPATH)/sqlite3.o $(OBJPATH)/deckAnki.o $(OBJPATH)/dbSQLite.o $(OBJPATH)/deck.o $(OBJPATH)/model.o  $(OBJPATH)/dic.o
 
 mindcraft.exe: $(OBJECTS)
 	$(CPP) $(CFLAGS) $(INCLUDE) -o $@ $(SOURCES) $(OBJECTS) $(LIBS) 
@@ -33,3 +33,5 @@ $(OBJPATH)/deck.o: src/include/deck.cpp
 $(OBJPATH)/model.o: src/include/model.cpp
 	$(CPP) -c $(CFLAGS) $(INCLUDE) -o $@ $^ 
 
+$(OBJPATH)/dic.o: src/include/dic.cpp
+	$(CPP) -c $(CFLAGS) $(INCLUDE) -o $@ $^ 

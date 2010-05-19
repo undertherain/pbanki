@@ -1,5 +1,9 @@
 #Mindcraft Version History 
 
+
+= 0.2.7 =
+  * Dictionary LookUp feature
+
 = 0.2.6 =
   * Cards from the same fact are spaced.
   * Fix: negative new cards count.

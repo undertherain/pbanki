@@ -160,6 +160,12 @@ void menu1_handler(int index)
 			mainHandler(0,0,0);
 			break;
 
+		case IDX_MENU_LKP_BACK:
+			Globals::strLookUp=view.model.dic.LookUp(view.card.back.ToString());
+			view.status=Status::stLookUp;
+			mainHandler(0,0,0);
+			break;
+
 		case IDX_MENU_EXIT:
 			CloseApp();
 			break;

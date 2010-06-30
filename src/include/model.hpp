@@ -6,6 +6,7 @@
 
 #include "deck.hpp"
 #include "dic.hpp"
+#include <iostream>
 #define TEMPORARY 
 
 class Model  //facade 
@@ -27,7 +28,7 @@ public:
 	std::string GetStatsForTomorrowStr();
 	std::string GetStatsStr();
 	std::string currentDirectory;
-	Model():currentDeck(NULL),dic("dic.txt"){};
+	Model():currentDeck(NULL){std::cout<<"model constructor"<<std::endl;}
 //	Model():currentDeck(NULL)	{};
 	~Model();
 	int GetNumCardsDueToday();

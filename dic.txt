@@ -1,644 +1,3009 @@
-二	two
-略	"Сокращение"	RYAKU	
-率	"Показатель", "Предводительствовать"	RITSU; SOTSU	hikiiru
-律	"Ритм"	RITSU	
-陸	"Суша"	RIKU; ROKU	oka
-裏	"Изнанка"	RI	ura
-卵	"Яйцо"	RAN	tamago
-乱	"Беспорядок"	RAN	midareru; midasu
-落	"Падать"	RAKU	ochiru; otosu
-絡	"Зацепляться"	RAKU	karamu; karamaru; karameru; karageru
-頼	"Просить"	RAI	tanomu; tayoru
-翌	"Следующий день"	YOKU	
-浴	"Купаться"	YOKU	abiru
-欲	"Желать"	YOKU	hoshii
-陽	"Солнце"	YO:	
-踊	"Танцевать"	YO:	odoru; odori
-要	"Требоваться"	YO:	iru
-葉	"Листва"	YO:	ha
-溶	"Растворяться"	YO:	tokeru; tokasu
-様	"Вот так"	YO:	samazama
-容	"Вмещать"	YO:	ireru
-幼	"Младенец"	YO:	osanai
-預	"Депозит"	YO	azukeru; azukaru
-与	"Давать"	YO	ataeru
-予	"Заранее"	YO	arakajime; kanete
-郵	"Почта"	YU:	
-遊	"Развлекаться"	YU:	asobu
-由	"Причина"	YU:, YU	yoshi
-勇	"Храбрость"	YU:	isamu
-輸	"Ввоз-вывоз"	YU	
-油	"Масло"	YU	abura
-約	"Приблизительно"	YAKU	tsuzumeru
-役	"Роль"	YAKU; EKI	
-戻	"Возвращать"	REI	modosu; modoru
-毛	"Шерсть"	MO:	ke
-綿	"Хлопок"	MEN	wata
-鳴	"Чирикать"	MEI	naku; naru
-命	"Приказ"	MEI	inochi
-娘	"Дочь"	JO:	musume
-眠	"Спать"	MIN	nemuru; nemui
-未	"Ещё не"	MI	hitsuji; mada
-満	"Полный"	MAN	mitasu; michiru
-末	"Окончание"	MATSU (BATSU)	sue
-枚	"Плоские предметы"	MAI	bai
-埋	"Зарывать"	MAI	umeru; umaru
-磨	"Шлифовать"	MA	migaku; suru
-防	"Предотвращать"	BO:	fusegu
-貿	"Торговля"	BO:	
-棒	"Палка"	BO:	
-望	"Надеяться"	BO:, MO:	nozomu; nozomi
-暴	"Насилие"	BO:	abareru; abaku
-忙	"Занятой"	BO:	isogashii
-忘	"Забывать"	BO:	wasureru
-帽	"Головной убор"	BO:	
-坊	"Мальчик"	BO:	bo:ya; botchan
-亡	"Покойный"	BO:	nakunaru; nakusu
-豊	"Обильный"	HO:	yutaka
-訪	"Посещать"	HO:	otozureru
-法	"Закон"	HO:	nori
-放	"Отпускать"	HO:	hanasu; hanareru
-抱	"Обхватывать"	HO:	daku; kakaeru
-宝	"Сокровище"	HO:	takara
-報	"Информация"	HO:	mukuiru
-包	"Обёртывать"	HO:	tsutsumu; tsutsumi
-暮	"Сумерки"	BO	kureru; kurasu
-募	"Вербовать"	BO	tsunoru
-補	"Восполнять"	HO	oginau
-捕	"Хватать"	HO	toraeru; tsukamaeru
-保	"Сохранять"	HO	tamotsu
-返	"Ответ"	HEN	kaesu; kaeru
-辺	"Окрестности"	HEN	atari
-編	"Вязать"	HEN	amu
-片	"Один из двух"	HEN	kata-o; kata-ga; hira
-変	"Меняться"	HEN	kawaru; kaeru
-壁	"Стена"	HEKI	kabe
-米	"Рис"	BEI, MAI	kome
-閉	"Закрывать"	HEI	tojiru; shimeru; shimaru
-並	"Выстраивать"	HEI	nami; naraberu; narabu
-平	"Плоский"	HEI	taira; hira
-兵	"Солдат"	HEI	tsuwamono
-粉	"Порошок"	FUN	ko/kona
-仏	"Будда", "Франция"	BUTSU; FUTSU	hotoke
-沸	"Кипеть"	FUTSU	waku; wakasu
-払	"Платить"	FUTSU	harau; harai
-複	"Двойной"	FUKU	
-腹	"Живот"	FUKU	hara; onaka
-福	"Счастье"	FUKU	
-幅	"Ширина"	FUKU	haba
-復	"Восстановление"	FUKU	mata
-副	"Вспомогательный"	FUKU	sou
-封	"Запечатывать", "Феод"	FU:; HO:	
-舞	"Танцевать"	BU	mai; mau
-武	"Военный"	BU	
-負	"Отрицательный"	FU	makeru; o-make; ou; ombu
-膚	"Кожа"	FU	hada
-符	"Ярлык"	FU	
-浮	"Всплывать"	FU	uku
-怖	"Страшный"	FU	kowai; kowagaru
-府	"Правительство"	FU	
-布	"Ткань"	FU	nuno
-富	"Богатство"	FU	tomi; tomu
-婦	"Дама"	FU	
-夫	"Муж"	FU	otto
-付	"Прикреплять"	FU	tsukeru; tsuku
-貧	"Бедный"	HIN	mazushii
-秒	"Секунда"	BYO:	
-評	"Суждение"	HYO:	
-氷	"Лёд"	HYO:	ko:ri
-標	"Знак"	HYO:	shirushi
-筆	"Кисть"	HITSU	fude
-必	"Обязательно"	HITSU	kanarazu
-匹	"Животные"	HITSU	hiki
-鼻	"Нос"	BI	hana
-美	"Красивый"	BI	utsukushii
-備	"Приготовления"	BI	sonaeru; sonawaru
-飛	"Летать"	HI	tobu
-非	"Не"	HI	arazu; arazaru
-費	"Расходы"	HI	tsuiyasu; tsuieru
-被	"Подвергаться"	HI	kaburu; ko:muru; kabuseru
-皮	"Кожа"	HI	kawa
-疲	"Усталость"	HI	tsukareru
-批	"Критика"	HI	
-悲	"Печальный"	HI	kanashii; kanashimu
-彼	"Он"	HI	kare; karera
-否	"Или нет"	HI	
-番	"Черёд"	BAN	tsugai
-晩	"Вечер"	BAN	
-販	"Сбывать"	HAN	
-般	"Категория"	HAN	
-犯	"Преступник"	HAN; BON	okasu
-版	"Издание"	HAN	
-板	"Доска"	HAN	ita
-反	"Против"	HAN; TAN	soru; kaesu; kaeru
-判	"Судить"	HAN	wakaru
-抜	"Вытаскивать"	BATSU	nuku; nukeru; nukasu
-髪	"Волосы"	HATSU	kami
-畑	"Плантация"	kokuji	hatake/hata
-肌	"Кожа"	KI	hada
-箱	"Ящик"	SO:	hako
-麦	"Хлебные злаки"	BAKU	mugi
-爆	"Взрыв"	BAKU	hazeru
-薄	"Тонкий"	HAKU	usui
-泊	"Ночевать"	HAKU	tomaru; tomari
-倍	"Удваивать"	BAI	
-配	"Распределять"	HAI	kubaru
-背	"Спина"	HAI	se; sei; somuku
-杯	"Чарка"	HAI	sakazuki
-敗	"Поражение"	HAI	yabureru
-拝	"Поклоняться"	HAI	ogamu
-馬	"Лошадь"	BA	uma
-破	"Ломать"	HA	yaburu
-波	"Волна"	HA	nami
-脳	"Мозг"	NO:	
-能	"Способность"	NO:	
-濃	"Густой"	NO:	koi
-悩	"Страдать"	NO:	nayamu; nayami
-燃	"Гореть"	NEN	moeru; moyasu
-念	"Мысль"	NEN	omou
-熱	"Горячий"	NETSU	atsui
-猫	"Кошка"	BYO:	neko
-認	"Признавать"	NIN	mitomeru
-任	"Назначение"	NIN	makaseru
-乳	"Молоко"	NYU:	chichi
-難	"Трудный"	NAN	muzukashii
-軟	"Мягкий"	NAN	yawarakai
-内	"Внутри"	NAI, DAI	uchi
-鈍	"Тупой"	DON	nibui
-曇	"Пасмурный"	DON	kumoru; kumori
-届	"Извещение"	KAI	todoke; todoku; todokeru
-突	"Ударять"	TOTSU	tsuku
-独	"Сам"	DOKU	hitori
-毒	"Яд"	DOKU	
-得	"Прибыль"	TOKU	eru
-銅	"Медь"	DO:	akagane
-童	"Дитя"	DO:	warabe
-導	"Вести"	DO:	michibiku
-逃	"Убегать"	TO:	nigeru
-到	"Доходить"	TO:	itaru
-筒	"Трубка"	TO:	tsutsu
-等	"Равный"	TO:	hitoshii; nado
-灯	"Лампа"	TO:	hi; tomoshibi; tomosu
-湯	"Горячая вода"	TO:	yu; o-yu
-盗	"Красть"	TO:	nusumu
-投	"Бросать"	TO:	nageru
-島	"Остров"	TO:	shima
-塔	"Башня"	TO:	
-凍	"Замерзать"	TO:	ko:ru
-党	"Партия"	TO:	
-倒	"Валиться"	TO:	taoreru; taosu
-怒	"Гнев"	DO	okoru
-努	"Стараться"	DO	tsutomeru
-途	"Путь"	TO	michi
-登	"Взбираться"	TO:, TO	noboru
-渡	"Переправляться"	TO	wataru; watasu
-徒	"Последователь"	TO	itazura; ada; muda; tada; tadanaranu
-塗	"Намазывать"	TO	nuru
-殿	"Дворец"	DEN	shingari; tono
-展	"Выставка"	TEN	
-鉄	"Железо"	TETSU	
-適	"Надлежащий"	TEKI	kanau
-的	"Цель"	TEKI	mato
-滴	"Капля"	TEKI	shizuku; shitataru
-程	"Мера"	TEI	hodo
-庭	"Двор"	TEI	niwa
-底	"Дно"	TEI	soko
-定	"Определять"	TEI, JO:	sadameru
-停	"Приостанавливать"	TEI	tomaru; tomeru
-痛	"Боль"	TSU:	itai; itamu; itami
-追	"Преследовать"	TSUI	ou
-賃	"Плата"	CHIN	
-珍	"Редкостный"	CHIN	mezurashii
-沈	"Погружаться"	CHIN	shizumu
-直	"Прямой"	CHOKU, JIKI	naosu; naoru; sugu
-頂	"Вершина"	CHO:	itadaku
-超	"Сверх-"	CHO:	koeru
-張	"Натягивать"	CHO:	haru
-庁	"Администрация"	CHO:	
-兆	"Триллион"	CHO:	kizashi
-貯	"Копить"	CHO	takuwaeru
-著	"Автор"	CHO; CHAKU	arawasu
-駐	"Пребывать"	CHU:	
-虫	"Насекомое"	CHU:	mushi
-柱	"Столб"	CHU:	hashira
-宙	"Космос"	CHU:	
-仲	"Посредник"	CHU:	naka
-竹	"Бамбук"	CHIKU	take
-畜	"Скотина"	CHIKU	
-築	"Строительство"	CHIKU	kizuku
-遅	"Поздний"	CHI	osoi; okureru
-置	"Класть"	CHI	oku
-恥	"Стыд"	CHI	haji; hajiru; hazukashii
-値	"Величина"	CHI	atai; ne
-談	"Разговор"	DAN	
-段	"Ступень"	DAN	
-暖	"Тёплый"	DAN	atatakai; atatamaru; atatameru
-断	"Прерывать"	DAN	tatsu; kotowaru
-団	"Группа"	DAN	
-炭	"Уголь"	TAN	sumi
-探	"Искать"	TAN	saguru; sagasu
-担	"Нести"	TAN	katsugu; ninau
-単	"Одиночный"	TAN	hitoe
-谷	"Долина"	KOKU	tani
-達	"Достигать"	TATSU	
-濯	"Полоскать"	TAKU	susugu
-宅	"Дом"	TAKU	o-taku
-第	"Префикс числительных"	DAI	
-袋	"Мешок"	TAI	fukuro
-替	"Менять"	TAI	kaeru; kawaru
-帯	"Пояс"	TAI	obi; obiru
-対	"Против"	TAI; TSUI	
-打	"Ударять"	DA	utsu
-他	"Другой"	TA	hoka
-損	"Убыток"	SON	sokonau
-尊	"Почитать"	SON	tattoi/to:toi; tattobu/to:tobu
-孫	"Внук"	SON	mago
-存	"Существовать"	SON; ZON	
-卒	"Солдат"	SOTSU	sossuru
-続	"Продолжаться"	ZOKU	tsuzuku; tsuzukeru
-速	"Скорость"	SOKU	hayai
-測	"Измерять"	SOKU	hakaru
-束	"Пучок"	SOKU	taba; tabaneru
-息	"Дыхание"	SOKU	iki
-則	"Правила"	SOKU	nori; nottoru; sunawachi
-側	"Сторона"	SOKU	soba; kawa
-造	"Изготовлять"	ZO:	tsukuru
-贈	"Подарок"	ZO:	okuru
-蔵	"Кладовая"	ZO:	kura
-臓	"Внутренности"	ZO:	
-憎	"Ненавидеть"	ZO:	nikumu
-増	"Увеличиваться"	ZO:	masu; fueru; fuyasu
-像	"Изображение"	ZO:	
-装	"Наряжаться"	SO:, SHO:	yoso:u
-草	"Трава"	SO:	kusa
-総	"Общий"	SO:	subete
-窓	"Окно"	SO:	mado
-相	"Взаимный"	SO:; SHO:	
-争	"Бороться"	SO:	arasou
-燥	"Сохнуть"	SO:	
-操	"Манипулировать"	SO:	ayatsuru
-掃	"Мести"	SO:	haku
-捜	"Искать"	SO:	sagasu
-想	"Представлять себе"	SO:	omou
-層	"Слой"	SO:	
-双	"Пара"	SO:	
-祖	"Предок"	SO	
-全	"Полностью"	ZEN	subete; mattaku
-然	"Так"	ZEN	shikashi
-善	"Добро"	ZEN	yoi/ii
-選	"Выбирать"	SEN	erabu
-船	"Судно"	SEN	fune
-浅	"Мелкий"	SEN	asai
-泉	"Родник"	SEN	izumi
-戦	"Война"	SEN	tatakau
-専	"Специальный"	SEN	moppara
-占	"Завладевать"	SEN	shimeru; uranau
-絶	"Прекращаться"	ZETSU	taeru; tayasu; tatsu
-雪	"Снег"	SETSU	yuki
-節	"Сустав"	SETSU	fushi
-設	"Учреждать"	SETSU	mo:keru
-折	"Сгибать"	SETSU	oru
-接	"Соединять"	SETSU	tsugu
-税	"Налог"	ZEI	
-静	"Тихий"	SEI	shizuka; shizumeru; shizumaru
-製	"Изготовлять"	SEI	
-精	"Жизненная энергия"	SEI	shirageru; kuwashii
-清	"Чистый"	SEI; SHIN	kiyoi; kiyomaru; kiyomeru
-晴	"Ясная погода"	SEI	hareru; hare
-星	"Звезда"	SEI	hoshi
-整	"Приводить в порядок"	SEI	totonoeru; totonou
-政	"Политика"	SEI	matsurigoto
-姓	"Фамилия"	SEI	
-勢	"Энергия"	SEI	ikioi
-制	"Система"	SEI	
-数	"Число"	SU:, SU	kazu; kazoeru
-吹	"Дуть"	SUI	fuku
-震	"Землетрясение"	SHIN	furueru
-針	"Игла"	SHIN	hari
-辛	"Острый на вкус"	SHIN	karai; tsurai
-身	"Тело"	SHIN	mi
-臣	"Вассал"	SHIN	
-深	"Глубокий"	SHIN	fukai
-信	"Верить"	SHIN	
-伸	"Растягивать"	SHIN	nobiru; nobasu
-触	"Трогать"	SHOKU	sawaru; fureru
-職	"Должность"	SHOKU	
-植	"Сажать"	SHOKU	ueru
-蒸	"Варить на пару"	JO:	musu
-畳	"Татами"	JO:	tatami; tatamu
-状	"Форма"	JO:	
-条	"Статья"	JO:	
-情	"Чувство"	JO:	nasake
-常	"Обычный"	JO:	tsune
-城	"Замок"	JO:	shiro
-賞	"Награда"	SHO:	homeru
-象	"Явление", "Слон"	SHO:; ZO:	katadoru
-紹	"Знакомить"	SHO:	
-笑	"Смех"	SHO:	warau; warai
-章	"Эмблема"	SHO:	
-省	"Министерство", "Рефлексия"	SEI; SHO:	kaerimiru
-照	"Светить"	SHO:	teru
-焼	"Сжигать"	SHO:	yaku
-消	"Гасить"	SHO:	kesu; kieru
-昇	"Повышение"	SHO:	noboru
-承	"Соглашаться"	SHO:	uketamawaru
-床	"Постель"	SHO:	toko; yuka
-商	"Коммерция"	SHO:	akinau; akinai
-召	"Вызывать"	SHO:	mesu; meshi
-勝	"Побеждать"	SHO:	katsu
-除	"Устранять"	JO	nozoku
-助	"Спасать"	JO	tasukeru; tasukaru
-諸	"Всевозможные"	SHO	moro
-署	"Контора"	SHO	
-緒	"Начало"	SHO	(CHO)
-初	"Первый"	SHO	hajime; hajimete
-処	"Распоряжаться"	SHO	tokoro
-順	"Порядок"	JUN	
-純	"Беспримесный"	JUN	
-準	"Неполный"	JUN	nazoraeru
-述	"Высказывать"	JUTSU	noberu
-術	"Умение"	JUTSU	sube
-祝	"Праздновать"	SHUKU, SHU:	iwau
-宿	"Гостиница"	SHUKU	yado
-柔	"Мягкий"	JU:, NYU:	yawarakai
-舟	"Лодка"	SHU:	fune
-拾	"Подбирать"	SHU:	hirou
-修	"Учиться"	SHU:, SHU	osameru
-州	"Провинция"	SHU:, SU	
-周	"Кружиться"	SHU:	mawari
-授	"Предоставлять"	JU	sazukeru
-受	"Принимать"	JU	ukeru
-酒	"Сакэ"	SHU	sake; o-sake
-種	"Разновидность"	SHU	tane
-守	"Охранять"	SHU	mamoru; o-mamori
-取	"Брать"	SHU	toru
-若	"Молодой"	JAKU	wakai
-捨	"Выбрасывать"	SHA	suteru
-湿	"Сырой"	SHITSU	shimesu; shimeru
-失	"Терять"	SHITSU	ushinau
-識	"Сознание"	SHIKI	
-式	"Формула"	SHIKI	
-辞	"Отставка"	JI	yameru
-治	"Лечить"	CHI (JI)	osameru; naosu; naoru
-次	"Следующий"	JI	tsugu; tsugi
-寺	"Храм"	JI	tera
-児	"Дитя"	JI	ko
-似	"Похожий"	JI	niru
-歯	"Зуб"	SHI	ha
-誌	"Журнал"	SHI	
-詞	"Слово"	SHI	kotoba
-脂	"Жир"	SHI	abura
-糸	"Нить"	SHI	ito
-枝	"Ветка"	SHI	eda
-支	"Филиал"	SHI	sasaeru; sasae
-指	"Палец"	SHI	yubi; sasu
-志	"Воля"	SHI	kokorozashi
-師	"Учитель"	SHI	
-残	"Оставаться"	ZAN	nokoru; nokosu; nokori
-賛	"Одобрять"	SAN	
-算	"Вычислять"	SAN	
-散	"Разбрасывать"	SAN	chiru; chirasu
-参	"Участвовать"	SAN	mairu; o-mairi
-皿	"Тарелка"	BEI	sara
-雑	"Всякого рода"	ZATSU, ZO:	mazeru; majiru; mazaru
-殺	"Убивать"	SATSU	korosu
-札	"Этикетка"	SATSU	fuda
-察	"Инспектировать"	SATSU	
-刷	"Печатать"	SATSU	suru
-冊	"Том"	SATSU; SAKU	
-昨	"Вчера"	SAKU	
-咲	"Цвести"	SHO:	saku
-坂	"Склон"	HAN	saka
-財	"Финансы"	ZAI	
-罪	"Преступление"	ZAI	tsumi
-材	"Материал"	ZAI	
-在	"Находиться"	ZAI	aru; arishi
-際	"Рубеж"	SAI	kiwa
-細	"Мелкий"	SAI	hosoi; komakai
-祭	"Праздник"	SAI	matsuri
-済	"Закончено"	SAI	sumu; sumimasen
-歳	"Возраст"	SAI	toshi
-採	"Добывать"	SAI	toru
-才	"Талант"	SAI	
-妻	"Жена"	SAI	tsuma
-再	"Вторично"	SAI; SA	futatabi
-座	"Сидение"	ZA	suwaru
-砂	"Песок"	SA	suna
-査	"Расследовать"	SA	
-差	"Разница"	SA	sasu; sasu
-混	"Смешивать"	KON	mazeru
-根	"Корень"	KON	ne
-婚	"Брак"	KON	
-困	"Трудности"	KON	komaru
-込	"Внутрь"	kokuji	komu
-骨	"Кость"	KOTSU	hone
-腰	"Поясница"	YO:	koshi
-告	"Объявлять"	KOKU	tsugeru
-刻	"Гравировать"	KOKU	kizamu
-号	"Номер"	GO:	
-香	"Аромат"	KO:	kaoru; kaori; kambashii
-降	"Спускаться"	KO:	oriru; furu; kudaru
-鉱	"Руда"	KO:	aragane
-郊	"Пригород"	KO:	
-講	"Лекция"	KO:	
-荒	"Бурный"	KO:	areru; arai
-航	"Курсировать"	KO:	
-肯	"Соглашаться"	KO:	gaenjiru
-耕	"Земледелие"	KO:	tagayasu
-紅	"Алый"	KO:	beni
-硬	"Жёсткий"	KO:	katai
-港	"Порт"	KO:	minato
-構	"Структура"	KO:	kamaeru; kamau; kamawanai
-更	"Обновлять"	KO:	sarani; fukeru
-康	"Здоровье"	KO:	
-幸	"Счастье"	KO:	shiawase; saiwai
-向	"Направленность"	KO:	muko:; mukau; mukatte; mukeru
-厚	"Толстый"	KO:	atsui
-効	"Эффект"	KO:	kiku
-候	"Погода"	KO:	so:ro:
-交	"Пересекаться"	KO:	kawasu; majiwaru; majieru; mazeru
-誤	"Ошибка"	GO	ayamaru; ayamari
-御	"Гонорифические префиксы"	GO, GYO	
-互	"Взаимный"	GO	tagai
-雇	"Наём"	KO	yatou
-湖	"Озеро"	KO	mizuumi
-枯	"Засыхать"	KO	kareru; kareta
-戸	"Дверь"	KO	to
-庫	"Склад"	KO	kura
-固	"Твёрдый"	KO	katai
-呼	"Звать"	KO	yobu
-限	"Предел"	GEN	kagiru; kagiri
-減	"Уменьшаться"	GEN	heru
-原	"Равнина"	GEN	hara
-軒	"Край крыши"	KEN	noki
-賢	"Мудрость"	KEN	kashikoi
-肩	"Плечо"	KEN	kata
-券	"Билет"	KEN	
-健	"Здоровый"	KEN	sukoyaka
-血	"Кровь"	KETSU	chi
-結	"Узел"	KETSU	musubu; yuu
-決	"Решать"	KETSU	kimeru; kimaru
-欠	"Недостача", "Зевота"	KETSU; KEN	akubi; kakeru; kaku
-劇	"Театр"	GEKI	
-迎	"Выходить навстречу"	GEI	mukaeru
-芸	"Искусство"	GEI	
-警	"Полиция"	KEI	imashimeru
-経	"Проходить", "Сутра"	KEI; KYO:	heru; tatsu
-景	"Пейзаж"	KEI	
-敬	"Уважать"	KEI	uyamau; uyamai
-恵	"Благодеяние"	KEI; E	megumu
-形	"Форма"	KEI	kata; katachi
-型	"Тип"	KEI	kata
-傾	"Наклон"	KEI	katamuku; katamukeru; nadareru
-係	"Ответственный"	KEI	kakari
-軍	"Армия"	GUN	ikusa; ikusagokko
-群	"Группа"	GUN	mure; mureru
-訓	"Наставление"	KUN	
-君	"Ты"	KUN	kimi
-靴	"Обувь"	KA	kutsu
-掘	"Копать"	KUTSU	horu
-隅	"Угол"	GU:	sumi
-偶	"Чётный"	GU:	tama
-具	"Принадлежности"	GU	tsubusani
-苦	"Горький"	KU	kurushii; kurushimu; nigai
-禁	"Запрет"	KIN	
-均	"Равнять"	KIN	narasu
-玉	"Драгоценный камень"	GYOKU	tama
-極	"Полюс"	KYOKU, GOKU	kiwameru; kiwamaru; kiwamete
-曲	"Мелодия"	KYOKU	mageru
-局	"Бюро"	KYOKU	
-胸	"Грудь"	KYO:	mune
-狭	"Узкий"	KYO:	semai
-況	"Положение"	KYO:	iwan'ya
-橋	"Мост"	KYO:	hashi
-挟	"Зажимать"	KYO:	hasamu
-恐	"Страх"	KYO:	osoreru; osoraku
-境	"Граница"	KYO:	sakai
-叫	"Крик"	KYO:	sakebu
-協	"Сотрудничество"	KYO:	
-共	"Совместный"	KYO:	tomo
-競	"Состязаться"	KYO:	kisou; seru
-供	"Предоставлять"	KYO:, KU	tomo; sonaeru
-漁	"Рыболовство"	GYO, RYO:	asaru
-許	"Разрешать"	KYO	yurusu
-巨	"Огромный"	KYO	
-居	"Проживать"	KYO	iru; oru
-旧	"Прежний"	KYU:	moto; furui
-給	"Снабжать"	KYU:	tamau
-級	"Разряд"	KYU:	
-球	"Мяч"	KYU:	tama
-泣	"Плакать"	KYU:	naku
-求	"Требовать"	KYU:	motomeru
-救	"Спасать"	KYU:	sukuu
-吸	"Сосать"	KYU:	suu
-久	"Долгий"	KYU:	hisashii
-逆	"Наоборот"	GYAKU	sakasama
-客	"Гость"	KYAKU, KAKU	
-詰	"Набивать"	KITSU	tsumeru; tsumaru
-喫	"Закусывать"	KITSU	
-議	"Обсуждение"	GI	
-疑	"Подозрение"	GI	utagau
-技	"Мастерство"	GI	waza
-規	"Правило"	KI	bummawashi
-季	"Сезон"	KI	
-祈	"Молитва"	KI	inoru; inori
-機	"Механизм"	KI	hata
-期	"Срок"	KI; GO	
-机	"Стол"	KI	tsukue
-希	"Редкий"	KI	mare
-寄	"Подходить"	KI	yoru; yoseru
-基	"Основа"	KI	motoi; motozuku
-器	"Сосуд"	KI	utsuwa
-喜	"Радость"	KI	yorokobu
-危	"Опасный"	KI	abunai
-願	"Просьба"	GAN	negau
-岩	"Скала"	GAN	iwa
-岸	"Берег"	GAN	kishi
-含	"Содержать"	GAN	fukumu; fukumeru
-丸	"Круглый"	GAN	marui; marude
-関	"Застава"	KAN	seki; kakawaru
-観	"Осматривать"	KAN	miru
-簡	"Простой"	KAN	
-管	"Труба"	KAN	kuda
-看	"Присматривать"	KAN	miru
-甘	"Сладкий"	KAN	amai
-環	"Кольцо"	KAN	wa; tamaki
-汗	"Пот"	KAN	ase
-換	"Обменивать"	KAN	kaeru; kawaru
-慣	"Обыкновение"	KAN	narasu; nareru
-感	"Чувство"	KAN	
-干	"Сухой"	KAN	hosu; hiru
-官	"Чиновник"	KAN	
-完	"Завершение"	KAN	
-巻	"Свиток"	KAN, KEN	maki; maku
-刊	"Издавать"	KAN	
-乾	"Сухой"	KAN	kawaku
-額	"Сумма"	GAKU	hitai
-革	"Кожа"	KAKU	kawa
-較	"Сравнивать"	KAKU, KO:	kuraberu
-角	"Угол"	KAKU	kado; tsuno
-覚	"Ощущение"	KAKU	sameru; samasu; oboeru
-確	"Определённый"	KAKU	tashika; tashikameru
-格	"Разряд"	KAKU	
-拡	"Расширять"	KAKU	hirogeru; hirogaru
-各	"Каждый"	KAKU	onoono
-害	"Вред"	GAI	sokonau
-貝	"Раковина"	BAI	kai
-階	"Этаж"	KAI	kizahashi
-絵	"Картина"	E, KAI	
-皆	"Все"	KAI	mina; minna; mina-san
-灰	"Пепел"	KAI	hai
-械	"Механизм"	KAI	
-改	"Изменять"	KAI	aratameru
-快	"Приятный"	KAI	kokoroyoi
-介	"Посредничать"	KAI	
-過	"Превышать"	KA	sugiru; sugosu; ayamatsu
-貨	"Монета"	KA	
-課	"Отдел"	KA	
-菓	"Сласти"	KA	
-荷	"Ноша"	KA	ni
-河	"Река"	KA	kawa
-果	"Плод"	KA	hatasu
-科	"Отделение"	KA	
-価	"Цена"	KA	atai
-仮	"Временный"	KA	kari
-化	"Превращаться"	KA, KE	bakeru
-温	"Тёплый"	ON	atatakai
-億	"Сто миллионов"	OKU	
-黄	"Жёлтый"	KO:, O:	ki
-欧	"Европа"	O:	
-押	"Надавливать"	O:	osu; osaeru
-奥	"Глубь"	O:	oku; okusan
-央	"Центр"	O:	
-汚	"Грязь"	O	kitanai; yogore; kegareru
-塩	"Соль"	EN	shio
-煙	"Дым"	EN	kemuri
-演	"Исполнять"	EN	
-延	"Растягивать"	EN	nobiru; nobasu; noberu
-園	"Сад"	EN	sono
-越	"Пересекать"	ETSU	koeru; kosu
-液	"Жидкость"	EKI	tsuyu
-鋭	"Острый"	EI	surudoi
-泳	"Плавать"	EI	oyogu
-永	"Вечный"	EI	nagai
-栄	"Расцвет"	EI	sakaeru; sakae
-営	"Бизнес"	EI	itonamu
-雲	"Туча"	UN	kumo
-宇	"Вселенная"	U	
-因	"Причина"	IN	yoru; yotte; chinamu
-印	"Печать"	IN	shirushi
-育	"Воспитывать"	IKU	sodateru; sodatsu
-域	"Район"	IKI	
-違	"Отличаться"	I	chigau; chigai
-衣	"Одежда"	I, E	koromo
-胃	"Желудок"	I	
-移	"Перемещаться"	I	utsuru; utsusu
-異	"Отличаться"	I	kotonaru
-委	"Поручать"	I	yudaneru
-囲	"Окружать"	I	kakomu; kakou
-偉	"Великий"	I	erai
-依	"Зависеть"	I	yotte
-位	"Ранг"	I	kurai
-案	"Проект"	AN	
-圧	"Давление"	ATSU	
-愛	"Любовь"	AI	
+痒	itchy
+罰	penalty, punishment
+消	extinguish, blow out, turn off, neutralize, cancel
+凶	villain, evil, bad luck, disaster
+填	fill in
+冴	be clear, serene, cold, skilful
+院	Inst., institution, temple, mansion, school
+療	heal, cure
+弁	valve, petal, braid, speech, dialect, discrimination, dispose of, distinguish
+往	journey, chase away, let go, going, travel
+侃	strong, just, righteous, peace-loving
+波	waves, billows, Poland
+錬	tempering, refine, drill, train, polish
+酉	west, bird, sign of the bird, 5-7PM, tenth sign of Chinese zodiac, sake radical (no. 164)
+櫛	comb
+輪	wheel, ring, circle, link, loop, counter for wheels and flowers
+回	-times, round, game, revolve, counter for occurrences
+講	lecture, club, association
+濡	get wet, damp, make love
+及	reach out, exert, exercise, cause
+豚	pork, pig
+貞	upright, chastity, constancy, righteousness
+洒	wash, sprinkle
+刷	printing, print
+劣	inferiority, be inferior to, be worse
+痰	sputum, phlegm
+諮	consult with
+告	revelation, tell, inform, announce
+癖	mannerism, habit, vice, trait, fault, kink
+功	achievement, merits, success, honor, credit
+女	woman, female
+央	center, middle
+仲	go-between, relationship
+肋	rib
+刀	sword, saber, knife
+羨	envious, be jealous, covet
+吟	versify, singing, recital
+苗	seedling, sapling, shoot
+数	number, strength, fate, law, figures
+識	discriminating, know, write
+累	accumulate, involvement, trouble, tie up, continually
+穀	cereals, grain
+牽	pull, tug, jerk, admit, install, quote, refer to
+滝	waterfall, rapids, cascade
+契	pledge, promise, vow
+弓	bow, bow (archery, violin)
+朕	majestic plural, imperial we
+勢	forces, energy, military strength
+嬬	mistress, weak
+窄	narrow, fold, furl, shrug, pucker, shut, close
+遁	flee, escape, shirk, evade, set free
+欝	gloom, depression, melancholy
+套	hackneyed
+播	plant, sow
+拙	bungling, clumsy, unskillful
+嗣	heir, succeed
+乏	destitution, scarce, limited
+勲	meritorious deed, merit
+舎	cottage, inn, hut, house, mansion
+蟻	ant
+毛	fur, hair, feather, down
+惜	pity, be sparing of, frugal, stingy, regret
+赫	suddenly, brighten, illuminate, light up
+学	study, learning, science
+頭	head, counter for large animals
+形	shape, form, style
+轡	bit (horse)
+受	accept, undergo, answer (phone), take, get, catch, receive
+葦	reed, bullrush
+郁	cultural progress, perfume
+堀	ditch, moat, canal
+鮫	shark
+浦	bay, creek, inlet, gulf, beach, seacoast
+窺	lie in wait, spy on, reconnoiter
+捕	catch, capture
+峻	high, steep
+醒	awake, be disillusioned, sober up
+傾	lean, incline, tilt, trend, wane, sink, ruin, bias
+拓	clear (the land), open, break up (land)
+彩	coloring, paint, makeup
+義	righteousness, justice, morality, honor, loyalty, meaning
+搭	board, load (a vehicle), ride
+軸	axis, pivot, stem, stalk, counter for book scrolls
+穴	hole, aperture, slit, cave, den
+丼	bowl, bowl of food
+梵	Sanskrit, purity, Buddhist
+緋	scarlet, cardinal
+灘	open sea
+蛤	clam
+痕	mark, foot print
+戚	grieve
+峠	mountain peak, mountain pass, climax, crest, (kokuji)
+妃	queen, princess
+港	harbor
+招	beckon, invite, summon, engage
+挽	saw, turn (lathe), grind
+彗	comet
+標	signpost, seal, mark, stamp, imprint, symbol, emblem, trademark, evidence, souvenir, target
+壽	longevity, congratulations [old]
+華	splendor, flower, petal, shine, luster, ostentatious, showy, gay, gorgeous
+次	next, order, sequence
+駄	burdensome, pack horse, horse load, send by horse
+乗	ride, power, multiplication, record, counter for vehicles, board, mount, join
+味	flavor, taste
+廷	courts, imperial court, government office
+餐	eat, drink, swallow
+入	enter, insert
+芦	reed, bullrush
+黎	dark, black, many
+悩	trouble, worry, in pain, distress, illness
+晨	morning, early
+聘	invite
+丹	rust-colored, red, red lead, pills
+奪	rob, take by force, snatch away, dispossess, plunder, usurp
+毀	break, destroy, censure, be chipped, be scratched, be broken, be ruined
+慌	disconcerted, be confused, lose one's head
+鳥	bird, chicken
+俊	sagacious, genius, excellence
+輯	gather, collect, compile
+材	lumber, log, timber, wood, talent
+朗	melodious, clear, bright, serene, cheerful
+蔑	ignore, despise, neglect, ridicule
+泪	tears, weep, cry
+砥	whetstone, grindstone
+盟	alliance, oath
+甫	for the first time, not until
+砲	cannon, gun
+外	outside
+奇	strange, strangeness, curiosity
+睦	intimate, friendly, harmonious
+性	sex, gender, nature
+廉	bargain, reason, charge, suspicion, point, account, purity, honest, low price, cheap, rested, contented, peaceful
+汎	pan-
+工	craft, construction, katakana e radical (no. 48)
+死	death, die
+苺	strawberry
+淡	thin, faint, pale, fleeting
+伎	deed, skill
+頗	prejudiced, exceedingly
+易	easy, ready to, simple, fortune-telling, divination
+陳	exhibit, state, relate, explain
+鰹	bonito
+凹	concave, hollow, sunken
+聾	deafness, deaf person, deafen
+介	jammed in, shellfish, mediate, concern oneself with
+阜	hill, mound, left village radical (no. 170)
+輻	spoke (wheel)
+俗	vulgar, customs, manners, worldliness, mundane things
+肖	resemblance
+描	sketch, compose, write, draw, paint
+曲	bend, music, melody, composition, pleasure, injustice, fault, curve, crooked, perverse, lean
+抹	rub, paint, erase
+尋	inquire, fathom, look for
+皐	swamp, shore
+屯	barracks, police station, camp
+巴	comma-design
+貢	tribute, support, finance
+貫	pierce, 8 1/3lbs, penetrate, brace
+率	ratio, rate, proportion, %, coefficient, factor
+椙	Japanese cedar, cryptomeria
+頓	suddenly, immediately, in a hurry
+酋	chieftain
+摘	pinch, pick, pluck, trim, clip, summarize
+民	people, nation, subjects
+碩	large, great, eminent
+欧	Europe
+観	outlook, look, appearance, condition, view
+剃	shave
+解	unravel, notes, key, explanation, understanding, untie, undo, solve, answer, cancel, absolve, explain, minute
+猟	game-hunting, shooting, game, bag
+已	stop, halt, previously, already, long ago
+癌	cancer, cancerous evil
+藁	straw
+汗	sweat, perspire
+机	desk, table
+餓	starve, hungry, thirst
+姿	figure, form, shape
+急	hurry, emergency, sudden, steep
+裟	Buddhist surplice
+果	fruit, reward, carry out, achieve, complete, end, finish, succeed
+適	suitable, occasional, rare, qualified, capable
+擦	grate, rub, scratch, scrape, chafe, scour
+抵	resist, reach, touch
+艶	glossy, luster, glaze, polish, charm, colorful, captivating
+激	violent, get excited, enraged, chafe, incite
+掘	dig, delve, excavate
+沙	sand
+湯	hot water, bath, hot spring
+厚	thick, heavy, rich, kind, cordial, brazen, shameless
+平	even, flat, peace
+舞	dance, flit, circle, wheel
+閥	clique, lineage, pedigree, faction, clan
+土	soil, earth, ground, Turkey
+驢	donkey
+蒼	blue, pale
+相	inter-, mutual, together, each other, minister of state, councillor, aspect, phase, physiognomy
+億	hundred million, 10**8
+杷	kind of rake
+竺	bamboo
+汚	dirty, pollute, disgrace, rape, defile
+省	focus, government ministry, conserve
+景	scenery, view
+兄	elder brother, big brother
+忙	busy, occupied, restless
+若	young, if, perhaps, possibly, low number, immature
+監	oversee, official, govt office, rule, administer
+菓	candy, cakes, fruit
+乙	the latter, duplicate, strange, witty, fishhook radical (no. 5)
+返	return, answer, fade, repay
+骸	bone, body, corpse
+灰	ashes, puckery juice, cremate
+欽	respect, revere, long for
+寂	loneliness, quietly, mellow, mature, death of a priest
+診	checkup, seeing, diagnose, examine
+誉	reputation, praise, honor, glory
+燃	burn, blaze, glow
+孟	chief, beginning
+削	plane, sharpen, whittle, pare
+筒	cylinder, pipe, tube, gun barrel, sleeve
+尻	buttocks, hips, butt, rear
+今	now
+期	period, time, date, term
+号	nickname, number, item, title, pseudonym, name, call
+互	mutually, reciprocally, together
+糞	shit, feces, excrement
+栗	chestnut
+髪	hair of the head
+捺	press, print, affix a seal, stamp
+捌	handle, deal with, dispose of, sell, be in demand, be worldly, be frank, be sensible, be sociable, drainage, sale, demand for, eight
+稀	rare, phenomenal, dilute (acid)
+同	same, agree, equal
+書	write
+抑	repress, well, now, in the first place, push, shove, press, seal, do in spite of
+改	reformation, change, modify, mend, renew, examine, inspect, search
+天	heavens, sky, imperial
+雲	cloud
+緊	tense, solid, hard, reliable, tight
+滉	deep and broad
+吹	blow, breathe, puff, emit, smoke
+坦	level, wide
+麒	Chinese unicorn, genius, giraffe, bright, shining
+匂	fragrant, stink, glow, insinuate, (kokuji)
+享	receive, undergo, answer (phone), take, get, catch
+刊	publish, carve, engrave
+農	agriculture, farmers
+登	ascend, climb up
+醤	a kind of miso
+銚	sake bottle
+洪	deluge, flood, vast
+雇	employ, hire
+鰍	bullhead
+楼	watchtower, lookout, high building
+伏	prostrated, bend down, bow, cover, lay (pipes)
+鞠	ball
+褒	praise, extol
+眉	eyebrow
+穿	put on (to the feet), dig, pierce, drill
+愚	foolish, folly, absurdity, stupid
+屠	slaughter, butcher, slay
+瓦	tile, gram
+派	faction, group, party, clique, sect, school
+蝦	shrimp, prawn, lobster
+南	south
+第	No., residence
+塀	fence, wall, (kokuji)
+巧	adroit, skilled, ingenuity
+稲	rice plant
+馳	run, gallop, sail, drive (a wagon), win (fame), despatch
+劫	threat, long ages
+茎	stalk, stem
+荘	villa, inn, cottage, feudal manor
+搾	squeeze
+酢	vinegar, sour, acid, tart
+菱	diamond (shape), water chestnut, rhombus
+世	generation, world, society, public
+雁	wild goose
+努	toil, diligent, as much as possible
+掴	catch, seize, grasp, hold, arrest, capture
+正	correct, justice, righteous, 10**40
+昧	dark, foolish
+拍	clap, beat (music)
+栄	flourish, prosperity, honor, glory, splendor
+笠	bamboo hat, one's influence
+敗	failure, defeat, reversal
+閃	flash, brandish
+抉	gouge, hollow out, bore, pry
+魅	fascination, charm, bewitch
+氾	spread out, wide
+囲	surround, besiege, store, paling, enclosure, encircle, preserve, keep
+鋪	shop, store
+才	genius, years old, cubic shaku
+茄	eggplant
+熱	heat, temperature, fever, mania, passion
+堤	dike, bank, embankment
+鑑	specimen, take warning from, learn from
+歌	song, sing
+禿	become bald, bare, wear out, waste away, little girl employed at a brothel
+蝕	eclipse, occultation, be defective
+算	calculate, divining, number, abacus, probability
+俵	bag, bale, sack, counter for bags
+躇	hesitate
+陥	collapse, fall into, cave in, fall (castle), slide into
+遺	bequeath, leave behind, reserve
+倖	happiness, luck
+鼻	nose, snout
+輿	palanquin, bier
+集	gather, meet, congregate, swarm, flock
+乱	riot, war, disorder, disturb
+杵	wooden pestle
+賛	approve, praise, title or inscription on picture, assist, agree with
+粧	cosmetics, adorn (one's person)
+亨	undergo, answer (phone), take, get, catch
+英	England, English
+施	alms, apply bandages, administer first-aid
+匡	correct, save, assist
+欄	column, handrail, blank, space
+魁	charging ahead of others
+藤	wisteria
+水	water
+帰	homecoming, arrive at, lead to, result in
+暴	outburst, rave, fret, force, violence, cruelty, outrage
+域	range, region, limits, stage, level
+徹	penetrate, clear, pierce, strike home, sit up (all night)
+古	old
+声	voice
+疏	estrangement, sparseness, neglect
+痔	piles, hemorrhoids
+楠	camphor tree
+羊	sheep
+憎	hate, detest
+諒	fact, reality, understand, appreciate
+誹	ridicule, slander
+翔	soar, fly
+該	above-stated, the said, that specific
+柘	wild mulberry
+曇	cloudy weather, cloud up
+苅	cutting (grass)
+踏	step, trample, carry through, appraise, evade payment
+屏	wall, fence
+懺	regret, repent, confess sins
+悲	jail cell, grieve, sad, deplore, regret
+杯	counter for cupfuls, wine glass, glass, toast
+垣	hedge, fence, wall
+醸	brew, cause
+饅	bean-jam dumpling, manjuu
+境	boundary, border, region
+昂	rise
+梗	for the most part, close up
+滲	imbued with
+幾	how many, how much, how far, how long
+際	occasion, side, edge, verge, dangerous, adventurous, indecent, time, when
+附	affixed, attach, refer to, append
+左	left
+妙	exquisite, strange, queer, mystery, miracle, excellent, delicate, charming
+園	park, garden, yard, farm
+漱	gargle, rinse mouth
+弾	bullet, twang, flip, snap
+磐	rock, crag, cliff, wall (in a mine)
+騰	inflation, advancing, going
+閣	tower, tall building, palace
+溌	sprinkle, lively, vigorous
+隆	hump, high, noble, prosperity
+槙	twig, ornamental evergreen
+虎	tiger, drunkard
+媛	beautiful woman, princess
+銑	pig iron
+樺	birch
+問	question, ask, problem
+貴	precious, value, prize, esteem, honor
+陣	camp, battle array, ranks, position
+壕	trench, dugout, air raid shelter
+鰭	fin
+囚	captured, criminal, arrest, catch
+飢	hungry, starve
+贋	counterfeit, forgery
+怠	neglect, laziness
+開	open, unfold, unseal
+寡	widow, minority, few
+芸	technique, art, craft, performance, acting, trick, stunt
+凸	convex, beetle brow, uneven
+慰	consolation, amusement, seduce, cheer, make sport of, comfort, console
+基	fundamentals, radical (chem), counter for machines, foundation
+隻	vessels, counter for ships, fish, birds, arrows, one of a pair
+甚	tremendously, very, great, exceedingly
+川	stream, river, river or 3-stroke river radical (no. 47)
+恢	wide, large, enlarge
+起	rouse, wake up, get up
+隈	corner, nook, recess
+樽	barrel, cask, keg
+斧	ax, hatchet
+肉	meat
+岳	point, peak, mountain
+潰	crush, smash, break, dissipate
+酷	cruel, severe, atrocious, unjust
+函	box (archaic)
+県	prefecture
+猾	crafty
+河	river
+富	wealth, enrich, abundant
+厳	stern, strictness, severity, rigidity
+獄	prison, jail
+蛮	barbarian
+陛	highness, steps (of throne)
+猿	monkey
+洲	continent, sandbar, island, country
+裁	tailor, judge, decision, cut out (pattern)
+団	group, association
+項	paragraph, nape of neck, clause, item, term (expression)
+様	Esq., way, manner, situation, polite suffix
+惰	lazy, laziness
+窓	window, pane
+漉	manufacture paper, spread out thin, strain, percolate
+弐	II, two, second
+剛	sturdy, strength
+斥	reject, retreat, recede, withdraw, repel, repulse
+湊	port, harbor
+著	renowned, publish, write, remarkable, phenomenal, put on, don, wear, arrival, finish (race), counter for suits of clothing, literary work
+発	discharge, departure, publish, emit, start from, disclose, counter for gunshots
+落	fall, drop, come down
+単	simple, one, single, merely
+以	by means of, because, in view of, compared with
+耽	addicted, absorbed in
+亘	span, request
+保	protect, guarantee, keep, preserve, sustain, support
+亙	range, reach, extend, cover [old]
+蒲	bullrush, flag, cattail
+暁	daybreak, dawn, in the event
+莞	reed used to cover tatami
+的	bull's eye, mark, target, object, adjective ending
+闇	get dark, gloom, disorder
+碍	obstacle
+鼠	rat, mouse, dark gray
+焔	flame, blaze
+沢	swamp
+眼	eyeball
+擢	excel in, surpass, pull out, select
+詔	imperial edict
+貨	freight, goods, property
+禍	calamity, misfortune, evil, curse
+案	plan, suggestion, draft, ponder, fear, proposition, idea, expectation, bill, worry
+愉	pleasure, happy, rejoice
+芯	wick
+更	grow late, night watch, sit up late, of course
+山	mountain
+牢	prison, jail, hardness
+湛	fill, wear (a smile), clear, pure, dense, deep
+城	castle
+頁	page, leaf
+傭	employ, hire
+核	nucleus, core, kernel
+殻	husk, nut shell
+婆	old woman, grandma, wet nurse
+梟	owl, expose
+置	placement, put, set, deposit, leave behind, keep, employ, pawn
+膜	membrane
+曽	formerly, once, before, ever, never, ex-
+優	tenderness, excel, surpass, actor, superiority, gentleness
+紛	distract, be mistaken for, go astray, divert
+球	ball, sphere
+逞	sturdy, brawny, bold
+陀	steep
+肺	lungs
+薯	potato
+術	art, technique, skill, means, trick, resources, magic
+賄	bribe, board, supply, finance
+猥	obscene
+昴	the Pleiades
+弛	slacken, relax
+禁	prohibition, ban, forbid
+聯	party, gang, clique
+椎	oak, mallet
+稼	earnings, work, earn money
+況	condition, situation
+隷	slave, servant, prisoner, criminal, follower
+芭	banana
+整	organize, arranging, tune, tone, meter, key (music)
+剪	clip, snip, cut
+訣	separation, part, secret
+国	country
+頑	stubborn, foolish, firmly
+既	previously, already, long ago
+器	utensil, vessel, receptacle, implement, instrument, ability, container, tool, set
+瀞	pure water, clear water, pool in a river
+艇	rowboat, small boat
+液	fluid, liquid, juice, sap, secretion
+殆	almost, quite, really
+騎	equestrian, riding on horses, counter for equestrians
+徒	junior, emptiness, vanity, futility, uselessness, ephemeral thing, gang, set, party, people
+夙	bright and early, long ago, early in life
+袴	men's formal divided skirt
+艦	warship
+証	evidence, proof, certificate
+坑	pit, hole
+穫	harvest, reap
+碁	Go
+蝶	butterfly
+析	chop, divide, tear, analyze
+百	hundred
+柔	tender, weakness, gentleness, softness
+畔	paddy ridge, levee
+翰	letter, writing brush
+珠	pearl, gem, jewel
+勧	persuade, recommend, advise, encourage, offer
+版	printing block, printing plate, edition, impression, label
+梓	catalpa tree
+扱	handle, entertain, thresh, strip
+拒	repel, refuse, reject, decline
+来	come, due, next, cause, become
+醇	pure sake', purity, affection
+絞	strangle, constrict, wring
+繍	sew, figured cloth
+渓	mountain stream, valley
+釘	nail, tack, peg
+底	bottom, sole, depth, bottom price, base, kind, sort
+侠	tomboy, chivalry
+叡	intelligence, imperial
+泥	mud, mire, adhere to, be attached to
+扮	impersonate, dress up, disguise, thin shingles
+雪	snow
+幻	phantasm, vision, dream, illusion, apparition
+諾	consent, assent, agreement
+祀	enshrine, worship
+儒	Confucian
+牡	male
+着	don, arrive, wear, counter for suits of clothing
+妨	disturb, prevent, hamper, obstruct
+戴	be crowned with, live under (a ruler), receive
+得	gain, get, find, earn, acquire, can, may, able to, profit, advantage, benefit
+吻	proboscis
+諄	tedious
+為	do, change, make, benefit, welfare, be of use, reach to, try, practice, cost, serve as, good, advantage, as a result of
+揖	bow with arms folded, come together, assemble
+李	plum
+老	old man, old age, grow old
+窯	kiln, oven, furnace
+聴	listen, headstrong, naughty, careful inquiry
+芝	turf, lawn
+票	ballot, label, ticket, sign
+爽	refreshing, bracing, resonant, sweet, clear
+虫	insect, bug, temper
+宰	superintend, manager, rule
+架	erect, frame, mount, support, shelf, construct
+鋸	saw (cuts wood)
+格	status, rank, capacity, character, case (law, grammar)
+撰	composing, editing, compiling, selecting
+蹟	remains, traces, footprint
+墳	tomb, mound
+渚	strand, beach, shore
+哩	mile
+肝	liver, pluck, nerve, chutzpah
+鞘	sheath, case, margin, difference, shells (of beans)
+句	phrase, clause, sentence, passage, paragraph, counter for haiku
+祐	help
+梯	ladder, stairs, insatiable drinking
+桁	beam, girder, spar, unit or column (accounting)
+援	abet, help, save
+惨	wretched, disaster, cruelty, harsh
+宮	Shinto shrine, constellations, palace, princess
+庫	warehouse, storehouse
+曹	cadet, friend
+泡	bubbles, foam, suds, froth
+照	illuminate, shine, compare, bashful
+瓢	gourd
+刈	reap, cut, clip, trim, prune
+蹄	hoof
+担	shouldering, carry, raise, bear
+裳	skirt
+皆	all, everything
+蕃	grow luxuriously
+袋	sack, bag, pouch
+匙	spoon
+逐	pursue, drive away, chase, accomplish, attain, commit
+裂	split, rend, tear
+芹	parsley
+投	throw, discard, abandon, launch into, join, invest in, hurl, give up, sell at a loss
+州	state, province
+詐	lie, falsehood, deceive, pretend
+憩	recess, rest, relax, repose
+稜	angle, edge, corner, power, majesty
+宝	treasure, wealth, valuables
+壁	wall, lining (stomach), fence
+定	determine, fix, establish, decide
+走	run
+校	exam, school, printing, proof, correction
+辻	crossing, crossroad, street corners, (kokuji)
+迪	edify, way, path
+馬	horse
+警	admonish, commandment
+猶	furthermore, still, yet
+蒜	garlic
+固	harden, set, clot, curdle
+磁	magnet, porcelain
+柱	pillar, post, cylinder, support
+森	forest, woods
+靭	soft, pliable, quiver
+血	blood
+啓	disclose, open, say
+上	above, up
+雉	pheasant
+亡	deceased, the late, dying, perish
+擾	disturb, throw into confusion
+沃	fertility
+冊	tome, counter for books, volume
+宵	wee hours, evening, early night
+掩	cover, conceal
+赤	red
+酪	dairy products, whey, broth, fruit juice
+番	turn, number in a series
+桶	tub, bucket
+守	guard, protect, defend, obey
+糸	thread
+犬	dog
+編	compilation, knit, plait, braid, twist, editing, completed poem, part of a book
+亮	clear, help
+救	salvation, save, help, rescue, reclaim
+興	entertain, revive, retrieve, interest, pleasure
+酒	sake, alcohol
+操	maneuver, manipulate, operate, steer, chastity, virginity, fidelity
+捷	victory, fast
+沈	sink, be submerged, subside, be depressed, aloes
+孤	orphan, alone
+応	apply, answer, yes, OK, reply, accept
+倅	son, my son
+洩	leak, escape
+座	squat, seat, cushion, gathering, sit
+弟	younger brother, faithful service to elders
+琢	polish
+屡	often, frequently
+仕	attend, doing, official, serve
+嘱	entrust, request, send a message
+脳	brain, memory
+苫	rush matting
+患	afflicted, disease, suffer from, be ill
+歩	walk, counter for steps
+拘	arrest, seize, concerned, adhere to, despite
+昨	yesterday, previous
+融	dissolve, melt
+甦	be resuscitated, revived
+械	contraption, fetter, machine, instrument
+艘	counter for small boats
+謬	mistake
+希	hope, beg, request, pray, beseech, Greece, dilute (acid), rare, few, phenomenal
+偶	accidentally, even number, couple, man & wife, same kind
+益	benefit, gain, profit, advantage
+会	meeting, meet, party, association, interview, join
+嘆	sigh, lament, moan, grieve
+鹵	salt
+瞬	wink, blink, twinkle
+噛	chew, bite, gnaw
+靖	peaceful
+流	current, a sink, flow, forfeit
+取	take, fetch, take up
+嬉	glad, pleased, rejoice
+咲	blossom, bloom
+鵬	phoenix
+崇	adore, respect, revere, worship
+瞥	glance at
+匁	monme, 3.75 grams, (kokuji)
+舘	mansion, large building, palace [old]
+脚	skids, leg, undercarriage
+趨	run, go, quick, tend towards
+蚤	flea
+伽	nursing, attending, entertainer
+税	tax, duty
+牛	cow
+賑	flourish, be bustling, prosperity
+偲	recollect, remember
+私	private, I, me
+柚	citron
+晩	nightfall, night
+筏	raft
+苓	plant, herb, mushroom
+妬	jealous, envy
+頃	time, about, toward
+制	system, law, rule
+粕	scrap, waste
+浪	wandering, waves, billows
+映	reflect, reflection, projection
+貧	poverty, poor
+必	invariably, certain, inevitable
+久	long time, old story
+柊	holly
+概	outline, condition, approximation, generally
+福	blessing, fortune, luck, wealth
+鍬	hoe with long blade at acute angle
+去	gone, past, quit, leave, elapse, eliminate, divorce
+判	judgement, signature, stamp, seal
+到	arrival, proceed, reach, attain, result in
+崚	towering in a row
+洗	wash, inquire into, probe
+封	seal, closing
+要	need, main point, essence, pivot, key to
+悌	serving our elders
+嫌	dislike, detest, hate
+杉	cedar, cryptomeria
+柴	brush, firewood
+験	verification, effect, testing
+折	fold, break, fracture, bend, yield, submit
+諏	consult
+岡	mount, hill, knoll
+摺	rub, fold, print (on cloth)
+念	wish, sense, idea, thought, feeling, desire, attention
+専	specialty, exclusive, mainly, solely
+蛸	octopus
+写	copy, be photographed, describe
+多	many, frequent, much
+旗	national flag, banner, standard
+火	fire
+励	encourage, be diligent, inspire
+毒	poison, virus, venom, germ, harm, injury, spite
+痺	palsy, become numb, paralysed
+換	interchange, period, charge, change?
+楓	maple
+躾	training, (kokuji)
+綻	be rent, ripped, unravel, run, begin to open, smile
+留	detain, fasten, halt, stop
+藝	art, craft, performance, acting, trick, stunt [old]
+皓	white, clear
+燿	shine
+麓	foot of a mountain
+迫	urge, force, imminent, spur on
+暦	calendar, almanac
+蕗	butterbur, bog rhubarb
+薗	garden, yard, farm
+畢	the end, finish
+責	blame, condemn, censure
+貯	savings, store, lay in, keep, wear mustache
+曼	wide, beautiful
+岸	beach
+殴	assault, hit, beat, thrash
+徳	benevolence, virtue, goodness, commanding respect
+誕	nativity, be born, declension, lie, be arbitrary
+偉	admirable, greatness, remarkable, conceited, famous, excellent
+虜	captive, barbarian, low epithet for the enemy
+涯	horizon, shore
+蛋	barbarian, egg
+帳	notebook, account book, album
+暢	stretch
+牝	female
+什	utensil, thing, ten
+献	offering, counter for drinks, present, offer
+姻	matrimony, marry
+夫	husband, man
+恒	constancy, always
+智	wisdom, intellect, reason
+劾	censure, criminal investigation
+卯	sign of the hare or rabbit, 5-7AM, fourth sign of Chinese zodiac, east
+館	building, mansion, large building, palace
+泌	ooze, flow, soak in, penetrate, secrete
+岬	headland, cape, spit, promontory
+壮	robust, manhood, prosperity
+乳	milk, breasts
+競	emulate, compete with, bid, sell at auction, bout, contest, race
+絶	discontinue, beyond, sever, cut off, abstain, interrupt, suppress
+墓	grave, tomb
+纂	editing, compiling
+胆	gall bladder, courage, pluck, nerve
+友	friend
+船	ship, boat
+釣	angling, fish, catch, allure, ensnare
+奔	run, bustle
+勘	intuition, perception
+梱	pack, tie up, bale
+鮭	salmon
+珪	jade scepter or tablet (authority symbol)
+濃	concentrated, thick, dark, undiluted
+仇	foe, enemy, revenge, grudge, feud
+秘	secret, conceal
+螺	a small, edible, helical fresh-water mollusk
+握	grip, hold, mould sushi, bribe
+佳	excellent, beautiful, good, pleasing, skilled
+挟	pinch, between
+答	solution, answer
+節	node, season, period, occasion, verse, clause, stanza, honor, joint, knuckle, knob, knot, tune, melody
+田	rice field, rice paddy
+峨	high mountain
+住	dwell, reside, live, inhabit
+苦	suffering, trial, worry, hardship, feel bitter, scowl
+堵	fence, railing, enclosure
+寧	rather, preferably
+鉢	bowl, rice tub, pot, crown
+燐	phosphorus
+莨	tobacco
+梁	weir, fish trap, beam, girder
+鯵	horse mackerel
+尺	shaku, Japanese foot, measure, scale, rule
+彰	patent, clear
+心	heart, mind, spirit, heart radical (no. 61)
+堰	dam, prevent, stop up
+鯖	mackerel
+季	seasons
+用	utilize, business, service, use, employ
+在	exist, outskirts, suburbs, located in
+村	village, town
+芙	lotus, Mt Fuji
+惟	consider, reflect, think
+筈	notch of an arrow, ought, must, should be, expected
+人	person
+酬	repay, reward, retribution
+汁	soup, juice, broth, sap, gravy, pus
+擬	mimic, aim (a gun) at, nominate, imitate
+跨	be, sit or stand astride, extend over, straddle
+段	grade, steps, stairs
+歯	tooth, cog
+熟	mellow, ripen, mature, acquire skill
+紐	string, cord, braid, lace, tape, strap, ribbon
+讐	enemy, revenge
+内	inside, within, between, among, house, home
+瑞	congratulations
+群	flock, group, crowd, herd, swarm, cluster
+剥	come off, peel, fade, discolor
+陪	obeisance, follow, accompany, attend on
+珈	ornamental hairpin
+佼	beautiful, clever, deceive, sly
+精	refined, ghost, fairy, energy, vitality, semen, excellence, purity, skill
+幽	seclude, confine to a room, deep, profound, secluded, faint, dark, tranquil, calm
+疾	rapidly
+法	method, law, rule, principle, model, system
+茅	miscanthus reed
+柳	willow
+完	perfect, completion, end
+蝉	cicada
+此	this, current, next, coming, last, past
+距	long-distance, spur, fetlock
+湖	lake
+撮	snapshot, take pictures
+章	badge, chapter, composition, poem, design
+奉	observance, offer, present, dedicate
+末	end, close, tip, powder, posterity
+蜜	honey, nectar, molasses
+炎	inflammation, flame, blaze
+蛾	moth
+免	excuse, dismissal
+彬	refined, gentle
+振	shake, wave, wag, swing
+慨	rue, be sad, sigh, lament
+縛	truss, arrest, bind, tie, restrain
+偏	partial, side, left-side radical, inclining, biased
+始	commence, begin
+恕	excuse, tolerate, forgive
+秒	second (1/60 minute)
+口	mouth
+縄	straw rope, cord
+濁	voiced, uncleanness, wrong, nigori, impurity
+栓	plug, bolt, cork, bung, stopper
+武	warrior, military, chivalry, arms
+遊	play
+栂	hemlock, (kokuji)
+滑	slippery, slide, slip, flunk
+質	substance, quality, matter, temperament
+柄	design, pattern, build, nature, handle, crank, grip, knob, shaft
+帖	quire (of paper), bundle of seaweed, counter for screens, notebook
+像	statue, picture, image, figure, portrait
+箇	counters for things
+式	style, ceremony, rite, function, method, system, form, expression
+鳳	male mythical bird
+曳	pull, tug, jerk, admit, install, quote, refer to
+緯	horizontal, woof, left & right, latitude
+帆	sail
+怪	suspicious, mystery, apparition
+辛	spicy, bitter, hot, acrid
+至	climax, arrive, proceed, reach, attain, result in
+冥	dark
+祷	pray
+視	inspection, regard as, see, look at
+遇	interview, treat, entertain, receive, deal with
+洸	sparkling water
+埜	open country, field, wilderness [old]
+袖	sleeve, wing (building), extension, give cold shoulder
+笹	bamboo grass
+縮	shrink, contract, shrivel, wrinkle, reduce
+官	bureaucrat, the government
+賎	despise, low-life, poverty
+代	substitute, change, convert, replace, period, age, counter for decades of ages, eras, etc., generation, charge, rate, fee
+郊	outskirts, suburbs, rural area
+浩	wide expanse, abundance, vigorous
+娘	daughter, girl
+本	book, present, main, true, real, counter for long cylindrical things
+蕊	pistil, stamen
+塾	cram school, private school
+刃	blade, sword, edge
+峰	summit, peak
+券	ticket
+軒	flats, counter for houses, eaves
+顛	overturn, summit, origin
+訪	call on, visit, look up, offer sympathy
+題	topic, subject
+楢	oak
+托	requesting, entrusting with, pretend, hint
+幅	hanging scroll, width
+吊	suspend, hang, wear (sword)
+役	duty, war, campaign, drafted labor, office, service, role
+嶺	peak, summit
+微	delicate, minuteness, insignificance
+淋	lonely, deserted
+仄	be seen dimly, suggest, intimate, faint, stupid, hint
+穎	heads of grain, cleverness
+颯	suddenly, smoothly
+区	ward, district
+殊	particularly, especially, exceptionally
+侭	as it is, because
+太	plump, thick, big around
+燈	lamp [old]
+光	ray, light
+先	before, ahead, previous, future, precedence
+誘	entice, lead, tempt, invite, ask, call for, seduce, allure
+謎	riddle, puzzle, enigma, hint, tip
+曰	say, reason, pretext, history, past, flat sun radical (no. 73)
+祥	auspicious, happiness, blessedness, good omen, good fortune
+括	fasten, tie up, arrest, constrict
+罪	guilt, sin, crime, fault, blame, offense
+健	healthy, health, strength, persistence
+而	rake
+庖	kitchen
+柏	oak
+毎	every
+萄	grape vine, wild grape
+理	logic, arrangement, reason, justice, truth
+眩	faint, dizzy
+永	eternity, long, lengthy
+秋	autumn
+暑	sultry, hot, summer heat
+僑	temporary home
+卵	egg, ovum, spawn, roe
+即	instant, namely, as is, conform, agree, adapt
+除	exclude, division (x/3), remove, abolish, cancel, except
+難	difficult, impossible, trouble, accident, defect
+縦	vertical, length, height, self-indulgent, wayward
+袷	lined (kimono)
+允	license, sincerity, permit
+膳	small low table, tray
+吉	good luck, joy, congratulations
+某	so-and-so, one, a certain, that person
+祝	celebrate, congratulate
+鼈	snapping turtle
+宛	address, just like, fortunately
+伯	chief, count, earl, uncle, Brazil
+菌	germ, fungus, bacteria
+選	elect, select, choose, prefer
+鼎	three legged kettle
+浄	clean, purify, cleanse, exorcise, Manchu Dynasty
+站	stop, halt
+蜂	bee, wasp, hornet
+橋	bridge
+物	thing, object, matter
+栽	plantation, planting
+刺	thorn, pierce, stab, prick, sting, calling card
+締	tighten, tie, shut, lock, fasten
+銘	inscription, signature (of artisan)
+噸	tonnage, (kokuji)
+眸	pupil of the eye
+豪	overpowering, great, powerful, excelling, Australia
+原	meadow, original, primitive, field, plain, prairie, tundra, wilderness
+状	status quo, conditions, circumstances, form, appearance
+札	tag, paper money, counter for bonds, placard, bid
+坪	two-mat area, ~36 sq ft
+邁	go, excel
+廟	mausoleum, shrine, palace
+吃	stammer
+障	hinder, hurt, harm
+五	five
+蕉	banana
+特	special
+碑	tombstone, monument
+繋	tie, fasten, chain, tether, connect
+昏	dark, evening, dusk
+喰	eat, drink, receive (a blow), (kokuji)
+胱	bladder
+中	in, inside, middle, mean, center
+催	sponsor, hold (a meeting), give (a dinner)
+斎	purification, Buddhist food, room, worship, avoid, alike
+灸	moxa cautery, chastisement
+銀	silver
+薮	thicket, bush, underbrush, grove
+粉	flour, powder, dust
+暗	darkness, disappear, shade, informal, grow dark, be blinded
+寛	tolerant, leniency, generosity, relax, feel at home, be at ease, broadminded
+嵐	storm, tempest
+沸	seethe, boil, ferment, uproar, breed
+鋭	pointed, sharpness, edge, weapon, sharp, violent
+無	nothingness, none, ain't, nothing, nil, not
+乃	from, possessive particle, whereupon, accordingly
+春	springtime, spring (season)
+柿	persimmon, shingle
+求	request, want, wish for, require, demand
+濠	moat, ditch, canal, Australia
+酎	sake
+盆	basin, lantern festival, tray
+旨	delicious, relish, show a liking for, purport, will, clever, expert
+菅	sedge
+做	make
+散	scatter, disperse, spend, squander
+淳	pure
+赳	strong and brave
+築	fabricate, build, construct
+供	submit, offer, present, serve (meal), accompany
+饗	banquet
+所	place
+侍	waiter, samurai, wait upon, serve
+張	lengthen, counter for bows &amp; stringed instruments, stretch, spread, put up (tent)
+腕	arm, ability, talent
+板	plank, board, plate, stage
+梅	plum
+股	thigh, crotch, yarn, strand
+綾	design, figured cloth, twill
+満	full, enough, pride, satisfy
+於	at, in, on, as for
+練	practice, gloss, train, drill, polish, refine
+誌	document, records
+香	incense, smell, perfume
+途	route, way, road
+蛎	oyster
+紀	chronicle, account, narrative, history, annals, geologic period
+巻	scroll, volume, book, part, roll up, wind up, tie, coil, counter for texts (or book scrolls)
+米	rice, USA, metre
+奏	play music, speak to a ruler, complete
+輩	comrade, fellow, people, companions
+積	volume, product (x*y), acreage, contents, pile up, stack, load, amass
+湾	gulf, bay, inlet
+塚	hillock, mound
+筆 writing brush, writing, painting brush, handwriting
+転	revolve, turn around, change
+順	obey, order, turn, right, docility, occasion
+僕	me, I (male)
+七	seven
+麿	I, you, (kokuji)
+寒	cold
+防	ward off, defend, protect, resist
+祇	national or local god, peaceful, great
+租	tariff, crop tax, borrowing
+笑	laugh
+鏡	mirror, speculum, barrel-head, round rice-cake offering
+考	consider, think over
+懐	pocket, feelings, heart, yearn, miss someone, become attached to, bosom, breast
+尉	military officer, jailer, old man, rank
+披	expose, open
+談	discuss, talk
+因	cause, factor, be associated with, depend on, be limited to
+漬	pickling, soak, moisten, steep
+初	first time, beginning
+骨	skeleton, bone, remains, frame
+豊	bountiful, excellent, rich
+呼	call, call out to, invite
+頼	trust, request
+胴	trunk, torso, hull (ship), hub of wheel
+宴	banquet, feast, party
+略	abbreviation, omission, outline, shorten, capture, plunder
+掲	put up (a notice), put up, hoist, display, hang out, publish, describe
+坤	divination sign, land, earth
+恐	fear, dread, awe
+拡	broaden, extend, expand, enlarge
+篤	fervent, kind, cordial, serious, deliberate
+脈	vein, pulse, hope
+腑	viscera, bowels
+彦	lad, boy (ancient)
+伸	expand, stretch, extend, lengthen, increase
+叉	fork in road, crotch
+覧	perusal, see
+成	turn into, become, get, grow, elapse, reach
+倶	both
+悔	repent, regret
+余	too much, myself, surplus, other, remainder
+橇	sled, sleigh, snowshoes
+槃	tub
+倫	ethics, companion
+沫	splash, suds
+爵	baron, peerage, court rank
+樋	water pipe, gutter, downspout, conduit
+協	co-, cooperation
+絃	string, cord, samisen music
+禄	fief, allowance, pension, grant, happiness
+干	dry, parch
+擁	hug, embrace, possess, protect, lead
+倦	lose interest in, tire of
+扉	front door, title page, front page
+軍	army, force, troops, war, battle
+下	below, down, descend, give, low, inferior
+紳	sire, good belt, gentleman
+倭	Yamato, ancient Japan
+輝	radiance, shine, sparkle, gleam, twinkle
+床	bed, counter for beds, floor, padding, tatami
+情	feelings, emotion, passion, sympathy, circumstances, facts
+詠	recitation, poem, song, composing
+昆	descendants, elder brother, insect
+菊	chrysanthemum
+臨	look to, face, meet, confront, attend, call on
+姓	surname
+肘	elbow, arm
+象	elephant, pattern after, imitate, image, shape, sign (of the times)
+或	some, one, or, possibly, a certain
+感	emotion, feeling, sensation
+凧	kite, (kokuji)
+巨	gigantic, big, large, great
+叛	disobey, defy, go back on, rebel, rebellion
+現	present, existing, actual
+渕	edge
+剖	divide
+蛙	frog
+呉	give, do something for
+門	gate, counter for cannons
+真	true, reality, Buddhist sect
+曖	dark, not clear
+教	teach, faith, doctrine
+痛	pain, hurt, damage, bruise
+借	borrow, rent
+堆	piled high
+之	of, this
+険	precipitous, inaccessible place, impregnable position, steep place, sharp eyes
+宋	dwell, Sung dynasty
+缶	tin can, container, jar radical (no. 121)
+恭	respect, reverent
+紙	paper
+啄	peck, pick up
+十	ten
+麻	hemp, flax
+伴	consort, accompany, bring with, companion
+夕	evening
+椀	wooden or lacquered bowl
+夷	barbarian, savage, Ainu
+康	ease, peace
+后	empress, queen, after, behind, back, later
+鋲	rivet, tack, thumbtack, (kokuji)
+揺	swing, shake, sway, rock, tremble, vibrate
+媒	mediator, go-between
+繊	slender, fine, thin kimono
+脇	armpit, the other way, another place, flank, supporting role
+廻	round, game, revolve, go around, circumference
+鞄	suitcase, bag, briefcase
+沼	marsh, lake, bog, swamp, pond
+箕	winnowing
+虚	void, emptiness, unpreparedness, crack, fissure, untruth
+六	six
+申	have the honor to, sign of the monkey, 3-5PM, ninth sign of Chinese zodiac
+麺	noodles, wheat flour
+少	few, little
+簾	bamboo screen, rattan blind
+捨	discard, throw away, abandon, resign, reject, sacrifice
+梧	Chinese parasol tree, phoenix tree
+妾	concubine
+剤	dose, medicine, drug
+煎	broil, parch, roast, boil
+低	lower, short, humble
+苔	moss, lichen
+方	direction, person, alternative
+噺	talk, (kokuji)
+琴	harp, koto
+御	honorable, manipulate, govern
+稿	draft, copy, manuscript, straw
+荻	reed, rush
+後	behind, back, later
+聞	hear, ask, listen
+飴	rice jelly, candy
+謂	reason, origin, history, oral tradition
+好	fond, pleasing, like something
+砺	whetstone, polish
+族	tribe, family
+駿	a good horse, speed, a fast person
+明	bright, light
+小	little, small
+滞	stagnate, be delayed, overdue, arrears
+避	evade, avoid, avert, ward off, shirk, shun
+師	expert, teacher, master, model, exemplar, army (incl. counter), war
+九	nine
+頒	distribute, disseminate, partition, understand
+経	sutra, longitude, pass thru, expire, warp
+拳	fist
+賢	intelligent, wise, wisdom, cleverness
+延	prolong, stretching
+洵	alike, truth
+坂	slope, incline, hill
+職	post, employment, work
+迂	roundabout way
+又	or again, furthermore, on the other hand
+冷	cool, cold (beer, person), chill
+隠	conceal, hide, cover
+勤	diligence, become employed, serve
+系	lineage, system
+謡	noh chanting
+漏	leak, escape, time
+薄	dilute, thin, weak (tea)
+征	subjugate, attack the rebellious, collect taxes
+肯	agreement, consent, comply with
+事	matter, thing, fact, business, reason, possibly
+裡	reverse, inside, palm, sole, rear, lining, wrong side [old]
+鐘	bell, gong, chimes
+頂	place on the head, receive, top of head, top, summit, peak
+娼	prostitute
+響	echo, also N5116, sound, resound, ring, vibrate
+隼	falcon
+狡	cunning, sly, crafty, niggardly
+僅	a wee bit
+燦	brilliant
+皿	dish, a helping, plate
+滋	nourishing, more & more, be luxuriant, planting, turbidity
+譲	defer, turnover, transfer, convey
+侑	urge to eat
+引	pull, tug, jerk, admit, install, quote, refer to
+猫	cat
+続	continue, series, sequel
+棟	ridgepole, ridge
+空	empty, sky, void, vacant, vacuum
+牒	label, genealogy, circular
+狸	tanuki, raccoon
+箆	spatula, arrow shaft
+丸	round, full, month, perfection, -ship, pills, make round, roll up, curl up, seduce, explain away
+割	proportion, comparatively, divide, cut, separate, split
+横	sideways, side, horizontal, width, woof
+与	bestow, participate in, give, award, impart, provide, cause, gift, godsend
+註	notes, comment, annotate
+等	etc., and so forth, class (first), quality, equal, similar
+模	imitation, copy, mock
+織	weave, fabric
+狭	cramped, narrow, contract, tight
+呈	display, offer, present, send, exhibit
+含	include, bear in mind, understand, cherish
+雷	thunder, lightning bolt
+懲	penal, chastise, punish, discipline
+貸	lend
+婢	maidservant
+礼	salute, bow, ceremony, thanks, remuneration
+緑	green
+被	incur, cover, veil, brood over, shelter, wear, put on, be exposed (film), receiving
+蹴	kick
+父	father
+撒	scatter, sprinkle, give them the slip
+撫	stroke, pat, smooth down
+疑	doubt, distrust, be suspicious, question
+察	guess, presume, surmise, judge, understand
+鰻	eel
+遥	far off, distant, long ago
+堪	withstand, endure, support, resist
+赴	proceed, get, become, tend
+徐	gradually, slowly, deliberately, gently
+凌	endure, keep (rain)out, stave off, tide over, defy, slight, surpass
+裸	naked, nude, uncovered, partially clothed
+挨	push open
+然	sort of thing, so, if so, in that case, well
+護	safeguard, protect
+甲	armor, high (voice), A grade, first class, former, instep, carapace
+残	remainder, leftover, balance
+躓	stumble
+濾	filter
+莉	jasmine
+玲	sound of jewels
+俸	stipend, salary
+峯	peak, summit
+詰	packed, close, pressed, reprove, rebuke, blame
+駅	station
+腰	loins, hips, waist, low wainscoting
+槍	spear, lance, javelin
+追	chase, drive away, follow, pursue, meanwhile
+也	to be (classical)
+非	un-, mistake, negative, injustice, non-
+巫	sorcerer, medium, shrine maiden
+頌	eulogy
+替	exchange, spare, substitute, per-
+準	semi-, correspond to, proportionate to, conform, imitate
+賓	V.I.P., guest
+枇	spoon
+柑	citrus, orange
+俄	sudden, abrupt, improvised
+移	shift, move, change, drift, catch (cold, fire), pass into
+硬	stiff, hard
+木	tree, wood
+婉	graceful
+宥	soothe, calm, pacify
+抗	confront, resist, defy, oppose
+井	well, well crib, town, community
+簿	register, record book
+潤	wet, be watered, profit by, receive benefits, favor, charm, steep
+可	can, passable, mustn't, should not, do not
+蛇	snake, serpent, hard drinker
+年	year, counter for years
+喫	consume, eat, drink, smoke, receive (a blow)
+統	overall, relationship, ruling, governing
+再	again, twice, second time
+渾	all, turbidity
+跳	hop, leap up, spring, jerk, prance, buck, splash, sputter, snap
+軽	lightly, trifling, unimportant
+詫	apologize
+働	work, (kokuji)
+丙	third class, 3rd, 3rd calendar sign
+暮	livelihood, make a living, spend time
+凡	mediocre
+塁	bases, fort, rampart, walls, base(ball)
+寝	lie down, sleep, rest, bed, remain unsold
+庄	level
+竜	dragon, imperial
+罷	quit, stop, leave, withdraw, go
+星	star, spot, dot, mark
+増	increase, add, augment, gain, promote
+鷲	eagle
+蔓	vine, tendril, influence, connections, good offices, spread, sprawl, thrive, rampant, powerful
+巌	rock, crag, boulder [old]
+遜	humble, modest
+抽	pluck, pull, extract, excel
+注	pour, irrigate, shed (tears), flow into, concentrate on, notes, comment, annotate
+林	grove, forest
+賜	grant, gift, boon, results
+鏑	arrowhead
+撚	twist, twine, kinky
+烹	boil, cook
+狗	puppy, dog
+兆	portent, 10**12, trillion, sign, omen, symptoms
+笈	backpack bookcase
+示	show, indicate, point out, express, display
+叩	strike, beat, hit, thrash, criticize
+斑	spot, blemish, speck, patches
+馴	get used to, experienced, tamed
+快	cheerful, pleasant, agreeable, comfortable
+殖	augment, increase, multiply, raise
+商	make a deal, selling, dealing in, merchant
+遼	distant
+規	standard, measure
+医	doctor, medicine
+捉	catch, capture
+稗	humble, deccan grass
+訳	translate, reason, circumstance, case
+喪	miss, mourning
+胞	placenta, sac, sheath
+頬	cheek
+芽	bud, sprout, spear, germ
+蝋	wax
+令	orders, ancient laws, command, decree
+傍	bystander, side, besides, while, nearby, 3rd person
+草	grass, weeds, herbs, pasture, write, draft
+昭	shining, bright
+埴	clay
+序	preface, beginning, order, precedence, occasion, chance, incidentally
+指	finger, point to, indicate, put into, play (chess), measure (ruler)
+断	severance, decline, refuse, apologize, warn, dismiss, prohibit, decision, judgement, cutting
+璃	glassy, lapis lazuli
+西	west, Spain
+皇	emperor
+放	set free, release, fire, shoot, emit, banish, liberate
+粗	coarse, rough, rugged
+機	mechanism, opportunity, occasion, machine, airplane
+爾	you, thou, second person
+貌	form, appearance, countenance
+敦	industry, kindliness
+減	dwindle, decrease, reduce, decline, curtail, get hungry
+鶴	crane, stork
+東	east
+訂	revise, correct, decide
+録	record
+合	fit, suit, join, 0.1
+氷	icicle, ice, hail, freeze, congeal
+納	settlement, obtain, reap, pay, supply, store
+造	create, make, structure, physique
+飾	decorate, ornament, adorn, embellish
+鋏	scissors
+台	pedestal, a stand, counter for machines and vehicles
+遂	consummate, accomplish, attain, commit (suicide)
+葵	hollyhock
+作	make, production, prepare, build
+錨	anchor, grapnel
+零	zero, spill, overflow, nothing, cipher
+吐	spit, vomit, belch, confess, tell (lies)
+室	room, apartment, chamber, greenhouse, cellar
+檜	Japanese cypress [old]
+腹	abdomen, belly, stomach
+眺	stare, watch, look at, see, scrutinize
+迅	swift, fast
+詩	poem, poetry
+穆	respectful, mild, beautiful
+隣	neighboring
+蒙	ignorance, darkness, get, receive, be subjected to, sustain, Mongolia
+畑	farm, field, garden, one's specialty, (kokuji)
+絆	bonds, fetters
+身	somebody, person, one's station in life
+勿	not, must not, do not, be not
+寅	sign of the tiger, 3-5AM, third sign of Chinese zodiac
+佃	cultivated rice field
+勃	suddenness, rise
+楊	willow
+夏	summer
+涅	black soil
+脅	threaten, coerce
+妄	delusion, unnecessarily, without authority, reckless
+脱	undress, removing, escape from, get rid of, be left out, take off
+脩	dried meat
+舅	father-in-law
+電	electricity
+煩	anxiety, trouble, worry, pain, ill, annoy, nuisance, irksome
+桑	mulberry
+檎	pear, apple
+掟	law, commandments, regulations
+煙	smoke
+閤	small side gate
+他	other, another, the others
+充	allot, fill
+午	noon, sign of the horse, 11AM-1PM, seventh sign of Chinese zodiac
+戻	re-, return, revert, resume, restore, go backwards
+姫	princess
+忍	endure, bear, put up with, conceal, secrete, spy, sneak
+椋	type of deciduous tree, grey starling
+茶	tea
+何	what
+江	creek, inlet, bay
+量	quantity, measure, weight, amount, consider, estimate, surmise
+繰	winding, reel, spin, turn (pages), look up, refer to
+蔦	vine, ivy
+敏	cleverness, agile, alert
+費	expense, cost, spend, consume, waste
+型	mould, type, model
+絡	entwine, coil around, get caught in
+拝	worship, adore, pray to
+津	haven, port, harbor, ferry
+種	species, kind, class, variety, seed
+綸	thread, silk cloth
+蓑	straw raincoat
+廊	corridor, hall, tower
+阻	thwart, separate from, prevent, obstruct, deter, impede
+狐	fox
+殿	Mr., hall, mansion, palace, temple, lord
+養	foster, bring up, rear, develop, nurture
+懸	suspend, hang, 10%, install, depend, consult
+籤	lottery, raffle
+男	male
+印	stamp, seal, mark, imprint, symbol, emblem, trademark, evidence, souvenir, India
+截	cut off, sever
+僧	Buddhist priest, monk
+姦	wicked, mischief, seduce, rape, noisy
+菜	vegetable, side dish, greens
+願	petition, request, vow, wish, hope
+溶	melt, dissolve, thaw
+績	exploits, unreeling cocoons
+氏	family name, surname, clan
+打	strike, hit, knock, pound, dozen
+憐	pity, have mercy, sympathise, compassion
+助	help, rescue, assist
+漁	fishing, fishery
+郭	enclosure, quarters, fortification, red-light district
+鴎	seagull
+射	shoot, shine into, onto, archery
+碗	porcelain bowl, tea cup
+倹	frugal, economy, thrifty
+僻	prejudice, bias, rural area
+源	source, origin
+蔵	storehouse, hide, own, have, possess
+払	pay, clear out, prune, banish, dispose of
+吋	inch
+賂	bribe
+獣	animal, beast
+窮	hard up, destitute, suffer, perplexed, cornered
+困	quandary, become distressed, annoyed
+尾	tail, end, counter for fish, lower slope of mountain
+竹	bamboo
+塊	clod, lump, chink, clot, mass
+刻	engrave, cut fine, chop, hash, mince, time, carving
+湧	boil, ferment, seethe, uproar, breed
+料	fee, materials
+兼	concurrently, and
+紡	spinning
+嚢	pouch, purse, bag
+維	fiber, tie, rope
+魔	witch, demon, evil spirit
+鈴	small bell, buzzer
+焚	burn, kindle, build a fire, boil, cook
+徴	indications, sign, omen, symptom, collect, seek, refer to, question
+尿	urine
+哨	scout, sentinel
+幌	canopy, awning, hood, curtain
+迄	until, up to, as far as, to the extent
+鶏	chicken
+王	king, rule, magnate
+石	stone
+呂	spine, backbone
+旋	rotation, go around
+爆	bomb, burst open, pop, split
+箱	box, chest, case, bin, railway car
+係	person in charge, connection, duty, concern oneself
+藩	clan, enclosure
+剰	surplus, besides
+撲	slap, strike, hit, beat, tell, speak
+溺	drown, indulge
+北	north
+晋	advance
+咳	cough, clear throat
+燕	swallow (bird)
+旱	drought, dry weather
+臆	timidity, heart, mind, fear, cowardly
+旦	daybreak, dawn, morning
+恵	favor, blessing, grace, kindness
+罵	abuse, insult
+露	dew, tears, expose, Russia
+嵩	be aggravated, grow worse, grow bulky, swell
+生	life, genuine, birth
+侯	marquis, lord, daimyo
+琉	lapis lazuli
+硝	nitrate, saltpeter
+鳶	black kite, fireman, hook
+蕪	turnip
+榛	hazelnut, filbert
+圭	square jewel, corner, angle, edge
+伶	actor
+苑	garden, farm, park
+突	stab, protruding, thrusting, thrust, pierce, prick
+烈	ardent, violent, vehement, furious, severe, extreme
+犯	crime, sin, offense
+歪	warp, bend, strained, distort
+翁	venerable old man
+臭	stinking, ill-smelling, suspicious looking, odor, savor, fragrance, be fragrant, stink, glow, be bright
+違	difference, differ
+斜	diagonal, slanting, oblique
+拶	be imminent
+測	fathom, plan, scheme, measure
+隅	corner, nook
+姐	elder sister, maidservant
+勝	victory, win, prevail, excel
+暈	halo, corona, fade
+虐	tyrannize, oppress
+殉	martyrdom, follow by resigning
+雫	drop, trickle, dripping
+弔	condolences, mourning, funeral
+裏	back, amidst, in, reverse, inside, palm, sole, rear, lining, wrong side
+粒	grains, drop, counter for tiny particles
+祉	welfare, happiness
+茨	briar, thorn
+称	appellation, praise, admire, name, title, fame
+祢	ancestral shrine
+社	company, firm, office, association, shrine
+逼	urge, force, imminent, spur on
+玄	mysterious, occultness
+膏	fat, grease, lard, paste, ointment, plaster
+嵯	steep, craggy, rugged
+亭	pavilion, restaurant, mansion, arbor, cottage, vaudeville, music hall, stage name
+叢	plexus, clump of bushes, thicket
+糊	paste, glue, sizing
+餅	mochi rice cake
+個	individual, counter for articles
+奨	exhort, urge, encourage
+覗	peep, peek, come in sight
+食	eat, food
+坐	sit
+沿	run alongside, follow along, run along, lie along
+宏	wide, large
+翫	take pleasure in, play instrument
+舟	boat, ship
+軌	rut, wheel, track, model, way of doing
+給	salary, wage, gift, allow, grant, bestow on
+存	suppose, be aware of, believe, feel
+薦	recommend, mat, advise, encourage, offer
+添	annexed, accompany, marry, suit, meet, satisfy, attach, append, garnish, imitate
+当	hit, right, appropriate, himself
+勅	imperial order
+采	dice, form, appearance, take, coloring
+涜	defile, blaspheme, ditch
+片	one-sided, leaf, sheet, right-side kata radical (no. 91)
+雀	sparrow
+慎	humility, be careful, discrete, prudent
+界	world
+奈	Nara, what?
+厭	get tired of, satiate, bore
+狼	wolf
+鋼	steel
+岩	boulder, rock, cliff
+乞	beg, invite, ask
+睡	drowsy, sleep, die
+跡	tracks, mark, print, impression
+束	bundle, sheaf, ream, tie in bundles, govern, manage, control
+嶋	island
+狽	wolf, be flurried
+嘘	lie, falsehood
+務	task, duties
+芻	grass cutting, hay
+舵	rudder, helm, wheel
+叙	confer, relate, narrate, describe
+汰	luxury, select
+皮	pelt, skin, hide, leather, skin radical (no. 107)
+命	fate, command, decree, destiny, life, appoint
+込	crowded, mixture, in bulk, included, (kokuji)
+綱	hawser, class (genus), rope, cord, cable
+駈	run, gallop, advance
+尊	revered, valuable, precious, noble, exalted
+堂	public chamber, hall
+伍	5, 5-man squad, file, line
+彼	he, that, the
+店	store, shop
+巾	towel, hanging scroll, width, cloth radical (no. 50)
+襟	collar, neck, lapel
+釦	button
+醍	whey, good Buddhist teaching
+祭	ritual, offer prayers, celebrate, deify, enshrine, worship
+弥	all the more, increasingly
+論	argument, discourse
+深	deep, heighten, intensify, strengthen
+停	halt, stopping
+嘉	applaud, praise, esteem
+匕	spoon, spoon or katakana hi radical (no. 21)
+根	root, radical, head (pimple)
+釈	explanation
+芋	potato
+枕	pillow
+虔	respect
+額	forehead, tablet, plaque, framed picture, sum, amount, volume
+蝿	fly
+組	association, braid, plait, construct, assemble, unite, cooperate, grapple
+虞	expectation, consideration, uneasiness, fear, anxiety, concern
+総	general, whole, all, full, total
+杭	stake, post, picket
+簸	winnow, fan
+備	equip, provision, preparation
+貼	stick, paste, apply
+宣	proclaim, say, announce
+唱	chant, recite, call upon, yell
+穂	ear, ear (grain), head, crest (wave)
+孕	become pregnant
+行	going, journey
+極	poles, settlement, conclusion, end, highest rank, electric poles, very, extremely, most, highly, 10**48
+罫	ruled line
+涙	tears, sympathy
+車	car
+忌	mourning, abhor, detestable, death anniversary
+楽	music, comfort, ease
+魂	soul, spirit
+諌	admonish, dissuade
+治	reign, be at peace, calm down, subdue, quell, govt, cure, heal, rule, conserve
+垢	dirt, grime, earwax
+嘩	noisy
+海	sea, ocean
+鑓	spear, javelin, (kokuji)
+類	sort, kind, variety, class, genus
+戦	war, battle, match
+錐	auger, drill, awl, pyramid, cone
+触	contact, touch, feel, hit, proclaim, announce, conflict
+異	uncommon, queerness, strangeness, wonderful, curious, unusual
+駆	drive, run, gallop, advance, inspire, impel
+拾	pick up, gather, find, go on foot, ten
+霊	spirits, soul
+持	hold, have
+牙	tusk, fang, tusk radical (no. 92)
+厖	large, mix
+遣	dispatch, despatch, send, give, donate, do, undertake
+尼	nun
+嘲	ridicule, insult
+樫	evergreen oak, (kokuji)
+傷	wound, hurt, injure, impair, pain, injury, cut, gash, scar, weak point
+逗	stop
+級	class, rank, grade
+過	overdo, exceed, go beyond, error
+轄	control, wedge
+復	restore, return to, revert, resume
+切	cut, cutoff, be sharp
+莫	must not, do not, be not
+属	belong, genus, subordinate official, affiliated
+都	metropolis, capital
+公	public, prince, official, governmental
+棋	chess piece, Japanese chess, shogi
+貿	trade, exchange
+穣	good crops, prosperity, 10**28
+限	limit, restrict, to best of ability
+鞭	whip, rod, counter for whippings
+載	ride, board, get on, place, spread, 10**44
+舜	type of morning glory, rose of Sharon, althea
+署	signature, govt office, police station
+囁	whisper, murmur
+鰯	sardine, (kokuji)
+珍	rare, curious, strange
+似	becoming, resemble, counterfeit, imitate, suitable
+飯	meal, boiled rice
+雑	miscellaneous
+菰	reed used for matting
+虹	rainbow
+早	early, fast
+哉	how, what, alas, (question mark)
+椅	chair
+錘	weight, plumb bob, sinker
+没	drown, sink, hide, fall into, disappear, die
+端	edge, origin, end, point, border, verge, cape
+密	secrecy, density (pop), minuteness, carefulness
+痩	get thin
+獲	seize, get, find, earn, acquire, can, may, able to
+狒	baboon
+忠	loyalty, fidelity, faithfulness
+仮	sham, temporary, interim, assumed (name), informal
+脊	stature, height
+顎	jaw, chin, gill
+蔽	cover, shade, mantle, capsize, be ruined
+倉	godown, warehouse, storehouse, cellar, treasury
+休	rest, day off, retire, sleep
+側	side, lean, oppose, regret
+自	oneself
+迎	welcome, meet, greet
+蕩	melt, be charmed, captivated
+逃	escape, flee, shirk, evade, set free
+屋	roof, house, shop, dealer, seller
+鷺	heron
+憤	aroused, resent, be indignant, anger
+憾	remorse, regret, be sorry
+儀	ceremony, rule, affair, case, a matter
+士	gentleman, samurai, samurai radical (no. 33)
+綬	ribbon
+鳴	chirp, cry, bark, sound, ring, echo, honk
+翌	the following, next
+悦	ecstasy, joy, rapture
+轟	roar, thunder, boom resound
+謝	apologize, thank, refuse
+影	shadow, silhouette, phantom
+瑛	sparkle of jewelry, crystal
+訓	instruction, Japanese character reading, explanation, read
+磯	seashore, beach
+錦	brocade, fine dress, honors
+客	guest, visitor, customer, client
+府	borough, urban prefecture, govt office, representative body, storehouse
+別	separate, branch off, diverge, fork, another, extra, specially
+設	establishment, provision, prepare
+銃	gun, arms
+依	reliant, depend on, consequently, therefore, due to
+捧	lift up, give, offer, consecrate, sacrifice, dedicate
+蛍	lightning-bug, firefly
+窟	cavern
+薬	medicine, chemical, enamel, gunpowder, benefit
+爪	claw, nail, talon
+喬	high, boasting
+撃	beat, attack, defeat, conquer
+労	labor, thank for, reward for, toil, trouble
+加	add, addition, increase, join, include, Canada
+洋	ocean, western style
+佐	assistant, help
+撹	disturb, throw into confusion
+紅	crimson, deep red
+欺	deceit, cheat, delude
+速	quick, fast
+睾	testicles
+柾	straight grain, spindle tree, (kokuji)
+栃	horse chestnut, (kokuji)
+盛	boom, prosper, copulate
+鸚	parrot, parakeet
+副	vice-, duplicate, copy
+神	gods, mind, soul
+委	committee, entrust to, leave to, devote, discard
+闘	fight, war
+諭	rebuke, admonish, charge, warn, persuade
+預	deposit, custody, leave with, entrust to
+慧	wise
+亥	sign of the hog, 9-11PM, twelfth sign of the Chinese zodiac
+緩	slacken, loosen, relax, lessen, be moderate, ease
+軟	soft
+惣	all
+三	three
+鎖	chain, irons, connection
+澪	water route, shipping channel
+寺	Buddhist temple
+萎	wither, droop, lame
+胎	womb, uterus
+鉛	lead
+獅	lion
+典	code, ceremony, law, rule
+怜	wise
+嵌	go into, plunge, inlay
+紘	large
+肢	limb, arms & legs
+管	pipe, tube, wind instrument, drunken talk
+聡	wise, fast learner
+首	neck, counter for songs and poems
+衿	neck, collar, lapel
+腔	body cavity
+筋	muscle, sinew, tendon, fiber, plot, plan, descent
+怖	dreadful, be frightened, fearful
+承	acquiesce, hear, listen to, be informed, receive
+結	tie, bind, contract, join, organize, do up hair, fasten
+吠	bark, howl, cry
+両	both, old Japanese coin, counter for carriages (e.g., in a train), two
+爺	old man, grampa
+夜	night, evening
+字	character, letter, word, section of village
+篇	volume, chapter, book, editing, compilation
+那	what?
+家	house, home
+孜	industriousness
+四	four
+婦	lady, woman, wife, bride
+晏	late, quiet, sets (sun)
+惚	fall in love with, admire, grow senile
+覚	memorize, learn, remember, awake, sober up
+謹	discreet, reverently, humbly
+環	ring, circle, link, wheel
+里	ri, village, parent's home, league
+賭	gamble, wager, bet
+重	heavy, heap up, pile up, nest of boxes, -fold
+抱	embrace, hug, hold in arms
+周	circumference, circuit, lap
+営	occupation, camp, perform, build, conduct (business)
+顕	appear, existing
+進	advance, proceed, progress, promote
+討	chastise, attack, defeat, destroy, conquer
+却	instead, on the contrary, rather
+悶	be in agony, worry
+妊	pregnancy
+痢	diarrhea
+慾	covetousness, greed, passion, desire, craving [old]
+弦	bowstring, chord, hypotenuse
+柵	stockade, fence, wier, entwine around
+遍	everywhere, times, widely, generally
+絢	kimono design
+漢	Sino-, China
+飛	fly, skip (pages), scatter
+迦	(used phonetically)
+便	convenience
+貝	shellfish
+悪	bad, vice, rascal, false, evil, wrong
+灼	miraculous
+池	pond, cistern, pool, reservoir
+計	plot, plan, scheme, measure
+吾	I, my, our, one's own
+堅	strict, hard, solid, tough, tight, reliable
+妥	gentle, peace, depravity
+威	intimidate, dignity, majesty, menace, threaten
+襲	attack, advance on, succeed to, pile, heap
+創	genesis, wound, injury, hurt, start, originate
+配	distribute, spouse, exile, rationing
+崩	crumble, die, demolish, level
+履	footgear, shoes, boots, put on (the feet
+幣	cash, bad habit, humble prefix, gift, Shinto offerings of cloth, rope, cut paper
+按	hold, consider, investigate
+宜	best regards, good
+脛	leg, shin
+召	seduce, call, send for, wear, put on, ride in, buy, eat, drink, catch (cold)
+裾	cuff, hem, foot of mountain
+偵	spy
+短	short, brevity, fault, defect, weak point
+親	parent, intimacy, relative, familiarity, dealer (cards)
+雨	rain
+飽	sated, tired of, bored, satiate
+還	send back, return
+審	hearing, judge, trial
+遅	slow, late, back, later
+漸	steadily, gradually advancing, finally, barely
+綿	cotton
+竿	pole, rod, scale beam, violin neck
+侵	encroach, invade, raid, trespass, violate
+拭	wipe, mop, swab
+棒	rod, stick, cane, pole, club, line
+詑	deceive, delude
+済	finish, come to an end, excusable, need not
+恩	grace, kindness, goodness, favor, mercy, blessing, benefit
+刑	punish, penalty, sentence, punishment
+狂	lunatic, insane, crazy, confuse
+遠	distant, far
+硫	sulphur
+崖	cliff, bluff, precipice
+知	know, wisdom
+止	stop, halt
+鷹	hawk
+細	dainty, get thin, taper, slender, narrow
+楯	shield, buckler, pretext
+豆	beans, pea, midget
+廃	abolish, obsolete, cessation, discarding, abandon
+巳	sign of the snake or serpent, 9-11AM, sixth sign of Chinese zodiac
+戯	frolic, play, sport
+凪	lull, calm, (kokuji)
+禦	defend, protect, resist, ward off
+敢	daring, sad, tragic, pitiful, frail, feeble
+花	flower
+芥	mustard, rape, dust, trash, rubbish
+慣	accustomed, get used to, become experienced
+鋤	spade up, plow
+仔	offspring
+誰	who, someone, somebody
+靴	shoes
+顔	face, expression
+訴	accusation, sue, complain of pain, appeal to
+瀬	rapids, current, torrent, shallows, shoal
+辿	follow (road), pursue
+旺	flourishing, successful, beautiful, vigorous
+宿	inn, lodging, relay station, dwell, lodge, be pregnant, home, dwelling
+旬	decameron, 10day period, season (for specific products
+郡	county, district
+尤	reasonable, just, natural, superb, outstanding, plausible
+邑	village, rural community, right village radical (no. 163)
+伺	pay respects, visit, ask, inquire, question, implore
+殺	kill, murder, butcher, slice off, split, diminish, reduce, spoil
+瓜	melon
+有	possess, have, exist, happen, occur, approx
+仁	humanity, virtue, benevolence, charity, man, kernel
+祈	pray, wish
+郷	home town, village, native place, district
+曙	dawn, daybreak
+秩	regularity, salary, order
+孔	cavity, hole, slit, very, great, exceedingly
+暝	dark
+秤	balances, scales, steelyard
+話	tale, talk
+奴	guy, slave, manservant, fellow
+檀	cedar, sandlewood, spindle tree
+鑿	chisel
+瑶	beautiful as a jewel
+猪	boar
+記	scribe, account, narrative
+届	deliver, reach, arrive, report, notify, forward
+鱗	scales (fish)
+黄	yellow
+偽	falsehood, lie, deceive, pretend, counterfeit, forgery
+間	interval, space
+参	nonplussed, three, going, coming, visiting, visit, be defeated, die, be madly in love
+包	wrap, pack up, cover, conceal
+蕨	bracken, fernbrake
+槌	hammer, mallet
+翼	wing, plane, flank
+款	goodwill, article, section, friendship, collusion
+直	straightaway, honesty, frankness, fix, repair
+恋	romance, in love, yearn for, miss, darling
+娃	beautiful
+窃	stealth, steal, secret, private, hushed
+紺	dark blue, navy
+杏	apricot
+飼	domesticate, raise, keep, feed
+蓄	amass, keeping a concubine, phonograph
+向	yonder, facing, beyond, confront, defy, tend toward, approach
+宍	muscles, meat
+伊	Italy, that one
+歳	year-end, age, occasion, opportunity
+司	director, official, govt office, rule, administer
+脹	dilate, distend, bulge, fill out, swell
+浅	shallow, superficial, frivolous, wretched, shameful
+鋳	casting, mint
+息	breath, respiration, son, interest (on money)
+並	row, and, besides, as well as, line up, rank with, rival, equal
+駐	stop-over, reside in, resident
+決	decide, fix, agree upon, appoint
+旅	trip, travel
+程	extent, degree, law, formula, distance, limits, amount
+訊	request, question, investigate
+盾	shield, escutcheon, pretext
+症	symptoms, illness
+丈	length, 10feet, measure, Mr., Ms., height, stature, all (one has), only, that's all, merely
+動	move, motion, change, confusion, shift, shake
+牟	pupil (eye), moo (cow sound)
+厄	unlucky, misfortune, bad luck, disaster
+濯	laundry, wash, pour on, rinse
+半	half, middle, odd number, semi-, part-
+汽	vapor, steam
+接	touch, contact, adjoin, piece together
+潔	undefiled, pure, clean, righteous, gallant
+樒	tree whose branches are placed on Buddhist graves
+金	gold
+扇	fan, folding fan
+肱	ability, talent, elbow, arm
+厨	kitchen
+溝	gutter, ditch, sewer, drain, 10**32
+潮	tide, salt water, opportunity
+辰	sign of the dragon, 7-9AM, fifth sign of Chinese zodiac, shin dragon radical (no. 161)
+泊	overnight, put up at, ride at anchor, 3-day stay
+憑	depend, rely, evidence, proof, according to, possess, haunt
+噌	boisterous
+騨	dappled grey horse
+糎	centimeter, (kokuji)
+棺	coffin, casket
+婿	bridegroom, son-in-law
+慶	jubilation, congratulate, rejoice, be happy
+醐	boiled butter
+覇	hegemony, supremacy, leadership, champion
+予	beforehand, previous, myself, I
+渦	whirlpool, eddy, vortex
+腐	rot, decay, sour
+舶	liner, ship
+蒸	steam, heat, sultry, foment, get musty
+喉	throat, voice
+独	single, alone, spontaneously, Germany
+併	join, get together, unite, collective
+修	discipline, conduct oneself well, study, master
+諺	proverb
+志	intention, plan, resolve, aspire, motive, hopes, shilling
+週	week
+僚	colleague, official, companion
+閲	review, inspection, revision
+蘇	be resuscitated, revived
+試	test, try, attempt, experiment, ordeal
+棉	cotton
+松	pine tree
+奎	star, god of literature
+静	quiet
+堕	degenerate, descend to, lapse into
+継	inherit, succeed, patch, graft (tree)
+倒	overthrow, fall, collapse, drop, break down
+哲	philosophy, clear
+兎	rabbit, hare
+笙	a reed instrument
+漫	cartoon, involuntarily, in spite of oneself, corrupt
+巣	nest, rookery, hive, cobweb, den
+寿	longevity, congratulations, one's natural life
+煕	shine
+措	set aside, give up, suspend, discontinue, lay aside, except
+鎮	tranquilize, ancient peace-preservation centers
+萌	show symptoms of, sprout, bud, malt
+送	escort, send
+容	contain, form, looks
+龍	dragon, imperial [old]
+桂	Japanese Judas-tree, cinnamon tree
+吏	officer, an official
+躍	leap, dance, skip
+咎	blame, censure, reprimand
+輸	transport, send, be inferior
+蚕	silkworm
+卜	divining, fortune-telling, divination or katakana to radical (no. 25)
+姪	niece
+楕	ellipse
+抄	extract, selection, summary, copy, spread thin
+潜	submerge, conceal, hide, lower (voice), hush
+升	measuring box, 1.8 liter
+詣	visit a temple
+叫	shout, exclaim, yell
+挿	insert, put in, graft, wear (sword)
+臣	retainer, subject
+売	sell
+促	stimulate, urge, press, demand, incite
+霜	frost
+弘	vast, broad, wide
+桜	cherry
+冶	melting, smelting
+態	attitude, condition, figure, appearance, voice (of verbs)
+鎌	sickle, scythe, trick
+鄭	an ancient Chinese province
+粥	rice gruel
+童	juvenile, child
+枠	frame, framework, spindle, spool, bounding-box, (kokuji)
+路	path, route, road, distance
+歴	curriculum, continuation, passage of time
+冗	superfluous, uselessness
+全	whole, entire, all, complete, fulfill
+鴨	wild duck, easy mark
+縁	affinity, relation, connection, edge, border, verge, brink
+領	jurisdiction, dominion, territory, fief, reign
+押	push, stop, check, subdue, attach, seize, weight, shove, press, seal, do in spite of
+枢	hinge, pivot, door
+焼	bake, burning
+漂	drift, float (on liquid)
+候	climate, season, weather
+橘	mandarin orange
+彪	spotted, mottled, patterned, small tiger
+毬	burr, ball
+彫	carve, engrave, chisel
+思	think
+探	grope, search, look for
+鵡	cockatoo
+約	promise, approximately, shrink
+随	follow, though, notwithstanding, while, during, both, all, obey, submit to, comply, at the mercy of (the waves)
+弧	arc, arch, bow
+震	quake, shake, tremble, quiver, shiver
+鍋	pot, pan, kettle
+玖	beautiful black jewel, nine
+戒	commandment
+対	vis-a-vis, opposite, even, equal, versus, anti-, compare
+腺	gland
+頻	repeatedly, recur
+場	location, place
+槻	Zelkova tree
+蔭	shade, shadow, backing assistance
+燥	parch, dry up
+絹	silk
+祟	curse, haunt
+図	map, drawing, plan, unexpected, accidentally
+陽	sunshine, yang principle, positive, male, heaven, daytime
+看	watch over, see
+手	hand
+八	eight, eight radical (no. 12)
+縞	stripe
+逸	deviate, idleness, leisure, miss the mark, evade, elude, parry, diverge
+毅	strong
+弊	abuse, evil, vice, breakage
+青	blue, green
+庶	commoner, all, bastard
+澱	sediment, grounds, dregs, stagnant
+駒	pony, horse, colt
+礁	reef, sunken rock
+塩	salt
+畜	livestock, domestic fowl and animals
+頚	neck, head
+円	circle, yen, round
+島	island
+耳	ear
+逆	inverted, reverse, opposite, wicked
+朝	morning, dynasty, regime, epoch, period, (North) Korea
+政	politics, government
+募	recruit, campaign, gather (contributions), enlist, grow violent
+調	tune, tone, meter, key (music), writing style, prepare, exorcise, investigate
+仙	hermit, wizard, cent
+運	carry, luck, destiny, fate, lot, transport, progress, advance
+恰	just as, as though, fortunately
+咽	choked, smothered, stuffy
+葬	interment, bury, shelve
+時	time, hour
+栞	bookmark, guidebook
+縫	sew, stitch, embroider
+勇	courage, cheer up, be in high spirits, bravery, heroism
+脆	brittle, fragile, easy to beat, sentimental, susceptible
+翻	flip, turn over, wave, flutter, change (mind)
+杖	staff, cane
+籍	enroll, domiciliary register, membership
+粋	chic, style, purity, essence, pith, cream, elite, choice
+疹	measles, sickness
+践	tread, step on, trample, practice, carry through
+穏	calm, quiet, moderation
+議	deliberation, consultation, debate, consideration
+臥	bend down, bow, lie prostrate
+琳	jewel, tinkling of jewelry
+席	seat, mat, occasion, place
+幹	tree trunk
+業	business, vocation, arts, performance
+侶	companion, follower
+長	long, leader
+袈	a coarse camlet
+埋	bury, be filled up, embedded
+慮	prudence, thought, concern, consider, deliberate, fear
+帽	cap, headgear
+錠	lock, fetters, shackles
+溜	collect, gather, be in arrears
+烙	burn
+尖	be pointed, sharp, taper, displeased, angry, edgy
+文	sentence, literature, style, art, decoration, figures, plan, literary radical (no. 67)
+繕	darning, repair, mend, trim, tidy up, adjust
+怒	angry, be offended
+温	warm
+瞳	pupil
+盗	steal, rob, pilfer
+屈	yield, bend, flinch, submit
+員	employee, member, number, the one in charge
+洞	den, cave, excavation
+災	disaster, calamity, woe, curse, evil
+墜	crash, fall (down)
+普	universal, wide(ly), generally, Prussia
+襖	opaque sliding door
+硯	inkstone
+装	attire, dress, pretend, disguise, profess
+逝	departed, die
+喋	talk, chat, chatter
+庇	protect, shield, defend, eaves, canopy, penthouse, visor
+聚	assemble
+点	spot, point, mark, speck, decimal point
+拷	torture, beat
+斡	go around, rule, administer
+児	newborn babe, child, young of animals
+足	leg, foot, be sufficient, counter for pairs of footwear
+失	lose, error, fault, disadvantage, loss
+煤	soot, smoke dried
+竪	length, height, warp
+晴	clear up
+玉	jewel, ball
+焦	char, hurry, impatient, irritate, burn, scorch, singe
+寄	draw near, stop in, bring near, gather, collect, send, forward
+漆	lacquer, varnish, seven
+退	retreat, withdraw, retire, resign, repel, expel, reject
+遡	go upstream, retrace the past
+暉	shine, light
+磨	grind, polish, scour, improve, brush (teeth)
+逮	apprehend, chase
+共	together, both, neither, all, and, alike, with
+匠	artisan, workman, carpenter
+糠	rice bran
+謀	conspire, cheat, impose on, plan, devise, scheme, have in mind, deceive
+祖	ancestor, pioneer, founder
+万	ten thousand
+粟	millet
+遮	intercept, interrupt, obstruct
+杓	ladle, scoop
+夥	immense, tremendous
+埠	wharf
+需	demand, request, need
+力	power, strong, strain, bear up, exert
+姉	elder sister
+道	road-way, street, district, journey, course, moral, teachings
+肇	beginning
+倣	emulate, imitate
+鼓	drum, beat, rouse, muster
+評	evaluate, criticism, comment
+綴	compose, spell, write, bind (books)
+欠	lack, gap, fail, yawning radical (no. 76)
+葡	wild grape, Portugal
+胚	embryo
+諜	spy out, reconnoiter
+悛	amend
+櫓	oar, tower
+昇	rise up
+箸	chopsticks
+嫡	legitimate wife, direct descent (non-bastard)
+蛭	leech
+斯	this, thus, such, verbal pause
+謁	audience, audience (with king)
+桐	paulownia
+慢	ridicule, laziness
+価	value, price
+賃	fare, fee, hire, rent, wages, charge
+疲	exhausted, tire, weary
+喜	rejoice, take pleasure in
+抜	slip out, extract, pull out, pilfer, quote, remove, omit
+竃	kitchen stove, furnace, oven, hearth
+輔	help
+枝	bough, branch, twig, limb, counter for branches
+例	example, custom, usage, precedent
+範	pattern, example, model
+均	level, average
+赦	pardon, forgiveness
+躊	hesitate
+素	elementary, principle, naked, uncovered
+詞	part of speech, words, poetry
+研	polish, study of, sharpen
+督	coach, command, urge, lead, supervise
+秀	excel, excellence, beauty, surpass
+唇	lips
+犀	rhinocerous
+葉	leaf, plane, lobe, needle, blade, spear, counter for flat things, fragment, piece
+齢	age
+眠	sleep, die, sleepy
+兵	soldier, private, troops, army, warfare, strategy, tactics
+昼	daytime, noon
+悠	permanence, distant, long time, leisure
+廓	enclosure, quarter, red-light district
+國	country [old]
+清	pure, purify, cleanse, exorcise, Manchu dynasty
+部	section, bureau, dept, class, copy, part, portion, counter for copies of a newspaper or magazine
+読	read
+育	bring up, grow up, raise, rear
+推	conjecture, infer, guess, suppose, support
+藷	potato
+霧	fog, mist
+蚊	mosquito
+挺	counter for guns, inksticks, palanquins, rickshaws, bravely volunteer
+黍	millet
+湿	damp, wet, moist
+革	leather, become serious, skin, hide, pelt
+錆	tarnish
+植	plant
+糖	sugar
+究	research, study
+冬	winter
+攻	aggression, attack
+詳	detailed, full, minute, accurate, well-informed
+橿	oak
+汀	water's edge, shore, bank
+損	damage, loss, disadvantage, hurt, injure
+関	connection, barrier, gateway, involve, concerning
+葺	thatch, cover, shingle, tile
+仏	Buddha, the dead, France
+朔	conjunction (astronomy), first day of month
+凍	frozen, congeal, refrigerate
+驚	wonder, be surprised, frightened, amazed
+名	name, noted, distinguished, reputation
+衣	garment, clothes, dressing
+惇	sincere, kind, considerate
+建	build
+猛	fierce, rave, rush, become furious, wildness, strength
+債	bond, loan, debt
+安	relax, cheap, low, quiet, rested, contented, peaceful
+葱	stone leek, Welsh onion
+符	token, sign, mark, tally, charm
+搬	conveyor, carry, transport
+彙	same kind
+占	fortune-telling, divining, forecasting, occupy, hold, have, get, take
+酌	bar-tending, serving sake, the host, draw (water), ladle, scoop, pump
+辞	resign, word, term, expression
+誤	mistake, err, do wrong, mislead
+騒	boisterous, make noise, clamor, disturb, excite
+筑	an ancient musical instrument
+常	usual, ordinary, normal, regular
+賊	burglar, rebel, traitor, robber
+凱	victory song
+巡	patrol, go around, circumference
+辱	embarrass, humiliate, shame
+畏	fear, majestic, graciously, be apprehensive
+矩	ruler, carpenter's square
+垂	droop, suspend, hang, slouch
+仰	face-up, look up, depend, seek, respect, rever, drink, take
+裕	abundant, rich, fertile
+者	someone, person
+藍	indigo
+緒	thong, beginning, inception, end, cord, strap
+背	stature, height, back, behind, disobey, defy, go back on, rebel
+出	exit, leave
+呑	drink
+壱	I, one
+娠	with child, pregnancy
+右	right
+洛	Kyoto, the capital
+晶	sparkle, clear, crystal
+想	concept, think, idea, thought
+熔	fuse, melt
+灯	lamp, a light, light, counter for lights
+前	in front, before
+策	scheme, plan, policy, step, means
+品	goods, refinement, dignity, article, counter for meal courses
+兜	helmet, head piece
+賠	compensation, indemnify
+兇	wickedness
+躯	body, corpse, tree with rotten core [old]
+権	authority, power, rights
+斗	Big Dipper, 10 sho (vol), sake dipper, dots and cross radical (no. 68)
+沖	open sea, offing, rise high into sky
+酸	acid, bitterness, sour, tart
+京	capital, 10**16
+争	contend, dispute, argue
+信	faith, truth, fidelity, trust
+唆	tempt, seduce, instigate, promote
+肛	anus
+鉱	mineral, ore
+髭	beard, mustache
+風	wind, air, style, manner
+豹	leopard, panther
+課	chapter, lesson, section, department, division, counter for chapters (of a book)
+膝	knee, lap
+渡	transit, ford, ferry, cross, import, deliver, diameter, migrate
+塔	pagoda, tower, steeple
+企	undertake, scheme, design, attempt, plan
+忽	in a moment, instantly, all of a sudden, neglect, disregard
+衷	inmost, heart, mind, inside
+掠	pillage, rob, graze, skim, sweep over, cheat, hint
+尽	exhaust, use up, run out of, deplete, befriend, serve
+埼	cape, spit, promontory
+曝	bleach, refine, expose, air
+検	examination, investigate
+麟	Chinese unicorn, genius, giraffe, bright, shining
+嶽	peak [old]
+詮	discussion, methods called for, selection, result
+屑	rubbish, junk, trash, waste, scraps
+汝	you, thou
+槽	vat, tub, tank
+浬	knot, nautical mile
+渥	kindness
+撞	thrust, pierce, stab, prick
+狙	aim at, sight, shadow, stalk
+粘	sticky, glutinous, greasy, persevere
+沌	primeval chaos
+耐	-proof, enduring
+衡	equilibrium, measuring rod, scale
+鬼	ghost, devil
+蒔	sow (seeds)
+気	spirit, mind, air, atmosphere, mood
+導	guidance, leading, conduct, usher
+愈	be superior, heal, more and more, increasingly, finally, beyond doubt
+芳	perfume, balmy, flavorable, fragrant
+甘	sweet, coax, pamper, be content, sugary
+跪	kneel
+椰	coconut tree
+醜	ugly, unclean, shame, bad looking
+盤	tray, shallow bowl, platter, tub, board, phonograph record
+厘	rin, 1/10sen, 1/10bu
+宙	mid-air, air, space, sky, memorization, interval of time
+菫	the violet
+琵	glissando on strings, lute
+簡	simplicity, brevity
+荒	laid waste, rough, rude, wild
+日	day, sun, Japan, counter for days
+衛	defense, protection
+嫉	jealous, envy
+据	set, lay a foundation, install, equip, squat down, sit down
+塞	close, shut, cover, block, obstruct
+曜	weekday
+連	take along, lead, join, connect, party, gang, clique
+煽	fan, flap, instigate, agitate, bolster up, gulp down
+碧	blue, green
+高	tall, high, expensive
+賞	prize, reward, praise
+迷	astray, be perplexed, in doubt, lost, err, illusion
+脂	fat, grease, tallow, lard, rosin, gum, tar
+斉	adjusted, alike, equal, similar variety of
+亀	tortoise, turtle
+律	rhythm, law, regulation, gauge, control
+悼	lament, grieve over
+婚	marriage
+鍾	spindle, gather, collect
+暇	spare time, rest, leisure, time, leave of absence
+淑	graceful, gentle, pure
+痘	pox, smallpox
+萬	10000 [old]
+未	un-, not yet, hitherto, still, even now, sign of the ram, 1-3PM, eighth sign of Chinese zodiac
+拠	foothold, based on, follow, therefore
+枚	sheet of..., counter for flat thin objects or sheets
+箪	bamboo rice basket
+敷	spread, pave, sit, promulgate
+畷	rice field ridge path
+阿	Africa, flatter, fawn upon, corner, nook, recess
+譜	musical score, music, note, staff, table, genealogy
+唐	T'ang, China
+霞	be hazy, grow dim, blurred
+涼	refreshing, nice and cool
+谷	valley
+滴	drip, drop
+黒	black
+班	squad, corps, unit, group
+線	line, track
+匿	hide, shelter, shield
+喝	hoarse, scold
+晟	clear
+菩	kind of grass, sacred tree
+丑	sign of the ox or cow, 1-3AM, second sign of Chinese zodiac
+掻	scratch, rake, comb, paddle, behead
+郎	son, counter for sons
+就	concerning, settle, take position, depart, study, per
+綺	figured cloth, beautiful
+諸	various, many, several, together
+庵	hermitage, retreat
+籾	unhulled rice, (kokuji)
+憂	melancholy, grieve, lament, be anxious, sad, unhappy
+鼾	snoring
+沐	wash
+主	lord, chief, master, main thing, principal
+地	ground, earth
+贈	presents, send, give to, award to, confer on, presenting something
+否	negate, no, noes, refuse, decline, deny
+滅	destroy, ruin, overthrow, perish
+鉄	iron
+嬢	lass, girl, Miss, daughter
+串	shish kebab, spit, skewer
+閉	closed, shut
+阪	heights, slope
+榊	sacred Shinto tree, (kokuji)
+儲	be profitable, yield profit
+列	file, row, rank, tier, column
+傘	umbrella
+薙	mow down (the enemy)
+耕	till, plow, cultivate
+砕	smash, break, crush, familiar, popular
+比	compare, race, ratio, Philipines
+千	thousand
+鮨	sushi, seasoned rice
+誇	boast, be proud, pride, triumphantly
+暫	temporarily, a while, moment, long time
+雰	atmosphere, fog
+顧	look back, review, examine oneself, turn around
+浮	floating, float, rise to surface
+麹	malt, yeast
+耀	shine, sparkle, gleam, twinkle
+妖	attractive, bewitching, calamity
+旧	old times, old things, old friend, former, ex-
+鴬	nightingale, bush warbler
+色	color
+壷	jar, pot, hinge knuckle, one's aim
+混	mix, blend, confuse
+産	products, bear, give birth, yield, childbirth, native, property
+叱	scold, reprove
+秦	Manchu dynasty, name given to naturalized foreigners
+卑	lowly, base, vile, vulgar
+漕	rowing, scull, paddle
+乾	drought, dry, dessicate, drink up, heaven, emperor
+鍛	forge, discipline, train
+幸	happiness, blessing, fortune
+条	article, clause, item, stripe, streak
+茸	mushroom
+尭	high, far
+帥	commander, leading troops, governor
+妓	stretch, singing girl, geisha, prostitute
+杜	woods, grove
+索	cord, rope
+昔	once upon a time, antiquity, old times
+泣	cry, weep, moan
+佑	help, assist
+渉	ford, ferry, port
+排	repudiate, exclude, expel, reject
+技	skill, art, craft, ability, feat, performance, vocation, arts
+悟	enlightenment, perceive, discern, realize, understand
+矯	rectify, straighten, correct, reform, cure, control, pretend, falsify
+買	buy
+魚	fish
+粛	solemn, quietly, softly
+野	plains, field, rustic, civilian life
+不	negative, non-, bad, ugly, clumsy
+鮎	freshwater trout, smelt
+炉	hearth, furnace, kiln, reactor
+礎	cornerstone, foundation stone
+月	month, moon
+耶	question mark
+謙	self-effacing, humble oneself, condescend, be modest
+錫	copper, tin
+離	detach, separation, disjoin, digress
+査	investigate
+愛	love, affection, favourite
+勺	ladle, one tenth of a go, dip
+炬	torch, signal fire
+史	history, chronicle
+迭	transfer, alternation
+丞	help
+鮒	carp
+慈	mercy
+烏	crow, raven
+坊	boy, priest's residence, priest
+紋	family crest, figures
+鹸	saltiness
+布	linen, cloth
+繭	cocoon
+収	income, obtain, reap, pay, supply, store
+褐	brown, woollen kimono
+怨	grudge, show resentment, be jealous
+認	acknowledge, witness, discern, recognize, appreciate, believe
+寸	measurement, foot/10
+梨	pear tree
+丘	hill, knoll
+浸	immersed, soak, dip, steep, moisten, wet, dunk
+銅	copper
+嚇	menacing, dignity, majesty, threaten
+懇	sociable, kind, courteous, hospitable, cordial
+陶	pottery, porcelain
+鈍	dull, slow, foolish, blunt
+把	grasp, faggot, bunch, counter for bundles
+般	carrier, carry, all
+邪	wicked, injustice, wrong
+牲	animal sacrifice, offering
+我	ego, I, selfish, our, oneself
+危	dangerous, fear, uneasy
+鳩	pigeon, dove
+斐	beautiful, patterned
+騙	deceive
+則	rule, follow, based on, model after
+各	each, every, either
+銭	coin, .01 yen, money
+分	part, minute of time, segment, share, degree, one's lot, duty, understand, know, rate, 1%, chances, shaku/100
+陸	land, six
+鱒	salmon trout
+藻	seaweed, duckweed
+幡	flag
+二	two, two radical (no.2)
+朋	companion, friend
+膿	pus, fester, discharge
+見	see, hopes, chances, idea, opinion, look at, visible
+憲	constitution, law
+韮	leek
+剣	sabre, sword, blade, clock hand
+禎	happiness, blessed, good fortune, auspicious
+撤	remove, withdraw, disarm, dismantle, reject, exclude
+賀	congratulations, joy
+肪	obese, fat
+稽	think, consider, quarrel
+子	child, sign of the rat, 11PM-1AM, first sign of Chinese zodiac
+君	old boy, name-suffix
+鮮	fresh, vivid, clear, brilliant, Korea
+交	mingle, mixing, association, coming &amp; going
+黛	blackened eyebrows
+演	performance, act, play, render, stage
+狩	hunt, raid, gather
+舗	shop, store
+瀕	shore, brink, verge
+付	adhere, attach, refer to, append
+駕	vehicle, palanquin, litter, hitch up an animal
+双	pair, set, comparison, counter for pairs
+疫	epidemic
+確	assurance, firm, tight, hard, solid, confirm, clear, evident
+栖	nest, rookery, hive, cobweb, den
+這	crawl, creep, grovel, trail (vines)
+科	department, course, section
+勾	be bent, slope, capture
+値	price, cost, value
+劇	drama, play
+篠	also N3428, bamboo grass
+炭	charcoal, coal
+控	withdraw, draw in, hold back, refrain from, be moderate
+如	likeness, like, such as, as if, better, best, equal
+砂	sand
+屍	corpse
+玩	play, take pleasure in, trifle with, make sport of
+璽	emperor's seal
+潅	pour into, irrigate, shed (tears, flow into, concentrate on
+冒	risk, face, defy, dare, damage, assume (a name)
+塗	paint, plaster, daub, smear, coating
+最	utmost, most, extreme
+桔	used in plant names
+怯	cowardice, wince, flinch, hesitate, waver
+夢	dream, vision, illusion
+航	navigate, sail, cruise, fly
+朽	decay, rot, remain in seclusion
+紫	purple, violet
+瞑	sleep, dark, close eyes
+叶	grant, answer
+樹	timber trees, wood
+壊	demolition, break, destroy
+諦	abandon, give up
+拐	kidnap, falsify
+母	mama, mother
+嘗	once, before, formerly, ever, never, ex-, lick, lap up, burn up, taste, undergo, underrate, despise
+葛	arrowroot, kudzu
+誠	sincerity, admonish, warn, prohibit, truth, fidelity
+待	wait, depend on
+妹	younger sister
+活	lively, resuscitation, being helped, living
+述	mention, state, speak, relate
+繁	luxuriant, thick, overgrown, frequency, complexity, trouble
+碓	pestle
+処	dispose, manage, deal with, sentence, condemn, act, behave, place
+壌	lot, earth, soil
+位	rank, grade, throne, crown, about, some
+捜	search, look for, locate
+糾	twist, ask, investigate, verify
+卸	wholesale
+隔	isolate, alternate, distance, separate, gulf
+新	new
+壇	podium, stage, rostrum, terrace
+塑	model, molding
+唯	solely, only, merely, simply
+傑	greatness, excellence
+培	cultivate, foster
+箋	paper, label, letter, composition
+庸	commonplace, ordinary, employment
+峡	gorge, ravine
+伐	fell, strike, attack, punish
+揮	brandish, wave, wag, swing, shake
+逓	relay, in turn, sending
+雛	chick, squab, duckling, doll
+泳	swim
+禅	Zen, silent meditation
+面	mask, face, features, surface
+蕎	buckwheat
+麦	barley, wheat
+廿	twenty, 20
+譬	illustrate
+度	degrees, occurrence, time, counter for occurrences
+帯	sash, belt, obi, zone, region
+駁	refutation, contradiction
+肌	texture, skin, body, grain
+桃	peach tree
+欲	longing, covetousness, greed, passion, desire, craving
+害	harm, injury
+淫	lewdness, licentiousness
+郵	mail, stagecoach stop
+薫	send forth fragrance, fragrant, be scented, smoke (tobacco)
+墨	black ink, India ink, ink stick, Mexico
+寓	temporary abode, keep, imply, suggest
+鍵	key
+宗	religion, sect, denomination, main point, origin, essence
+蓉	lotus
+町	town, village, block, street
+遭	encounter, meet, party, association, interview, join
+竣	end, finish
+肩	shoulder
+嬰	sharp (music), baby
+亜	Asia, rank next, come after, -ous
+萩	bush clover
+暖	warmth
+畦	rice paddy ridge, furrow, rib
+屁	fart, passing gas
+循	sequential, fellow
+朴	crude, simple, plain, docile
+悉	all, entirely, altogether, completely, use up, run out of, exhaust, befriend, serve
+庁	government office
+砦	fort, stronghold, entrenchments
+勁	strong
+階	storey, stair, counter for storeys of a building
+珊	stagger, loneliness, centimeter
+瑚	ancestral offering receptacle
+矛	halberd, arms, festival float
+斬	beheading, kill, murder
+肥	fertilizer, get fat, fertile, manure, pamper
+枯	wither, die, dry up, be seasoned
+財	property, money, wealth, assets
+錯	confused, mix, be in disorder
+勉	exertion
+盲	blind, blind man, ignoramus
+俣	crotch, thigh, groin, (kokuji)
+党	party, faction, clique
+挫	crush, break, sprain, discourage
+鋒	dagger, sword's point, festival car, float
+蟹	crab
+糟	dregs, sediment, grounds
+株	stocks, stump, shares, stock, counter for small plants
+歎	grief, lamentation
+隊	regiment, party, company, squad
+挙	raise, plan, project, behavior, actions
+近	near, early, akin, tantamount
+製	made in..., manufacture
+澄	lucidity, be clear, clear, clarify, settle, strain, look grave
+音	sound, noise
+博	Dr., command, esteem, win acclaim, Ph.D., exposition, fair
+覆	capsize, cover, shade, mantle, be ruined
+雄	masculine, male, hero, leader, superiority, excellence
+大	large, big
+舷	gunwale
+酔	drunk, feel sick, poisoned, elated, spellbound
+絨	wool cloth
+陰	shade, yin, negative, sex organs, secret, shadow
+体	body, substance, object, reality, counter for images
+准	quasi-, semi-, associate
+胃	stomach, paunch, crop, craw
+層	stratum, social class, layer, story, floor
+変	unusual, change, strange
+奮	stirred up, be invigorated, flourish
+一	one, one radical (no.1)
+透	transparent, permeate, filter, penetrate
+広	wide, broad, spacious
+邦	home country, country, Japan
+只	only, free, in addition
+和	harmony, Japanese style, peace, soften, Japan
+膨	swell, get fat, thick
+荷	baggage, shoulder-pole load, bear (a burden), shoulder (a gun), load, cargo, freight
+凛	cold
+鯉	carp
+寵	affection, love, patronage
+纏	wear, wrap, tie, follow around, collect
+犠	sacrifice
+負	defeat, negative, -, minus, bear, owe, assume a responsibility
+韓	Korea
+憶	recollection, think, remember
+畳	tatami mat, counter for tatami mats, fold, shut up, do away with
+宇	eaves, roof, house, heaven
+孫	grandchild, descendants
+鴻	large bird, wild goose, large, great, powerful, prosperous
+捗	make progress
+販	marketing, sell, trade
+笛	flute, clarinet, pipe, whistle, bagpipe, piccolo
+晦	dark, disappear
+羅	gauze, thin silk, Rome
+凄	uncanny, weird, threatening, horrible
+圧	pressure, push, overwhelm, oppress, dominate
+化	change, take the form of, influence, enchant, delude, -ization
+表	surface, table, chart, diagram
+批	criticism, strike
+鯛	sea bream, red snapper
+彊	strong
+具	tool, utensil, means, possess, ingredients, counter for armor, suits, sets of furniture
+恨	regret, bear a grudge, resentment, malice, hatred
+貰	get, have, obtain
+劉	weapon of war, logging axe, kill en masse, peeling (paint off a wall, etc), sparse, faded
+腫	tumor, swelling
+喧	noisy, boisterous
+雌	feminine, female
+伝	transmit, go along, walk along, follow, report, communicate, legend, tradition
+言	say
+羽	feathers, counter for birds, rabbits
+恥	shame, dishonor
+侮	scorn, despise, make light of, contempt
+惑	beguile, delusion, perplexity
+粍	millimeter, (kokuji)
+茜	madder, red dye, Turkey red
+実	reality, truth
+胡	barbarian, foreign
+扶	aid, help, assist
+破	rend, rip, tear, break, destroy, defeat, frustrate
+宅	home, house, residence, our house, my husband
+朱	vermilion, cinnabar, scarlet, red, bloody
+炊	cook, boil
+憧	yearn after, long for, aspire to, admire, adore
+桧	Japanese cypress
+燭	light, candlepower
+元	beginning, former time, origin
+棚	shelf, ledge, rack, mount, mantle, trellis
+欣	take pleasure in, rejoice
+昌	prosperous, bright, clear
+従	accompany, obey, submit to, comply, follow, secondary, incidental, subordinate
+奥	heart, interior
+任	responsibility, duty, term, entrust to, appoint
+畠	field, farm, garden, (kokuji)
+琲	string of many pearls
+麗	lovely, companion
+白	white
+弱	weak, frail
+疎	alienate, rough, neglect, shun, sparse
+姑	mother-in-law
+逢	meeting, tryst, date, rendezvous
+陵	mausoleum, imperial tomb
+掌	manipulate, rule, administer, conduct, palm of hand
+戸	door, counter for houses, door radical (no. 63)
+通	traffic, pass through, avenue, commute, counter for letters, notes, documents, etc.
+榎	lotus tree
+娯	recreation, pleasure
+寮	dormitory, hostel, villa, tea pavillion
+疋	head, counter for animals
+唖	mute, dumb
+喚	yell, cry, scream
+利	profit, advantage, benefit
+誓	vow, swear, pledge
+使	use
+強	strong
+窒	plug up, obstruct
+揃	be complete, uniform, all present
+詢	consult with
+嘔	vomit, nauseated
+窪	depression, cave in, sink, become hollow
+鎚	hammer, mallet
+牧	breed, care for, shepherd, feed, pasture
+唄	songs with samisen
+遷	transition, move, change
+須	ought, by all means, necessarily
+択	choose, select, elect, prefer
+煉	refine metals, kneading over fire
+構	posture, build, pretend
+甥	nephew
+達	accomplished, reach, arrive, attain
+禽	bird, captive, capture
+棘	thorn, splinter, spine, biting words, briers
+致	doth, do, send, forward, cause, exert, incur, engage
+幼	infancy, childhood
+市	market, city, town
+圃	garden, field
+帝	sovereign, the emperor, god, creator
+酵	fermentation
+妻	wife, spouse
+房	tassel, tuft, fringe, bunch, lock (hair), segment (orange), house, room
+資	assets, resources, capital, funds, data, be conducive to, contribute to
+馨	fragrant, balmy, favourable
+篭	seclude oneself, cage, coop, implied
+捻	twirl, twist, play with
+呎	foot
+嫁	marry into, bride
+癒	healing, cure, quench (thirst), wreak
+樗	Japanese bead tree
+孝	filial piety, child's respect
+蟄	hibernation of insects
+鹿	deer
+丁	street, ward, town, counter for guns, tools, leaves or cakes of something, even number, 4th calendar sign
+薩	Buddha
+圏	sphere, circle, radius, range
+云	say
+越	surpass, cross over, move to, exceed, Vietnam
+唾	saliva, sputum
+掛	hang, suspend, depend, arrive at, tax, pour
+由	wherefore, a reason
+紬	pongee (a knotted silk cloth)
+鮪	tuna
+聖	holy, saint, sage, master, priest
+俺	I, myself
+琶	lute
+衰	decline, wane, weaken
+凋	wither, droop, lame
+淀	pool, eddy
+趣	gist, proceed to, tend, become
+件	affair, case, matter, item
+油	oil, fat
+反	anti-
+瑳	polish
+濫	excessive, overflow, spread out
+巽	southeast
+故	happenstance, especially, intentionally, reason, cause, circumstances, the late, therefore, consequently
+許	permit, approve
+託	consign, requesting, entrusting with, pretend, hint
+携	portable, carry (in hand), armed with, bring along
+桟	scaffold, cleat, frame, jetty, bolt (door)
+閑	leisure
+純	genuine, purity, innocence, net (profit)
+黙	silence, become silent, stop speaking, leave as is
+臼	mortar
+溢	overflow, inundate, spill
+角	angle, corner, square, horn, antlers
+局	bureau, board, office, affair, conclusion, court lady, lady-in-waiting, her apartment
+淵	abyss, edge, deep pool, the depths [old]
+良	good, pleasing, skilled
+摩	chafe, rub, polish, grind, scrape
+染	dye, color, paint, stain, print
+釜	kettle, cauldron, iron pot
+掃	sweep, brush
+匹	equal, head, counter for small animals, roll of cloth
+服	clothing, admit, obey, discharge
+瑠	lapis lazuli
+韻	rhyme, elegance, tone
+鞍	saddle
+克	overcome, kindly, skillfully
+餌	food, bait, prey, tempting profit
+尚	esteem, furthermore, still, yet
+冠	crown, best, peerless
+斤	axe, 1.32 lb, catty, counter for loaves of bread, axe radical (no. 69)
+敵	enemy, foe, opponent
+報	report, news, reward, retribution
+畝	furrow, 30 tsubo, ridge, rib
+叔	uncle, youth
+茉	jasmine
+祓	exorcise
+遵	abide by, follow, obey, learn
+衝	collide, brunt, highway, opposition (astronomy), thrust, pierce, stab, prick
+噂	rumor, gossip, hearsay
+牌	label, signboard, medal, mahjong tiles
+摂	vicarious, surrogate, act in addition to
+忘	forget
+鯨	whale
+蓬	sagebrush, wormwood, mugwort
+補	supplement, supply, make good, offset, compensate, assistant, learner
+辺	environs, boundary, border, vicinity
+崎	promontory, cape, spit
+渇	thirst, dry up, parch
+吸	suck, imbibe, inhale, sip
+了	complete, finish
+説	rumor, opinion, theory
+将	leader, commander, general, admiral, or, and again, soon, from now on, just about
+耗	decrease
+弄	play with, tamper, trifle with
+卓	eminent, table, desk, high
+髄	marrow, pith
+立	stand up
+哀	pathetic, grief, sorrow, pathos, pity, sympathize
+謄	mimeograph, copy
+矢	dart, arrow
+飲	drink, smoke, take
+刹	temple
+雅	gracious, elegant, graceful, refined
+鎧	put on armor, arm oneself
+奄	cover
+敬	awe, respect, honor, revere
+晃	clear
+画	brush-stroke, picture
+善	virtuous, good, goodness
+愁	distress, grieve, lament, be anxious
+肴	accompaniment for drinks
+舌	tongue, reed, clapper
+菖	iris
+些	a little bit, sometimes
+展	unfold, expand
+汲	draw (water), ladle, scoop, pump
+胤	descendent, issue, offspring
+償	reparation, make up for, recompense, redeem
+且	moreover, also, furthermore
+効	merit, efficacy, efficiency, benefit
+衆	masses, great numbers, multitude, populace
+径	diameter, path, method
+墾	ground-breaking, open up farmland
+棄	abandon, throw away, discard, resign, reject, sacrifice
+美	beauty, beautiful
+呆	be amazed, disgusted, shocked
+隙	crevice, fissure, discord, opportunity, leisure, also N5013
+較	contrast, compare
+支	branch, support, sustain, branch radical (no. 65)
+梶	sculling oar
+購	subscription, buy
+碇	anchor, grapnel
+畿	capital, suburbs of capital
+茂	overgrown, grow thick, be luxuriant
+揚	hoist, fry in deep fat
+腎	kidney
+鉦	bell, gong, chimes
+狛	archaic part of Korea, lion-dog shrine guards
+卿	you, lord, secretary, state minister
+讃	praise, title on a picture
+居	reside, to be, exist, live with
+己	self, snake, serpent
+晒	bleach, refine, expose, air
+超	transcend, super-, ultra-
+樵	woodcutting, lumberjack
+稚	immature, young
+椿	camellia
+複	duplicate, double, compound, multiple
+棲	live, dwell
+漠	vague, obscure, desert, wide
+煮	boil, cook
+笥	lunch box, clothes chest
+紹	introduce, inherit, help
+箔	foil, gilt
+幕	curtain, bunting, act of play
+蓮	lotus
+綜	rule
+踊	jump, dance, leap, skip
+蓋	cover, lid, flap
+瞭	clear
+歓	delight, joy
+俳	haiku, actor
+絵	picture, drawing, painting, sketch
+針	needle, pin, staple, stinger
+苛	torment, scold, chastise
+塵	dust, trash, garbage
+庭	courtyard, garden, yard
+姥	old woman
+終	end, finish
+粁	kilometer, (kokuji)
+但	however, but
+胸	bosom, breast, chest, heart, feelings
+請	solicit, invite, ask
+誼	friendship, intimacy
+蘭	orchid, Holland
+紗	gauze, gossamer
+糧	provisions, food, bread
+燎	burn, bonfire
+呪	spell, curse, charm, malediction
+望	ambition, full moon, hope, desire, aspire to, expect
+腸	intestines, guts, bowels, viscera
+執	tenacious, take hold, grasp, take to heart
+鵜	cormorant
+臓	entrails, viscera, bowels
+蒐	gather
+瓶	flower pot, bottle, vial, jar, jug, vat, urn
+是	just so, this, right, justice
+梢	treetops, twig
+浴	bathe, be favored with, bask in
+浜	seacoast, beach, seashore
+膚	skin, body, grain, texture, disposition
+鰐	alligator, crocodile
+痴	stupid, foolish
+幟	flag, banner, streamer
+街	boulevard, street, town
+目	eye, class, look, insight, experience, care, favor
+授	impart, instruct, grant, confer
+泉	spring, fountain
+降	descend, precipitate, fall, surrender
+薪	fuel, firewood, kindling
+能	ability, talent, skill, capacity
+稔	harvest, ripen
+病	ill, sick
+惹	attract, captivate
+翠	green
+旭	rising sun, morning sun
+倍	double, twice, times, fold
+採	pick, take, fetch, take up
+網	netting, network
+泰	peaceful, calm, peace, easy, Thailand
+語	word, speech, language
+鱈	codfish, (kokuji)
+嬌	attractive
+岐	branch off, fork in road, scene, arena, theater
+賦	levy, ode, prose, poem, tribute, installment
+卒	graduate, soldier, private, die
+噴	erupt, spout, emit, flush out
+習	learn
+意	idea, mind, heart, taste, thought, desire, care, liking
+箭	arrow
+潟	lagoon
+凝	congeal, freeze, stiff, be absorbed in
+訟	sue, accuse
+提	propose, take along, carry in hand
+慕	pining, yearn for, love dearly, adore
+渋	astringent, hesitate, reluctant, have diarrhea
+邸	residence, mansion
+挑	challenge, contend for, make love to
+蔚	dense growth
+熊	bear
+汐	eventide, tide, salt water, opportunity
+差	distinction, difference, variation, discrepancy, margin, balance
+ERR[u'\u7b46 writing brush, writing, painting brush, handwriting\r\n']
+

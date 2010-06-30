@@ -13,6 +13,7 @@
 //#include <sys/types.h>
 
 #include "inkview.h"
+#include "inkinternal.h"
 
 #include "exceptions.hpp"
 #include "view_pb.hpp"
@@ -29,11 +30,15 @@
 #define IDX_MENU_LKP_BACK 108
 
 ViewPocketBook view;
+extern std::string directory;
+
+
 
 class Globals
 {
 public:
 	static ifont * fontIface;
+	static ifont * fontLkp;
 	static ifont * fontFront;
 	static ifont * fontBack;
 	static ifont * fontButtons;
@@ -47,6 +52,7 @@ public:
 
 ifont *  Globals::fontIface = NULL;
 ifont *  Globals::fontFront = NULL;
+ifont *  Globals::fontLkp = NULL;
 ifont *  Globals::fontBack = NULL;
 ifont *  Globals::fontButtons = NULL;
 char Globals::deckToLoadName[256];
@@ -214,7 +220,8 @@ void ViewPocketBook::ApplyConfig()
 //	fname = strtok(buf, ",");
 	Globals::fontFront = ReadFont(cfgMain,"front_font",DEFAULTFONT",50"); 
 	Globals::fontBack = ReadFont(cfgMain,"back_font",DEFAULTFONT",40"); 
-	Globals::fontBack = OpenFont("KanjiStrokeOrders_v2.014.ttf", 140, 2);
+	Globals::fontLkp = ReadFont(cfgMain,"back_font",DEFAULTFONT",40"); 
+	//Globals::fontLkp = OpenFont("KanjiStrokeOrders_v2.014.ttf", 80, 0);
 
 	return;
 //	sscanf(fname+strlen(fname)+1, "%d", &size);
@@ -283,6 +290,7 @@ int ViewPocketBook::SelectDeck()
 void Init()
 {       // occurs once at startup, only in main handler
 	std::cout<<"Doing INIT event\n";
+	view.model.dic.Load("dic.txt");
 #ifdef ARCH_PB
 	cfgMain = OpenConfig(CONFIGPATH"./mindcraft.cfg", NULL);
 #else
@@ -310,7 +318,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 
 	iter++;
 	//	Logger.WriteLog("main handler %d\n",iter);
-	//	fprintf(stderr, "\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
+		printf("\tevent:  [%i %i %i]\n", event.type, event.par1, event.par2);
 	if (Globals::isConfigEditorActive)
 	{
 		logger.WriteLog("waiting for config to launch handler");
@@ -412,7 +420,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 				break;
 			case Status::stLookUp:
 				HandleShowLookUp(event);
-		 		break;
+				break;
 			case Status::stExit:
 				CloseApp();
 				break;
@@ -476,10 +484,20 @@ int ViewPocketBook::HandleShowFront(InkViewEvent event)
 	ShowFront();
 	SoftUpdate();
 	
-
-	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
+	if (event.type==EVT_KEYPRESS) 
+	switch(event.par1)
 	{
-		view.status=Status::stShowBack;
+		case KEY_DELETE:
+			Globals::strLookUp=view.model.dic.LookUp(view.card.front.ToString()+view.card.back.ToString());
+			view.status=Status::stLookUp;
+			mainHandler(0,0,0);
+			break;
+		case KEY_OK:
+			view.status=Status::stShowBack;
+			break;
+		default:
+			//do nothing
+			break;
 	}
 
 	return 0;
@@ -496,6 +514,12 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 		if (event.type==EVT_KEYPRESS) 
 		switch(event.par1)
 		{
+				case KEY_DELETE:
+				Globals::strLookUp=view.model.dic.LookUp(view.card.front.ToString()+view.card.back.ToString());
+				view.status=Status::stLookUp;
+				mainHandler(0,0,0);
+				return 0;
+				break;
 			case KEY_LEFT:
 				answerMark--;
 				if (answerMark<0) answerMark=0;
@@ -555,6 +579,11 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 		if (event.type==EVT_KEYPRESS)
 	 		switch(event.par1)
 			{
+				case KEY_DELETE:
+					Globals::strLookUp=view.model.dic.LookUp(view.card.front.ToString()+view.card.back.ToString());
+					view.status=Status::stLookUp;
+					mainHandler(0,0,0);
+					break;
 				case KEY_LEFT:
 					answerMark=2; isAnswered=true;
 					break;
@@ -643,9 +672,9 @@ int ViewPocketBook::HandleShowStats(InkViewEvent event)
 
 int ViewPocketBook::HandleShowLookUp(InkViewEvent event) 
 {
-	SetFont(Globals::fontFront, BLACK);
+	SetFont(Globals::fontLkp, BLACK);
 	ClearScreen();
-       	DrawTextRect(11, 11, 580, 300, const_cast<char *>(Globals::strLookUp.c_str()), ALIGN_LEFT | VALIGN_MIDDLE);
+       	DrawTextRect(1, 1, 580, 701, const_cast<char *>(Globals::strLookUp.c_str()), ALIGN_LEFT | VALIGN_TOP);
 
 	if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_OK))
 	{
@@ -729,13 +758,8 @@ void ViewPocketBook::ShowFront()
 
 void ViewPocketBook::ShowBack()
 {
-	if (card.back.soundPath!="")
-	{
-		char strSndPath[1024];
-		strncpy(strSndPath,card.back.soundPath.c_str(),1024);
-		std::cout<<"plaing sound:"<<card.back.soundPath<<std::endl;
-		PlayFile(strSndPath);
-	}
+	PlaySound(card.back);
+
 	int textWidth=590;
 	int backHeight=SCREEN_HEIGHT-frontHeight;
 	char strBack[1024];
@@ -760,10 +784,36 @@ void ViewPocketBook::ShowStatusBar()
 	DrawTextRect(6, 773, 590, 25, const_cast<char *>(model.GetStatus().c_str()), ALIGN_CENTER | VALIGN_MIDDLE);
 }
 
+void ViewPocketBook::PlaySound(CardField field)
+{
+	if (field.soundPath!="")
+		{
+			char strSndPath[1024];
+			std::string fullMp3Path = directory+"/"+field.soundPath.substr(2,field.soundPath.length());
+			strncpy(strSndPath,fullMp3Path.c_str(),1024);
+			std::cout<<"curretn dir:"<<directory<<std::endl;
+			std::cout<<"plaing sound:"<<strSndPath<<std::endl;
+		//	char * playlist[] ={"c:/1.mp3", NULL};
+		//	hw_mp_setstate(1);
+		//	hw_mp_loadplaylist(playlist);
+		//	hw_mp_playtrack(0);
+
+
+			//OpenPlayer();
+			SetVolume(100);
+			PlayFile(strSndPath);
+			//TogglePlaying();
+			std::cout<<"player state="<<GetPlayerState()<<std::endl;
+			std::cout<<"hw player state="<<	hw_mp_getstate()<<std::endl;
+
+		}
+}
+
 int mainHandler(int type, int par1, int par2) 
 {
+     view.model.currentDirectory=directory;
 
-	view.HandleEvent(InkViewEvent(type, par1, par2));
+     	view.HandleEvent(InkViewEvent(type, par1, par2));
 	return 0;
 
 

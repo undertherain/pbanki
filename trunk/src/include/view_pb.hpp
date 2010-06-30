@@ -53,6 +53,7 @@ public:
 	int HandleEvent(InkViewEvent event);
 	int HandleShowStats(InkViewEvent event);
 	int HandleShowLookUp(InkViewEvent event);
+	void PlaySound(CardField field);
 	void ShowFront();
 	void ShowBack();
 	void ShowStatusBar();

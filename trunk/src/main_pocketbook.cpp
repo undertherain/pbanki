@@ -12,11 +12,14 @@
 #include <unistd.h>
 
 #include <string>
+
+std::string directory;
+
 int main (int argc, char * argv[])
 {
 #ifdef ARCH_PB
 
-	std::string directory = argv[0];
+	directory = argv[0];
 	size_t find;
 	find = directory.find_last_of("/\\");
 	directory = directory.substr(0,find);

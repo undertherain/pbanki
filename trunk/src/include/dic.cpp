@@ -7,9 +7,8 @@
 #include <sstream>
 #include <algorithm>
 
-Dictionary::Dictionary(std::string filname)
+void Dictionary::Load(std::string filname)
 {
-
 	std::ifstream fin(filname.c_str());
 	//FILE* idFileIn=fopen(filname.c_str(),"r");
 	//char buff[2048];	

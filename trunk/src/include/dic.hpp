@@ -7,8 +7,9 @@ class Dictionary
 {
 private:
 	std::map<std::string,std::string> dic;
+	
 public:
-	Dictionary(std::string filname);
+	void Load(std::string filname);
 	std::string LookUp(std::string key);
 	
 

@@ -3,6 +3,7 @@
 
 = 0.2.7 =
   * Dictionary LookUp feature
+  * Support audio playback for Anki decks
 
 = 0.2.6 =
   * Cards from the same fact are spaced.

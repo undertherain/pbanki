@@ -28,6 +28,7 @@
 #define IDX_MENU_CONFIG 106
 #define IDX_MENU_LKP_FRONT 107
 #define IDX_MENU_LKP_BACK 108
+#define IDX_MENU_REPLAY 109
 
 ViewPocketBook view;
 extern std::string directory;
@@ -46,6 +47,7 @@ public:
 	static char deckToLoadName[256];
 	static bool isNewCardRequired;
 	static bool isApplyConfigRequired;
+	static bool isReplaySoundRequired;
 	static std::string strLookUp;
 };
 
@@ -59,6 +61,7 @@ char Globals::deckToLoadName[256];
 bool Globals::isConfigEditorActive=false;
 bool Globals::isNewCardRequired=true;
 bool Globals::isApplyConfigRequired=false;
+bool Globals::isReplaySoundRequired=true;
 std::string Globals::strLookUp;
 
 int menuIndex=0;
@@ -119,6 +122,7 @@ static imenu menuMain[] = {
 	{ ITEM_ACTIVE, IDX_MENU_CLOSE, "Close deck", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_STATS, "Statistics", NULL },
 	{ ITEM_ACTIVE, IDX_MENU_CONFIG, "Options", NULL },
+	{ ITEM_ACTIVE, IDX_MENU_REPLAY, "Replay Sound", NULL },
 	{ ITEM_SUBMENU, 0, "LookUp", menuLookUp },
 	{ ITEM_ACTIVE, IDX_MENU_ABOUT, "About", NULL },
 	{ ITEM_SEPARATOR, 0, NULL, NULL },
@@ -172,6 +176,11 @@ void menu1_handler(int index)
 			mainHandler(0,0,0);
 			break;
 
+		case IDX_MENU_REPLAY:
+			Globals::isReplaySoundRequired=true;
+			mainHandler(0,0,0);
+			break;
+
 		case IDX_MENU_EXIT:
 			CloseApp();
 			break;
@@ -220,8 +229,8 @@ void ViewPocketBook::ApplyConfig()
 //	fname = strtok(buf, ",");
 	Globals::fontFront = ReadFont(cfgMain,"front_font",DEFAULTFONT",50"); 
 	Globals::fontBack = ReadFont(cfgMain,"back_font",DEFAULTFONT",40"); 
-	Globals::fontLkp = ReadFont(cfgMain,"back_font",DEFAULTFONT",40"); 
-	//Globals::fontLkp = OpenFont("KanjiStrokeOrders_v2.014.ttf", 80, 0);
+	//Globals::fontLkp = ReadFont(cfgMain,"back_font",DEFAULTFONT",40"); 
+	Globals::fontLkp = OpenFont("KanjiStrokeOrders_v2.014.ttf", 80, 0);
 
 	return;
 //	sscanf(fname+strlen(fname)+1, "%d", &size);
@@ -349,6 +358,8 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 			//hmm.... 
 
 		}
+		if ((event.type==EVT_KEYPRESS) && (event.par1==KEY_BACK) )
+			Globals::isReplaySoundRequired=true;
 		bool isMainLoopRepeatRequired;
 		{
 			if ((event.type==EVT_KEYREPEAT) && ( (event.par1==KEY_UP) ||(event.par1==KEY_OK) ))
@@ -392,6 +403,7 @@ int ViewPocketBook::HandleEvent(InkViewEvent event)
 					view.model.LoadStats();
 					std::cout<<"due cards: "<<model.GetNumCardsDueToday()<<std::endl;
 					lastStatus=status;
+					Globals::isReplaySoundRequired=true;
 					if (model.GetNumCardsDueToday()>0)
 						status=Status::stShowFront;
 					else
@@ -494,6 +506,7 @@ int ViewPocketBook::HandleShowFront(InkViewEvent event)
 			break;
 		case KEY_OK:
 			view.status=Status::stShowBack;
+			Globals::isReplaySoundRequired=true;
 			break;
 		default:
 			//do nothing
@@ -541,6 +554,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 				if (model.GetNumCardsDueToday()>0)
 				{
 					view.status=Status::stShowFront;
+					Globals::isReplaySoundRequired=true;
 					//show loading message
 					DrawTextRect(11, 770, 580, 30, "loading...", ALIGN_LEFT | VALIGN_MIDDLE);
 					PartialUpdateBW(10,760,580,30);
@@ -610,6 +624,7 @@ int ViewPocketBook::HandleShowBack(InkViewEvent event)
 			if (model.GetNumCardsDueToday()>0)
 			{
 				view.status=Status::stShowFront;
+				Globals::isReplaySoundRequired=true;
 				//show loading message
 				DrawTextRect(11, 760, 580, 30, "loading...", ALIGN_LEFT | VALIGN_MIDDLE);
 				PartialUpdateBW(10,760,580,30);
@@ -711,6 +726,7 @@ int ViewPocketBook::HandleNoMoreCards(InkViewEvent event)
 				case 0:
 					model.LearnMore();
 					view.status=Status::stShowFront;
+					Globals::isReplaySoundRequired=true;
 					break;
 				case 1:
 					model.CloseDeck();
@@ -738,6 +754,7 @@ int ViewPocketBook::HandleNoMoreCards(InkViewEvent event)
 
 void ViewPocketBook::ShowFront()
 {
+	PlaySound(card.front);
 //	std::cout<<"we are in pb, show front:["<<card.front.ToString()<<"]"<<std::endl;
 //	for (int i=0;card.front.ToString().c_str()[i]!=0;i++)
 //	{
@@ -786,6 +803,7 @@ void ViewPocketBook::ShowStatusBar()
 
 void ViewPocketBook::PlaySound(CardField field)
 {
+if (Globals::isReplaySoundRequired)
 	if (field.soundPath!="")
 		{
 			char strSndPath[1024];
@@ -807,6 +825,7 @@ void ViewPocketBook::PlaySound(CardField field)
 			std::cout<<"hw player state="<<	hw_mp_getstate()<<std::endl;
 
 		}
+Globals::isReplaySoundRequired=false;
 }
 
 int mainHandler(int type, int par1, int par2) 

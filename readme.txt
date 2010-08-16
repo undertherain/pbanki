@@ -24,3 +24,5 @@ just create new console application and add all files form src directory to solu
 
 ------
 http://www.mail-archive.com/enlightenment-users@lists.sourceforge.net/msg05319.html
+----todo
+instead of Globals::isReplaySoundRequied=true; put a trigger on a schangestatus

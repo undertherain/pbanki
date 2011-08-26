@@ -142,7 +142,7 @@ void menu1_handler(int index)
 			break;
 
 		case IDX_MENU_ABOUT:
-			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.7\nWritten by Alexander Drozd",5000);
+			Message(ICON_INFORMATION, "Mindcraft", "Mindcraft v0.2.8\n by Aleksandr Drozd",5000);
 			break;
 
 		case IDX_MENU_SUSPEND:

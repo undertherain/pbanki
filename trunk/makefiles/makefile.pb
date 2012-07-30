@@ -1,10 +1,10 @@
 #compiling for pocketbook arm arch
 
-CC = $(POCKETBOOKSDK)\arm-linux\bin\gcc
-CPP = $(POCKETBOOKSDK)\arm-linux\bin\g++
-STRIP = $(POCKETBOOKSDK)\arm-linux\bin\strip
+CC = $(POCKETBOOKSDK)~/opt/PBSDK/arm-linux/bin/gcc
+CPP = $(POCKETBOOKSDK)~/opt/PBSDK/arm-linux/bin/g++
+STRIP = $(POCKETBOOKSDK)~/opt/PBSDK/arm-linux/bin/strip
 
-INCLUDE=-I/arm-linux/include
+INCLUDE=-I~opt/PBSDK/arm-linux/include
 PATH=$(POCKETBOOKSDK)\arm-linux\bin;$(POCKETBOOKSDK)\bin
 LIBS=-linkview -lfreetype -ljpeg -lz -pthread
 CFLAGS=-Wall -O2 -fomit-frame-pointer -DARCH_PB

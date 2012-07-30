@@ -1,10 +1,15 @@
 #compiling for pocketbook emulator
 
-PATH=$(POCKETBOOKSDK)\bin
+POCKETBOOKSDK = ~/opt/PBSDK/arm-linux
 
-CC = $(POCKETBOOKSDK)\bin\gcc
-CPP= $(POCKETBOOKSDK)\bin\g++
+PATH=~/opt/PBSDK/arm-linux
 
+CC = $(POCKETBOOKSDK)/bin/gcc
+CPP= $(POCKETBOOKSDK)/bin/g++
+
+
+#CC = gcc
+#CPP = g++
 OBJPATH=obj/pbemu
 
 INCLUDE=
